@@ -1,7 +1,7 @@
 \documentclass[review]{elsarticle}
 
 \usepackage{lineno,hyperref}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsthm}
 \modulolinenumbers[5]
 
 \journal{Journal of \LaTeX\ Templates}
@@ -37,7 +37,17 @@
 %% `Elsevier LaTeX' style
 \bibliographystyle{elsarticle-num}
 %%%%%%%%%%%%%%%%%%%%%%%
-
+\theoremstyle{plain}
+\newtheorem{theorem}{\quad\quad Theorem}
+\newtheorem{proposition}{\quad\quad Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{\quad\quad Assumption}
+\newtheorem{condition}{Condition}
+\theoremstyle{definition}
+\newtheorem{remark}{\quad\quad Remark}
+\theoremstyle{remark}
 \begin{document}
 
 \begin{frontmatter}
@@ -76,7 +86,7 @@ This template helps you to create a properly formatted \LaTeX\ manuscript.
 
 \section{Main}
 
-Suppose $(X_1^T,Y_1)$,\ldots,$(X_n^T, Y_n)$ are i.i.d. from $N_{p+1}(\mu,\Sigma)$, where $X_i\in \mathbb{R}^p$ and $Y_i\in \mathbb{R}$. Denote $X=(X_1,\ldots,X_n)$, $Y=(Y_1,\ldots,Y_n)^T$.
+Suppose $(X_1^T,Y_1)$,\ldots,$(X_n^T, Y_n)$ are i.i.d.\ from $N_{p+1}(\mu,\Sigma)$, where $X_i\in \mathbb{R}^p$ and $Y_i\in \mathbb{R}$. Denote $X=(X_1,\ldots,X_n)$, $Y=(Y_1,\ldots,Y_n)^T$.
 
 Write $Y=\beta_0 \textbf{1}_n+X^T \beta+\epsilon$, where $\textbf{1}_n$ is $n$ dimensional vector with all elements equal to $1$. $\epsilon$ has distribution $N(0,\sigma^2 I_n)$.
 
@@ -90,7 +100,7 @@ The test statistic is
     }{
         \hat{\sigma}^2
         \textbf{1}_n^T(X^T X)^{-1}Q_n (X^T X)^{-1}\textbf{1}_n
-    } .
+    }.
 \]
 where $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$ and
 \[
@@ -100,6 +110,191 @@ where $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$ and
         }
         \Big]Q_n Y
 \] 
+
+
+Let $Q_n=WW^T$ be the rank decomposition of $Q_n$, where $W_n$ is a $n\times n-1$ matrix with $W^T W=I_{n-1}$. The new test statistic is
+
+\[
+    T=\frac{y^T Q_n y}{
+        y^T W(W^T X^T X W)^{-1}W^T y
+    } 
+    \]
+or equivalently
+\[
+    \frac{y^T Q_n y}{
+        y^T Q_n(X^T X)^{-1}Q_n y-(y^T Q_n(X^T X)^{-1}\textbf{1}_n)^2/(\textbf{1}_n(X^T X)^{-1}\textbf{1}_n)
+    } 
+    \]
+
+
+Let $\tilde{y}=W^T y$, $\tilde{X}=XW$, $\tilde{\epsilon}=W^T \epsilon$. Then
+\[
+    \tilde{y}=\tilde{X}^T \beta + \tilde{\epsilon}
+    \]
+and
+\[
+    T=\frac{\tilde{y}^T \tilde{y}}{
+        \tilde{y}^T{(\tilde{X}^T \tilde{X})}^{-1}\tilde{y}
+    }
+    \]
+Next we derive another form of of $T$. We follow the similar technique of Hotelling's $T^2$.
+
+
+Let $R$ be an $(n-1)\times (n-1)$ orthogonal matrix satisfies 
+\[
+    R\tilde{y}=
+    \begin{pmatrix}
+        \|\tilde{y}\|\\
+        0\\
+        \ldots\\
+        0
+    \end{pmatrix}.
+    \]
+%Note that $R$ is independent of $\tilde{X}$ under null hypotheses since it only depends on $\tilde{y}$.
+We can write
+    \begin{equation}\label{Tformula}
+        \begin{aligned}
+            T&=\frac{\|\tilde{y}\|^2
+        }{\tilde{y}R^T{(R\tilde{X}^T\tilde{X}R^T)}^{-1}R\tilde{y}}\\
+            %&={(R\tilde{X}^T \tilde{X} R^T)}_{11\cdot 2}.
+        \end{aligned}
+    \end{equation}
+Denote by $B=R\tilde{X}^T \tilde{X} R^T$, then
+\[
+    T=\frac{1}{(B^{-1})_{11}}.
+    \]
+
+Let
+\[
+    B=\begin{pmatrix} 
+        b_{11} & b_{(1)}^T\\
+        b_{(1)} & B_{22}
+    \end{pmatrix},
+    \]
+
+and apply the matrix inverse formula, we have $(B^{-1})_{11}=1/(b_{11}-b_{(1)}^T B_{22}^{-1}b_{(1)})$. Hence
+
+\[
+   T= b_{11}-b_{(1)}^T B_{22}^{-1}b_{(1)}.
+    \]
+\section{Asymptotic distribution}
+Note that conditioning on $\tilde{y}$, $R$ is a constant orthogonal matrix.
+And $\tilde{y}$ is independent of $\tilde{X}$ under null hypotheses.
+So  $B|\tilde{y}$ has the same distribution with $\tilde{X}^T \tilde{X}$ under null hypotheses.
+Hence $B$ is independent of $\tilde{y}$ and can be written as
+    \begin{equation}\label{Xdis}
+    B=\sum_{i=1}^p \lambda_i z_i z_i^T
+    \end{equation}
+where $z_i$'s are i.i.d.\ $n-1$ dimensional random vectors  distributed as $N(0,I_{n-1})$, $\lambda_1\geq \lambda_2\ldots \geq \lambda_p>0$ are eigenvalues of $\Sigma_X$. 
+Denote by $\Lambda=\textrm{diag} (\lambda_1,\ldots,\lambda_p)$, $Z=(Z_1,\ldots,Z_p)$. Let $Z_{(1)}$ and $Z_{(2)}$ be the first $1$ row and last $n-2$ rows of $Z$, that is
+\[
+    Z=\begin{pmatrix} 
+        Z_{(1)}\\
+        Z_{(2)}
+    \end{pmatrix}.
+    \]
+Then
+\begin{equation}
+    \begin{aligned}
+        B&=Z\Lambda Z^T\\
+        &=\begin{pmatrix}
+            Z_{(1)}\Lambda Z_{(1)}^T & Z_{(1)}\Lambda Z_{(2)}^T\\
+            Z_{(2)}\Lambda Z_{(1)}^T & Z_{(2)}\Lambda Z_{(2)}^T\\
+        \end{pmatrix}.
+    \end{aligned}
+\end{equation}
+Hence
+
+\begin{equation}
+    \begin{aligned}
+        T&=Z_{(1)}\Lambda Z_{(1)}^T-Z_{(1)}\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda Z_{(1)}^T\\
+        &=Z_{(1)}\big(\Lambda -\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda \big)Z_{(1)}^T.\\
+    \end{aligned}
+\end{equation}
+But
+    \begin{equation}
+        \begin{aligned}
+    \textrm{rank}(\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda)
+            &=\textrm{rank}(\Lambda^{\frac{1}{2}} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{\frac{1}{2}})\\
+            &=\textrm{rank}(I_{n-2})=n-2,\\
+        \end{aligned}
+    \end{equation}
+and
+    \begin{equation}
+        \begin{aligned}
+    \textrm{rank}(\Lambda-\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda)
+            &=\textrm{rank}(I_p-\Lambda^{\frac{1}{2}} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{\frac{1}{2}})\\
+            &=p-n+2.\\
+        \end{aligned}
+    \end{equation}
+    Hence
+    \[
+        T\sim\sum_{i=1}^{p-n+2} \lambda_{i}(\Lambda -\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda) \chi^2_1
+        \]
+By Weyl's inequality, we have for $1\leq i\leq p-n+2$
+\begin{equation}
+    \lambda_i(\Lambda -\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda)
+    \leq \lambda_i(\Lambda),
+\end{equation}
+and
+\begin{equation}
+    \begin{aligned}
+        &\lambda_i(\Lambda -\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda)\\
+        \geq& \lambda_{i+n-2}(\Lambda)+\lambda_{p-n+2}(-\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda)\\
+        =& \lambda_{i+n-2}.
+    \end{aligned}
+\end{equation}
+Hence
+\[
+    \sum_{i=n-1}^p \lambda_i \chi^2_1\leq T\leq\sum_{i=1}^{p-n+2}\lambda_i \chi^2_1
+    \]
+
+Note that under condition \({\textrm{tr}\Sigma^4}/{{(\textrm{tr}\Sigma^2)}^2} \to 0\), we have by Liapounoff central limit theorem that
+\[
+    \frac{\sum_{i=1}^p \lambda_i \chi^2_1-\textrm{tr}\Sigma_X}{
+        \sqrt{\textrm{tr}(\Sigma_X^2)}
+    }\xrightarrow{\mathcal{L}}N(0,1).
+    \]
+And 
+    \begin{equation}\label{xiaoO}
+    \frac{T-\textrm{tr}\Sigma_X}{\sqrt{\textrm{tr}(\Sigma_X^2)}}-
+    \frac{\sum_{i=1}^p \lambda_i \chi^2_1-\textrm{tr}\Sigma_X}{\sqrt{\textrm{tr}(\Sigma_X^2)}}
+    =\frac{T-\sum_{i=1}^p \lambda_i \chi^2_1}{\sqrt{\textrm{tr}(\Sigma_X^2)}},
+    \end{equation}
+    To prove $\eqref{xiaoO}\xrightarrow{P}0$, we only need to prove
+\[
+    \textrm{E}\Big(\frac{\sum_{i=1}^{n-2} \lambda_i \chi^2_1}{
+        \sqrt{\textrm{tr}(\Sigma_X^2)}}\Big)\to 0,
+    \]
+that is
+    \begin{equation}\label{tiaojian}
+    \textrm{E}\Big(\frac{\sum_{i=1}^{n-2} \lambda_i}{\sqrt{\textrm{tr}(\Sigma_X^2)}}\Big)\to 0.
+    \end{equation}
+If $\lambda_i$'s are bounded below and above, then~\eqref{tiaojian} is equivalent to
+
+    \begin{equation}\label{npOrder}
+        n/\sqrt{p}\to 0,
+    \end{equation}
+    or $p/n^2 \to \infty$. We thus obtain the following theorem.
+
+
+\begin{theorem}
+    Suppose
+    \[
+    \textrm{E}\Big(\frac{\sum_{i=1}^{n-2} \lambda_i}{\sqrt{\textrm{tr}(\Sigma_X^2)}}\Big)\to 0,
+        \] 
+    and
+    \[
+        \frac{\textrm{tr}\Sigma^4}{{(\textrm{tr}\Sigma^2)}^2} \to 0.
+        \]
+    Then under null hypotheses, we have
+    \[
+    \frac{T-\textrm{tr}\Sigma_X}{
+        \sqrt{\textrm{tr}(\Sigma_X^2)}
+    }\xrightarrow{\mathcal{L}}N(0,1).
+        \]
+\end{theorem}
+\section{Simulation Results}
 % latex table generated in R 3.3.1 by xtable 1.8-2 package
 % Fri Nov  4 20:30:26 2016
 \begin{table}[ht]
@@ -108,19 +303,14 @@ where $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$ and
           \hline
           $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
             \hline
-            40 & 310 & 0.00 & 0.05 & 0.04 \\ 
-              40 & 310 & 0.02 & 0.15 & 0.32 \\ 
-                40 & 310 & 0.04 & 0.37 & 0.57 \\ 
-                  40 & 310 & 0.06 & 0.24 & 0.48 \\ 
-                    80 & 550 & 0.00 & 0.05 & 0.06 \\ 
-                      80 & 550 & 0.02 & 0.12 & 0.33 \\ 
-                        80 & 550 & 0.04 & 0.16 & 0.47 \\ 
-                          80 & 550 & 0.06 & 0.65 & 0.86 \\ 
+        40 & 310 & 0.00 & 0.05 & 0.06 \\ 
+          40 & 310 & 0.04 & 0.05 & 1.00 \\ 
+            80 & 550 & 0.00 & 0.05 & 0.01 \\ 
+              80 & 550 & 0.04 & 0.05 & 1.00 \\ 
                              \hline
     \end{tabular}
-    \caption{Non-sparse case, $T=10$}
+    \caption{Non-sparse case, $T=1$}
 \end{table}
-
 
 \begin{table}[ht]
 \centering
@@ -128,20 +318,29 @@ where $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$ and
       \hline
           $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
         \hline
-        40 & 310 & 0.00 & 0.05 & 0.05 \\ 
-          40 & 310 & 0.02 & 0.69 & 0.60 \\ 
-            40 & 310 & 0.04 & 0.97 & 0.86 \\ 
-              40 & 310 & 0.06 & 1.00 & 0.92 \\ 
-                80 & 550 & 0.00 & 0.05 & 0.04 \\ 
-                  80 & 550 & 0.02 & 0.99 & 0.96 \\ 
-                    80 & 550 & 0.04 & 1.00 & 1.00 \\ 
-                      80 & 550 & 0.06 & 1.00 & 1.00 \\ 
+    40 & 310 & 0.00 & 0.05 & 0.00 \\ 
+      40 & 310 & 0.04 & 0.35 & 1.00 \\ 
+        80 & 550 & 0.00 & 0.05 & 0.00 \\ 
+          80 & 550 & 0.04 & 0.29 & 1.00 \\ 
+                         \hline
+\end{tabular}
+    \caption{Non-sparse case, $T=10$}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+      \hline
+          $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
+        \hline
+        40 & 310 & 0.00 & 0.05 & 0.00 \\ 
+          40 & 310 & 0.04 & 0.88 & 1.00 \\ 
+            80 & 550 & 0.00 & 0.05 & 0.00 \\ 
+              80 & 550 & 0.04 & 1.00 & 1.00 \\ 
                          \hline
 \end{tabular}
     \caption{Non-sparse case, $T=20$}
 \end{table}
-\section*{References}
-
 
 % latex table generated in R 3.3.1 by xtable 1.8-2 package
 % Fri Nov  4 21:17:00 2016
@@ -151,14 +350,27 @@ where $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$ and
           \hline
           $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
             \hline
-            40 & 310 & 0.00 & 0.05 & 0.05 \\ 
-              40 & 310 & 0.02 & 0.05 & 0.09 \\ 
-                40 & 310 & 0.04 & 0.06 & 0.08 \\ 
-                  40 & 310 & 0.06 & 0.08 & 0.08 \\ 
-                    80 & 550 & 0.00 & 0.05 & 0.07 \\ 
-                      80 & 550 & 0.02 & 0.06 & 0.04 \\ 
-                        80 & 550 & 0.04 & 0.06 & 0.06 \\ 
-                          80 & 550 & 0.06 & 0.13 & 0.10 \\ 
+                             40 & 310 & 0.00 & 0.05 & 0.06 \\ 
+                               40 & 310 & 0.04 & 0.05 & 0.88 \\ 
+                                 80 & 550 & 0.00 & 0.05 & 0.01 \\ 
+                                   80 & 550 & 0.04 & 0.05 & 0.98 \\ 
+                             \hline
+    \end{tabular}
+    \caption{Sparse case, $T=1$}
+\end{table}
+
+% latex table generated in R 3.3.1 by xtable 1.8-2 package
+% Fri Nov  4 21:17:00 2016
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{rrrrr}
+          \hline
+          $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
+            \hline
+            40 & 310 & 0.00 & 0.05 & 0.00 \\ 
+              40 & 310 & 0.04 & 0.06 & 0.20 \\ 
+                80 & 550 & 0.00 & 0.05 & 0.00 \\ 
+                  80 & 550 & 0.04 & 0.06 & 0.38 \\ 
                              \hline
     \end{tabular}
     \caption{Sparse case, $T=10$}
@@ -173,19 +385,16 @@ where $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$ and
           \hline
           $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
             \hline
-            40 & 310 & 0.00 & 0.05 & 0.01 \\ 
-              40 & 310 & 0.02 & 0.07 & 0.09 \\ 
-                40 & 310 & 0.04 & 0.09 & 0.08 \\ 
-                  40 & 310 & 0.06 & 0.18 & 0.09 \\ 
-                    80 & 550 & 0.00 & 0.05 & 0.04 \\ 
-                      80 & 550 & 0.02 & 0.11 & 0.07 \\ 
-                        80 & 550 & 0.04 & 0.25 & 0.12 \\ 
-                          80 & 550 & 0.06 & 0.37 & 0.14 \\ 
+            40 & 310 & 0.00 & 0.05 & 0.00 \\ 
+              40 & 310 & 0.04 & 0.12 & 0.04 \\ 
+                80 & 550 & 0.00 & 0.05 & 0.00 \\ 
+                  80 & 550 & 0.04 & 0.13 & 0.00 \\ 
                              \hline
     \end{tabular}
     \caption{Sparse case, $T=20$}
 \end{table}
 
+\section*{References}
 \bibliography{mybibfile}
 
 \end{document}

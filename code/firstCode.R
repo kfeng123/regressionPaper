@@ -1,3 +1,4 @@
+# This version is wrong, the formula is derived wrongly
 myExp=function(
     n=40,
     p=310,
