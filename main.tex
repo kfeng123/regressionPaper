@@ -76,53 +76,55 @@ This template helps you to create a properly formatted \LaTeX\ manuscript.
 \end{abstract}
 
 \begin{keyword}
-\texttt{elsarticle.cls}\sep \LaTeX\sep Elsevier \sep template
-\MSC[2010] 00-01\sep  99-00
+%\texttt{elsarticle.cls}\sep \LaTeX\sep Elsevier \sep template
+%\MSC[2010] 00-01\sep  99-00
 \end{keyword}
 
 \end{frontmatter}
 
-\linenumbers
+%\linenumbers
 
 \section{Main}
 
-Suppose $(X_1^T,Y_1)$,\ldots,$(X_n^T, Y_n)$ are i.i.d.\ from $N_{p+1}(\mu,\Sigma)$, where $X_i\in \mathbb{R}^p$ and $Y_i\in \mathbb{R}$. Denote $X=(X_1,\ldots,X_n)$, $Y=(Y_1,\ldots,Y_n)^T$.
+Suppose $(X_1^T,Y_1)$,\ldots,$(X_n^T, Y_n)$ are i.i.d.\ from $N_{p+1}(\mu,\Sigma)$,
+where $X_i\in \mathbb{R}^p$ and $Y_i\in \mathbb{R}$. 
+Denote $X=(X_1,\ldots,X_n)$, $Y={(Y_1,\ldots,Y_n)}^T$.
 
 Write $Y=\beta_0 \textbf{1}_n+X^T \beta+\epsilon$, where $\textbf{1}_n$ is $n$ dimensional vector with all elements equal to $1$. $\epsilon$ has distribution $N(0,\sigma^2 I_n)$.
 
 The problem is to test hypotheses $H: \beta=0$.
 
-The test statistic is
+%The test statistic is
 
-\[
-    T=\frac{
-        (\textbf{1}_n^T(X^T X)^{-1}Q_n Y)^2
-    }{
-        \hat{\sigma}^2
-        \textbf{1}_n^T(X^T X)^{-1}Q_n (X^T X)^{-1}\textbf{1}_n
-    }.
-\]
-where $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$ and
-\[
-    \hat{\sigma}^2=\frac{1}{n-2} Y^T Q_n\Big[
-        I_n-\frac{(X^T X)^{-1}\textbf{1}_n\textbf{1}_n^T(X^T X)^{-1}}{
-        \textbf{1}_n^T(X^T X)^{-1}Q_n(X^T X)^{-1}\textbf{1}_n
-        }
-        \Big]Q_n Y
-\] 
+%\[
+%    T=\frac{
+%        (\textbf{1}_n^T(X^T X)^{-1}Q_n Y)^2
+%    }{
+%        \hat{\sigma}^2
+%        \textbf{1}_n^T(X^T X)^{-1}Q_n (X^T X)^{-1}\textbf{1}_n
+%    }.
+%\]
+%where $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$ and
+%\[
+%    \hat{\sigma}^2=\frac{1}{n-2} Y^T Q_n\Big[
+%        I_n-\frac{(X^T X)^{-1}\textbf{1}_n\textbf{1}_n^T(X^T X)^{-1}}{
+%        \textbf{1}_n^T(X^T X)^{-1}Q_n(X^T X)^{-1}\textbf{1}_n
+%        }
+%%        \Big]Q_n Y
+%\] 
 
 
 Let $Q_n=WW^T$ be the rank decomposition of $Q_n$, where $W_n$ is a $n\times n-1$ matrix with $W^T W=I_{n-1}$. The new test statistic is
 
 \[
     T=\frac{y^T Q_n y}{
-        y^T W(W^T X^T X W)^{-1}W^T y
+        y^T W{(W^T X^T X W)}^{-1}W^T y
     } 
     \]
 or equivalently
 \[
     \frac{y^T Q_n y}{
-        y^T Q_n(X^T X)^{-1}Q_n y-(y^T Q_n(X^T X)^{-1}\textbf{1}_n)^2/(\textbf{1}_n(X^T X)^{-1}\textbf{1}_n)
+        y^T Q_n{(X^T X)}^{-1}Q_n y-{(y^T Q_n{(X^T X)}^{-1}\textbf{1}_n)}^2/(\textbf{1}_n{(X^T X)}^{-1}\textbf{1}_n)
     } 
     \]
 
@@ -161,7 +163,7 @@ We can write
     \end{equation}
 Denote by $B=R\tilde{X}^T \tilde{X} R^T$, then
 \[
-    T=\frac{1}{(B^{-1})_{11}}.
+    T=\frac{1}{{(B^{-1})}_{11}}.
     \]
 
 Let
@@ -172,11 +174,12 @@ Let
     \end{pmatrix},
     \]
 
-and apply the matrix inverse formula, we have $(B^{-1})_{11}=1/(b_{11}-b_{(1)}^T B_{22}^{-1}b_{(1)})$. Hence
+and apply the matrix inverse formula, we have ${(B^{-1})}_{11}=1/(b_{11}-b_{(1)}^T B_{22}^{-1}b_{(1)})$. Hence
 
 \[
    T= b_{11}-b_{(1)}^T B_{22}^{-1}b_{(1)}.
     \]
+
 \section{Asymptotic distribution}
 Note that conditioning on $\tilde{y}$, $R$ is a constant orthogonal matrix.
 And $\tilde{y}$ is independent of $\tilde{X}$ under null hypotheses.
@@ -294,105 +297,202 @@ If $\lambda_i$'s are bounded below and above, then~\eqref{tiaojian} is equivalen
     }\xrightarrow{\mathcal{L}}N(0,1).
         \]
 \end{theorem}
+\section{Full Asymptotic Results}
+
+$\Sigma_X=P\Lambda P^T$
+
+Non-spike: there's no principal component ($r=0$). That is, $\lambda_1=\cdots = \lambda_p$.
+
+Spike: there's $r$ principal components. That is, $\lambda_1\geq \lambda_2\geq \cdots \lambda_r\geq \lambda_{r+1}=\cdots =\lambda_p$. Denote by $P_1$ the first $r$ column of $P$ and $P_2$ the last $p-r$ column of $P$.
+
+\begin{equation}
+    \begin{aligned}
+        Y&=\beta_0 \textbf{1}_n+X^T\beta+\epsilon\\
+        &=\beta_0 \textbf{1}_n+X^T P_1P_1^T\beta+X^T P_2 P_2^T\beta+\epsilon\\
+    \end{aligned}
+\end{equation}
+
+In either case, let $\lambda$ be $\lambda=\lambda_{r+1}=\cdots=\lambda_{p}$.
+
+PCR try to do regression between $Y$ and (estimated) $X^T P_1$. If $P_1$ is observed, then the problem is reduced to testing an ordinary regression model. However, it's not the case.
+
+Simply estimating $P_1$ and invoke classical testing procedure may not be a good idea since the estimation may not be consistent in high dimension. In fact, there may be even no principal component!
+
+In this paper, testing PCR means testing:
+
+$H_0$: There's no principal component or there's $r$ principal components but $P_1^T \beta =0$.
+
+$H_1$; There's $r$ principal components and $P_1^T \beta \neq 0$.
+
+Next we consider:
+
+1. There's no PC.\@
+
+2. There's $r$ principal components but $P_1\beta=0$.
+
+\subsection{circumstance 1}
+
+
+\begin{equation}
+    T=\frac{\beta^T \tilde{X}\tilde{X}^T \beta+
+        2\beta^T \tilde{X}\tilde{\epsilon}+
+        \tilde{\epsilon}^T\tilde{\epsilon}
+    }{\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{X}^T \beta+
+        2\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}+
+        \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+    }
+\end{equation}
+Independent of data, generate a random $p$ dimensional orthonormal matrix $O$ with Haar invariant distribution. And 
+
+\begin{equation}
+    T=\frac{{(O\beta)}^T O\tilde{X}{(O\tilde{X})}^T O\beta+
+        2{(O\beta)}^T \tilde{X}\tilde{\epsilon}+
+        \tilde{\epsilon}^T\tilde{\epsilon}
+    }{{(O\beta)}^T O\tilde{X}{({(O\tilde{X})}^T O\tilde{X})}^{-1}{(O\tilde{X})}^T \beta+
+        2{(O\beta)}^T O\tilde{X}{({(O\tilde{X})}^T O\tilde{X})}^{-1}\tilde{\epsilon}+
+        \tilde{\epsilon}^T{({(O\tilde{X})}^T O\tilde{X})}^{-1}\tilde{\epsilon}
+    }
+\end{equation}
+
+Note that conditioning on $O$, $O\tilde{X}$ is a random matrix with each entry independently distributed as $N(0,\lambda)$. Hence $O$ is independent of $O\tilde{X}$. Observe also that $O\beta/\|\beta\|$ is uniformly distributed on the unit ball.  We can without loss of generality assuming that $\beta/\|\beta\|$ is uniformly distributed on the unit ball. Independent of data, generate $R>0$ with $R^2$ distributed as $\chi^2_{p}$. Then $\xi=R\beta/\|\beta\|$ distributed as $N_p(0,I_p)$.
+Note that conditioning on $\tilde{X}$, $\eta={(\tilde{X}^T\tilde{X})}^{-1/2}\tilde{X}^T \xi$ is distributed as $N_{n-1}(0,I_{n-1})$. Hence $\eta$ is independent of $\tilde{X}$.
+
+Then
+
+\begin{equation}
+    \begin{aligned}
+        T&=\frac{{(\|\beta\|/R)}^2\xi^T \tilde{X}\tilde{X}^T \xi+
+        2(\|\beta\|/R)\xi^T \tilde{X}\tilde{\epsilon}+
+        \tilde{\epsilon}^T\tilde{\epsilon}
+    }{{(\|\beta\|/R)}^2\xi^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{X}^T \xi+
+        2(\|\beta\|/R)\xi^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}+
+        \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+    }\\
+        &=
+        \frac{{(\|\beta\|/R)}^2\eta^T \tilde{X}^T\tilde{X} \eta+
+        2(\|\beta\|/R)\eta^T {(\tilde{X}^T\tilde{X})}^{1/2}\tilde{\epsilon}+
+        \tilde{\epsilon}^T\tilde{\epsilon}
+    }{{(\|\beta\|/R)}^2\eta^T\eta+
+        2(\|\beta\|/R)\eta^T{(\tilde{X}^T\tilde{X})}^{-1/2}\tilde{\epsilon}+
+        \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+    }\\
+    \end{aligned}
+\end{equation}
+
+We consider
+
+\begin{equation}
+    \begin{aligned}
+    \frac{\frac{\|\beta\|^2}{R^2} \eta^T\eta
+        }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}}&=
+        \frac{(n-1)\|\beta\|^2}{p}
+        \frac{\frac{p}{R^2} \frac{\eta^T\eta}{n-1}
+        }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}}
+    \end{aligned}
+\end{equation}
+
+Note that
+\begin{equation}
+    \begin{aligned}
+        \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}&\sim
+        \frac{\tilde{\epsilon}^T\tilde{\epsilon}}{{(\tilde{X}^T\tilde{X})}_{11\cdot 2}}\\
+        &\sim\frac{\sigma^2}{\lambda}\frac{\chi^2_{n-1}}{\chi^2_{p-n+2}}
+    \end{aligned}
+\end{equation}
+Hence
+\begin{equation}
+    \begin{aligned}
+    \frac{\frac{\|\beta\|^2}{R^2} \eta^T\eta
+        }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}}&=
+        \frac{(n-1)(p-n+2)}{p(n-1)}\frac{\lambda}{\sigma^2}\|\beta\|^2(1+o_P(1))\\
+        &=\frac{\lambda}{\sigma^2}\|\beta\|^2(1+o_P(1))
+    \end{aligned}
+\end{equation}
+
+On the other hand,
+
+\begin{equation}
+    \begin{aligned}
+        \frac{\frac{\|\beta\|^2}{R^2} \eta^T\tilde{X}^T\tilde{X}\eta
+        }{\tilde{\epsilon}^T\tilde{\epsilon}}&=
+        \frac{\|\beta\|^2}{\sigma^2 p(n-1)}
+        \frac{\frac{p}{R^2} \eta^T\tilde{X}^T\tilde{X}\eta
+        }{\frac{\tilde{\epsilon}^T\tilde{\epsilon}}{\sigma^2(n-1)}}
+    \end{aligned}
+\end{equation}
+Note that
+\begin{equation}
+    \begin{aligned}
+        \eta^T\tilde{X}^T\tilde{X}\eta&\sim
+        \eta^T\eta {(\tilde{X}^T\tilde{X})}_{11}\\
+        &\sim \lambda\chi^2_{n-1} \chi^2_{p}
+    \end{aligned}
+\end{equation}
+Hence
+
+\begin{equation}
+    \begin{aligned}
+        \frac{\frac{\|\beta\|^2}{R^2} \eta^T\tilde{X}^T\tilde{X}\eta
+        }{\tilde{\epsilon}^T\tilde{\epsilon}}&=
+        \frac{\|\beta\|^2}{\sigma^2 p(n-1)}
+        \lambda (n-1)p
+        (1+o_P(1))\\
+        &=\frac{\lambda}{\sigma^2}\|\beta\|^2(1+o_P(1))
+    \end{aligned}
+\end{equation}
+We can deduce that:
+If $\|\beta\|^2\to 0$, then
+
+\begin{equation}
+    \begin{aligned}
+        T&=
+        \frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        }(1+o_P(1))\\
+    \end{aligned}
+\end{equation}
+If $\|\beta\|^2\to \infty$, then
+
+\begin{equation}
+    \begin{aligned}
+        T&=
+        \frac{\eta^T \tilde{X}^T\tilde{X} \eta    
+        }{\eta^T\eta}(1+o_P(1))\\
+    \end{aligned}
+\end{equation}
+\subsection{circumstance 2}
+
+
+
+
+\begin{equation}
+    T=\frac{\beta^T \tilde{X}\tilde{X}^T \beta+
+        2\beta^T \tilde{X}\tilde{\epsilon}+
+        \tilde{\epsilon}^T\tilde{\epsilon}
+    }{\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{X}^T \beta+
+        2\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}+
+        \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+    }
+\end{equation}
+
 \section{Simulation Results}
-% latex table generated in R 3.3.1 by xtable 1.8-2 package
-% Fri Nov  4 20:30:26 2016
-\begin{table}[ht]
-    \centering
-    \begin{tabular}{rrrrr}
-          \hline
-          $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
-            \hline
-        40 & 310 & 0.00 & 0.05 & 0.06 \\ 
-          40 & 310 & 0.04 & 0.05 & 1.00 \\ 
-            80 & 550 & 0.00 & 0.05 & 0.01 \\ 
-              80 & 550 & 0.04 & 0.05 & 1.00 \\ 
-                             \hline
-    \end{tabular}
-    \caption{Non-sparse case, $T=1$}
-\end{table}
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrr}
-      \hline
-          $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
-        \hline
-    40 & 310 & 0.00 & 0.05 & 0.00 \\ 
-      40 & 310 & 0.04 & 0.35 & 1.00 \\ 
-        80 & 550 & 0.00 & 0.05 & 0.00 \\ 
-          80 & 550 & 0.04 & 0.29 & 1.00 \\ 
-                         \hline
-\end{tabular}
-    \caption{Non-sparse case, $T=10$}
-\end{table}
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrr}
-      \hline
-          $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
-        \hline
-        40 & 310 & 0.00 & 0.05 & 0.00 \\ 
-          40 & 310 & 0.04 & 0.88 & 1.00 \\ 
-            80 & 550 & 0.00 & 0.05 & 0.00 \\ 
-              80 & 550 & 0.04 & 1.00 & 1.00 \\ 
-                         \hline
-\end{tabular}
-    \caption{Non-sparse case, $T=20$}
-\end{table}
-
-% latex table generated in R 3.3.1 by xtable 1.8-2 package
-% Fri Nov  4 21:17:00 2016
-\begin{table}[ht]
-    \centering
-    \begin{tabular}{rrrrr}
-          \hline
-          $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
-            \hline
-                             40 & 310 & 0.00 & 0.05 & 0.06 \\ 
-                               40 & 310 & 0.04 & 0.05 & 0.88 \\ 
-                                 80 & 550 & 0.00 & 0.05 & 0.01 \\ 
-                                   80 & 550 & 0.04 & 0.05 & 0.98 \\ 
-                             \hline
-    \end{tabular}
-    \caption{Sparse case, $T=1$}
-\end{table}
-
-% latex table generated in R 3.3.1 by xtable 1.8-2 package
-% Fri Nov  4 21:17:00 2016
-\begin{table}[ht]
-    \centering
-    \begin{tabular}{rrrrr}
-          \hline
-          $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
-            \hline
-            40 & 310 & 0.00 & 0.05 & 0.00 \\ 
-              40 & 310 & 0.04 & 0.06 & 0.20 \\ 
-                80 & 550 & 0.00 & 0.05 & 0.00 \\ 
-                  80 & 550 & 0.04 & 0.06 & 0.38 \\ 
-                             \hline
-    \end{tabular}
-    \caption{Sparse case, $T=10$}
-\end{table}
-
 
 % latex table generated in R 3.3.1 by xtable 1.8-2 package
 % Fri Nov  4 21:37:08 2016
-\begin{table}[ht]
-    \centering
-    \begin{tabular}{rrrrr}
-          \hline
-          $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
-            \hline
-            40 & 310 & 0.00 & 0.05 & 0.00 \\ 
-              40 & 310 & 0.04 & 0.12 & 0.04 \\ 
-                80 & 550 & 0.00 & 0.05 & 0.00 \\ 
-                  80 & 550 & 0.04 & 0.13 & 0.00 \\ 
-                             \hline
-    \end{tabular}
-    \caption{Sparse case, $T=20$}
-\end{table}
+%\begin{table}[ht]
+%    \centering
+%    \begin{tabular}{rrrrr}
+%          \hline
+%          $n$ & $p$ & $|\beta|^2$ & Chen & New \\ 
+%            \hline
+%            40 & 310 & 0.00 & 0.05 & 0.00 \\ 
+%              40 & 310 & 0.04 & 0.12 & 0.04 \\ 
+%                80 & 550 & 0.00 & 0.05 & 0.00 \\ 
+%                  80 & 550 & 0.04 & 0.13 & 0.00 \\ 
+%                             \hline
+%    \end{tabular}
+%    \caption{Sparse case, $T=20$}
+%\end{table}
 
 \section*{References}
 \bibliography{mybibfile}

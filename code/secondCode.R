@@ -1,16 +1,17 @@
 
 myExp=function(
-    n=40,
-    p=310,
-    T=20,
-    betaMod=0.04,
+    n=20,
+    p=100,
+    T=1,
+    betaMod=0.00,
     varEpsilon=4,
     rho=runif(T,0,1),
     muX=runif(p,2,3),
-    alpha=1){
+    alpha=0){
     
-    #beta=c(rep(1,p/2),rep(0,p/2))
-    beta=c(rep(1,5),rep(0,p-5))
+    #beta=rep(c(1,-1),p/2)
+    beta=c(rep(1,p/2),rep(0,p/2))
+    #beta=c(rep(1,5),rep(0,p-5))
     
     beta=beta[sample.int(p)]
      
@@ -29,6 +30,7 @@ myExp=function(
             theSigma[i,j]=temp
         }
     }
+    theSigma=theSigma+10000
     
     generateData=function(beta){
         X=rep(0,n*p)
@@ -39,6 +41,11 @@ myExp=function(
         for(i in 1:n)for(j in 1:p){
             X[i,j]=muX[j]+sum(rho*Z[i,j:(j+T-1)])
         }
+        
+        iit=rep(rnorm(n,0,100),each=p)
+        dim(iit)=c(p,n)
+        
+        X=X+t(iit)
         y=X%*%beta+rep(alpha,n)+rnorm(n,0,sqrt(varEpsilon))
         
         list(X=X,y=y)
@@ -58,21 +65,50 @@ myExp=function(
        
         myTCal=function(X,y){
             temp=(
-                sum(y^2)-n*(mean(y))
+                sum(y^2)-
+                n*(mean(y))^2
             )/ 
                 (
                     t(y)%*%W%*%solve(t(W)%*%t(X)%*%X%*%W)%*%t(W)%*%y
                 )
-            SigmaEst=var(t(X))
-            myE=eigen(SigmaEst)$values
-            jun=sum(myE)
-            fang=sum(myE^2)-jun^2/(n-1)
-            (temp-jun)/sqrt(fang)
+       #     SigmaEst=var(t(X))
+       #     myE=eigen(SigmaEst)$values
+       #     jun=sum(myE)
+       #     fang=sum(myE^2)-jun^2/(n-1)
+       #     (temp-jun)/sqrt(fang)
         } 
         T=as.numeric(myTCal(X,y))
         
+        beta=0*beta
+        Oh=NULL
+        for(ti in 1:50){
+            data=generateData(beta)
+            X=t(data$X)
+            y=data$y
+           
+            myTCal=function(X,y){
+                temp=(
+                    sum(y^2)-
+                    n*(mean(y))^2
+                )/ 
+                    (
+                        t(y)%*%W%*%solve(t(W)%*%t(X)%*%X%*%W)%*%t(W)%*%y
+                    )
+           #     SigmaEst=var(t(X))
+           #     myE=eigen(SigmaEst)$values
+           #     jun=sum(myE)
+           #     fang=sum(myE^2)-jun^2/(n-1)
+           #     (temp-jun)/sqrt(fang)
+            } 
+            TT=as.numeric(myTCal(X,y))
+            Oh=c(Oh,TT)
+        }
+        T=0+(mean(Oh>T)<=0.05) 
+#        theTS=NULL
+#        for(th in 1:100) theTS[th]=myTCal(X,y[sample(n)])
+#        T=0+(mean(theTS>T)<=0.05)
         
-        T=0+(T>qnorm(0.95))
+#        T=0+(T>qnorm(0.95))
         
         #thePhi=function(i1,i2,i3,i4){
         #    1/4*t(X[,i1]-X[,i2])%*%(X[,i3]-X[,i4])*(y[i1]-y[i2])*(y[i3]-y[i4])
@@ -111,9 +147,9 @@ myExp=function(
     
 }
 
+myExp(varEpsilon = 4,betaMod =0.000001,T=1 )
 
-
- jjj=NULL
+jjj=NULL
  for(myMod in c(0,0.04)){
      jjj=c(jjj,list(list(n=40,p=310,myMod=myMod)))
  }
