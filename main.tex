@@ -376,6 +376,7 @@ Then
         2(\|\beta\|/R)\eta^T{(\tilde{X}^T\tilde{X})}^{-1/2}\tilde{\epsilon}+
         \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
     }\\
+        &=\frac{A_1+A_2+A_3}{B_1+B_2+B_3}
     \end{aligned}
 \end{equation}
 
@@ -460,6 +461,152 @@ If $\|\beta\|^2\to \infty$, then
         }{\eta^T\eta}(1+o_P(1))\\
     \end{aligned}
 \end{equation}
+
+Note that
+\begin{equation}
+    \begin{aligned}
+        \frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        }&\sim {(\tilde{X}^T\tilde{X})}_{11\cdot 2}\sim \lambda \chi^2_{p-n+2}
+    \end{aligned}
+\end{equation}
+Hence by CLT,
+\begin{equation}
+    \begin{aligned}
+        \frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        }-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
+        }\xrightarrow{\mathcal{L}}N(0,1)
+    \end{aligned}
+\end{equation}
+\begin{equation}
+    \begin{aligned}
+        \frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        }-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
+        }&=
+        \frac{\sqrt{p}}{\sqrt{p-n+2}}
+        \frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        }-{\lambda(p-n+2)}}{\lambda\sqrt{2p}
+        }\\
+        &=
+        \frac{\sqrt{p}}{\sqrt{p-n+2}}
+        \Big(\frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        }-{\lambda p}}{\lambda\sqrt{2p}
+        }+\frac{(n-2)}{\sqrt{2p}}\Big)\\
+    \end{aligned}
+\end{equation}
+By slutsky Theorem, 
+\begin{equation}
+    \frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        }-{\lambda p}}{\lambda\sqrt{2p}
+        }\xrightarrow{\mathcal{L}}N(0,1)
+\end{equation}
+
+On the other hand
+
+\begin{equation}
+    \begin{aligned}
+        \frac{\eta^T \tilde{X}^T\tilde{X} \eta    
+        }{\eta^T\eta}&\sim {(\tilde{X}^T\tilde{X})}_{11}\sim \lambda \chi^2_{p}
+\\
+    \end{aligned}
+\end{equation}
+
+Hence by CLT,
+\begin{equation}
+    \begin{aligned}
+        \frac{\frac{\eta^T \tilde{X}^T\tilde{X} \eta    
+        }{\eta^T\eta}
+    -\lambda p}{\lambda\sqrt{2p}
+        }\xrightarrow{\mathcal{L}}N(0,1)
+    \end{aligned}
+\end{equation}
+
+
+$A_1\asymp n\|\beta\|^2$. $A_3\asymp n$. And $B_1\asymp \frac{n}{p}\|\beta\|^2$. $B_3\asymp n/p$.
+
+\begin{equation}
+    \begin{aligned}
+        A_2&=O_P(\|\beta\|/{\sqrt{p}})\eta^T {(\tilde{X}^T\tilde{X})}^{1/2}\tilde{\epsilon}\\
+        &=O_P(\|\beta\|/\sqrt{p})\sqrt{\eta^T{(\tilde{X}^T\tilde{X})}\eta}\\
+        &=O_P(\|\beta\|/\sqrt{p})O_P(\sqrt{np})\\
+        &=O_P(\sqrt{n}\|\beta\|)
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+        B_2&=O_P(\|\beta\|/{\sqrt{p}})\eta^T {(\tilde{X}^T\tilde{X})}^{-1/2}\tilde{\epsilon}\\
+        &=O_P(\|\beta\|/\sqrt{p})\sqrt{\eta^T{(\tilde{X}^T\tilde{X})}^{-1}\eta}\\
+        &=O_P(\|\beta\|/\sqrt{p})O_P(\sqrt{n/p})\\
+        &=O_P(\frac{\sqrt{n}}{p}\|\beta\|)
+    \end{aligned}
+\end{equation}
+
+If $\|\beta\|^2\to 0$, we have
+\begin{equation}
+    \begin{aligned}
+        &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        }-
+    \frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        }-{\lambda p}}{\lambda\sqrt{2p}
+        }\Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+    \Big|T-\frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        }\Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_3}{B_3}
+        \Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{(A_1+A_2)B_3-(B_1+B_2)A_3}{(B_1+B_2+B_3)B_3}
+        \Big|\\
+        &=
+        \frac{O_{P}(1)}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{(O_P(n\|\beta\|^2)+O_P(\sqrt{n}\|\beta\|))O_P(\frac{n}{p})-(O_P(\frac{n}{p}\|\beta\|^2)+O_P(\frac{\sqrt{n}}{p}\|\beta\|))O_P(n)}{n^2/p^2}
+        \Big|\\
+        &=O_P(\sqrt{p}\|\beta\|^2)+O_P(\frac{\sqrt{p}}{\sqrt{n}}\|\beta\|)
+    \end{aligned}
+\end{equation}
+Hence if $\sqrt{p}\|\beta\|^2\to 0$ and $p/n^2\to \infty$, CLT holds.
+
+If $\|\beta\|^2\to \infty$, we have
+\begin{equation}
+    \begin{aligned}
+        &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        }-
+    \frac{\frac{A_1}{B_1}-{\lambda p}}{\lambda\sqrt{2p}
+        }\Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_1}{B_1}
+        \Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{(A_2+A_3)B_1-(B_2+B_3)A_1}{(B_1+B_2+B_3)B_1}
+        \Big|\\
+        &=
+        \frac{O_{P}(1)}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{(O_P(\sqrt{n}\|\beta\|)+O_P(n))O_P(\frac{n}{p}\|\beta\|^2)-(O_P(\frac{\sqrt{n}}{p}\|\beta\|)+O_P(\frac{n}{p}))O_P(n\|\beta\|^2)}{\frac{n^2}{p^2}\|\beta\|^4}
+        \Big|\\
+        &=O_P(\frac{\sqrt{p}}{\sqrt{n}}\|\beta\|^{-1})+O_P(\sqrt{p}\|\beta\|^{-2})
+    \end{aligned}
+\end{equation}
+Hence if $\frac{n}{p}\|\beta\|^2\to \infty$ and $p/n^2\to \infty$, CLT holds.
 \subsection{circumstance 2}
 
 
