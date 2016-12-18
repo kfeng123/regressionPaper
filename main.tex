@@ -610,17 +610,143 @@ Hence if $\frac{n}{p}\|\beta\|^2\to \infty$ and $p/n^2\to \infty$, CLT holds.
 \subsection{circumstance 2}
 
 
-
-
 \begin{equation}
-    T=\frac{\beta^T \tilde{X}\tilde{X}^T \beta+
+    \begin{aligned}
+        T&=\frac{\beta^T \tilde{X}\tilde{X}^T \beta+
         2\beta^T \tilde{X}\tilde{\epsilon}+
         \tilde{\epsilon}^T\tilde{\epsilon}
     }{\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{X}^T \beta+
         2\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}+
         \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-    }
+    }\\
+        &=\frac{\beta^T P_2 P_2^T \tilde{X}\tilde{X}^T P_2 P_2^T\beta+
+        2\beta^T P_2 P_2^T \tilde{X}\tilde{\epsilon}+
+        \tilde{\epsilon}^T\tilde{\epsilon}
+    }{\beta^T P_2 P_2^T\tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T\beta+
+        2\beta^T P_2 P_2^T\tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}+
+        \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+    }\\
+        &=\frac{A_1+A_2+A_3}{B_1+B_2+B_3}
+    \end{aligned}
 \end{equation}
+
+If $\beta=0$, then $T\sim {(\tilde{X}^T\tilde{X})}_{11\cdot 2}$.
+
+Let $\lambda_1\geq \lambda_2\ldots \geq \lambda_p>0$ be eigenvalues of $\Sigma_X$, where $\lambda_{r+1}=\cdots=\lambda_p=\lambda$. 
+Denote by $\Lambda=\textrm{diag} (\lambda_1,\ldots,\lambda_p)$. Let $Z=(Z_1,\ldots,Z_p)$ be a $n-1\times p$ matrix with all elements independently distributed as $N(0,1)$. Let $Z_{(1)}$ and $Z_{(2)}$ be the first $1$ row and last $n-2$ rows of $Z$, that is
+\[
+    Z=\begin{pmatrix} 
+        Z_{(1)}\\
+        Z_{(2)}
+    \end{pmatrix}.
+    \]
+Then
+\begin{equation}
+    \begin{aligned}
+        \tilde{X}^T\tilde{X}&\sim Z\Lambda Z^T\\
+        &=\begin{pmatrix}
+            Z_{(1)}\Lambda Z_{(1)}^T & Z_{(1)}\Lambda Z_{(2)}^T\\
+            Z_{(2)}\Lambda Z_{(1)}^T & Z_{(2)}\Lambda Z_{(2)}^T\\
+        \end{pmatrix}.
+    \end{aligned}
+\end{equation}
+Hence
+
+\begin{equation}
+    \begin{aligned}
+        T&\sim Z_{(1)}\Lambda Z_{(1)}^T-Z_{(1)}\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda Z_{(1)}^T\\
+        &=Z_{(1)}\Lambda^{1/2}\big(I_p -\Lambda^{1/2} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{1/2} \big)\Lambda^{1/2}Z_{(1)}^T\\
+        &\leq Z_{(1)}\Lambda^{1/2}\big(I_p -\hat{V}\hat{V}^T\big)\Lambda^{1/2}Z_{(1)}^T.\\
+    \end{aligned}
+\end{equation}
+
+We require $p=o(n^2)$. The principal space is $V=(e_1,\ldots, e_r)$. Then 
+\begin{equation}
+    Z_{(1)}\Lambda^{1/2}\big(VV^T -\hat{V}\hat{V}^T\big)\Lambda^{1/2}Z_{(1)}^T=o(\sqrt{p})
+\end{equation}
+
+Note that
+\begin{equation}
+    Z_{(1)}\Lambda^{1/2}\big (I-VV^T) \Lambda^{1/2}Z_{(1)}^T\sim\lambda \chi^2_{p-r}
+\end{equation}
+
+Hence $T\leq \lambda\chi^2_{p-r}+o(\sqrt{p})$.
+
+On the other hand, the eigenvalues of $\Lambda^{1/2}\big(I_p -\Lambda^{1/2} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{1/2} \big)\Lambda^{1/2}$ is no less than $I_p -\Lambda^{1/2} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{1/2}$. Hence $T\geq \lambda \chi^2_{p-n+2}$.
+
+Hence $A_3/B_3\asymp p$ if $p/n\to \infty$.
+
+
+Note that $P_2^T \tilde{X}$ is an $(p-r)\times (n-1)$ matrix with all elements independently distributed as $N(0,\lambda)$.
+
+    $A_1\asymp n\|P_2^T\beta\|^2$, $A_2=O_P(\sqrt{n}\|P_2^T \beta\|)$, $A_3\asymp n$.
+
+    $B_3\asymp n/p$
+
+    As for $B_1$, 
+\begin{equation}
+    \begin{aligned}
+        B_1&\leq \beta^T P_2 P_2^T \tilde{X} {(\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta\\
+        &\asymp \frac{n-1}{p-r}\|P_2^T\beta\|^2
+    \end{aligned}
+\end{equation}
+On the other hand, let $P_2^T \tilde{X}=U_2 D_2 V_2^T$ be the SVD of $P_2^T \tilde{X}$. Then
+
+\begin{equation}
+    \begin{aligned}
+        B_1&= \beta^T P_2 P_2^T \tilde{X} {(\tilde{X}^T P_1 P_1^T \tilde{X}+\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta\\
+        &= \beta^T P_2 U_2 D_2 V^T_2 {(\tilde{X}^T P_1 P_1^T \tilde{X}+V_2 D_2^2 V_2^T)}^{-1}V_2 D_2 U_2^T P_2^T \beta\\
+        &= \beta^T P_2 U_2  {(V_2 D_2^{-1}\tilde{X}^T P_1 P_1^T \tilde{X}D_2^{-1}V_2^T +I_{n-1})}^{-1} U_2^T P_2^T \beta\\
+    \end{aligned}
+\end{equation}
+
+Note that $U_2$ is independent of $(V_2,D_2,P_1^T\tilde{X})$, and
+
+\begin{equation}
+    \begin{aligned}
+        {(V_2 D_2^{-1}\tilde{X}^T P_1 P_1^T \tilde{X}D_2^{-1}V_2^T +I_{n-1})}^{-1}\geq I_{n-1}- U^* U^{*T}
+    \end{aligned}
+\end{equation}
+where $U^*$ is the first $r$ eigenvectors of $V_2 D_2^{-1}\tilde{X}^T P_1 P_1^T \tilde{X}D_2^{-1}V_2^T$ and is independent of $U_2$. Hence
+\begin{equation}
+    \begin{aligned}
+        B_1&\geq \beta^T P_2 U_2 (I_{n-1}-U^* U^{*T})U_2^T P_2^T \beta\\
+        &\asymp \frac{n-1-r}{p-r}\|P_2^T \beta\|^2
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+        \textrm{Upper-Lower}&\leq \beta^T P_2 U_2 U^* U^{*T}U_2^T P_2^T \beta\\
+        &\asymp \frac{r}{p-r}\|P_2^T \beta\|^2
+    \end{aligned}
+\end{equation}
+Hence 
+\begin{equation}
+    \begin{aligned}
+        B_1&=\beta^T P_2 P_2^T \tilde{X} {(\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta+O_p(\frac{r}{p-r}\|P_2^T \beta\|^2)\\
+        &=\beta^T P_2 P_2^T \tilde{X} {(\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta(1+O_P(1/n))\\
+    \end{aligned}
+\end{equation}
+
+
+
+\begin{equation}
+    \begin{aligned}
+    B_2&=O_P(1)\sqrt{\beta^T P_2 P_2^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-2}\tilde{X}^T P_2 P_2^T \beta}\\
+    &\leq \lambda_{\min}{(\tilde{X}^T\tilde{X})}^{-1/2}O_P(1)\sqrt{\beta^T P_2 P_2^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta}\\
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \lambda_{\min}{(\tilde{X}^T\tilde{X})}\geq \lambda_{\min}{(\tilde{X}^T P_2 P_2^T \tilde{X})}\asymp p-r
+\end{equation}
+Hence $B_2=O_P(\frac{\sqrt{n}}{p}\|P_2^T \beta\|)$.
+
+Hence the similar law of large number and CLT holds.
+
+\subsection{Consistency of Test}
+$\beta$ from normal distribution. Then consistency can be proved.
 
 \section{Simulation Results}
 
