@@ -330,18 +330,34 @@ Next we consider:
 
 2. There's $r$ principal components but $P_1\beta=0$.
 
-\subsection{circumstance 1}
+\begin{assumption}\label{normal}
+    $X$ and $\epsilon$ are normal distribution.
+\end{assumption}
 
 
 \begin{equation}
-    T=\frac{\beta^T \tilde{X}\tilde{X}^T \beta+
+    \begin{aligned}
+        T&=\frac{\beta^T \tilde{X}\tilde{X}^T \beta+
         2\beta^T \tilde{X}\tilde{\epsilon}+
         \tilde{\epsilon}^T\tilde{\epsilon}
     }{\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{X}^T \beta+
         2\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}+
         \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-    }
+    }\\
+        &=\frac{A_1+A_2+A_3}{B_1+B_2+B_3}
+    \end{aligned}
 \end{equation}
+
+
+\subsection{circumstance 1}
+\begin{assumption}
+    $r=0$.
+\end{assumption}
+\begin{assumption}
+    $n^2/p\to 0$.
+\end{assumption}
+
+\subsubsection{Step 1}
 Independent of data, generate a random $p$ dimensional orthonormal matrix $O$ with Haar invariant distribution. And 
 
 \begin{equation}
@@ -354,7 +370,10 @@ Independent of data, generate a random $p$ dimensional orthonormal matrix $O$ wi
     }
 \end{equation}
 
-Note that conditioning on $O$, $O\tilde{X}$ is a random matrix with each entry independently distributed as $N(0,\lambda)$. Hence $O$ is independent of $O\tilde{X}$. Observe also that $O\beta/\|\beta\|$ is uniformly distributed on the unit ball.  We can without loss of generality assuming that $\beta/\|\beta\|$ is uniformly distributed on the unit ball. Independent of data, generate $R>0$ with $R^2$ distributed as $\chi^2_{p}$. Then $\xi=R\beta/\|\beta\|$ distributed as $N_p(0,I_p)$.
+Note that conditioning on $O$, $O\tilde{X}$ is a random matrix with each entry independently distributed as $N(0,\lambda)$. Hence $O$ is independent of $O\tilde{X}$. Observe also that $O\beta/\|\beta\|$ is uniformly distributed on the unit ball.  We can without loss of generality assuming that $\beta/\|\beta\|$ is uniformly distributed on the unit ball.
+
+\subsubsection{Step 2}
+Independent of data, generate $R>0$ with $R^2$ distributed as $\chi^2_{p}$. Then $\xi=R\beta/\|\beta\|$ distributed as $N_p(0,I_p)$.
 Note that conditioning on $\tilde{X}$, $\eta={(\tilde{X}^T\tilde{X})}^{-1/2}\tilde{X}^T \xi$ is distributed as $N_{n-1}(0,I_{n-1})$. Hence $\eta$ is independent of $\tilde{X}$.
 
 Then
@@ -380,137 +399,83 @@ Then
     \end{aligned}
 \end{equation}
 
-We consider
 
-\begin{equation}
-    \begin{aligned}
-    \frac{\frac{\|\beta\|^2}{R^2} \eta^T\eta
-        }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}}&=
-        \frac{(n-1)\|\beta\|^2}{p}
-        \frac{\frac{p}{R^2} \frac{\eta^T\eta}{n-1}
-        }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}}
-    \end{aligned}
-\end{equation}
+\subsubsection{Step 3: CLT}
+Similar to the derivation of the distribution of Hotelling's $T^2$ statistic.
 
-Note that
+Now we deal with 
 \begin{equation}
     \begin{aligned}
-        \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}&\sim
-        \frac{\tilde{\epsilon}^T\tilde{\epsilon}}{{(\tilde{X}^T\tilde{X})}_{11\cdot 2}}\\
-        &\sim\frac{\sigma^2}{\lambda}\frac{\chi^2_{n-1}}{\chi^2_{p-n+2}}
-    \end{aligned}
-\end{equation}
-Hence
-\begin{equation}
-    \begin{aligned}
-    \frac{\frac{\|\beta\|^2}{R^2} \eta^T\eta
-        }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}}&=
-        \frac{(n-1)(p-n+2)}{p(n-1)}\frac{\lambda}{\sigma^2}\|\beta\|^2(1+o_P(1))\\
-        &=\frac{\lambda}{\sigma^2}\|\beta\|^2(1+o_P(1))
-    \end{aligned}
-\end{equation}
-
-On the other hand,
-
-\begin{equation}
-    \begin{aligned}
-        \frac{\frac{\|\beta\|^2}{R^2} \eta^T\tilde{X}^T\tilde{X}\eta
-        }{\tilde{\epsilon}^T\tilde{\epsilon}}&=
-        \frac{\|\beta\|^2}{\sigma^2 p(n-1)}
-        \frac{\frac{p}{R^2} \eta^T\tilde{X}^T\tilde{X}\eta
-        }{\frac{\tilde{\epsilon}^T\tilde{\epsilon}}{\sigma^2(n-1)}}
-    \end{aligned}
-\end{equation}
-Note that
-\begin{equation}
-    \begin{aligned}
-        \eta^T\tilde{X}^T\tilde{X}\eta&\sim
-        \eta^T\eta {(\tilde{X}^T\tilde{X})}_{11}\\
-        &\sim \lambda\chi^2_{n-1} \chi^2_{p}
-    \end{aligned}
-\end{equation}
-Hence
-
-\begin{equation}
-    \begin{aligned}
-        \frac{\frac{\|\beta\|^2}{R^2} \eta^T\tilde{X}^T\tilde{X}\eta
-        }{\tilde{\epsilon}^T\tilde{\epsilon}}&=
-        \frac{\|\beta\|^2}{\sigma^2 p(n-1)}
-        \lambda (n-1)p
-        (1+o_P(1))\\
-        &=\frac{\lambda}{\sigma^2}\|\beta\|^2(1+o_P(1))
-    \end{aligned}
-\end{equation}
-We can deduce that:
-If $\|\beta\|^2\to 0$, then
-
-\begin{equation}
-    \begin{aligned}
-        T&=
-        \frac{\tilde{\epsilon}^T\tilde{\epsilon}
+        \frac{A_3}{B_3}=\frac{\tilde{\epsilon}^T\tilde{\epsilon}
     }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-        }(1+o_P(1))\\
+        }
     \end{aligned}
 \end{equation}
-If $\|\beta\|^2\to \infty$, then
+Let $O$ be an $(n-1)\times (n-1)$ orthogonal matrix satisfies 
+\[
+    O\tilde{\epsilon}=
+    \begin{pmatrix}
+        \|\tilde{\epsilon}\|\\
+        0\\
+        \ldots\\
+        0
+    \end{pmatrix}.
+    \]
+Then
+\begin{equation}
+    \begin{aligned}
+        \frac{A_3}{B_3}=\frac{{(O\tilde{\epsilon})}^T O\tilde{\epsilon}
+        }{{(O\tilde{\epsilon})}^T{\big({(\tilde{X}O^T)}^T\tilde{X}O^T\big)}^{-1} O\tilde{\epsilon}
+        }
+    \end{aligned}
+\end{equation}
+Note that $\tilde{X}O^T$ has the same distribution as $\tilde{X}$ and is independent of $O$. We have
 
 \begin{equation}
     \begin{aligned}
-        T&=
-        \frac{\eta^T \tilde{X}^T\tilde{X} \eta    
-        }{\eta^T\eta}(1+o_P(1))\\
+        \frac{A_3}{B_3}\sim 
+        \frac{1}{{({(\tilde{X}^T\tilde{X})}^{-1})}_{11}}.
     \end{aligned}
 \end{equation}
-
-Note that
+where ${({(\tilde{X}^T\tilde{X})}^{-1})}_{11}$ is the first element of ${(\tilde{X}^T\tilde{X})}^{-1}$. Apply the matrix inverse formula, we have 
 \begin{equation}
     \begin{aligned}
-        \frac{\tilde{\epsilon}^T\tilde{\epsilon}
-    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-        }&\sim {(\tilde{X}^T\tilde{X})}_{11\cdot 2}\sim \lambda \chi^2_{p-n+2}
+        \frac{A_3}{B_3}\sim 
+        {(\tilde{X}^T\tilde{X})}_{11\cdot 2}.
     \end{aligned}
 \end{equation}
+Since $\tilde{X}^T \tilde{X}\sim \textrm{Wishart}_{n-1}(\lambda I_{n-1},p)$, ${(\tilde{X}^T\tilde{X})}_{11\cdot 2}\sim \lambda \chi^2_{p-n+2}$.
 Hence by CLT,
 \begin{equation}
     \begin{aligned}
-        \frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
-    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-        }-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
-        }\xrightarrow{\mathcal{L}}N(0,1)
+        \frac{A_3/B_3-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
+        }\xrightarrow{\mathcal{L}}N(0,1).
     \end{aligned}
 \end{equation}
+But
 \begin{equation}
     \begin{aligned}
-        \frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
-    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-        }-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
+        \frac{A_3/B_3-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
         }&=
         \frac{\sqrt{p}}{\sqrt{p-n+2}}
-        \frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
-    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-        }-{\lambda(p-n+2)}}{\lambda\sqrt{2p}
+        \frac{A_3/B_3-{\lambda(p-n+2)}}{\lambda\sqrt{2p}
         }\\
         &=
         \frac{\sqrt{p}}{\sqrt{p-n+2}}
-        \Big(\frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
-    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-        }-{\lambda p}}{\lambda\sqrt{2p}
-        }+\frac{(n-2)}{\sqrt{2p}}\Big)\\
+        \Big(\frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
+        }+\frac{(n-2)}{\sqrt{2p}}\Big).
     \end{aligned}
 \end{equation}
-By slutsky Theorem, 
+By Slutsky Theorem, if $n^2/p\to 0$, we have
 \begin{equation}
-    \frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
-    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-        }-{\lambda p}}{\lambda\sqrt{2p}
+    \frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
         }\xrightarrow{\mathcal{L}}N(0,1)
 \end{equation}
-
-On the other hand
+Similar technique can deal with $A_1/B_1$.
 
 \begin{equation}
     \begin{aligned}
-        \frac{\eta^T \tilde{X}^T\tilde{X} \eta    
+        \frac{A_1}{B_1}=\frac{\eta^T \tilde{X}^T\tilde{X} \eta    
         }{\eta^T\eta}&\sim {(\tilde{X}^T\tilde{X})}_{11}\sim \lambda \chi^2_{p}
 \\
     \end{aligned}
@@ -519,22 +484,21 @@ On the other hand
 Hence by CLT,
 \begin{equation}
     \begin{aligned}
-        \frac{\frac{\eta^T \tilde{X}^T\tilde{X} \eta    
-        }{\eta^T\eta}
+        \frac{A_1/B_1
     -\lambda p}{\lambda\sqrt{2p}
-        }\xrightarrow{\mathcal{L}}N(0,1)
+        }\xrightarrow{\mathcal{L}}N(0,1).
     \end{aligned}
 \end{equation}
 
-
-$A_1\asymp n\|\beta\|^2$. $A_3\asymp n$. And $B_1\asymp \frac{n}{p}\|\beta\|^2$. $B_3\asymp n/p$.
+\subsubsection{step 4}
+It's obvious that $A_3\asymp n$ and $B_1\asymp \frac{n}{p}\|\beta\|^2$. We already have $A_1/B_1\asymp p$ and $A_3/B_3\asymp p$. It follows that $A_1\asymp n\|\beta\|^2$ and $B_3\asymp n/p$. And
 
 \begin{equation}
     \begin{aligned}
         A_2&=O_P(\|\beta\|/{\sqrt{p}})\eta^T {(\tilde{X}^T\tilde{X})}^{1/2}\tilde{\epsilon}\\
         &=O_P(\|\beta\|/\sqrt{p})\sqrt{\eta^T{(\tilde{X}^T\tilde{X})}\eta}\\
         &=O_P(\|\beta\|/\sqrt{p})O_P(\sqrt{np})\\
-        &=O_P(\sqrt{n}\|\beta\|)
+        &=O_P(\sqrt{n}\|\beta\|),
     \end{aligned}
 \end{equation}
 
@@ -543,23 +507,47 @@ $A_1\asymp n\|\beta\|^2$. $A_3\asymp n$. And $B_1\asymp \frac{n}{p}\|\beta\|^2$.
         B_2&=O_P(\|\beta\|/{\sqrt{p}})\eta^T {(\tilde{X}^T\tilde{X})}^{-1/2}\tilde{\epsilon}\\
         &=O_P(\|\beta\|/\sqrt{p})\sqrt{\eta^T{(\tilde{X}^T\tilde{X})}^{-1}\eta}\\
         &=O_P(\|\beta\|/\sqrt{p})O_P(\sqrt{n/p})\\
-        &=O_P(\frac{\sqrt{n}}{p}\|\beta\|)
+        &=O_P(\frac{\sqrt{n}}{p}\|\beta\|).
     \end{aligned}
 \end{equation}
+
+
+
+We can deduce that:
+If $\|\beta\|^2\to 0$, then
+
+\begin{equation}
+    \begin{aligned}
+        T&=
+        \frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        }(1+o_P(1)).
+    \end{aligned}
+\end{equation}
+Hence $T/(\lambda p)\to 1$.
+If $\|\beta\|^2\to \infty$, then
+
+\begin{equation}
+    \begin{aligned}
+        T&=
+        \frac{\eta^T \tilde{X}^T\tilde{X} \eta    
+        }{\eta^T\eta}(1+o_P(1)).
+    \end{aligned}
+\end{equation}
+Hence $T/(\lambda p)\to 1$.
+
+
+\subsubsection{Step 5}
+
+
+
 
 If $\|\beta\|^2\to 0$, we have
 \begin{equation}
     \begin{aligned}
         &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
         }-
-    \frac{\frac{\tilde{\epsilon}^T\tilde{\epsilon}
-    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-        }-{\lambda p}}{\lambda\sqrt{2p}
-        }\Big|\\
-        &=
-        \frac{1}{\lambda\sqrt{2p}}
-    \Big|T-\frac{\tilde{\epsilon}^T\tilde{\epsilon}
-    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+    \frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
         }\Big|\\
         &=
         \frac{1}{\lambda\sqrt{2p}}
@@ -579,14 +567,14 @@ If $\|\beta\|^2\to 0$, we have
         &=O_P(\sqrt{p}\|\beta\|^2)+O_P(\frac{\sqrt{p}}{\sqrt{n}}\|\beta\|)
     \end{aligned}
 \end{equation}
-Hence if $\sqrt{p}\|\beta\|^2\to 0$ and $p/n^2\to \infty$, CLT holds.
+Hence if $\sqrt{p}\|\beta\|^2\to 0$ and $\frac{p}{n}\|\beta\|^2\to 0$, CLT holds.
 
-If $\|\beta\|^2\to \infty$, we have
+On the other hand. If $\|\beta\|^2\to \infty$, we have
 \begin{equation}
     \begin{aligned}
         &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
         }-
-    \frac{\frac{A_1}{B_1}-{\lambda p}}{\lambda\sqrt{2p}
+    \frac{{A_1}/{B_1}-{\lambda p}}{\lambda\sqrt{2p}
         }\Big|\\
         &=
         \frac{1}{\lambda\sqrt{2p}}
@@ -606,8 +594,11 @@ If $\|\beta\|^2\to \infty$, we have
         &=O_P(\frac{\sqrt{p}}{\sqrt{n}}\|\beta\|^{-1})+O_P(\sqrt{p}\|\beta\|^{-2})
     \end{aligned}
 \end{equation}
-Hence if $\frac{n}{p}\|\beta\|^2\to \infty$ and $p/n^2\to \infty$, CLT holds.
+Hence if $\frac{n}{p}\|\beta\|^2\to \infty$ and $\frac{1}{\sqrt{p}}\|\beta\|^2\to \infty$, CLT holds.
 \subsection{circumstance 2}
+\begin{assumption}
+$P_1^T \beta=0$.
+\end{assumption}
 
 
 \begin{equation}
@@ -629,11 +620,8 @@ Hence if $\frac{n}{p}\|\beta\|^2\to \infty$ and $p/n^2\to \infty$, CLT holds.
         &=\frac{A_1+A_2+A_3}{B_1+B_2+B_3}
     \end{aligned}
 \end{equation}
-
-If $\beta=0$, then $T\sim {(\tilde{X}^T\tilde{X})}_{11\cdot 2}$.
-
-Let $\lambda_1\geq \lambda_2\ldots \geq \lambda_p>0$ be eigenvalues of $\Sigma_X$, where $\lambda_{r+1}=\cdots=\lambda_p=\lambda$. 
-Denote by $\Lambda=\textrm{diag} (\lambda_1,\ldots,\lambda_p)$. Let $Z=(Z_1,\ldots,Z_p)$ be a $n-1\times p$ matrix with all elements independently distributed as $N(0,1)$. Let $Z_{(1)}$ and $Z_{(2)}$ be the first $1$ row and last $n-2$ rows of $Z$, that is
+\subsubsection{Step 1}
+ Like before, we have $A_3/B_3\sim {(\tilde{X}^T\tilde{X})}_{11\cdot 2}$. Denote by $\Lambda=\textrm{diag} (\lambda_1,\ldots,\lambda_p)$. Let $Z=(Z_1,\ldots,Z_p)$ be a $n-1\times p$ matrix with all elements independently distributed as $N(0,1)$. Let $Z_{(1)}$ and $Z_{(2)}$ be the first $1$ row and last $n-2$ rows of $Z$, that is
 \[
     Z=\begin{pmatrix} 
         Z_{(1)}\\
@@ -677,11 +665,14 @@ On the other hand, the eigenvalues of $\Lambda^{1/2}\big(I_p -\Lambda^{1/2} Z_{(
 Hence $A_3/B_3\asymp p$ if $p/n\to \infty$.
 
 
+\textbf{Another proof:}
+\subsubsection{Step 2}
+
 Note that $P_2^T \tilde{X}$ is an $(p-r)\times (n-1)$ matrix with all elements independently distributed as $N(0,\lambda)$.
 
     $A_1\asymp n\|P_2^T\beta\|^2$, $A_2=O_P(\sqrt{n}\|P_2^T \beta\|)$, $A_3\asymp n$.
 
-    $B_3\asymp n/p$
+    $B_3\asymp n/p$.
 
     As for $B_1$, 
 \begin{equation}
@@ -690,13 +681,13 @@ Note that $P_2^T \tilde{X}$ is an $(p-r)\times (n-1)$ matrix with all elements i
         &\asymp \frac{n-1}{p-r}\|P_2^T\beta\|^2
     \end{aligned}
 \end{equation}
-On the other hand, let $P_2^T \tilde{X}=U_2 D_2 V_2^T$ be the SVD of $P_2^T \tilde{X}$. Then
+To get the lower bound, let $P_2^T \tilde{X}=U_2 D_2 V_2^T$ be the SVD of $P_2^T \tilde{X}$, where $U_2$ is a $(p-r)\times (n-1)$ orthonormal matrix, $D_2$ is a $(n-1)\times(n-1)$ diagonal matrix and $V_2$ is a $(n-1)\times (n-1)$ orthonormal matrix. Then
 
 \begin{equation}
     \begin{aligned}
         B_1&= \beta^T P_2 P_2^T \tilde{X} {(\tilde{X}^T P_1 P_1^T \tilde{X}+\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta\\
         &= \beta^T P_2 U_2 D_2 V^T_2 {(\tilde{X}^T P_1 P_1^T \tilde{X}+V_2 D_2^2 V_2^T)}^{-1}V_2 D_2 U_2^T P_2^T \beta\\
-        &= \beta^T P_2 U_2  {(V_2 D_2^{-1}\tilde{X}^T P_1 P_1^T \tilde{X}D_2^{-1}V_2^T +I_{n-1})}^{-1} U_2^T P_2^T \beta\\
+        &= \beta^T P_2 U_2  {(D_2^{-1} V_2^T \tilde{X}^T P_1 P_1^T \tilde{X} V_2 D_2^{-1} +I_{n-1})}^{-1} U_2^T P_2^T \beta\\
     \end{aligned}
 \end{equation}
 
@@ -704,10 +695,10 @@ Note that $U_2$ is independent of $(V_2,D_2,P_1^T\tilde{X})$, and
 
 \begin{equation}
     \begin{aligned}
-        {(V_2 D_2^{-1}\tilde{X}^T P_1 P_1^T \tilde{X}D_2^{-1}V_2^T +I_{n-1})}^{-1}\geq I_{n-1}- U^* U^{*T}
+        {(D_2^{-1}V_2^T\tilde{X}^T P_1 P_1^T \tilde{X}V_2 D_2^{-1} +I_{n-1})}^{-1}\geq I_{n-1}- U^* U^{*T}
     \end{aligned}
 \end{equation}
-where $U^*$ is the first $r$ eigenvectors of $V_2 D_2^{-1}\tilde{X}^T P_1 P_1^T \tilde{X}D_2^{-1}V_2^T$ and is independent of $U_2$. Hence
+where $U^*$ is the first $r$ eigenvectors of $D_2^{-1} V_2^T \tilde{X}^T P_1 P_1^T \tilde{X}V_2 D_2^{-1}$ and is independent of $U_2$. Note also that $U_2$ is of Haar distribution. Hence
 \begin{equation}
     \begin{aligned}
         B_1&\geq \beta^T P_2 U_2 (I_{n-1}-U^* U^{*T})U_2^T P_2^T \beta\\
@@ -747,6 +738,32 @@ Hence the similar law of large number and CLT holds.
 
 \subsection{Consistency of Test}
 $\beta$ from normal distribution. Then consistency can be proved.
+Assume that $\beta\sim N(0,\sigma^2_{\beta}I_{p})$. Then
+$\gamma={(\tilde{X}^T \tilde{X})}^{-1/2}\tilde{X}^T\beta\sim N(0,\sigma^2_{\beta}I_{n-1})$.
+
+
+\begin{equation}
+    \begin{aligned}
+        T&=\frac{\beta^T \tilde{X}\tilde{X}^T \beta+
+        2\beta^T \tilde{X}\tilde{\epsilon}+
+        \tilde{\epsilon}^T\tilde{\epsilon}
+    }{\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{X}^T \beta+
+        2\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}+
+        \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+    }\\
+        &=\frac{\gamma^T\tilde{X}^T\tilde{X}\gamma+2\gamma^T{(\tilde{X}^T\tilde{X})}^{1/2}\tilde{\epsilon}+\tilde{\epsilon}^T\tilde{\epsilon}}{\gamma^T\gamma+2\gamma^T{(\tilde{X}^T\tilde{X})}^{-1/2}\tilde{\epsilon}+\tilde{\epsilon}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}}\\
+        &=\frac{A_1+A_2+A_3}{B_1+B_2+B_3}
+    \end{aligned}
+\end{equation}
+
+$A_1\sim \|\gamma\|^2\sum_{i=1}^{p}\lambda_i \chi^2_1\asymp \|\gamma\|^2 (p+\lambda_1)\asymp \sigma^2_\beta n(p+\lambda_1)$. $A_2=O_P(\sqrt{A_1})$. $A_3\asymp n$.
+
+$B_1\asymp \sigma^2_\beta n$. $B_3 \leq \tilde{\epsilon}{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\asymp n/p$. $B_2=O_P(\sqrt{B_3}\sigma_\beta)$.
+
+
+$A_1/B_1\sim \sum_{i=1}^p \lambda_i \chi^2_1$.
+
+
 
 \section{Simulation Results}
 
