@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  19 DEC 2016 21:56
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  20 DEC 2016 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -420,15 +420,15 @@ Overfull \hbox (30.31068pt too wide) in paragraph at lines 663--664
 T1/cmr/m/n/10 ^^C[][]^^C[]$
  []
 
-[10] [11]
+[10] [11] [12]
 No file main.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 790.
-[12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 790.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 851.
+[13] [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 851.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 790.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 790.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 790.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 851.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 851.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 851.
  ) 
 Here is how much of TeX's memory you used:
  9841 strings out of 493638
@@ -439,4 +439,4 @@ Here is how much of TeX's memory you used:
  1328 hyphenation exceptions out of 8191
  34i,17n,45p,366b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (12 pages).
+Output written on main.pdf (14 pages).

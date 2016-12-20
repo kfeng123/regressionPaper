@@ -666,6 +666,49 @@ Hence $A_3/B_3\asymp p$ if $p/n\to \infty$.
 
 
 \textbf{Another proof:}
+
+\begin{equation}
+    \begin{aligned}
+        {B_3}\leq \tilde{\epsilon}^T{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\asymp \frac{n}{p-n+2}
+    \end{aligned}
+\end{equation}
+
+To get the lower bound, let $P_2^T \tilde{X}=U_2 D_2 V_2^T$ be the SVD of $P_2^T \tilde{X}$, where $U_2$ is a $(p-r)\times (n-1)$ orthonormal matrix, $D_2$ is a $(n-1)\times(n-1)$ diagonal matrix and $V_2$ is a $(n-1)\times (n-1)$ orthonormal matrix. Then
+
+\begin{equation}
+    \begin{aligned}
+        {B_3}&= \tilde{\epsilon}^T{(\tilde{X}^T P_1 P_1^T\tilde{X}+\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\\
+        &= \tilde{\epsilon}^T{(\tilde{X}^T P_1 P_1^T\tilde{X}+V_2 D_2^2 V_2^T)}^{-1}\tilde{\epsilon}\\
+        &= \tilde{\epsilon}^T V_2 D_2^{-1}{(D_2^{-1} V_2^T\tilde{X}^T P_1 P_1^T\tilde{X}V_2 D_2^{-1}+I_{n-1})}^{-1} D_2^{-1} V_2^T\tilde{\epsilon}\\
+        &\geq \tilde{\epsilon}^T V_2 D_2^{-1}(I_{n-1}-U^* U^{*T}) D_2^{-1} V_2^T\tilde{\epsilon}\\
+        &= \tilde{\epsilon}^T {(\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{\epsilon}- \tilde{\epsilon}^T V_2 D_2^{-1}U^* U^{*T} D_2^{-1} V_2^T\tilde{\epsilon}\\
+\end{aligned}
+\end{equation}
+for some $(n-1)\times r$ random matrix $U^*$. But
+\begin{equation}
+    \begin{aligned}
+        \tilde{\epsilon}^T V_2 D_2^{-1}U^* U^{*T} D_2^{-1} V_2^T\tilde{\epsilon}&=\textrm{tr}(U^{*T} D_2^{-1} V_2^T\tilde{\epsilon}\tilde{\epsilon}^T V_2 D_2^{-1}U^*)\\
+        &\leq \lambda_{\max}(V_2^T \tilde{\epsilon}\tilde{\epsilon}^T V_2) \textrm{tr}(U^{*T} D_2^{-2}U^*)\\
+        &\leq \|\tilde{\epsilon}\|^2 r {(\lambda_{\min}(D_2))}^{-2}\\
+        &\asymp \frac{n}{p^2}
+    \end{aligned}
+\end{equation}
+
+Hence 
+\begin{equation}
+    {B_3}= \tilde{\epsilon}^T{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}(1+O_P(1/p))
+\end{equation}
+Hence
+\begin{equation}
+    \frac{A_3}{B_3}= \lambda \chi^2_{p-r-n+2}(1+O_P(1/p))
+\end{equation}
+Hence
+\begin{equation}
+    \frac{{A_3}/{B_3}-\lambda(p-r-n+2)}{\lambda \sqrt{2(p-r-n+2)}}\xrightarrow{\mathcal{L}}N(0,1).
+\end{equation}
+There's no restriction between $n$ and $p$!!! Is there anything wrong? If no, it can be generalized to Xu and Zhao's test!!!
+
+
 \subsubsection{Step 2}
 
 Note that $P_2^T \tilde{X}$ is an $(p-r)\times (n-1)$ matrix with all elements independently distributed as $N(0,\lambda)$.
@@ -735,6 +778,24 @@ Hence
 Hence $B_2=O_P(\frac{\sqrt{n}}{p}\|P_2^T \beta\|)$.
 
 Hence the similar law of large number and CLT holds.
+\subsubsection{Step 3}
+\begin{equation}
+    \frac{A_1}{B_1}\sim \frac{\chi^2_p}{1+O_P(1/n)}= \lambda\chi^2_p (1+O_P(1/n))
+\end{equation}
+Hence if $\|P_2^T\beta\|\to \infty$ or $\|P_2^T \beta\|\to 0$,
+\begin{equation}
+    \frac{T}{\lambda p}\xrightarrow{P} 1.
+\end{equation}
+
+We have
+\begin{equation}
+    \begin{aligned}
+        \frac{A_1/B_1-\lambda p}{\lambda\sqrt{2p}}\sim \frac{\chi^2_p (1+O_P(1/n))-p}{\sqrt{2p}}\asymp N(0,1),
+    \end{aligned}
+\end{equation}
+if $p=o(n^2)$.
+
+
 
 \subsection{Consistency of Test}
 $\beta$ from normal distribution. Then consistency can be proved.
