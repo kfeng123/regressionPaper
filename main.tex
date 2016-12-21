@@ -665,48 +665,48 @@ On the other hand, the eigenvalues of $\Lambda^{1/2}\big(I_p -\Lambda^{1/2} Z_{(
 Hence $A_3/B_3\asymp p$ if $p/n\to \infty$.
 
 
-\textbf{Another proof:}
+%\textbf{Another proof:}
 
-\begin{equation}
-    \begin{aligned}
-        {B_3}\leq \tilde{\epsilon}^T{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\asymp \frac{n}{p-n+2}
-    \end{aligned}
-\end{equation}
-
-To get the lower bound, let $P_2^T \tilde{X}=U_2 D_2 V_2^T$ be the SVD of $P_2^T \tilde{X}$, where $U_2$ is a $(p-r)\times (n-1)$ orthonormal matrix, $D_2$ is a $(n-1)\times(n-1)$ diagonal matrix and $V_2$ is a $(n-1)\times (n-1)$ orthonormal matrix. Then
-
-\begin{equation}
-    \begin{aligned}
-        {B_3}&= \tilde{\epsilon}^T{(\tilde{X}^T P_1 P_1^T\tilde{X}+\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\\
-        &= \tilde{\epsilon}^T{(\tilde{X}^T P_1 P_1^T\tilde{X}+V_2 D_2^2 V_2^T)}^{-1}\tilde{\epsilon}\\
-        &= \tilde{\epsilon}^T V_2 D_2^{-1}{(D_2^{-1} V_2^T\tilde{X}^T P_1 P_1^T\tilde{X}V_2 D_2^{-1}+I_{n-1})}^{-1} D_2^{-1} V_2^T\tilde{\epsilon}\\
-        &\geq \tilde{\epsilon}^T V_2 D_2^{-1}(I_{n-1}-U^* U^{*T}) D_2^{-1} V_2^T\tilde{\epsilon}\\
-        &= \tilde{\epsilon}^T {(\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{\epsilon}- \tilde{\epsilon}^T V_2 D_2^{-1}U^* U^{*T} D_2^{-1} V_2^T\tilde{\epsilon}\\
-\end{aligned}
-\end{equation}
-for some $(n-1)\times r$ random matrix $U^*$. But
-\begin{equation}
-    \begin{aligned}
-        \tilde{\epsilon}^T V_2 D_2^{-1}U^* U^{*T} D_2^{-1} V_2^T\tilde{\epsilon}&=\textrm{tr}(U^{*T} D_2^{-1} V_2^T\tilde{\epsilon}\tilde{\epsilon}^T V_2 D_2^{-1}U^*)\\
-        &\leq \lambda_{\max}(V_2^T \tilde{\epsilon}\tilde{\epsilon}^T V_2) \textrm{tr}(U^{*T} D_2^{-2}U^*)\\
-        &\leq \|\tilde{\epsilon}\|^2 r {(\lambda_{\min}(D_2))}^{-2}\\
-        &\asymp \frac{n}{p^2}
-    \end{aligned}
-\end{equation}
-
-Hence 
-\begin{equation}
-    {B_3}= \tilde{\epsilon}^T{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}(1+O_P(1/p))
-\end{equation}
-Hence
-\begin{equation}
-    \frac{A_3}{B_3}= \lambda \chi^2_{p-r-n+2}(1+O_P(1/p))
-\end{equation}
-Hence
-\begin{equation}
-    \frac{{A_3}/{B_3}-\lambda(p-r-n+2)}{\lambda \sqrt{2(p-r-n+2)}}\xrightarrow{\mathcal{L}}N(0,1).
-\end{equation}
-There's no restriction between $n$ and $p$!!! Is there anything wrong? If no, it can be generalized to Xu and Zhao's test!!!
+%\begin{equation}
+    %\begin{aligned}
+        %{B_3}\leq \tilde{\epsilon}^T{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\asymp \frac{n}{p-n+2}
+    %\end{aligned}
+%\end{equation}
+%
+%To get the lower bound, let $P_2^T \tilde{X}=U_2 D_2 V_2^T$ be the SVD of $P_2^T \tilde{X}$, where $U_2$ is a $(p-r)\times (n-1)$ orthonormal matrix, $D_2$ is a $(n-1)\times(n-1)$ diagonal matrix and $V_2$ is a $(n-1)\times (n-1)$ orthonormal matrix. Then
+%
+%\begin{equation}
+    %\begin{aligned}
+        %{B_3}&= \tilde{\epsilon}^T{(\tilde{X}^T P_1 P_1^T\tilde{X}+\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\\
+        %&= \tilde{\epsilon}^T{(\tilde{X}^T P_1 P_1^T\tilde{X}+V_2 D_2^2 V_2^T)}^{-1}\tilde{\epsilon}\\
+        %&= \tilde{\epsilon}^T V_2 D_2^{-1}{(D_2^{-1} V_2^T\tilde{X}^T P_1 P_1^T\tilde{X}V_2 D_2^{-1}+I_{n-1})}^{-1} D_2^{-1} V_2^T\tilde{\epsilon}\\
+        %&\geq \tilde{\epsilon}^T V_2 D_2^{-1}(I_{n-1}-U^* U^{*T}) D_2^{-1} V_2^T\tilde{\epsilon}\\
+        %&= \tilde{\epsilon}^T {(\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{\epsilon}- \tilde{\epsilon}^T V_2 D_2^{-1}U^* U^{*T} D_2^{-1} V_2^T\tilde{\epsilon}\\
+%\end{aligned}
+%\end{equation}
+%for some $(n-1)\times r$ random matrix $U^*$. But
+%\begin{equation}
+    %\begin{aligned}
+        %\tilde{\epsilon}^T V_2 D_2^{-1}U^* U^{*T} D_2^{-1} V_2^T\tilde{\epsilon}&=\textrm{tr}(U^{*T} D_2^{-1} V_2^T\tilde{\epsilon}\tilde{\epsilon}^T V_2 D_2^{-1}U^*)\\
+        %&\leq \lambda_{\max}(V_2^T \tilde{\epsilon}\tilde{\epsilon}^T V_2) \textrm{tr}(U^{*T} D_2^{-2}U^*)\\
+        %&\leq \|\tilde{\epsilon}\|^2 r {(\lambda_{\min}(D_2))}^{-2}\\
+        %&\asymp \frac{n}{p}
+    %\end{aligned}
+%\end{equation}
+%
+%Hence 
+%\begin{equation}
+    %{B_3}= \tilde{\epsilon}^T{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}(1+O_P(1/p))
+%\end{equation}
+%Hence
+%\begin{equation}
+    %\frac{A_3}{B_3}= \lambda \chi^2_{p-r-n+2}(1+O_P(1/p))
+%\end{equation}
+%Hence
+%\begin{equation}
+    %\frac{{A_3}/{B_3}-\lambda(p-r-n+2)}{\lambda \sqrt{2(p-r-n+2)}}\xrightarrow{\mathcal{L}}N(0,1).
+%\end{equation}
+%There's no restriction between $n$ and $p$!!! Is there anything wrong? If no, it can be generalized to Xu and Zhao's test!!!
 
 
 \subsubsection{Step 2}
@@ -790,12 +790,72 @@ Hence if $\|P_2^T\beta\|\to \infty$ or $\|P_2^T \beta\|\to 0$,
 We have
 \begin{equation}
     \begin{aligned}
-        \frac{A_1/B_1-\lambda p}{\lambda\sqrt{2p}}\sim \frac{\chi^2_p (1+O_P(1/n))-p}{\sqrt{2p}}\asymp N(0,1),
+        \frac{A_1/B_1-\lambda p}{\lambda\sqrt{2p}}\sim \frac{\chi^2_p (1+O_P(1/n))-p}{\sqrt{2p}}\xrightarrow{\mathcal{L}} N(0,1),
     \end{aligned}
 \end{equation}
 if $p=o(n^2)$.
 
+Because $A_3/B_3\leq \lambda \chi^2_{p-r}+o(\sqrt{p})\leq \lambda \chi^2_{p}+o(\sqrt{p})$ (if $p=o(n^2)$). We have
+\begin{equation}
+    \begin{aligned}
+        \frac{A_3/B_3-\lambda p}{\lambda\sqrt{2p}}\leq \frac{\chi^2_p +o(\sqrt{p})-p}{\sqrt{2p}}\xrightarrow{\mathcal{L}} N(0,1).
+    \end{aligned}
+\end{equation}
 
+If $\|P_2^T\beta\|^2\to 0$, we have
+\begin{equation}
+    \begin{aligned}
+        &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        }-
+    \frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
+        }\Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_3}{B_3}
+        \Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{(A_1+A_2)B_3-(B_1+B_2)A_3}{(B_1+B_2+B_3)B_3}
+        \Big|\\
+        &=
+        \frac{O_{P}(1)}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{(O_P(n\|P_2^T\beta\|^2)+O_P(\sqrt{n}\|P_2^T\beta\|))O_P(\frac{n}{p})-(O_P(\frac{n}{p}\|P_2^T\beta\|^2)+O_P(\frac{\sqrt{n}}{p}\|P_2^T\beta\|))O_P(n)}{n^2/p^2}
+        \Big|\\
+        &=O_P(\sqrt{p}\|P_2^T\beta\|^2)+O_P(\frac{\sqrt{p}}{\sqrt{n}}\|P_2^T\beta\|)
+    \end{aligned}
+\end{equation}
+Hence if $\sqrt{p}\|P_2^T\beta\|^2\to 0$ and $\frac{p}{n}\|P_2^T\beta\|^2\to 0$, CLT holds.
+
+On the other hand. If $\|P_2^T\beta\|^2\to \infty$, we have
+\begin{equation}
+    \begin{aligned}
+        &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        }-
+    \frac{{A_1}/{B_1}-{\lambda p}}{\lambda\sqrt{2p}
+        }\Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_1}{B_1}
+        \Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{(A_2+A_3)B_1-(B_2+B_3)A_1}{(B_1+B_2+B_3)B_1}
+        \Big|\\
+        &=
+        \frac{O_{P}(1)}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{(O_P(\sqrt{n}\|P_2^T\beta\|)+O_P(n))O_P(\frac{n}{p}\|P_2^T\beta\|^2)-(O_P(\frac{\sqrt{n}}{p}\|P_2^T\beta\|)+O_P(\frac{n}{p}))O_P(n\|P_2^T\beta\|^2)}{\frac{n^2}{p^2}\|P_2^T\beta\|^4}
+        \Big|\\
+        &=O_P(\frac{\sqrt{p}}{\sqrt{n}}\|P_2^T\beta\|^{-1})+O_P(\sqrt{p}\|P_2^T\beta\|^{-2})
+    \end{aligned}
+\end{equation}
+
+Hence if $\frac{n}{p}\|P_2^T\beta\|^2\to \infty$ and $\frac{1}{\sqrt{p}}\|P_2^T\beta\|^2\to \infty$, CLT holds.
 
 \subsection{Consistency of Test}
 $\beta$ from normal distribution. Then consistency can be proved.
@@ -822,9 +882,46 @@ $A_1\sim \|\gamma\|^2\sum_{i=1}^{p}\lambda_i \chi^2_1\asymp \|\gamma\|^2 (p+\lam
 $B_1\asymp \sigma^2_\beta n$. $B_3 \leq \tilde{\epsilon}{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\asymp n/p$. $B_2=O_P(\sqrt{B_3}\sigma_\beta)$.
 
 
-$A_1/B_1\sim \sum_{i=1}^p \lambda_i \chi^2_1$.
+$A_1/B_1\sim \sum_{i=1}^p \lambda_i \chi^2_1$. Hence
+\begin{equation}
+    \begin{aligned}
+    \mathbb{P}\Big(\frac{A_1/B_1-(p-r)\lambda}{\lambda\sqrt{2(p-r)}}\geq \Phi^{-1}(1-\alpha)\Big)
+        &\sim\mathbb{P}\Big(N(0,1)\geq \Phi^{-1}(1-\alpha)-\frac{\sum_{i=1}^r \lambda_i \chi^2_i}{\lambda\sqrt{2(p-r)}}\Big)\\
+        &=\textrm{E}[\Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\sum_{i=1}^r \lambda_i \chi^2_i}{\lambda\sqrt{2(p-r)}}\Big)]
+    \end{aligned}
+\end{equation}
 
+And note that if $p \sigma_{\beta}^2\to \infty$,
+\begin{equation}
+    \begin{aligned}
+        &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        }-
+    \frac{{A_1}/{B_1}-{\lambda p}}{\lambda\sqrt{2p}
+        }\Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_1}{B_1}
+        \Big|\\
+        &=
+        \frac{1}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{(A_2+A_3)B_1-(B_2+B_3)A_1}{(B_1+B_2+B_3)B_1}
+        \Big|\\
+        &=
+        \frac{O_{P}(1)}{\lambda\sqrt{2p}}
+        \Big|
+        \frac{(O_P(\sigma_{\beta}\sqrt{n(p+\lambda_1)})+O_P(n))O_P(\sigma^2_\beta n)-(O_P(\sigma_{\beta}\frac{\sqrt{n}}{\sqrt{p}})+O_P(\frac{n}{p}))O_P(\sigma^2_{\beta} n(p+\lambda_1))}{\sigma^4_{\beta}n^2}
+        \Big|\\
+        &=O_P(\frac{p+\lambda_1}{\sigma_{\beta}\sqrt{n}p})+O_P(\frac{p+\lambda_1}{\sigma^2_{\beta}p^{3/2}})
+    \end{aligned}
+\end{equation}
 
+Hence if 
+\begin{equation}
+    \frac{np^2+p^{5/2}+\lambda_1 p^{3/2}}{{(p+\lambda_1)}^2}\sigma^2_{\beta}\to \infty
+\end{equation}
+Then Power function holds.
 
 \section{Simulation Results}
 
