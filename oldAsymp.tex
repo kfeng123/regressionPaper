@@ -1,0 +1,159 @@
+
+
+Next we derive another form of of $T$. We follow the similar technique of Hotelling's $T^2$.
+
+
+Let $R$ be an $(n-1)\times (n-1)$ orthogonal matrix satisfies 
+\[
+    R\tilde{y}=
+    \begin{pmatrix}
+        \|\tilde{y}\|\\
+        0\\
+        \ldots\\
+        0
+    \end{pmatrix}.
+    \]
+%Note that $R$ is independent of $\tilde{X}$ under null hypotheses since it only depends on $\tilde{y}$.
+We can write
+    \begin{equation}\label{Tformula}
+        \begin{aligned}
+            T&=\frac{\|\tilde{y}\|^2
+        }{\tilde{y}R^T{(R\tilde{X}^T\tilde{X}R^T)}^{-1}R\tilde{y}}\\
+            %&={(R\tilde{X}^T \tilde{X} R^T)}_{11\cdot 2}.
+        \end{aligned}
+    \end{equation}
+Denote by $B=R\tilde{X}^T \tilde{X} R^T$, then
+\[
+    T=\frac{1}{{(B^{-1})}_{11}}.
+    \]
+
+Let
+\[
+    B=\begin{pmatrix} 
+        b_{11} & b_{(1)}^T\\
+        b_{(1)} & B_{22}
+    \end{pmatrix},
+    \]
+
+and apply the matrix inverse formula, we have ${(B^{-1})}_{11}=1/(b_{11}-b_{(1)}^T B_{22}^{-1}b_{(1)})$. Hence
+
+\[
+   T= b_{11}-b_{(1)}^T B_{22}^{-1}b_{(1)}.
+    \]
+\section{Asymptotic distribution}
+Note that conditioning on $\tilde{y}$, $R$ is a constant orthogonal matrix.
+And $\tilde{y}$ is independent of $\tilde{X}$ under null hypotheses.
+So  $B|\tilde{y}$ has the same distribution with $\tilde{X}^T \tilde{X}$ under null hypotheses.
+Hence $B$ is independent of $\tilde{y}$ and can be written as
+    \begin{equation}\label{Xdis}
+    B=\sum_{i=1}^p \lambda_i z_i z_i^T
+    \end{equation}
+where $z_i$'s are i.i.d.\ $n-1$ dimensional random vectors  distributed as $N(0,I_{n-1})$, $\lambda_1\geq \lambda_2\ldots \geq \lambda_p>0$ are eigenvalues of $\Sigma_X$. 
+Denote by $\Lambda=\textrm{diag} (\lambda_1,\ldots,\lambda_p)$, $Z=(Z_1,\ldots,Z_p)$. Let $Z_{(1)}$ and $Z_{(2)}$ be the first $1$ row and last $n-2$ rows of $Z$, that is
+\[
+    Z=\begin{pmatrix} 
+        Z_{(1)}\\
+        Z_{(2)}
+    \end{pmatrix}.
+    \]
+Then
+\begin{equation}
+    \begin{aligned}
+        B&=Z\Lambda Z^T\\
+        &=\begin{pmatrix}
+            Z_{(1)}\Lambda Z_{(1)}^T & Z_{(1)}\Lambda Z_{(2)}^T\\
+            Z_{(2)}\Lambda Z_{(1)}^T & Z_{(2)}\Lambda Z_{(2)}^T\\
+        \end{pmatrix}.
+    \end{aligned}
+\end{equation}
+Hence
+
+\begin{equation}
+    \begin{aligned}
+        T&=Z_{(1)}\Lambda Z_{(1)}^T-Z_{(1)}\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda Z_{(1)}^T\\
+        &=Z_{(1)}\big(\Lambda -\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda \big)Z_{(1)}^T.\\
+    \end{aligned}
+\end{equation}
+But
+    \begin{equation}
+        \begin{aligned}
+    \textrm{rank}(\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda)
+            &=\textrm{rank}(\Lambda^{\frac{1}{2}} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{\frac{1}{2}})\\
+            &=\textrm{rank}(I_{n-2})=n-2,\\
+        \end{aligned}
+    \end{equation}
+and
+    \begin{equation}
+        \begin{aligned}
+    \textrm{rank}(\Lambda-\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda)
+            &=\textrm{rank}(I_p-\Lambda^{\frac{1}{2}} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{\frac{1}{2}})\\
+            &=p-n+2.\\
+        \end{aligned}
+    \end{equation}
+    Hence
+    \[
+        T\sim\sum_{i=1}^{p-n+2} \lambda_{i}(\Lambda -\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda) \chi^2_1
+        \]
+By Weyl's inequality, we have for $1\leq i\leq p-n+2$
+\begin{equation}
+    \lambda_i(\Lambda -\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda)
+    \leq \lambda_i(\Lambda),
+\end{equation}
+and
+\begin{equation}
+    \begin{aligned}
+        &\lambda_i(\Lambda -\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda)\\
+        \geq& \lambda_{i+n-2}(\Lambda)+\lambda_{p-n+2}(-\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda)\\
+        =& \lambda_{i+n-2}.
+    \end{aligned}
+\end{equation}
+Hence
+\[
+    \sum_{i=n-1}^p \lambda_i \chi^2_1\leq T\leq\sum_{i=1}^{p-n+2}\lambda_i \chi^2_1
+    \]
+
+Note that under condition \({\textrm{tr}\Sigma^4}/{{(\textrm{tr}\Sigma^2)}^2} \to 0\), we have by Liapounoff central limit theorem that
+\[
+    \frac{\sum_{i=1}^p \lambda_i \chi^2_1-\textrm{tr}\Sigma_X}{
+        \sqrt{\textrm{tr}(\Sigma_X^2)}
+    }\xrightarrow{\mathcal{L}}N(0,1).
+    \]
+And 
+    \begin{equation}\label{xiaoO}
+    \frac{T-\textrm{tr}\Sigma_X}{\sqrt{\textrm{tr}(\Sigma_X^2)}}-
+    \frac{\sum_{i=1}^p \lambda_i \chi^2_1-\textrm{tr}\Sigma_X}{\sqrt{\textrm{tr}(\Sigma_X^2)}}
+    =\frac{T-\sum_{i=1}^p \lambda_i \chi^2_1}{\sqrt{\textrm{tr}(\Sigma_X^2)}},
+    \end{equation}
+    To prove $\eqref{xiaoO}\xrightarrow{P}0$, we only need to prove
+\[
+    \textrm{E}\Big(\frac{\sum_{i=1}^{n-2} \lambda_i \chi^2_1}{
+        \sqrt{\textrm{tr}(\Sigma_X^2)}}\Big)\to 0,
+    \]
+that is
+    \begin{equation}\label{tiaojian}
+    \textrm{E}\Big(\frac{\sum_{i=1}^{n-2} \lambda_i}{\sqrt{\textrm{tr}(\Sigma_X^2)}}\Big)\to 0.
+    \end{equation}
+If $\lambda_i$'s are bounded below and above, then~\eqref{tiaojian} is equivalent to
+
+    \begin{equation}\label{npOrder}
+        n/\sqrt{p}\to 0,
+    \end{equation}
+    or $p/n^2 \to \infty$. We thus obtain the following theorem.
+
+
+\begin{theorem}
+    Suppose
+    \[
+    \textrm{E}\Big(\frac{\sum_{i=1}^{n-2} \lambda_i}{\sqrt{\textrm{tr}(\Sigma_X^2)}}\Big)\to 0,
+        \] 
+    and
+    \[
+        \frac{\textrm{tr}\Sigma^4}{{(\textrm{tr}\Sigma^2)}^2} \to 0.
+        \]
+    Then under null hypotheses, we have
+    \[
+    \frac{T-\textrm{tr}\Sigma_X}{
+        \sqrt{\textrm{tr}(\Sigma_X^2)}
+    }\xrightarrow{\mathcal{L}}N(0,1).
+        \]
+\end{theorem}
