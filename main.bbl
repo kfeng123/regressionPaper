@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{Zhao2016A}
+J.~Zhao, X.~Xu, A generalized likelihood ratio test for normal mean when p is
+  greater than n, Computational Statistics \& Data Analysis.
+
+\bibitem{Bai1993Limit}
+Z.~D. Bai, Y.~Q. Yin, Limit of the smallest eigenvalue of a large dimensional
+  sample covariance matrix, Annals of Probability 21~(3) (1993) 1275--1294.
+
+\end{thebibliography}

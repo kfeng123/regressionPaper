@@ -84,11 +84,106 @@ This template helps you to create a properly formatted \LaTeX\ manuscript.
 
 %\linenumbers
 
-\section{Main}
-
+\section{Introduction}
+\cite{Zhao2016A} proposed a generalized likelihood ratio test (GLRT) for testing high dimensional mean values. This paper derived GLRT for the problem of testing the coefficients of linear regression.
+\section{GLRT}
 Suppose $(X_1^T,Y_1)$,\ldots,$(X_n^T, Y_n)$ are i.i.d.\ from $N_{p+1}(\mu,\Sigma)$,
 where $X_i\in \mathbb{R}^p$ and $Y_i\in \mathbb{R}$. 
 Denote $X=(X_1,\ldots,X_n)$, $Y={(Y_1,\ldots,Y_n)}^T$.
+ We assume $n<p$. Denote $\Theta: (\mu,\Sigma)$
+Consider the hypothesis $H: \textrm{Cov}(X,y)=0$. Define the hypothesis $H_a$ as following:
+\begin{equation}
+    H_a: \textrm{Cov}(a^T X_i, y_i)=0
+\end{equation}
+where $a\in \mathbb{R}^p$ and $a^T a=1$.
+Then we have $H=\cap_a H_a$.
+
+Denote by
+\begin{equation}
+    S=\frac{1}{n}\sum_{i=1}^n \begin{pmatrix}
+        (X_i-\bar{X}){(X_i-\bar{X})}^T&(X_i-\bar{X}){(y_i-\bar{y})}^T\\
+        (y_i-\bar{y}){(X_i-\bar{X})}^T&(y_i-\bar{y}){(y_i-\bar{y})}^T\\
+        \end{pmatrix}=\begin{pmatrix}S_{XX} & S_{Xy} \\ S_{yX}& S_{yy}\end{pmatrix},
+\end{equation}
+and
+\begin{equation}
+    S_a=\begin{pmatrix}
+        a^T& 0\\
+        0& 1
+    \end{pmatrix}
+    S\begin{pmatrix}
+        a& 0\\
+        0& 1
+    \end{pmatrix},
+    \Sigma_a=\begin{pmatrix}
+        a^T& 0\\
+        0& 1
+    \end{pmatrix}
+    \Sigma\begin{pmatrix}
+        a& 0\\
+        0& 1
+    \end{pmatrix}.
+\end{equation}
+
+
+Then the likelihood function is 
+\begin{equation}
+L_a(\theta;X,Y)={(2\pi)}^{-n}|\Sigma_a|^{-n/2}\exp{(-\frac{1}{2}\textrm{tr}\Sigma_a^{-1}S_a)}.
+\end{equation}
+Then the maximum likelihood is
+    \begin{equation}\label{like1}
+        L(a)=\sup_{\theta\in \Theta}L_a(\theta ;X,Y)={(2\pi)}^{-n} |S_a|^{-n/2}e^{-n}.
+\end{equation}
+    If $|S_a|=0$, then~\ref{like1} is interpreted as $+\infty$.
+    Similarly, the maximum likelihood under $H_a$ is
+\begin{equation}
+    L(a)=\sup_{\theta\in H}L_1(\theta ;X,Y)={(2\pi)}^{-n} |a^T S_{XX}aS_{yy}|^{-n/2}e^{-n}.
+\end{equation}
+
+    The goal of GLRT is to find $a$ such that $L(a)=+\infty$ and $L_{H}(a)<+\infty$ as small as possible to achieve the maximum discrepency of likelihood between null and alternative hypotheses. Equivalently, we find $a$ such that $a^T S_{XX} a$ is maximized subject to $|S_a|=0$.
+
+    Such an $a$ can be expected to make $|\Sigma_a|$ small and $a^T \Sigma_{XX} a$ large. That is to make the variance of $a^T X_i$ large and $a^T X_i$ and $y_i$ highly correlated. If $X_i$ has certain principal components which are correlated to $y_i$, the direction $a$ is expected to be close to such principal directions.
+
+
+    Let $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$. Denote by $Q_n=WW^T$ be the rank decomposition of $Q_n$, where $W_n$ is a $n\times n-1$ matrix with $W^T W=I_{n-1}$. 
+    Then $|S_a|=0$ is equivalent to $a^T X Q X^T a y^T Q y={(a^T X Q y)}^2$ and is equivelent to $W^T X^T a=W^T y k$ for some $k\in \mathbb{R}$. It can be seen that
+    \begin{equation}
+        a=XW{(W^T X^T X W)}^{-1} W^T y k + (I-XW{(W^T X^T X W)}^{-1}W^T X^T)a
+    \end{equation}
+Note that 
+    \begin{equation}
+        L_H (a)\propto {(a^T X Q X^T a y^T Q y)}^{-n/2}={\big(k^2{(y^T Q_n y)}^2\big)}^{-n/2}.
+    \end{equation}
+Since $a^T a=1$,
+    \begin{equation}\label{gougu}
+        k^2 y^T W{(W^T X^T X W)}^{-1} W^T y + a^T(I-XW{(W^T X^T X W)}^{-1}W^T X^T)a=1.
+    \end{equation}
+    To make $L_H(a)$ minimized, we should maximize $k^2$. So the second term of~\ref{gougu} should be $0$. That is
+
+    \begin{equation}
+        a=XW{(W^T X^T X W)}^{-1} W^T y k 
+    \end{equation}
+    Hence 
+    \begin{equation}
+        k^2=\frac{1}{y^T W{(W^T X^T X W)}^{-1} W^T y},
+    \end{equation}
+    and 
+    \begin{equation}
+        L_H (a)\propto {(a^T X Q X^T a y^T Q y)}^{-n/2}={\Big(\frac{{(y^T Q_n y)}^2}{y^T W{(W^T X^T X W)}^{-1} W^T y}\Big)}^{-n/2}.
+    \end{equation}
+After homogenization, we define
+\[
+    T=\frac{y^T Q_n y}{
+        y^T W{(W^T X^T X W)}^{-1}W^T y
+    } 
+    \]
+
+
+    When $L_H(a)$ is small, we reject $H$.
+\section{Main}
+
+As we have pointed out, test statistic $T$ is expected to be large when $y_i$ is correlated to some principal components of $X_i$, and be small otherwise. Hence $T$ is suitable for testing the significance of PCR.\@
+
 
 Write $Y=\beta_0 \textbf{1}_n+X^T \beta+\epsilon$, where $\textbf{1}_n$ is $n$ dimensional vector with all elements equal to $1$. $\epsilon$ has distribution $N(0,\sigma^2 I_n)$.
 
@@ -113,8 +208,6 @@ The problem is to test hypotheses $H: \beta=0$.
 %%        \Big]Q_n Y
 %\] 
 
-
-Let $Q_n=WW^T$ be the rank decomposition of $Q_n$, where $W_n$ is a $n\times n-1$ matrix with $W^T W=I_{n-1}$. The new test statistic is
 
 \[
     T=\frac{y^T Q_n y}{
@@ -142,7 +235,9 @@ and
 
 \section{Asymptotic Results}
 
-$\Sigma_X=P\Lambda P^T$
+Denote by $\Sigma_X$ the covariance matrix of $X_i$ ($i=1,\ldots,n$). Let $\Sigma_X=P\Lambda P^T$ be the spectral decomposition of $\Sigma_X$, where $\Lambda=\textrm{diag}(\lambda_1,\ldots,\lambda_p)$ with $\lambda_1\geq \lambda_2\geq \cdots \geq \lambda_p$ and $P$ is a orthogonal matrix.
+
+$\Sigma_X$ may be spike or non-spike.
 
 Non-spike: there's no principal component ($r=0$). That is, $\lambda_1=\cdots = \lambda_p$.
 
@@ -194,7 +289,22 @@ Next we consider:
 
 \subsection{Lemma}
 
-Bai Yin's law
+\begin{lemma}\label{baiyin}
+    Suppose $B=\frac{1}{q}V V^T$ where V is an $p\times q$ random matrix composed of i.i.d.\  random variables with zero mean, unit variance and finite fourth moment. As $q\to \infty$ and $p/q \to c\in [0,+\infty)$, the largest and smallest nonzero eigenvalues of $B$ converge almost surely to ${(1+\sqrt{c})}^2$ and ${(1-\sqrt{c})}^2$, respectively.
+\end{lemma}
+Lemma~\ref{baiyin} is known as the Bai-Yin's law~\cite{Bai1993Limit}.
+
+\begin{lemma}\label{wangPCA}
+    Let $Z_1,\ldots,Z_{n+1}$ i.i.d.\ distributed as $N(0,I_p)$.
+    $\Lambda=\textrm{diag}(\lambda_1,\ldots,\lambda_p)$, where $\lambda_1\geq \cdots \lambda_r$ and $\lambda_{r+1}=\cdots =\lambda_p=\lambda$.
+    $\limsup_{n\to \infty} \lambda_1/\lambda_r<\infty$, $\lambda_1/\sqrt{p}\to \infty$.
+    Suppose $p=o(n^2)$.
+    Denote $Z=(Z_1,\ldots,Z_n)$. Let $\hat{V}$ be the first $r$ eigenvectors of $\Lambda^{1/2}Z Z^T\Lambda^{1/2}$, $V=(e_1,\ldots,e_r)$. Then
+    \begin{equation}
+        Z_{n+1}^T \Lambda^{1/2}(VV^T -\hat{V}\hat{V}^T)\Lambda^{1/2}Z_{n+1}=o(\sqrt{p})
+    \end{equation}
+\end{lemma}
+Lemma~\ref{wangPCA} is from Wang Rui's paper.
 
 Wang Rui's PCA lemma
 
