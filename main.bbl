@@ -5,6 +5,10 @@
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
 
+\bibitem{Cai2012Sparse}
+T.~T. Cai, Z.~Ma, Y.~Wu, Sparse pca: Optimal rates and adaptive estimation,
+  Annals of Statistics 41~(6) (2012) 3074--3110.
+
 \bibitem{Zhao2016A}
 J.~Zhao, X.~Xu, A generalized likelihood ratio test for normal mean when p is
   greater than n, Computational Statistics \& Data Analysis.
@@ -12,5 +16,13 @@ J.~Zhao, X.~Xu, A generalized likelihood ratio test for normal mean when p is
 \bibitem{Bai1993Limit}
 Z.~D. Bai, Y.~Q. Yin, Limit of the smallest eigenvalue of a large dimensional
   sample covariance matrix, Annals of Probability 21~(3) (1993) 1275--1294.
+
+\bibitem{durrett2010probability}
+R.~Durrett, Probability : theory and examples, Journal of the American
+  Statistical Association 87~(418) (2010) 586.
+
+\bibitem{Eaton1983Multivariate}
+M.~L. Eaton, Multivariate statistics: A vector space approach 80~(392) (1983)
+  72.
 
 \end{thebibliography}

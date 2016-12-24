@@ -85,20 +85,85 @@ This template helps you to create a properly formatted \LaTeX\ manuscript.
 %\linenumbers
 
 \section{Introduction}
-\cite{Zhao2016A} proposed a generalized likelihood ratio test (GLRT) for testing high dimensional mean values. This paper derived GLRT for the problem of testing the coefficients of linear regression.
-\section{GLRT}
-Suppose $(X_1^T,Y_1)$,\ldots,$(X_n^T, Y_n)$ are i.i.d.\ from $N_{p+1}(\mu,\Sigma)$,
-where $X_i\in \mathbb{R}^p$ and $Y_i\in \mathbb{R}$. 
-Denote $X=(X_1,\ldots,X_n)$, $Y={(Y_1,\ldots,Y_n)}^T$.
- We assume $n<p$. Denote $\Theta: (\mu,\Sigma)$
-Consider the hypothesis $H: \textrm{Cov}(X,y)=0$. Define the hypothesis $H_a$ as following:
+Suppose $X_1,\ldots,X_n$ are i.i.d.\ from $N_{p}(\mu_X,\Sigma_X)$,
+where $X_i\in \mathbb{R}^p$. 
+We denote $X=(X_1,\ldots,X_n)$.
+In this paper, we assume $n<p$.
+
+Consider a linear regression model $y=\beta_0 \textbf{1}_n+X^T \beta+\epsilon$, where $\textbf{1}_n$ is $n$ dimensional vector with all elements equal to $1$ and $\epsilon$ has distribution $N(0,\sigma^2 I_n)$.
+
+
+%Denote by $\Sigma_X$ the covariance matrix of $X_i$ ($i=1,\ldots,n$).
+Let $\Sigma_X=P\Lambda P^T$ be the spectral decomposition of $\Sigma_X$, where $\Lambda=\textrm{diag}(\lambda_1,\ldots,\lambda_p)$ with $\lambda_1\geq \lambda_2\geq \cdots \geq \lambda_p$ and $P$ is an orthogonal matrix.
+In PCA context, it is assumed that $\Sigma_X$ is spiked, that is $\lambda_1\geq \lambda_2\geq \cdots \geq\lambda_r> \lambda_{r+1}=\cdots =\lambda_p$ for some $r>0$
+(See~\cite{Cai2012Sparse}). Denote by $P_1$ the first $r$ column of $P$ and $P_2$ the last $p-r$ column of $P$. The aim of PCA is to estimate $P_1$.
+In this paper, we allow $\Sigma_X$ to be either spiked or non-spiked. Non-spike means that there's no principal component ($r=0$). That is, $\lambda_1=\cdots = \lambda_p$. Spike means that there's $r$ principal components for $r>0$. 
+%That is, $\lambda_1\geq \lambda_2\geq \cdots \lambda_r\geq \lambda_{r+1}=\cdots =\lambda_p$. Denote by $P_1$ the first $r$ column of $P$ and $P_2$ the last $p-r$ column of $P$.
+In either case, let $\lambda=\lambda_{r+1}=\cdots=\lambda_{p}$.
+
+If $\Sigma_X$ is indeed spiked,
 \begin{equation}
-    H_a: \textrm{Cov}(a^T X_i, y_i)=0
+    \begin{aligned}
+        y&=\beta_0 \textbf{1}_n+X^T P_1P_1^T\beta+X^T P_2 P_2^T\beta+\epsilon,
+    \end{aligned}
+\end{equation}
+where $X^T P_1$ and $X^T P_2$ are independent.
+PCR try to do regression between $y$ and $X^T P_1$. Since $P_1$ is not observed, it is substituted by an estimator $\tilde{P}_1$. 
+Traditionally, PCR is a technique for analyzing multiple regression data that suffers from multicollinearity. Recently, PCR is a practical method to deal with high dimensional regression. If $p<n$, the full multicollinearity phenomenon shows up even if predictors are independent. 
+It calls for a test procedure to justify the appropriateness of PCR.\ 
+To be precise, we consider testing the hypotheses
+\begin{equation}
+    H:\Sigma\textrm{ is non-spiked or }\Sigma\textrm{ is spiked and } P_1^T \beta =0 
+\end{equation}
+versus
+\begin{equation}
+    K: \Sigma \textrm{ is spiked and } P_1^T \beta \neq 0.
+\end{equation}
+
+If $P_1$ is observed, then the problem is reduced to testing an ordinary regression model. However, it's not the case. In fact, the classical $F$-test statistic for the regression between $y$  and  $X^T \tilde{P}_1$ may not be a good choice for at least three reasons:
+\begin{enumerate}
+    \item
+From equation
+\begin{equation}
+    \begin{aligned}
+        y&=\beta_0 \textbf{1}_n+X^T \tilde{P}_1\tilde{P}_1^T\beta+X^T (I_p -\tilde{P}_1 \tilde{P}_1^T)\beta+\epsilon,
+    \end{aligned}
+\end{equation}
+we can see that the $F$-test suffers from Endogeneity.
+\item
+The estimator of $P_1$ may not be consistent in high dimension. Moreover, $\Sigma_X$ may not be spiked and, as a result, there's no principal component.
+\item
+Even if there's additional information or data to estimate $P_1$, we will never know weather we estimate $P_1$ well enough such that the $F$-test is valid.% Moreover, the number of principal components $r$ should be chosen. If sparse PCA estimator is adopted, more parameters should be specified by user, which may be inappropriate for an testing procedure.
+\end{enumerate}
+
+
+
+\cite{Zhao2016A} proposed a generalized likelihood ratio test (GLRT) for testing high dimensional mean values.
+Roughly speaking, GLRT projects data to lower dimension by a direction $a$ such that likelihood ratio is maximized. GLRT is likelihood based, it can be regarded as a generalization of classical LRT in high dimension setting.
+
+In this paper we apply the GLRT method to the problem of testing the significance of PCR.
+\section{New Test}
+It can be seen that ${(X_1^T,y_1)}^T$,\ldots,${(X_n^T, y_n)}^T$ are i.i.d.\ from $N_{p+1}(\mu,\Sigma)$,
+where
+$\mu={(\mu_X^T,\beta_0)}^T$ and
+\begin{equation}
+    \Sigma=\begin{pmatrix}
+        \Sigma_X &  \Sigma_X \beta \\
+        \beta^T \Sigma_X & \beta^T \Sigma_X\beta+\sigma^2
+    \end{pmatrix}.
+\end{equation}
+%$X_i\in \mathbb{R}^p$ and $Y_i\in \mathbb{R}$. 
+%Denote $X=(X_1,\ldots,X_n)$, $Y={(Y_1,\ldots,Y_n)}^T$.
+% We assume $n<p$. 
+Denote $\Theta: (\mu,\Sigma)$.
+%Consider the hypothesis $H: \textrm{Cov}(X,y)=0$.
+Define the hypothesis $H_a$ by
+\begin{equation}\label{Ha}
+    H_a: \textrm{Cov}(a^T X_i, y_i)=0,
 \end{equation}
 where $a\in \mathbb{R}^p$ and $a^T a=1$.
-Then we have $H=\cap_a H_a$.
-
-Denote by
+%Then we have $H=\cap_a H_a$.
+Let
 \begin{equation}
     S=\frac{1}{n}\sum_{i=1}^n \begin{pmatrix}
         (X_i-\bar{X}){(X_i-\bar{X})}^T&(X_i-\bar{X}){(y_i-\bar{y})}^T\\
@@ -124,9 +189,7 @@ and
         0& 1
     \end{pmatrix}.
 \end{equation}
-
-
-Then the likelihood function is 
+     The likelihood function of $(a^T X_i,y_i)$, $i=1,\ldots,n$,  is 
 \begin{equation}
 L_a(\theta;X,Y)={(2\pi)}^{-n}|\Sigma_a|^{-n/2}\exp{(-\frac{1}{2}\textrm{tr}\Sigma_a^{-1}S_a)}.
 \end{equation}
@@ -137,26 +200,36 @@ Then the maximum likelihood is
     If $|S_a|=0$, then~\ref{like1} is interpreted as $+\infty$.
     Similarly, the maximum likelihood under $H_a$ is
 \begin{equation}
-    L(a)=\sup_{\theta\in H}L_1(\theta ;X,Y)={(2\pi)}^{-n} |a^T S_{XX}aS_{yy}|^{-n/2}e^{-n}.
+    L(a)=\sup_{\theta\in H}L_a(\theta ;X,Y)={(2\pi)}^{-n} |a^T S_{XX}aS_{yy}|^{-n/2}e^{-n}.
 \end{equation}
 
-    The goal of GLRT is to find $a$ such that $L(a)=+\infty$ and $L_{H}(a)<+\infty$ as small as possible to achieve the maximum discrepency of likelihood between null and alternative hypotheses. Equivalently, we find $a$ such that $a^T S_{XX} a$ is maximized subject to $|S_a|=0$.
-
-    Such an $a$ can be expected to make $|\Sigma_a|$ small and $a^T \Sigma_{XX} a$ large. That is to make the variance of $a^T X_i$ large and $a^T X_i$ and $y_i$ highly correlated. If $X_i$ has certain principal components which are correlated to $y_i$, the direction $a$ is expected to be close to such principal directions.
-
-
-    Let $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$. Denote by $Q_n=WW^T$ be the rank decomposition of $Q_n$, where $W_n$ is a $n\times n-1$ matrix with $W^T W=I_{n-1}$. 
-    Then $|S_a|=0$ is equivalent to $a^T X Q X^T a y^T Q y={(a^T X Q y)}^2$ and is equivelent to $W^T X^T a=W^T y k$ for some $k\in \mathbb{R}$. It can be seen that
-    \begin{equation}
-        a=XW{(W^T X^T X W)}^{-1} W^T y k + (I-XW{(W^T X^T X W)}^{-1}W^T X^T)a
+    In~\cite{Zhao2016A}, GLRT is defined as
+    \begin{equation} \label{GLRTdef}
+        \min_{L(a)=+\infty} L_H(a)\quad s.t.\quad a^T a=1.
     \end{equation}
-Note that 
+    The idea of GLRT is to find $a$ such that $L(a)=+\infty$ and $L_{H}(a)<+\infty$ as small as possible such that the discrepancy between the likelihood values $L(a)$ and $L_H (a)$ is maximized. We call the direction $a^*$ obtained  by~\eqref{GLRTdef} the GLRT direction.
+    
+    From the expression of $L(a)$ and $L_H(a)$,  $a^*$ is equal to% such that $a^T S_{XX} a$ is maximized subject to $|S_a|=0$.
+    \begin{equation} \label{GLRTvar}
+        a^*=\textrm{argmax}_{a^T a=1} a^T S_{XX} a \quad s.t.\quad |S_a|=0.
+    \end{equation}
+    Such a direction $a^*$ can be expected to make $|\Sigma_a|$ small and $a^T \Sigma_{XX} a$ large.
+    That is, the variance of $a^T X_i$ is large and $a^T X_i$ and $y_i$ are highly correlated.
+    If $X_i$ has certain principal components which are correlated to $y_i$, the direction $a^*$ is expected to be close to corresponding principal directions.
+
+
+    Next we solve the optimization problem~\eqref{GLRTvar}. Let $Q_n=I_n-\frac{1}{n}\textbf{1}_n\textbf{1}_n^T$. Denote by $Q_n=WW^T$ the rank decomposition of $Q_n$, where $W_n$ is an $n\times (n-1)$ matrix with $W^T W=I_{n-1}$. 
+    Then $|S_a|=0$ is equivalent to $a^T X Q X^T a y^T Q y={(a^T X Q y)}^2$ and is equivalent to $W^T X^T a=W^T y k$ for some $k\in \mathbb{R}$. It follows that
     \begin{equation}
-        L_H (a)\propto {(a^T X Q X^T a y^T Q y)}^{-n/2}={\big(k^2{(y^T Q_n y)}^2\big)}^{-n/2}.
+        a=XW{(W^T X^T X W)}^{-1} W^T y k + (I-XW{(W^T X^T X W)}^{-1}W^T X^T)a.
     \end{equation}
 Since $a^T a=1$,
     \begin{equation}\label{gougu}
         k^2 y^T W{(W^T X^T X W)}^{-1} W^T y + a^T(I-XW{(W^T X^T X W)}^{-1}W^T X^T)a=1.
+    \end{equation}
+Note that 
+    \begin{equation}
+        L_H (a)\propto {(a^T X Q X^T a y^T Q y)}^{-n/2}={\big(k^2{(y^T Q_n y)}^2\big)}^{-n/2}.
     \end{equation}
     To make $L_H(a)$ minimized, we should maximize $k^2$. So the second term of~\ref{gougu} should be $0$. That is
 
@@ -175,19 +248,16 @@ After homogenization, we define
 \[
     T=\frac{y^T Q_n y}{
         y^T W{(W^T X^T X W)}^{-1}W^T y
-    } 
+    }.
     \]
+If $T$ is large, we reject $H$.
+
+%\section{Main}
+
+%As we have pointed out, test statistic $T$ is expected to be large when $y_i$ is correlated to some principal components of $X_i$, and be small otherwise. Hence $T$ is suitable for testing the significance of PCR.\@
 
 
-    When $L_H(a)$ is small, we reject $H$.
-\section{Main}
 
-As we have pointed out, test statistic $T$ is expected to be large when $y_i$ is correlated to some principal components of $X_i$, and be small otherwise. Hence $T$ is suitable for testing the significance of PCR.\@
-
-
-Write $Y=\beta_0 \textbf{1}_n+X^T \beta+\epsilon$, where $\textbf{1}_n$ is $n$ dimensional vector with all elements equal to $1$. $\epsilon$ has distribution $N(0,\sigma^2 I_n)$.
-
-The problem is to test hypotheses $H: \beta=0$.
 
 %The test statistic is
 
@@ -209,71 +279,63 @@ The problem is to test hypotheses $H: \beta=0$.
 %\] 
 
 
-\[
-    T=\frac{y^T Q_n y}{
-        y^T W{(W^T X^T X W)}^{-1}W^T y
-    } 
-    \]
-or equivalently
-\[
-    \frac{y^T Q_n y}{
-        y^T Q_n{(X^T X)}^{-1}Q_n y-{(y^T Q_n{(X^T X)}^{-1}\textbf{1}_n)}^2/(\textbf{1}_n{(X^T X)}^{-1}\textbf{1}_n)
-    } 
-    \]
+%or equivalently
+%\[
+    %\frac{y^T Q_n y}{
+        %y^T Q_n{(X^T X)}^{-1}Q_n y-{(y^T Q_n{(X^T X)}^{-1}\textbf{1}_n)}^2/(\textbf{1}_n{(X^T X)}^{-1}\textbf{1}_n)
+    %} 
+    %\]
 
 
-Let $\tilde{y}=W^T y$, $\tilde{X}=XW$, $\tilde{\epsilon}=W^T \epsilon$. Then
-\[
-    \tilde{y}=\tilde{X}^T \beta + \tilde{\epsilon}
-    \]
-and
+
+\section{Main Results}
+
+
+Let $\tilde{y}=W^T y$, $\tilde{X}=XW$, $\tilde{\epsilon}=W^T \epsilon$. Then the columns of $\tilde{X}$ are i.i.d.\  distributed as $N(0,\Sigma_X)$, $\tilde{\epsilon}\sim N(0,\sigma^2 I_{n-1})$ and $\tilde{y}=\tilde{X}^T \beta + \tilde{\epsilon}$.
+The test statistic can be written as
 \[
     T=\frac{\tilde{y}^T \tilde{y}}{
         \tilde{y}^T{(\tilde{X}^T \tilde{X})}^{-1}\tilde{y}
-    }
+    }.
     \]
 
-\section{Asymptotic Results}
+The null hypotheses $H$ is the union of two disjoint hypothesis $H=\cup_{i=1}^2 H_i$, where $H_1$: There's no principal component and $H_2$:  There's $r$ principal components with $r>0$ and $P_1^T\beta=0$. We have the following theorem
 
-Denote by $\Sigma_X$ the covariance matrix of $X_i$ ($i=1,\ldots,n$). Let $\Sigma_X=P\Lambda P^T$ be the spectral decomposition of $\Sigma_X$, where $\Lambda=\textrm{diag}(\lambda_1,\ldots,\lambda_p)$ with $\lambda_1\geq \lambda_2\geq \cdots \geq \lambda_p$ and $P$ is a orthogonal matrix.
-
-$\Sigma_X$ may be spike or non-spike.
-
-Non-spike: there's no principal component ($r=0$). That is, $\lambda_1=\cdots = \lambda_p$.
-
-Spike: there's $r$ principal components. That is, $\lambda_1\geq \lambda_2\geq \cdots \lambda_r\geq \lambda_{r+1}=\cdots =\lambda_p$. Denote by $P_1$ the first $r$ column of $P$ and $P_2$ the last $p-r$ column of $P$.
-
+\begin{theorem}
+    Suppose $p/n \to  \infty$ and $H_1$ is true. Then
+    \begin{itemize}
+        \item
+            If $\|\beta\|^2\to 0$ or $\|\beta\|^2\to +\infty$, then
+            \begin{equation}
+                T/(\lambda p) \xrightarrow{P} 1.
+            \end{equation}
+\item
+If $\sqrt{p}\|\beta\|^2\to 0$ and $\frac{p}{n}\|\beta\|^2\to 0$, then
 \begin{equation}
     \begin{aligned}
-        Y&=\beta_0 \textbf{1}_n+X^T\beta+\epsilon\\
-        &=\beta_0 \textbf{1}_n+X^T P_1P_1^T\beta+X^T P_2 P_2^T\beta+\epsilon\\
+        \frac{T-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
+        }\xrightarrow{\mathcal{L}}N(0,1).
     \end{aligned}
 \end{equation}
-
-In either case, let $\lambda$ be $\lambda=\lambda_{r+1}=\cdots=\lambda_{p}$.
-
-PCR try to do regression between $Y$ and (estimated) $X^T P_1$. If $P_1$ is observed, then the problem is reduced to testing an ordinary regression model. However, it's not the case.
-
-Simply estimating $P_1$ and invoke classical testing procedure may not be a good idea since the estimation may not be consistent in high dimension. In fact, there may be even no principal component!
-
-In this paper, testing PCR means testing:
-
-$H_0$: There's no principal component or there's $r$ principal components but $P_1^T \beta =0$.
-
-$H_1$; There's $r$ principal components and $P_1^T \beta \neq 0$.
-
-Next we consider:
-
-1. There's no PC.\@
-
-2. There's $r$ principal components but $P_1\beta=0$.
-
-\begin{assumption}\label{normal}
-    $X$ and $\epsilon$ are normal distribution.
-\end{assumption}
-
-
+        \item
+If $\frac{n}{p}\|\beta\|^2\to \infty$ and $\frac{1}{\sqrt{p}}\|\beta\|^2\to \infty$, then
 \begin{equation}
+    \begin{aligned}
+        \frac{T
+    -\lambda p}{\lambda\sqrt{2p}
+        }\xrightarrow{\mathcal{L}}N(0,1).
+    \end{aligned}
+\end{equation}
+    \end{itemize}
+\end{theorem}
+
+
+
+\section{Appendix}
+
+For random variable $\xi$ and $\eta$, we write $\xi\sim \eta$ when $\xi$ and $\eta$ have the same distribution. For two sequences of positive random variables $\xi_n$ and $\eta_n$, we write $\xi_n\asymp \eta_n$ if $\Pr(c\eta_n\leq\xi_n\leq C\eta_n)\to 1$ for some positive $c$ and $C$.
+
+\begin{equation}\label{Tdecom}
     \begin{aligned}
         T&=\frac{\beta^T \tilde{X}\tilde{X}^T \beta+
         2\beta^T \tilde{X}\tilde{\epsilon}+
@@ -282,12 +344,24 @@ Next we consider:
         2\beta^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}+
         \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
     }\\
-        &=\frac{A_1+A_2+A_3}{B_1+B_2+B_3}
+        &=\frac{A_1+A_2+A_3}{B_1+B_2+B_3}.
     \end{aligned}
 \end{equation}
-
-
 \subsection{Lemma}
+
+\begin{lemma}\label{matrixInv}
+    Suppose $A$ is an $n\times n$ full rank symmetric matrix. And let 
+    \begin{equation}
+        A=\begin{pmatrix}
+            A_{11} & A_{12}\\
+            A_{21} & A_{22}
+        \end{pmatrix},
+    \end{equation}
+    where $A_{11}$ is a real number, $A_{12}$ is a $1\times (n-1)$ matrix, $A_{21}$ is a $(n-1)\times 1$ matrix and $A_{22}$ is a $(n-1)\times (n-1)$ matrix. Denote $A_{11\cdot 2}=A_{11}-A_{12}A_{22}^{-1}A_{21}$. Then we have
+    \begin{equation}
+        {(A^{-1})}_{11}=A_{11\cdot 2}^{-1}
+    \end{equation}
+\end{lemma}
 
 \begin{lemma}\label{baiyin}
     Suppose $B=\frac{1}{q}V V^T$ where V is an $p\times q$ random matrix composed of i.i.d.\  random variables with zero mean, unit variance and finite fourth moment. As $q\to \infty$ and $p/q \to c\in [0,+\infty)$, the largest and smallest nonzero eigenvalues of $B$ converge almost surely to ${(1+\sqrt{c})}^2$ and ${(1-\sqrt{c})}^2$, respectively.
@@ -306,13 +380,35 @@ Lemma~\ref{baiyin} is known as the Bai-Yin's law~\cite{Bai1993Limit}.
 \end{lemma}
 Lemma~\ref{wangPCA} is from Wang Rui's paper.
 
-Wang Rui's PCA lemma
+\begin{lemma}\label{uniformLemma}
+    Suppose $F_n(\cdot)$ and $F(\cdot)$ are distribution functions and $F_n\xrightarrow{L}F$, then
+    \begin{equation}
+        \sup_x |F_n(x)-F(x)|\to 0.
+    \end{equation}
+    See Exercise 3.2.9 of~\cite{durrett2010probability}.
+\end{lemma}
+\begin{lemma}\label{svdLemma}
+    Suppose $Z$ is an $p\times n$ ($p\geq n$) random matrix with all elements i.i.d.\ distributed as $N(0,1)$. Denote by $Z=U\Lambda V^T$ the singular value decomposition (SVD) of $Z$, where $U$ is a $p\times n$ orthogonal matrix, $\Lambda$ is an $n\times n$ diagonal matrix and $V$ is an $n\times n$ orthogonal matrix. Then $U$, $\Lambda$ and $V$ are independent. (See, e.g.,~\cite{Eaton1983Multivariate})
+\end{lemma}
 
-If limit distribution is continuous, then the convergence is uniform.
+\begin{lemma}\label{wangInverse}
+    Let $A$ be an $n\times n$ symmetric positive semi-definite matrix with rank $r$. Denote by $A=P\Lambda P^T$ the spectral decomposition of $A$, where $P$ is an $n\times r$ orthogonal matrix and $\Lambda=\textrm{diag}(\lambda_1,\ldots,\lambda_r)$ is an $r\times r$ diagonal matrix with $\lambda_1\geq \lambda_2\geq\cdots \lambda_r >0$. Then we have
 
-The SVD of standard normal matrix.
-
-Wang Rui's matrix inverse subspace lemma.
+\begin{equation}
+    {(A+I_{n})}^{-1}\geq I_n- P P^T
+\end{equation}
+\end{lemma}
+\begin{proof}
+    Let $\tilde{P}$ be an $n\times n$ orthogonal matrix such that $P$ is the first $r$ columns of $\tilde{P}$. And let $\tilde{\Lambda}=\textrm{diag}(\lambda_1,\ldots,\lambda_r,0,\ldots,0)$ be an $n\times n$ matrix. Then $P\Lambda P^T=\tilde{P}\tilde{\Lambda} \tilde{P}^T$, and
+    \begin{equation}
+        \begin{aligned}
+            {(A+I_{n})}^{-1}&=\tilde{P} {(\tilde{\Lambda} + I_n)}^{-1} \tilde{P}^T\\
+            &=\tilde{P}\textrm{diag}({(\lambda_1+1)}^{-1},\ldots,{(\lambda_r+1)}^{-1},1,\ldots,1)  \tilde{P}^T\\
+            &\geq\tilde{P}\textrm{diag}(0,\ldots,0,1,\ldots,1)  \tilde{P}^T\\
+            &=I_n-PP^T
+        \end{aligned}
+    \end{equation}
+\end{proof}
 
 \subsection{circumstance 1}
 \begin{assumption}
@@ -322,7 +418,7 @@ Wang Rui's matrix inverse subspace lemma.
     $n^2/p\to 0$.
 \end{assumption}
 
-\subsubsection{Step 1}
+\subsubsection{First randomization of $\beta$}
 Independent of data, generate a random $p$ dimensional orthonormal matrix $O$ with Haar invariant distribution. And 
 
 \begin{equation}
@@ -335,9 +431,9 @@ Independent of data, generate a random $p$ dimensional orthonormal matrix $O$ wi
     }
 \end{equation}
 
-Note that conditioning on $O$, $O\tilde{X}$ is a random matrix with each entry independently distributed as $N(0,\lambda)$. Hence $O$ is independent of $O\tilde{X}$. Observe also that $O\beta/\|\beta\|$ is uniformly distributed on the unit ball.  We can without loss of generality assuming that $\beta/\|\beta\|$ is uniformly distributed on the unit ball.
+Note that conditioning on $O$, $O\tilde{X}$ is a random matrix with each entry independently distributed as $N(0,\lambda)$. Hence $O$ is independent of $O\tilde{X}$. Observe also that $O\beta/\|\beta\|$ is uniformly distributed on the unit ball.  We can without loss of generality and assume that $\beta/\|\beta\|$ is uniformly distributed on the unit ball in~\eqref{Tdecom}.
 
-\subsubsection{Step 2}
+\subsubsection{Second randomization of $\beta$}
 Independent of data, generate $R>0$ with $R^2$ distributed as $\chi^2_{p}$. Then $\xi=R\beta/\|\beta\|$ distributed as $N_p(0,I_p)$.
 Note that conditioning on $\tilde{X}$, $\eta={(\tilde{X}^T\tilde{X})}^{-1/2}\tilde{X}^T \xi$ is distributed as $N_{n-1}(0,I_{n-1})$. Hence $\eta$ is independent of $\tilde{X}$.
 
@@ -391,10 +487,10 @@ Then
     \begin{aligned}
         \frac{A_3}{B_3}=\frac{{(O\tilde{\epsilon})}^T O\tilde{\epsilon}
         }{{(O\tilde{\epsilon})}^T{\big({(\tilde{X}O^T)}^T\tilde{X}O^T\big)}^{-1} O\tilde{\epsilon}
-        }
+        }.
     \end{aligned}
 \end{equation}
-Note that $\tilde{X}O^T$ has the same distribution as $\tilde{X}$ and is independent of $O$. We have
+It can be seen that $\tilde{X}O^T$ has the same distribution as $\tilde{X}$ and is independent of $O$. We have
 
 \begin{equation}
     \begin{aligned}
@@ -402,59 +498,59 @@ Note that $\tilde{X}O^T$ has the same distribution as $\tilde{X}$ and is indepen
         \frac{1}{{({(\tilde{X}^T\tilde{X})}^{-1})}_{11}}.
     \end{aligned}
 \end{equation}
-where ${({(\tilde{X}^T\tilde{X})}^{-1})}_{11}$ is the first element of ${(\tilde{X}^T\tilde{X})}^{-1}$. Apply the matrix inverse formula, we have 
+%where ${({(\tilde{X}^T\tilde{X})}^{-1})}_{11}$ is the first element of ${(\tilde{X}^T\tilde{X})}^{-1}$.
+Apply lemma~\ref{matrixInv}, we have 
 \begin{equation}
     \begin{aligned}
         \frac{A_3}{B_3}\sim 
         {(\tilde{X}^T\tilde{X})}_{11\cdot 2}.
     \end{aligned}
 \end{equation}
-Since $\tilde{X}^T \tilde{X}\sim \textrm{Wishart}_{n-1}(\lambda I_{n-1},p)$, ${(\tilde{X}^T\tilde{X})}_{11\cdot 2}\sim \lambda \chi^2_{p-n+2}$.
-Hence by CLT,
+Since $\tilde{X}^T \tilde{X}\sim \textrm{Wishart}_{n-1}(\lambda I_{n-1},p)$, ${(\tilde{X}^T\tilde{X})}_{11\cdot 2}\sim \lambda \chi^2_{p-n+2}$. Hence $A_3/B_3\asymp p$ and
 \begin{equation}
     \begin{aligned}
         \frac{A_3/B_3-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
-        }\xrightarrow{\mathcal{L}}N(0,1).
+        }\xrightarrow{\mathcal{L}}N(0,1),
     \end{aligned}
 \end{equation}
-But
-\begin{equation}
-    \begin{aligned}
-        \frac{A_3/B_3-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
-        }&=
-        \frac{\sqrt{p}}{\sqrt{p-n+2}}
-        \frac{A_3/B_3-{\lambda(p-n+2)}}{\lambda\sqrt{2p}
-        }\\
-        &=
-        \frac{\sqrt{p}}{\sqrt{p-n+2}}
-        \Big(\frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
-        }+\frac{(n-2)}{\sqrt{2p}}\Big).
-    \end{aligned}
-\end{equation}
-By Slutsky Theorem, if $n^2/p\to 0$, we have
-\begin{equation}
-    \frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
-        }\xrightarrow{\mathcal{L}}N(0,1)
-\end{equation}
-Similar technique can deal with $A_1/B_1$.
+by CLT.
+%But
+%\begin{equation}
+    %\begin{aligned}
+        %\frac{A_3/B_3-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
+        %}&=
+        %\frac{\sqrt{p}}{\sqrt{p-n+2}}
+        %\frac{A_3/B_3-{\lambda(p-n+2)}}{\lambda\sqrt{2p}
+        %}\\
+        %&=
+        %\frac{\sqrt{p}}{\sqrt{p-n+2}}
+        %\Big(\frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
+        %}+\frac{(n-2)}{\sqrt{2p}}\Big).
+    %\end{aligned}
+%\end{equation}
+%By Slutsky Theorem, if $n^2/p\to 0$, we have
+%\begin{equation}
+    %\frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
+        %}\xrightarrow{\mathcal{L}}N(0,1)
+%\end{equation}
 
+Similar technique can deal with $A_1/B_1$:
 \begin{equation}
     \begin{aligned}
         \frac{A_1}{B_1}=\frac{\eta^T \tilde{X}^T\tilde{X} \eta    
         }{\eta^T\eta}&\sim {(\tilde{X}^T\tilde{X})}_{11}\sim \lambda \chi^2_{p}
 \\
-    \end{aligned}
+    \end{aligned}.
 \end{equation}
-
-Hence by CLT,
+Hence $A_1/B_1\asymp p$ and 
 \begin{equation}
     \begin{aligned}
         \frac{A_1/B_1
     -\lambda p}{\lambda\sqrt{2p}
-        }\xrightarrow{\mathcal{L}}N(0,1).
+        }\xrightarrow{\mathcal{L}}N(0,1),
     \end{aligned}
 \end{equation}
-
+by CLT.
 \subsubsection{step 4}
 It's obvious that $A_3\asymp n$ and $B_1\asymp \frac{n}{p}\|\beta\|^2$. We already have $A_1/B_1\asymp p$ and $A_3/B_3\asymp p$. It follows that $A_1\asymp n\|\beta\|^2$ and $B_3\asymp n/p$. And
 
@@ -480,32 +576,27 @@ It's obvious that $A_3\asymp n$ and $B_1\asymp \frac{n}{p}\|\beta\|^2$. We alrea
 
 We can deduce that:
 If $\|\beta\|^2\to 0$, then
-
 \begin{equation}
     \begin{aligned}
         T&=
         \frac{\tilde{\epsilon}^T\tilde{\epsilon}
     }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-        }(1+o_P(1)).
+        }(1+o_P(1)),
     \end{aligned}
 \end{equation}
-Hence $T/(\lambda p)\to 1$.
+and $T/(\lambda p)\xrightarrow{P} 1$.
 If $\|\beta\|^2\to \infty$, then
-
 \begin{equation}
     \begin{aligned}
         T&=
         \frac{\eta^T \tilde{X}^T\tilde{X} \eta    
-        }{\eta^T\eta}(1+o_P(1)).
+        }{\eta^T\eta}(1+o_P(1)),
     \end{aligned}
 \end{equation}
-Hence $T/(\lambda p)\to 1$.
+and $T/(\lambda p)\xrightarrow{P} 1$.
 
 
 \subsubsection{Step 5}
-
-
-
 
 If $\|\beta\|^2\to 0$, we have
 \begin{equation}
