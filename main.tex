@@ -85,12 +85,14 @@ This template helps you to create a properly formatted \LaTeX\ manuscript.
 %\linenumbers
 
 \section{Introduction}
-Suppose $X_1,\ldots,X_n$ are i.i.d.\ from $N_{p}(\mu_X,\Sigma_X)$,
-where $X_i\in \mathbb{R}^p$. 
-We denote $X=(X_1,\ldots,X_n)$.
-In this paper, we assume $n<p$.
-
-Consider a linear regression model $y=\beta_0 \textbf{1}_n+X^T \beta+\epsilon$, where $\textbf{1}_n$ is $n$ dimensional vector with all elements equal to $1$ and $\epsilon$ has distribution $N(0,\sigma^2 I_n)$.
+Suppose $X_1,\ldots,X_n$ are i.i.d.\ from $p$-dimensional normal distribution $N_{p}(\mu_X,\Sigma_X)$. 
+Denote $X=(X_1,\ldots,X_n)$.
+In this paper, it is assumed that $n<p$, that is, high dimension setting is considered.
+Consider a linear regression model 
+\begin{equation}\label{regModel}
+    y=\beta_0 \textbf{1}_n+X^T \beta+\epsilon,
+\end{equation}
+     where $\textbf{1}_n$ is $n$ dimensional vector with all elements equal to $1$ and $\epsilon$ has distribution $N(0,\sigma^2 I_n)$.
 
 
 %Denote by $\Sigma_X$ the covariance matrix of $X_i$ ($i=1,\ldots,n$).
@@ -113,11 +115,11 @@ Traditionally, PCR is a technique for analyzing multiple regression data that su
 It calls for a test procedure to justify the appropriateness of PCR.\ 
 To be precise, we consider testing the hypotheses
 \begin{equation}
-    H:\Sigma\textrm{ is non-spiked or }\Sigma\textrm{ is spiked and } P_1^T \beta =0 
+    H:\Sigma\,\,\textrm{is non-spiked or}\,\,\Sigma\,\,\textrm{is spiked and}\,\, P_1^T \beta =0 
 \end{equation}
 versus
 \begin{equation}
-    K: \Sigma \textrm{ is spiked and } P_1^T \beta \neq 0.
+    K: \Sigma\,\,\textrm{is spiked and}\,\, P_1^T \beta \neq 0.
 \end{equation}
 
 If $P_1$ is observed, then the problem is reduced to testing an ordinary regression model. However, it's not the case. In fact, the classical $F$-test statistic for the regression between $y$  and  $X^T \tilde{P}_1$ may not be a good choice for at least three reasons:
@@ -141,7 +143,7 @@ Even if there's additional information or data to estimate $P_1$, we will never 
 \cite{Zhao2016A} proposed a generalized likelihood ratio test (GLRT) for testing high dimensional mean values.
 Roughly speaking, GLRT projects data to lower dimension by a direction $a$ such that likelihood ratio is maximized. GLRT is likelihood based, it can be regarded as a generalization of classical LRT in high dimension setting.
 
-In this paper we apply the GLRT method to the problem of testing the significance of PCR.
+In this paper we apply the GLRT method to the problem of testing the significance of PCR.\
 \section{New Test}
 It can be seen that ${(X_1^T,y_1)}^T$,\ldots,${(X_n^T, y_n)}^T$ are i.i.d.\ from $N_{p+1}(\mu,\Sigma)$,
 where
@@ -298,39 +300,52 @@ The test statistic can be written as
         \tilde{y}^T{(\tilde{X}^T \tilde{X})}^{-1}\tilde{y}
     }.
     \]
+We make the following assumption.
+\begin{assumption}\label{assumptiona}
+    Assume model~\eqref{regModel} holds with the columns of $X$ are i.i.d.\  distributed as $N(\mu_X,\Sigma_X)$, $\epsilon\sim N(0,\sigma^2 I_n)$ and $\sigma^2$ is fixed as $n,p\to \infty$.
+\end{assumption}
+\begin{assumption}\label{assumptionb}
+    Assume the eigenvalues of $\Sigma_X$ satisfy $\lambda_1\geq \lambda_2\geq \cdots \geq\lambda_r> \lambda_{r+1}=\cdots =\lambda_p=\lambda$, where $r\geq 0$ and $\lambda>0$ are fixed as $n,p\to \infty$, $\lambda_1\asymp \lambda_r$ and $p^{1/2}/\lambda_r \to 0$. We say there's no principal component if $r=0$, that is $\lambda_1=\cdots=\lambda_p$.
+\end{assumption}
 
-The null hypotheses $H$ is the union of two disjoint hypothesis $H=\cup_{i=1}^2 H_i$, where $H_1$: There's no principal component and $H_2$:  There's $r$ principal components with $r>0$ and $P_1^T\beta=0$. We have the following theorem
+The null hypotheses $H$ is the union of two disjoint hypothesis $H=\cup_{i=1}^2 H_i$, where $H_1$: There's no principal component; and $H_2$:  There's $r$ principal components with $r>0$ and $P_1^T\beta=0$. Under $H_1$ we have the following theorem
 
-\begin{theorem}
-    Suppose $p/n \to  \infty$ and $H_1$ is true. Then
-    \begin{itemize}
-        \item
-            If $\|\beta\|^2\to 0$ or $\|\beta\|^2\to +\infty$, then
+\begin{theorem}\label{theorema}
+    Suppose Assumption~\ref{assumptiona} and~\ref{assumptionb} hold.
+    Assume $p/n \to  \infty$ and $H_1$ is true. Then
             \begin{equation}
                 T/(\lambda p) \xrightarrow{P} 1.
             \end{equation}
-\item
-If $\sqrt{p}\|\beta\|^2\to 0$ and $\frac{p}{n}\|\beta\|^2\to 0$, then
+    If $\|\beta\|=o(\frac{\sqrt{n}}{\sqrt{p}})$ or $\|\beta\|^{-1}=o(\frac{\sqrt{n}}{\sqrt{p}})$, then for $\alpha\in (0,1)$ we have
 \begin{equation}
     \begin{aligned}
-        \frac{T-\lambda (p-n+2)}{\lambda\sqrt{2(p-n+2)}
-        }\xrightarrow{\mathcal{L}}N(0,1).
+    \Pr\Big(\frac{T-\lambda p}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha)\Big)\leq \alpha.
     \end{aligned}
 \end{equation}
-        \item
-If $\frac{n}{p}\|\beta\|^2\to \infty$ and $\frac{1}{\sqrt{p}}\|\beta\|^2\to \infty$, then
+\end{theorem}
+
+Under $H_2$ we have a similar theorem with one more condition $p=o(n^2)$.
+\begin{theorem}\label{theoremb}
+    Suppose Assumption~\ref{assumptiona} and~\ref{assumptionb} hold.
+    Assume $p/n \to  \infty$, $p/n^2 \to 0$ and $H_2$ is true. Then
+            \begin{equation}
+                T/(\lambda p) \xrightarrow{P} 1.
+            \end{equation}
+    If $\|P_2^T\beta\|=o(\frac{\sqrt{n}}{\sqrt{p}})$ or $\|P_2^T\beta\|^{-1}=o(\frac{\sqrt{n}}{\sqrt{p}})$, then for $\alpha\in (0,1)$ we have
 \begin{equation}
     \begin{aligned}
-        \frac{T
-    -\lambda p}{\lambda\sqrt{2p}
-        }\xrightarrow{\mathcal{L}}N(0,1).
+    \Pr\Big(\frac{T-\lambda p}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha)\Big)\leq \alpha.
     \end{aligned}
 \end{equation}
-    \end{itemize}
 \end{theorem}
 
 
+Under $K$, to simplify the proof, we assume $\beta$ is generated from a normal prior distribution before data are generated. We have the following theorem:
+\begin{theorem}\label{theoremc}
+   Suppose Assumption~\ref{assumptiona} and~\ref{assumptionb} hold.
+    Assume $p/n \to  \infty$ and $K$ is true. Assume $\beta$ has prior distribution $N(0,\sigma_\beta^2 I_p)$. Then
 
+\end{theorem}
 \section{Appendix}
 
 For random variable $\xi$ and $\eta$, we write $\xi\sim \eta$ when $\xi$ and $\eta$ have the same distribution. For two sequences of positive random variables $\xi_n$ and $\eta_n$, we write $\xi_n\asymp \eta_n$ if $\Pr(c\eta_n\leq\xi_n\leq C\eta_n)\to 1$ for some positive $c$ and $C$.
@@ -364,7 +379,8 @@ For random variable $\xi$ and $\eta$, we write $\xi\sim \eta$ when $\xi$ and $\e
 \end{lemma}
 
 \begin{lemma}\label{baiyin}
-    Suppose $B=\frac{1}{q}V V^T$ where V is an $p\times q$ random matrix composed of i.i.d.\  random variables with zero mean, unit variance and finite fourth moment. As $q\to \infty$ and $p/q \to c\in [0,+\infty)$, the largest and smallest nonzero eigenvalues of $B$ converge almost surely to ${(1+\sqrt{c})}^2$ and ${(1-\sqrt{c})}^2$, respectively.
+    Suppose $B=\frac{1}{q}V V^T$ where V is an $p\times q$ random matrix composed of i.i.d.\  random variables with zero mean, unit variance and finite fourth moment.
+    As $q\to \infty$ and $p/q \to c\in [0,+\infty)$, the largest and smallest nonzero eigenvalues of $B$ converge almost surely to ${(1+\sqrt{c})}^2$ and ${(1-\sqrt{c})}^2$, respectively.
 \end{lemma}
 Lemma~\ref{baiyin} is known as the Bai-Yin's law~\cite{Bai1993Limit}.
 
@@ -431,7 +447,7 @@ Independent of data, generate a random $p$ dimensional orthonormal matrix $O$ wi
     }
 \end{equation}
 
-Note that conditioning on $O$, $O\tilde{X}$ is a random matrix with each entry independently distributed as $N(0,\lambda)$. Hence $O$ is independent of $O\tilde{X}$. Observe also that $O\beta/\|\beta\|$ is uniformly distributed on the unit ball.  We can without loss of generality and assume that $\beta/\|\beta\|$ is uniformly distributed on the unit ball in~\eqref{Tdecom}.
+Note that conditioning on $O$, $O\tilde{X}$ is a random matrix with each entry independently distributed as $N(0,\lambda)$. Hence $O$ is independent of $O\tilde{X}$. Observe also that $O\beta/\|\beta\|$ is uniformly distributed on the unit ball.  We can without loss of generality and assume that $\beta/\|\beta\|$ is uniformly distributed on the surface unit ball in~\eqref{Tdecom}.
 
 \subsubsection{Second randomization of $\beta$}
 Independent of data, generate $R>0$ with $R^2$ distributed as $\chi^2_{p}$. Then $\xi=R\beta/\|\beta\|$ distributed as $N_p(0,I_p)$.
@@ -499,7 +515,7 @@ It can be seen that $\tilde{X}O^T$ has the same distribution as $\tilde{X}$ and 
     \end{aligned}
 \end{equation}
 %where ${({(\tilde{X}^T\tilde{X})}^{-1})}_{11}$ is the first element of ${(\tilde{X}^T\tilde{X})}^{-1}$.
-Apply lemma~\ref{matrixInv}, we have 
+Apply Lemma~\ref{matrixInv}, we have 
 \begin{equation}
     \begin{aligned}
         \frac{A_3}{B_3}\sim 
@@ -513,7 +529,7 @@ Since $\tilde{X}^T \tilde{X}\sim \textrm{Wishart}_{n-1}(\lambda I_{n-1},p)$, ${(
         }\xrightarrow{\mathcal{L}}N(0,1),
     \end{aligned}
 \end{equation}
-by CLT.
+by CLT.\
 %But
 %\begin{equation}
     %\begin{aligned}
@@ -550,7 +566,7 @@ Hence $A_1/B_1\asymp p$ and
         }\xrightarrow{\mathcal{L}}N(0,1),
     \end{aligned}
 \end{equation}
-by CLT.
+by CLT.\@
 \subsubsection{step 4}
 It's obvious that $A_3\asymp n$ and $B_1\asymp \frac{n}{p}\|\beta\|^2$. We already have $A_1/B_1\asymp p$ and $A_3/B_3\asymp p$. It follows that $A_1\asymp n\|\beta\|^2$ and $B_3\asymp n/p$. And
 
@@ -572,85 +588,171 @@ It's obvious that $A_3\asymp n$ and $B_1\asymp \frac{n}{p}\|\beta\|^2$. We alrea
     \end{aligned}
 \end{equation}
 
-
-
-We can deduce that:
-If $\|\beta\|^2\to 0$, then
+Note that 
 \begin{equation}
+A_2=O_P(\frac{1}{\sqrt{n}})n\|\beta\|=O_P(\frac{1}{\sqrt{n}})\sqrt{A_1}\sqrt{A_3}
+        \leq O_P(\frac{1}{\sqrt{n}})(A_1+A_3)
+\end{equation}
+Similarly we have $B_2=O_P(\frac{1}{\sqrt{n}})(B_1+B_3)$. It follows that
+\begin{equation}\label{TAB}
+    T=\frac{A_1+A_3}{B_1+B_3}(1+O_P(\frac{1}{\sqrt{n}})).
+\end{equation}
+
+For every $\epsilon>0$, we have
+\begin{equation}\label{myA1A3B1B3}
     \begin{aligned}
-        T&=
-        \frac{\tilde{\epsilon}^T\tilde{\epsilon}
-    }{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
-        }(1+o_P(1)),
+        &\Pr\Big(\frac{A_1+A_3}{B_1+B_3}\geq (\lambda p)(1+\epsilon)\Big)\\
+        =&\Pr({A_1+A_3}\geq ({B_1+B_3})(\lambda p)(1+\epsilon))\\
+        \leq&\Pr(A_1\geq B_1(\lambda p)(1+\epsilon))+
+        \Pr(A_3\geq B_3(\lambda p)(1+\epsilon)).
     \end{aligned}
 \end{equation}
-and $T/(\lambda p)\xrightarrow{P} 1$.
-If $\|\beta\|^2\to \infty$, then
+But
 \begin{equation}
-    \begin{aligned}
-        T&=
-        \frac{\eta^T \tilde{X}^T\tilde{X} \eta    
-        }{\eta^T\eta}(1+o_P(1)),
-    \end{aligned}
+    \frac{A_1}{\lambda p B_1}\xrightarrow{P}1\quad \textrm{and}\quad 
+    \frac{A_3}{\lambda p B_3}\xrightarrow{P}1.
 \end{equation}
-and $T/(\lambda p)\xrightarrow{P} 1$.
+It follows that~\eqref{myA1A3B1B3} tends to $0$. Similarly,
+\begin{equation}
+        \Pr\Big(\frac{A_1+A_3}{B_1+B_3}\leq (\lambda p)(1-\epsilon)\Big)\to 0.
+\end{equation}
+We have proved
+\begin{equation}\label{largeNumberAB}
+    \frac{A_1+A_3}{\lambda p(B_1+B_3)}\xrightarrow{P} 1.
+\end{equation}
+Together with~\eqref{TAB}, it follows that $T\xrightarrow{P} 1$.
+
+%We can deduce that:
+%If $\|\beta\|^2\to 0$, then
+%\begin{equation}
+    %\begin{aligned}
+        %T&=
+        %\frac{\tilde{\epsilon}^T\tilde{\epsilon}
+    %}{\tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
+        %}(1+o_P(1)),
+    %\end{aligned}
+%\end{equation}
+%and $T/(\lambda p)\xrightarrow{P} 1$.
+%If $\|\beta\|^2\to \infty$, then
+%\begin{equation}
+    %\begin{aligned}
+        %T&=
+        %\frac{\eta^T \tilde{X}^T\tilde{X} \eta    
+        %}{\eta^T\eta}(1+o_P(1)),
+    %\end{aligned}
+%\end{equation}
+%and $T/(\lambda p)\xrightarrow{P} 1$.
 
 
 \subsubsection{Step 5}
 
-If $\|\beta\|^2\to 0$, we have
-\begin{equation}
-    \begin{aligned}
-        &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
-        }-
-    \frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
-        }\Big|\\
-        &=
-        \frac{1}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_3}{B_3}
-        \Big|\\
-        &=
-        \frac{1}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{(A_1+A_2)B_3-(B_1+B_2)A_3}{(B_1+B_2+B_3)B_3}
-        \Big|\\
-        &=
-        \frac{O_{P}(1)}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{(O_P(n\|\beta\|^2)+O_P(\sqrt{n}\|\beta\|))O_P(\frac{n}{p})-(O_P(\frac{n}{p}\|\beta\|^2)+O_P(\frac{\sqrt{n}}{p}\|\beta\|))O_P(n)}{n^2/p^2}
-        \Big|\\
-        &=O_P(\sqrt{p}\|\beta\|^2)+O_P(\frac{\sqrt{p}}{\sqrt{n}}\|\beta\|)
-    \end{aligned}
-\end{equation}
-Hence if $\sqrt{p}\|\beta\|^2\to 0$ and $\frac{p}{n}\|\beta\|^2\to 0$, CLT holds.
+By Cauchy inequility,
+    $\tilde{\epsilon}^T {(\tilde{X}^T\tilde{X})}^{-1} \tilde{\epsilon}
+    \tilde{\epsilon}^T \tilde{X}^T\tilde{X} \tilde{\epsilon}\geq {(\tilde{\epsilon}^T \tilde{\epsilon})}^2$.
+    Denote $B_4=\tilde{\epsilon}^T \tilde{X}^T\tilde{X} \tilde{\epsilon}$. Using similar technique as before, we have $B_4\asymp np $ and $(B_4/A_3-\lambda p)/(\lambda \sqrt{2p})\xrightarrow{\mathcal{L}}N(0,1)$.
+    Together with~\eqref{TAB} and~\eqref{largeNumberAB}, we have
+    \begin{equation}\label{ChangT}
+        \begin{aligned}
+            T&=\frac{A_1+A_3}{B_1+B_3}\frac{1+\frac{A_2}{A_1+A_3}}{1+\frac{B_2}{B_1+B_3}}\\
+            &=\frac{A_1+A_3}{B_1+B_3}{(1+\frac{A_2}{A_1+A_3})}{(1-\frac{B_2}{B_1+B_3}(1+o_P(1)))}\\
+            &=\frac{A_1+A_3}{B_1+B_3}{(1+(\frac{|A_2|}{A_1+A_3}+\frac{|B_2|}{B_1+B_3})(1+o_P(1)))}\\
+            %&=\frac{A_1+A_3}{B_1+B_3}+\lambda p(\frac{|A_2|}{A_1+A_3}+\frac{|B_2|}{B_1+B_3})(1+o_P(1))\\
+            &=\frac{A_1+A_3}{B_1+B_3}+O_P(p)(\frac{|A_2|}{A_1+A_3}+\frac{|B_2|}{B_1+B_3})\\
+            &=\frac{A_1+A_3}{B_1+B_3}+O_P(p)(\frac{\sqrt{n}\|\beta\|}{n\|\beta\|^2+n}+\frac{\frac{\sqrt{n}}{p}\|\beta\|}{\frac{n}{p}\|\beta\|^2+\frac{n}{p}})\\
+            &=\frac{A_1+A_3}{B_1+B_3}+O_P(\frac{p\sqrt{n}\|\beta\|}{n\|\beta\|^2+n})\\
+            &\leq\frac{A_1+A_3}{B_1+A_3^2/B_4}+O_P(\frac{p\sqrt{n}\|\beta\|}{n\|\beta\|^2+n}).\\
+        \end{aligned}
+    \end{equation}
+We deal with the two terms seperately.
 
-On the other hand. If $\|\beta\|^2\to \infty$, we have
+
 \begin{equation}
     \begin{aligned}
-        &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
-        }-
-    \frac{{A_1}/{B_1}-{\lambda p}}{\lambda\sqrt{2p}
-        }\Big|\\
-        &=
-        \frac{1}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_1}{B_1}
-        \Big|\\
-        &=
-        \frac{1}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{(A_2+A_3)B_1-(B_2+B_3)A_1}{(B_1+B_2+B_3)B_1}
-        \Big|\\
-        &=
-        \frac{O_{P}(1)}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{(O_P(\sqrt{n}\|\beta\|)+O_P(n))O_P(\frac{n}{p}\|\beta\|^2)-(O_P(\frac{\sqrt{n}}{p}\|\beta\|)+O_P(\frac{n}{p}))O_P(n\|\beta\|^2)}{\frac{n^2}{p^2}\|\beta\|^4}
-        \Big|\\
-        &=O_P(\frac{\sqrt{p}}{\sqrt{n}}\|\beta\|^{-1})+O_P(\sqrt{p}\|\beta\|^{-2})
+        &\frac{\frac{A_1+A_3}{B_1+A_3^2/B_4}-{\lambda p}}{\lambda\sqrt{2p}}=&c\frac{{A_1}/{B_1}-\lambda p}{\lambda \sqrt{2p}}
+        +(1-c)\frac{{B_4}/{A_3}-\lambda p}{\lambda \sqrt{2p}},
     \end{aligned}
 \end{equation}
-Hence if $\frac{n}{p}\|\beta\|^2\to \infty$ and $\frac{1}{\sqrt{p}}\|\beta\|^2\to \infty$, CLT holds.
+where 
+\begin{equation}
+    c=\frac{B_1}{B_1+A_3^2/B_4}\asymp \frac{\frac{n}{p}\|\beta\|^2}{\frac{n}{p}\|\beta\|^2+\frac{n}{p}}
+    =\frac{\|\beta\|^2}{\|\beta\|^2+1}.
+\end{equation}
+Hence by Slutsky's theorem, we have
+\begin{equation}
+    \begin{aligned}
+        &\frac{\frac{A_1+A_3}{B_1+A_3^2/B_4}-{\lambda p}}{\lambda\sqrt{2p}}\xrightarrow{\mathcal{L}} N(0,1),
+    \end{aligned}
+\end{equation}
+if $\|\beta\|\to 0$ or $\|\beta\|\to \infty$.
+
+To control the second term of~\eqref{ChangT}, we further require
+\begin{equation}
+\frac{\sqrt{np}\|\beta\|}{n\|\beta\|^2+n}\to 0.
+\end{equation}
+Equivalently, if $\|\beta\|\to 0$, we require $\|\beta\|=o(\frac{\sqrt{n}}{\sqrt{p}})$; if $\|\beta\|\to \infty$, we require $\|\beta\|^{-1}=o(\frac{\sqrt{n}}{\sqrt{p}})$.
+
+If these conditions are satiesfied, we have 
+\begin{equation}
+    \Pr\Big(\frac{T-\lambda p}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha)\Big)\leq
+    \alpha
+\end{equation}
+
+
+
+
+%If $\|\beta\|^2\to 0$, we have
+%\begin{equation}
+    %\begin{aligned}
+        %&\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        %}-
+    %\frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
+        %}\Big|\\
+        %&=
+        %\frac{1}{\lambda\sqrt{2p}}
+        %\Big|
+        %\frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_3}{B_3}
+        %\Big|\\
+        %&=
+        %\frac{1}{\lambda\sqrt{2p}}
+        %\Big|
+        %\frac{(A_1+A_2)B_3-(B_1+B_2)A_3}{(B_1+B_2+B_3)B_3}
+        %\Big|\\
+        %&=
+        %\frac{O_{P}(1)}{\lambda\sqrt{2p}}
+        %\Big|
+        %\frac{(O_P(n\|\beta\|^2)+O_P(\sqrt{n}\|\beta\|))O_P(\frac{n}{p})-(O_P(\frac{n}{p}\|\beta\|^2)+O_P(\frac{\sqrt{n}}{p}\|\beta\|))O_P(n)}{n^2/p^2}
+        %\Big|\\
+        %&=O_P(\sqrt{p}\|\beta\|^2)+O_P(\frac{\sqrt{p}}{\sqrt{n}}\|\beta\|)
+    %\end{aligned}
+%\end{equation}
+%Hence if $\sqrt{p}\|\beta\|^2\to 0$ and $\frac{p}{n}\|\beta\|^2\to 0$, CLT holds.
+%
+%On the other hand. If $\|\beta\|^2\to \infty$, we have
+%\begin{equation}
+    %\begin{aligned}
+        %&\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        %}-
+    %\frac{{A_1}/{B_1}-{\lambda p}}{\lambda\sqrt{2p}
+        %}\Big|\\
+        %&=
+        %\frac{1}{\lambda\sqrt{2p}}
+        %\Big|
+        %\frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_1}{B_1}
+        %\Big|\\
+        %&=
+        %\frac{1}{\lambda\sqrt{2p}}
+        %\Big|
+        %\frac{(A_2+A_3)B_1-(B_2+B_3)A_1}{(B_1+B_2+B_3)B_1}
+        %\Big|\\
+        %&=
+        %\frac{O_{P}(1)}{\lambda\sqrt{2p}}
+        %\Big|
+        %\frac{(O_P(\sqrt{n}\|\beta\|)+O_P(n))O_P(\frac{n}{p}\|\beta\|^2)-(O_P(\frac{\sqrt{n}}{p}\|\beta\|)+O_P(\frac{n}{p}))O_P(n\|\beta\|^2)}{\frac{n^2}{p^2}\|\beta\|^4}
+        %\Big|\\
+        %&=O_P(\frac{\sqrt{p}}{\sqrt{n}}\|\beta\|^{-1})+O_P(\sqrt{p}\|\beta\|^{-2})
+    %\end{aligned}
+%\end{equation}
+%Hence if $\frac{n}{p}\|\beta\|^2\to \infty$ and $\frac{1}{\sqrt{p}}\|\beta\|^2\to \infty$, CLT holds.
 \subsection{circumstance 2}
 \begin{assumption}
 $P_1^T \beta=0$.
@@ -698,15 +800,15 @@ Hence
 
 \begin{equation}
     \begin{aligned}
-        T&\sim Z_{(1)}\Lambda Z_{(1)}^T-Z_{(1)}\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda Z_{(1)}^T\\
+        A_3/B_3&\sim Z_{(1)}\Lambda Z_{(1)}^T-Z_{(1)}\Lambda Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda Z_{(1)}^T\\
         &=Z_{(1)}\Lambda^{1/2}\big(I_p -\Lambda^{1/2} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{1/2} \big)\Lambda^{1/2}Z_{(1)}^T\\
-        &\leq Z_{(1)}\Lambda^{1/2}\big(I_p -\hat{V}\hat{V}^T\big)\Lambda^{1/2}Z_{(1)}^T.\\
+        &\leq Z_{(1)}\Lambda^{1/2}\big(I_p -\hat{V}\hat{V}^T\big)\Lambda^{1/2}Z_{(1)}^T,
     \end{aligned}
 \end{equation}
-
-We require $p=o(n^2)$. The principal space is $V=(e_1,\ldots, e_r)$. Then 
+where $\hat{V}$ is the first $r$ eigenvectors of $\Lambda^{1/2}Z_{(2)}^T Z_{(2)}\Lambda^{1/2}$. From PCA theory (see~\cite{Cai2012Sparse}), $\hat{V}\hat{V}^T$ is a good estimator of population principal space $VV^T$ even in high dimensional setting. Here 
+ $V=(e_1,\ldots, e_r)$, where $e_i$ is the vector with all elements equal to $0$ but the $i$th equal to $1$. Note that we have required $p=o(n^2)$. Then by lemma~\ref{wangPCA},
 \begin{equation}
-    Z_{(1)}\Lambda^{1/2}\big(VV^T -\hat{V}\hat{V}^T\big)\Lambda^{1/2}Z_{(1)}^T=o(\sqrt{p})
+    Z_{(1)}\Lambda^{1/2}\big(VV^T -\hat{V}\hat{V}^T\big)\Lambda^{1/2}Z_{(1)}^T=o(\sqrt{p}).
 \end{equation}
 
 Note that
@@ -714,11 +816,12 @@ Note that
     Z_{(1)}\Lambda^{1/2}\big (I-VV^T) \Lambda^{1/2}Z_{(1)}^T\sim\lambda \chi^2_{p-r}
 \end{equation}
 
-Hence $T\leq \lambda\chi^2_{p-r}+o(\sqrt{p})$.
+Hence $A_3/B_3\leq \lambda\chi^2_{p-r}+o(\sqrt{p})$.
 
-On the other hand, the eigenvalues of $\Lambda^{1/2}\big(I_p -\Lambda^{1/2} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{1/2} \big)\Lambda^{1/2}$ is no less than $I_p -\Lambda^{1/2} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{1/2}$. Hence $T\geq \lambda \chi^2_{p-n+2}$.
+On the other hand, the non-zero eigenvalues of $\Lambda^{1/2}\big(I_p -\Lambda^{1/2} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{1/2} \big)\Lambda^{1/2}$ is no less than that of $\lambda(I_p -\Lambda^{1/2} Z_{(2)}^T{(Z_{(2)}\Lambda Z_{(2)}^T)}^{-1}Z_{(2)}\Lambda^{1/2})$.
+Hence $A_3/B_3\geq \lambda \chi^2_{p-n+2}$.
 
-Hence $A_3/B_3\asymp p$ if $p/n\to \infty$.
+It follows that $A_3/B_3\asymp p$ if $p/n\to \infty$.
 
 
 %\textbf{Another proof:}
@@ -765,158 +868,133 @@ Hence $A_3/B_3\asymp p$ if $p/n\to \infty$.
 %There's no restriction between $n$ and $p$!!! Is there anything wrong? If no, it can be generalized to Xu and Zhao's test!!!
 
 
-\subsubsection{Step 2}
+\subsubsection{Step 2: $B_1$ and $B_2$}
 
-Note that $P_2^T \tilde{X}$ is an $(p-r)\times (n-1)$ matrix with all elements independently distributed as $N(0,\lambda)$.
+Note that $P_2^T \tilde{X}$ is an $(p-r)\times (n-1)$ matrix with all elements independently distributed as $N(0,\lambda)$. Similar to non-spiked circumstance, we have $A_1\asymp n\|P_2^T\beta\|^2$, $A_2=O_P(\sqrt{n}\|P_2^T \beta\|)$, $A_3\asymp n$ and $B_3\asymp n/p$.
 
-    $A_1\asymp n\|P_2^T\beta\|^2$, $A_2=O_P(\sqrt{n}\|P_2^T \beta\|)$, $A_3\asymp n$.
+Next we deal with $B_1$.
+Let $P_2^T \tilde{X}=U_2 D_2 V_2^T$ be the SVD of $P_2^T \tilde{X}$, where $U_2$ is a $(p-r)\times (n-1)$ orthonormal matrix, $D_2$ is a $(n-1)\times(n-1)$ diagonal matrix and $V_2$ is a $(n-1)\times (n-1)$ orthonormal matrix. Without loss of generality, we can assume $P_2^T \beta/\|P_2^T\beta\|$ is uniformly distributed on the surface of unit ball.
 
-    $B_3\asymp n/p$.
-
-    As for $B_1$, 
-\begin{equation}
+$B_1$ has the following upper bound:
+\begin{equation}\label{upperbound}
     \begin{aligned}
         B_1&\leq \beta^T P_2 P_2^T \tilde{X} {(\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta\\
-        &\asymp \frac{n-1}{p-r}\|P_2^T\beta\|^2
+        &=\beta^T P_2 U_2 U_2^T P_2^T \beta\\
+        %&\asymp \frac{n-1}{p-r}\|P_2^T\beta\|^2.
     \end{aligned}
 \end{equation}
-To get the lower bound, let $P_2^T \tilde{X}=U_2 D_2 V_2^T$ be the SVD of $P_2^T \tilde{X}$, where $U_2$ is a $(p-r)\times (n-1)$ orthonormal matrix, $D_2$ is a $(n-1)\times(n-1)$ diagonal matrix and $V_2$ is a $(n-1)\times (n-1)$ orthonormal matrix. Then
+Independent of $P_2^T\beta/\|P_2^T \beta\|$ and $U_2$, we generate $R\sim \chi^2_{p-r}$. Then we have
+\begin{equation}
+    \sqrt{R}\frac{P_2^T \beta}{\|P_2^T \beta\|} \sim N_{p-r}(0,I_{p-r}).
+\end{equation}
+Hence
+\begin{equation}
+    \begin{aligned}
+        &\beta^T P_2 U_2 U_2^T P_2^T \beta\\
+        &=\frac{\sqrt{R}\beta^T P_2}{\|P_2 \beta^T\|} U_2 U_2^T \frac{\sqrt{R}P_2^T \beta}{\|P_2^T \beta\|}\frac{1}{R}\|P_2^T \beta\|^2\\
+        &\asymp \frac{n-1}{p-r}\|P_2^T\beta\|^2.
+    \end{aligned}
+\end{equation}
 
+To get the lower bound, note that
 \begin{equation}
     \begin{aligned}
         B_1&= \beta^T P_2 P_2^T \tilde{X} {(\tilde{X}^T P_1 P_1^T \tilde{X}+\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta\\
         &= \beta^T P_2 U_2 D_2 V^T_2 {(\tilde{X}^T P_1 P_1^T \tilde{X}+V_2 D_2^2 V_2^T)}^{-1}V_2 D_2 U_2^T P_2^T \beta\\
-        &= \beta^T P_2 U_2  {(D_2^{-1} V_2^T \tilde{X}^T P_1 P_1^T \tilde{X} V_2 D_2^{-1} +I_{n-1})}^{-1} U_2^T P_2^T \beta\\
+        &= \beta^T P_2 U_2  {(D_2^{-1} V_2^T \tilde{X}^T P_1 P_1^T \tilde{X} V_2 D_2^{-1} +I_{n-1})}^{-1} U_2^T P_2^T \beta.
     \end{aligned}
 \end{equation}
-
-Note that $U_2$ is independent of $(V_2,D_2,P_1^T\tilde{X})$, and
-
+Here $U_2$ is independent of $(V_2,D_2,P_1^T\tilde{X})$. By lemma~\ref{wangInverse}
 \begin{equation}
     \begin{aligned}
         {(D_2^{-1}V_2^T\tilde{X}^T P_1 P_1^T \tilde{X}V_2 D_2^{-1} +I_{n-1})}^{-1}\geq I_{n-1}- U^* U^{*T}
     \end{aligned}
 \end{equation}
-where $U^*$ is the first $r$ eigenvectors of $D_2^{-1} V_2^T \tilde{X}^T P_1 P_1^T \tilde{X}V_2 D_2^{-1}$ and is independent of $U_2$. Note also that $U_2$ is of Haar distribution. Hence
-\begin{equation}
+where $U^*$ is the first $r$ eigenvectors of $D_2^{-1} V_2^T \tilde{X}^T P_1 P_1^T \tilde{X}V_2 D_2^{-1}$ and is independent of $U_2$. Since $U_2$ has Haar distribution, we have
+\begin{equation}\label{lowerbound}
     \begin{aligned}
         B_1&\geq \beta^T P_2 U_2 (I_{n-1}-U^* U^{*T})U_2^T P_2^T \beta\\
-        &\asymp \frac{n-1-r}{p-r}\|P_2^T \beta\|^2
+        &= \beta^T P_2 U_2 U_2^T P_2^T \beta-  \beta^T P_2 U_2 U^* U^{*T} U_2^T P_2^T \beta.\\
+        %&\asymp \frac{n-1-r}{p-r}\|P_2^T \beta\|^2
     \end{aligned}
 \end{equation}
-
+The difference of upper bound and lower bound is
 \begin{equation}
     \begin{aligned}
-        \textrm{Upper-Lower}&\leq \beta^T P_2 U_2 U^* U^{*T}U_2^T P_2^T \beta\\
-        &\asymp \frac{r}{p-r}\|P_2^T \beta\|^2
+ \beta^T P_2 U_2 U^* U^{*T}U_2^T P_2^T \beta \asymp \frac{r}{p-r}\|P_2^T \beta\|^2.
     \end{aligned}
 \end{equation}
 Hence 
 \begin{equation}
     \begin{aligned}
         B_1&=\beta^T P_2 P_2^T \tilde{X} {(\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta+O_p(\frac{r}{p-r}\|P_2^T \beta\|^2)\\
-        &=\beta^T P_2 P_2^T \tilde{X} {(\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta(1+O_P(1/n))\\
+        &=\beta^T P_2 P_2^T \tilde{X} {(\tilde{X}^T P_2 P_2^T \tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta(1+O_P(1/n)).\\
     \end{aligned}
 \end{equation}
+So that $B_1\asymp \frac{n}{p}\|P_2^T \beta\|^2$.
 
-
-
+For $B_2$ we have
 \begin{equation}
     \begin{aligned}
     B_2&=O_P(1)\sqrt{\beta^T P_2 P_2^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-2}\tilde{X}^T P_2 P_2^T \beta}\\
-    &\leq \lambda_{\min}{(\tilde{X}^T\tilde{X})}^{-1/2}O_P(1)\sqrt{\beta^T P_2 P_2^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta}\\
+    &\leq \lambda_{\min}{(\tilde{X}^T\tilde{X})}^{-1/2}O_P(1)\sqrt{\beta^T P_2 P_2^T \tilde{X}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{X}^T P_2 P_2^T \beta}.
     \end{aligned}
 \end{equation}
-
-\begin{equation}
-    \lambda_{\min}{(\tilde{X}^T\tilde{X})}\geq \lambda_{\min}{(\tilde{X}^T P_2 P_2^T \tilde{X})}\asymp p-r
-\end{equation}
+But $\lambda_{\min}{(\tilde{X}^T\tilde{X})}\geq \lambda_{\min}{(\tilde{X}^T P_2 P_2^T \tilde{X})}\asymp p-r$ by Lemma~\ref{baiyin}.
 Hence $B_2=O_P(\frac{\sqrt{n}}{p}\|P_2^T \beta\|)$.
 
 Hence the similar law of large number and CLT holds.
 \subsubsection{Step 3}
-\begin{equation}
-    \frac{A_1}{B_1}\sim \frac{\chi^2_p}{1+O_P(1/n)}= \lambda\chi^2_p (1+O_P(1/n))
-\end{equation}
-Hence if $\|P_2^T\beta\|\to \infty$ or $\|P_2^T \beta\|\to 0$,
-\begin{equation}
-    \frac{T}{\lambda p}\xrightarrow{P} 1.
-\end{equation}
 
-We have
+Use similar technique as before, we have
 \begin{equation}
+    \frac{A_1}{B_1}\sim \frac{\chi^2_p}{1+O_P(1/n)}= \lambda\chi^2_p (1+O_P(1/n)).
+\end{equation}
+It follows by large number that
+\begin{equation}\label{thm2h1}
+    \frac{A_1/B_1}{\lambda p}\xrightarrow{P} 1.
+\end{equation}
+And if  $p=o(n^2)$, we have
+\begin{equation}\label{thm2c1}
     \begin{aligned}
-        \frac{A_1/B_1-\lambda p}{\lambda\sqrt{2p}}\sim \frac{\chi^2_p (1+O_P(1/n))-p}{\sqrt{2p}}\xrightarrow{\mathcal{L}} N(0,1),
+        \frac{A_1/B_1-\lambda p}{\lambda\sqrt{2p}}\sim \frac{\chi^2_p (1+O_P(1/n))-p}{\sqrt{2p}}\xrightarrow{\mathcal{L}} N(0,1).
     \end{aligned}
 \end{equation}
-if $p=o(n^2)$.
-
-Because $A_3/B_3\leq \lambda \chi^2_{p-r}+o(\sqrt{p})\leq \lambda \chi^2_{p}+o(\sqrt{p})$ (if $p=o(n^2)$). We have
-\begin{equation}
+Recall that if $p=o(n^2)$, we have $A_3/B_3\geq \lambda \chi^2_{p-n+2}$ and
+$A_3/B_3\leq \lambda \chi^2_{p-r}+o(\sqrt{p})\leq \lambda \chi^2_{p}+o(\sqrt{p})$. Then
+\begin{equation}\label{thm2h2}
+    \frac{A_3/B_3}{\lambda p}\xrightarrow{P} 1,
+\end{equation}
+and
+\begin{equation}\label{thm2c2}
     \begin{aligned}
         \frac{A_3/B_3-\lambda p}{\lambda\sqrt{2p}}\leq \frac{\chi^2_p +o(\sqrt{p})-p}{\sqrt{2p}}\xrightarrow{\mathcal{L}} N(0,1).
     \end{aligned}
 \end{equation}
+From~\eqref{thm2h1} and~\eqref{thm2h2} we can deduce $T/(\lambda p)\xrightarrow{P}1$ by similar argument as before.
 
-If $\|P_2^T\beta\|^2\to 0$, we have
+Similar to~\eqref{ChangT}, we have
+\begin{equation}
+            T\leq\frac{A_1+A_3}{B_1+A_3}+O_P(\frac{p\sqrt{n}\|P_2^T\beta\|}{n\|P_2^T\beta\|^2+n}).\\
+\end{equation}
+For the first term, we have
 \begin{equation}
     \begin{aligned}
-        &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
-        }-
-    \frac{A_3/B_3-{\lambda p}}{\lambda\sqrt{2p}
-        }\Big|\\
-        &=
-        \frac{1}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_3}{B_3}
-        \Big|\\
-        &=
-        \frac{1}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{(A_1+A_2)B_3-(B_1+B_2)A_3}{(B_1+B_2+B_3)B_3}
-        \Big|\\
-        &=
-        \frac{O_{P}(1)}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{(O_P(n\|P_2^T\beta\|^2)+O_P(\sqrt{n}\|P_2^T\beta\|))O_P(\frac{n}{p})-(O_P(\frac{n}{p}\|P_2^T\beta\|^2)+O_P(\frac{\sqrt{n}}{p}\|P_2^T\beta\|))O_P(n)}{n^2/p^2}
-        \Big|\\
-        &=O_P(\sqrt{p}\|P_2^T\beta\|^2)+O_P(\frac{\sqrt{p}}{\sqrt{n}}\|P_2^T\beta\|)
+        &\frac{\frac{A_1+A_3}{B_1+B_3}-\lambda p}{\lambda \sqrt{2p}}
+        =c\frac{\frac{A_1}{B_1}-\lambda p}{\lambda \sqrt{2p}}+
+        (1-c)\frac{\frac{A_3}{B_3}-\lambda p}{\lambda \sqrt{2p}},
     \end{aligned}
 \end{equation}
-Hence if $\sqrt{p}\|P_2^T\beta\|^2\to 0$ and $\frac{p}{n}\|P_2^T\beta\|^2\to 0$, CLT holds.
-
-On the other hand. If $\|P_2^T\beta\|^2\to \infty$, we have
+where 
 \begin{equation}
-    \begin{aligned}
-        &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
-        }-
-    \frac{{A_1}/{B_1}-{\lambda p}}{\lambda\sqrt{2p}
-        }\Big|\\
-        &=
-        \frac{1}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{A_1+A_2+A_3}{B_1+B_2+B_3}-\frac{A_1}{B_1}
-        \Big|\\
-        &=
-        \frac{1}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{(A_2+A_3)B_1-(B_2+B_3)A_1}{(B_1+B_2+B_3)B_1}
-        \Big|\\
-        &=
-        \frac{O_{P}(1)}{\lambda\sqrt{2p}}
-        \Big|
-        \frac{(O_P(\sqrt{n}\|P_2^T\beta\|)+O_P(n))O_P(\frac{n}{p}\|P_2^T\beta\|^2)-(O_P(\frac{\sqrt{n}}{p}\|P_2^T\beta\|)+O_P(\frac{n}{p}))O_P(n\|P_2^T\beta\|^2)}{\frac{n^2}{p^2}\|P_2^T\beta\|^4}
-        \Big|\\
-        &=O_P(\frac{\sqrt{p}}{\sqrt{n}}\|P_2^T\beta\|^{-1})+O_P(\sqrt{p}\|P_2^T\beta\|^{-2})
-    \end{aligned}
+    c=\frac{B_1}{B_1+B_3}\asymp \frac{\|P_2^T \beta\|^2}{\|P_2^T \beta\|^2+1}.
 \end{equation}
+Then theorem follows by the same argument as before.
 
-Hence if $\frac{n}{p}\|P_2^T\beta\|^2\to \infty$ and $\frac{1}{\sqrt{p}}\|P_2^T\beta\|^2\to \infty$, CLT holds.
 
 \subsection{Consistency of Test}
-$\beta$ from normal distribution. Then consistency can be proved.
-Assume that $\beta\sim N(0,\sigma^2_{\beta}I_{p})$. Then
-$\gamma={(\tilde{X}^T \tilde{X})}^{-1/2}\tilde{X}^T\beta\sim N(0,\sigma^2_{\beta}I_{n-1})$.
+
+Since $\beta\sim N(0,\sigma^2_{\beta}I_p)$ and ${(\tilde{X}^T \tilde{X})}^{-1/2}\tilde{X}^T$ is a projection matrix, we have $\gamma={(\tilde{X}^T \tilde{X})}^{-1/2}\tilde{X}^T\beta\sim N(0,\sigma^2_{\beta}I_{n-1})$. Then
 
 
 \begin{equation}
@@ -929,16 +1007,15 @@ $\gamma={(\tilde{X}^T \tilde{X})}^{-1/2}\tilde{X}^T\beta\sim N(0,\sigma^2_{\beta
         \tilde{\epsilon}^T{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}
     }\\
         &=\frac{\gamma^T\tilde{X}^T\tilde{X}\gamma+2\gamma^T{(\tilde{X}^T\tilde{X})}^{1/2}\tilde{\epsilon}+\tilde{\epsilon}^T\tilde{\epsilon}}{\gamma^T\gamma+2\gamma^T{(\tilde{X}^T\tilde{X})}^{-1/2}\tilde{\epsilon}+\tilde{\epsilon}{(\tilde{X}^T\tilde{X})}^{-1}\tilde{\epsilon}}\\
-        &=\frac{A_1+A_2+A_3}{B_1+B_2+B_3}
+        &=\frac{A_1+A_2+A_3}{B_1+B_2+B_3}.
     \end{aligned}
 \end{equation}
 
-$A_1\sim \|\gamma\|^2\sum_{i=1}^{p}\lambda_i \chi^2_1\asymp \|\gamma\|^2 (p+\lambda_1)\asymp \sigma^2_\beta n(p+\lambda_1)$. $A_2=O_P(\sqrt{A_1})$. $A_3\asymp n$.
+It can be seen that
+$A_1\sim \|\gamma\|^2\sum_{i=1}^{p}\lambda_i \chi^2_1\asymp \|\gamma\|^2 (p+\lambda_1)\asymp \sigma^2_\beta n(p+\lambda_1)$, $A_2=O_P(\sqrt{A_1})$ and $A_3\asymp n$. As for the denominator of $T$, $B_1\asymp \sigma^2_\beta n$, $B_3 \leq \tilde{\epsilon}{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\asymp n/p$ and $B_2=O_P(\sqrt{B_3}\sigma_\beta)$.
 
-$B_1\asymp \sigma^2_\beta n$. $B_3 \leq \tilde{\epsilon}{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\asymp n/p$. $B_2=O_P(\sqrt{B_3}\sigma_\beta)$.
 
-
-$A_1/B_1\sim \sum_{i=1}^p \lambda_i \chi^2_1$. Hence
+Since $A_1/B_1\sim \sum_{i=1}^p \lambda_i \chi^2_1$, we have
 \begin{equation}
     \begin{aligned}
     \mathbb{P}\Big(\frac{A_1/B_1-(p-r)\lambda}{\lambda\sqrt{2(p-r)}}\geq \Phi^{-1}(1-\alpha)\Big)
