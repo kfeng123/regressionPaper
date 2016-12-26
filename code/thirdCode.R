@@ -8,7 +8,7 @@ myExp=function(
     muX=runif(p,2,3),
     alpha=0,
     r=1,
-    TheLambda=p^2){
+    TheLambda=p){
     
     beta=rep(c(1,-1),p/2)
     #beta=c(rep(1,p/2),rep(0,p/2))
@@ -20,20 +20,22 @@ myExp=function(
     beta=beta/sqrt(sum(beta^2))
     beta=sqrt(betaMod)*beta
     
-    
-    if(r!=1){
-        D=diag(rep(sqrt(TheLambda),r))
+    if(r==0){
+        theSigma=diag(rep(1,p))
     }else{
-        D=TheLambda
-        dim(D)=c(1,1)
+        if(r!=1){
+            D=diag(rep(sqrt(TheLambda),r))
+        }else{
+            D=TheLambda
+            dim(D)=c(1,1)
+        }
+        V=rnorm(p*r,0,1)
+        dim(V)=c(p,r)
+        V=svd(V)$u
+        theSigma=rep(0,p*p)
+        dim(theSigma)=c(p,p)
+        theSigma=V%*%D%*%D%*%t(V)+diag(rep(1,p))
     }
-    V=rnorm(p*r,0,1)
-    dim(V)=c(p,r)
-    V=svd(V)$u
-    theSigma=rep(0,p*p)
-    dim(theSigma)=c(p,p)
-    theSigma=V%*%D%*%D%*%t(V)+diag(rep(1,p))
-    
     
     
 #    beta=(diag(p)-V%*%t(V))%*%rnorm(p)
@@ -45,11 +47,16 @@ myExp=function(
     generateData=function(beta){
         X=rep(0,n*p)
         dim(X)=c(n,p)
-        U=rnorm(n*r,0,1)
-        dim(U)=c(n,r)
-        Z=rnorm(n*p,0,1)
-        dim(Z)=c(n,p)
-        X=U%*%D%*%t(V)+Z
+        if(r==0){
+            Z=rnorm(n*p,0,1)
+            X=Z
+        }else{
+            U=rnorm(n*r,0,1)
+            dim(U)=c(n,r)
+            Z=rnorm(n*p,0,1)
+            dim(Z)=c(n,p)
+            X=U%*%D%*%t(V)+Z
+        }
         y=X%*%beta+rep(alpha,n)+rnorm(n,0,sqrt(varEpsilon))
         list(X=X,y=y)
     }

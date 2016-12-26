@@ -13,6 +13,12 @@ T.~T. Cai, Z.~Ma, Y.~Wu, Sparse pca: Optimal rates and adaptive estimation,
 J.~Zhao, X.~Xu, A generalized likelihood ratio test for normal mean when p is
   greater than n, Computational Statistics \& Data Analysis.
 
+\bibitem{Ahn2009Eigenvalue}
+S.~C. Ahn, A.~R. Horenstein,
+  \href{http://dx.doi.org/10.3982/ECTA8968}{Eigenvalue ratio test for the
+  number of factors}, Econometrica 81~(3) (2013) 1203--1227.
+\newline\urlprefix\url{http://dx.doi.org/10.3982/ECTA8968}
+
 \bibitem{Bai1993Limit}
 Z.~D. Bai, Y.~Q. Yin, Limit of the smallest eigenvalue of a large dimensional
   sample covariance matrix, Annals of Probability 21~(3) (1993) 1275--1294.

@@ -302,7 +302,7 @@ The test statistic can be written as
     \]
 We make the following assumption.
 \begin{assumption}\label{assumptiona}
-    Assume model~\eqref{regModel} holds with the columns of $X$ are i.i.d.\  distributed as $N(\mu_X,\Sigma_X)$, $\epsilon\sim N(0,\sigma^2 I_n)$ and $\sigma^2$ is fixed as $n,p\to \infty$.
+    Assume model~\eqref{regModel} holds with the columns of $X$  i.i.d.\  distributed as $N(\mu_X,\Sigma_X)$, $\epsilon\sim N(0,\sigma^2 I_n)$ and $\sigma^2$ is fixed as $n,p\to \infty$.
 \end{assumption}
 \begin{assumption}\label{assumptionb}
     Assume the eigenvalues of $\Sigma_X$ satisfy $\lambda_1\geq \lambda_2\geq \cdots \geq\lambda_r> \lambda_{r+1}=\cdots =\lambda_p=\lambda$, where $r\geq 0$ and $\lambda>0$ are fixed as $n,p\to \infty$, $\lambda_1\asymp \lambda_r$ and $p^{1/2}/\lambda_r \to 0$. We say there's no principal component if $r=0$, that is $\lambda_1=\cdots=\lambda_p$.
@@ -311,27 +311,29 @@ We make the following assumption.
 The null hypotheses $H$ is the union of two disjoint hypothesis $H=\cup_{i=1}^2 H_i$, where $H_1$: There's no principal component; and $H_2$:  There's $r$ principal components with $r>0$ and $P_1^T\beta=0$. Under $H_1$ we have the following theorem
 
 \begin{theorem}\label{theorema}
-    Suppose Assumption~\ref{assumptiona} and~\ref{assumptionb} hold.
+    Suppose Assumptions~\ref{assumptiona} and~\ref{assumptionb} hold.
     Assume $p/n \to  \infty$ and $H_1$ is true. Then
             \begin{equation}
                 T/(\lambda p) \xrightarrow{P} 1.
             \end{equation}
-    If $\|\beta\|=o(\frac{\sqrt{n}}{\sqrt{p}})$ or $\|\beta\|^{-1}=o(\frac{\sqrt{n}}{\sqrt{p}})$, then for $\alpha\in (0,1)$ we have
+    If $\|\beta\|^2=o(\frac{{n}}{{p}})$ or $\|\beta\|^{-2}=o(\frac{{n}}{{p}})$, then for $\alpha\in (0,1)$ we have
 \begin{equation}
     \begin{aligned}
     \Pr\Big(\frac{T-\lambda p}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha)\Big)\leq \alpha.
     \end{aligned}
 \end{equation}
 \end{theorem}
-
+\begin{remark}
+   It can be seen from our proof that if $\|\beta\|^2=o(\frac{{n}}{{p}})$ and $\|\beta\|^{-2}=o(\frac{{n}}{{p}})$ are both fail, then the asymptotic property of $T$ is sophisticated.
+\end{remark}
 Under $H_2$ we have a similar theorem with one more condition $p=o(n^2)$.
 \begin{theorem}\label{theoremb}
-    Suppose Assumption~\ref{assumptiona} and~\ref{assumptionb} hold.
+    Suppose Assumptions~\ref{assumptiona} and~\ref{assumptionb} hold.
     Assume $p/n \to  \infty$, $p/n^2 \to 0$ and $H_2$ is true. Then
             \begin{equation}
                 T/(\lambda p) \xrightarrow{P} 1.
             \end{equation}
-    If $\|P_2^T\beta\|=o(\frac{\sqrt{n}}{\sqrt{p}})$ or $\|P_2^T\beta\|^{-1}=o(\frac{\sqrt{n}}{\sqrt{p}})$, then for $\alpha\in (0,1)$ we have
+    If $\|P_2^T\beta\|^2=o(\frac{{n}}{{p}})$ or $\|P_2^T\beta\|^{-2}=o(\frac{{n}}{{p}})$, then for $\alpha\in (0,1)$ we have
 \begin{equation}
     \begin{aligned}
     \Pr\Big(\frac{T-\lambda p}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha)\Big)\leq \alpha.
@@ -340,15 +342,63 @@ Under $H_2$ we have a similar theorem with one more condition $p=o(n^2)$.
 \end{theorem}
 
 
-Under $K$, to simplify the proof, we assume $\beta$ is generated from a normal prior distribution before data are generated. We have the following theorem:
+Under $K$, to simplify the proof, we assume $\beta$ is generated from a normal prior distribution before data are generated. Denote by $\Phi(\cdot)$ the CDF of normal distribution. We have the following theorem:
 \begin{theorem}\label{theoremc}
-   Suppose Assumption~\ref{assumptiona} and~\ref{assumptionb} hold.
-    Assume $p/n \to  \infty$ and $K$ is true. Assume $\beta$ has prior distribution $N(0,\sigma_\beta^2 I_p)$. Then
-
+   Suppose Assumptions~\ref{assumptiona} and~\ref{assumptionb} hold.
+    Assume $p/n \to  \infty$ and $K$ is true. Assume $\beta$ has prior distribution $N(0,\sigma_\beta^2 I_p)$. Asuume that
+\begin{equation}
+    \frac{np^2+p^{5/2}+\lambda_1 p^{3/2}}{{(p+\lambda_1)}^2}\sigma^2_{\beta}\to \infty,
+\end{equation}
+then
+\begin{equation}
+    \begin{aligned}
+        &\Pr\Big(\frac{T-p\lambda}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha)\Big)
+        =& \textrm{E}\Phi\Big( -\Phi^{-1}(1-\alpha) +\frac{\sum_{i=1}^r \lambda_i \chi^2_i}{\lambda\sqrt{2p}} \Big)+o(1).
+    \end{aligned}
+\end{equation}
 \end{theorem}
+\begin{remark}
+    If $\lambda_1/\sqrt{p}\to \infty$, then 
+\begin{equation} 
+    \Pr\Big(\frac{T-p\lambda}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha)\Big)\to 1.
+\end{equation}
+\end{remark}
+
+Since $\lambda$ is unkown, an estimator should be substituted. A natural estimator is
+\begin{equation}
+    \frac{1}{(p-r)(n-1)}\sum_{i=r+1}^{n-1}\lambda_{i}(\tilde{X}^T\tilde{X}).
+\end{equation}
+However, $r$ is unknown, which itself need to be estimated consistently. If $r>0$, it can be well estimated (See~\cite{Ahn2009Eigenvalue}). However, if $r=0$, which may occur in our problem, the method in~\cite{Ahn2009Eigenvalue} fails. Nevertheless, it's easy to find an estimator which is not less than $r$.
+In following theorem, we will assume $k$ is a fixed number such that $k\geq r$.
+ 
+\begin{theorem}\label{theoremLambda}
+    Suppose Assumptions~\ref{assumptiona} and~\ref{assumptionb} hold.
+    Assume $p/n \to  \infty$ and $k\geq r$ is a fixed integer. Let
+     \begin{equation}
+    \frac{1}{(p-k)(n-1)}\sum_{i=k+1}^{n-1}\lambda_{i}(\tilde{X}^T\tilde{X}).
+     \end{equation}
+     Then
+    \begin{equation}
+        \hat{\lambda}=\lambda +O_P(\frac{1}{n}).
+    \end{equation}
+    Furthermore, if we add condition $p=o(n^2)$ to Theorem~\ref{theorema}, add condition ${(p+\lambda_1)}/{(n\sqrt{p})}\to 0$ to Theorem~\ref{theoremc}, then
+    the conclusion of Theorem~\ref{theorema},~\ref{theoremb} and~\ref{theoremc} holds with $\lambda$ substituted by $\hat{\lambda}$.
+\end{theorem}
+\begin{remark}
+It is not hard to generalize our results for  a random positive integer $k$ such that $\Pr(k\geq r)\to 1$ and $k\leq M$ for some $M>0$.
+\end{remark}
+\begin{remark}
+In practice, $r$ is often small. Hence it's often the case that we could choose a known upper bound for $r$.
+\end{remark}
+By our theoretic results, we reject the hypotheses when 
+\begin{equation}
+    \frac{T-p\lambda}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha).
+\end{equation}
+Under the condition of Theorem~\ref{theorema} and Theorem~\ref{theoremb}, the test level can be guaranteed. The test power is given by Theorem~\ref{theoremc}.
+
 \section{Appendix}
 
-For random variable $\xi$ and $\eta$, we write $\xi\sim \eta$ when $\xi$ and $\eta$ have the same distribution. For two sequences of positive random variables $\xi_n$ and $\eta_n$, we write $\xi_n\asymp \eta_n$ if $\Pr(c\eta_n\leq\xi_n\leq C\eta_n)\to 1$ for some positive $c$ and $C$.
+For random variables $\xi$ and $\eta$, we write $\xi\sim \eta$ when $\xi$ and $\eta$ have the same distribution. For two sequences of positive random variables $\xi_n$ and $\eta_n$, we write $\xi_n\asymp \eta_n$ if $\Pr(c\eta_n\leq\xi_n\leq C\eta_n)\to 1$ for some positive $c$ and $C$.
 
 \begin{equation}\label{Tdecom}
     \begin{aligned}
@@ -377,6 +427,14 @@ For random variable $\xi$ and $\eta$, we write $\xi\sim \eta$ when $\xi$ and $\e
         {(A^{-1})}_{11}=A_{11\cdot 2}^{-1}
     \end{equation}
 \end{lemma}
+
+\begin{lemma}\label{Weyl}
+Let $H$ and $P$ be two symmetric matrices and $M=H+P$. If $j+k-n\geq i\geq r+s-1$, we have
+    \begin{equation}
+        \lambda_j (H)+\lambda_k(P)\leq \lambda_i (M)\leq \lambda_r (H)+\lambda_s(P).
+    \end{equation}
+\end{lemma}
+Lemma~\ref{Weyl} is known as the Weyl's inequality.
 
 \begin{lemma}\label{baiyin}
     Suppose $B=\frac{1}{q}V V^T$ where V is an $p\times q$ random matrix composed of i.i.d.\  random variables with zero mean, unit variance and finite fourth moment.
@@ -427,13 +485,6 @@ Lemma~\ref{wangPCA} is from Wang Rui's paper.
 \end{proof}
 
 \subsection{circumstance 1}
-\begin{assumption}
-    $r=0$.
-\end{assumption}
-\begin{assumption}
-    $n^2/p\to 0$.
-\end{assumption}
-
 \subsubsection{First randomization of $\beta$}
 Independent of data, generate a random $p$ dimensional orthonormal matrix $O$ with Haar invariant distribution. And 
 
@@ -1012,18 +1063,13 @@ Since $\beta\sim N(0,\sigma^2_{\beta}I_p)$ and ${(\tilde{X}^T \tilde{X})}^{-1/2}
 \end{equation}
 
 It can be seen that
-$A_1\sim \|\gamma\|^2\sum_{i=1}^{p}\lambda_i \chi^2_1\asymp \|\gamma\|^2 (p+\lambda_1)\asymp \sigma^2_\beta n(p+\lambda_1)$, $A_2=O_P(\sqrt{A_1})$ and $A_3\asymp n$. As for the denominator of $T$, $B_1\asymp \sigma^2_\beta n$, $B_3 \leq \tilde{\epsilon}{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\asymp n/p$ and $B_2=O_P(\sqrt{B_3}\sigma_\beta)$.
+$A_1\sim \|\gamma\|^2\sum_{i=1}^{p}\lambda_i \chi^2_1\asymp \|\gamma\|^2 (p+\lambda_1)\asymp \sigma^2_\beta n(p+\lambda_1)$, $A_2=O_P(\sqrt{A_1})$ and $A_3\asymp n$. As for the denominator of $T$, we have $B_1\asymp \sigma^2_\beta n$, $B_3 \leq \tilde{\epsilon}{(\tilde{X}^T P_2 P_2^T\tilde{X})}^{-1}\tilde{\epsilon}\asymp n/p$ and $B_2=O_P(\sqrt{B_3}\sigma_\beta)$.
 
 
-Since $A_1/B_1\sim \sum_{i=1}^p \lambda_i \chi^2_1$, we have
+By similar technique as before, we have $A_1/B_1\sim \sum_{i=1}^p \lambda_i \chi^2_1$. By CLT and Slutsky's theorem, we have
 \begin{equation}
-    \begin{aligned}
-    \mathbb{P}\Big(\frac{A_1/B_1-(p-r)\lambda}{\lambda\sqrt{2(p-r)}}\geq \Phi^{-1}(1-\alpha)\Big)
-        &\sim\mathbb{P}\Big(N(0,1)\geq \Phi^{-1}(1-\alpha)-\frac{\sum_{i=1}^r \lambda_i \chi^2_i}{\lambda\sqrt{2(p-r)}}\Big)\\
-        &=\textrm{E}[\Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\sum_{i=1}^r \lambda_i \chi^2_i}{\lambda\sqrt{2(p-r)}}\Big)]
-    \end{aligned}
+    \frac{\sum_{i=r+1}^p \lambda_i \chi^2_1-p\lambda}{\lambda\sqrt{2p}}\xrightarrow{\mathcal{L}}N(0,1).
 \end{equation}
-
 And note that if $p \sigma_{\beta}^2\to \infty$,
 \begin{equation}
     \begin{aligned}
@@ -1046,15 +1092,112 @@ And note that if $p \sigma_{\beta}^2\to \infty$,
         \Big|
         \frac{(O_P(\sigma_{\beta}\sqrt{n(p+\lambda_1)})+O_P(n))O_P(\sigma^2_\beta n)-(O_P(\sigma_{\beta}\frac{\sqrt{n}}{\sqrt{p}})+O_P(\frac{n}{p}))O_P(\sigma^2_{\beta} n(p+\lambda_1))}{\sigma^4_{\beta}n^2}
         \Big|\\
-        &=O_P(\frac{p+\lambda_1}{\sigma_{\beta}\sqrt{n}p})+O_P(\frac{p+\lambda_1}{\sigma^2_{\beta}p^{3/2}})
+        &=O_P(\frac{p+\lambda_1}{\sigma_{\beta}\sqrt{n}p})+O_P(\frac{p+\lambda_1}{\sigma^2_{\beta}p^{3/2}}).
     \end{aligned}
 \end{equation}
-
 Hence if 
 \begin{equation}
-    \frac{np^2+p^{5/2}+\lambda_1 p^{3/2}}{{(p+\lambda_1)}^2}\sigma^2_{\beta}\to \infty
+    \frac{np^2+p^{5/2}+\lambda_1 p^{3/2}}{{(p+\lambda_1)}^2}\sigma^2_{\beta}\to \infty,
 \end{equation}
-Then Power function holds.
+then
+\begin{equation}\label{proEps}
+    \begin{aligned}
+        &\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        }-
+    \frac{{A_1}/{B_1}-{\lambda p}}{\lambda\sqrt{2p}
+        }\Big|=o_P(1).
+    \end{aligned}
+\end{equation}
+Equivalently, there exists a positive sequence $\epsilon_n\to 0$ such that
+\begin{equation}
+    \begin{aligned}
+        \Pr\Big(\Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        }-
+    \frac{{A_1}/{B_1}-{\lambda p}}{\lambda\sqrt{2p}
+        }\Big|>\epsilon_n\Big)< \epsilon_n.
+    \end{aligned}
+\end{equation}
+Then it follows by Lemma~\ref{uniformLemma} and Slutsky's theorem that
+\begin{equation}
+    \begin{aligned}
+        &\Pr\Big(\frac{T-p\lambda}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha)\Big)\\
+        =&\Pr\Big(\frac{T-p\lambda}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha),\,
+        \Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        }-
+    \frac{{A_1}/{B_1}-{\lambda p}}{\lambda\sqrt{2p}
+        }\Big|\leq\epsilon_n \Big)+o(1)\\
+        \geq&\Pr\Big(\frac{A_1/B_1-p\lambda}{\lambda\sqrt{2p}}-\epsilon_n\geq  \Phi^{-1}(1-\alpha),\,
+        \Big|\frac{T-{\lambda p}}{\lambda\sqrt{2p}
+        }-
+    \frac{{A_1}/{B_1}-{\lambda p}}{\lambda\sqrt{2p}
+        }\Big|\leq\epsilon_n \Big)+o(1)\\
+        =&\Pr\Big(\frac{A_1/B_1-p\lambda}{\lambda\sqrt{2p}}-\epsilon_n \geq \Phi^{-1}(1-\alpha)\Big)+o(1)\\
+        =&\textrm{E}\Pr\Big(\frac{\sum_{i=r+1}^p \lambda_i \chi^2_1-p\lambda}{\lambda\sqrt{2p}}-\epsilon_n\geq  \Phi^{-1}(1-\alpha) -\frac{\sum_{i=1}^r \lambda_i \chi^2_i}{\lambda\sqrt{2p}}\Big|\sum_{i=1}^r \lambda_i \chi^2_i \Big)+o(1)\\
+        =& \textrm{E}\Phi\Big( -\Phi^{-1}(1-\alpha) +\frac{\sum_{i=1}^r \lambda_i \chi^2_i}{\lambda\sqrt{2p}} \Big)+o(1).
+    \end{aligned}
+\end{equation}
+Similarly we get the lower bound. Then
+\begin{equation}
+    \begin{aligned}
+        &\Pr\Big(\frac{T-p\lambda}{\lambda\sqrt{2p}}\geq \Phi^{-1}(1-\alpha)\Big)
+        =& \textrm{E}\Phi\Big( -\Phi^{-1}(1-\alpha) +\frac{\sum_{i=1}^r \lambda_i \chi^2_i}{\lambda\sqrt{2p}} \Big)+o(1).
+    \end{aligned}
+\end{equation}
+\subsection{$\hat{\lambda}$}
+Note that $\tilde{X}^T\tilde{X}=\tilde{X}^T P_1 P_1^T\tilde{X}+\tilde{X}^T P_2 P_2^T\tilde{X}$.
+By Lemma~\ref{Weyl}, we have
+\begin{equation}
+     \lambda_{i} (\tilde{X}^T P_2 P_2^T\tilde{X})
+    \leq \lambda_{i} (\tilde{X}^T\tilde{X})
+    \leq \lambda_{r+1} (\tilde{X}^T P_1 P_1^T\tilde{X})
+    + \lambda_{i-r} (\tilde{X}^T P_2 P_2^T\tilde{X}),
+\end{equation}
+for $i\geq r+1$. Note that $ \lambda_{r+1} (\tilde{X}^T P_1 P_1^T\tilde{X})=0$ since the rank of $\tilde{X}^T P_1 P_1^T\tilde{X}$ is $r$. Sum the above inequality from $i=k+1$ to $n-1$ and we obtain
+\begin{equation}
+    \sum_{i=k+1}^{n-1}\lambda_{i} (\tilde{X}^T P_2 P_2^T\tilde{X})
+    \leq \sum_{i=k+1}^{n-1}\lambda_{i} (\tilde{X}^T\tilde{X})
+    \leq \sum_{i=k-r+1}^{n-r-1} \lambda_{i} (\tilde{X}^T P_2 P_2^T\tilde{X}).
+\end{equation}
+Hence by Lemma~\ref{baiyin},
+\begin{equation}\label{k1}
+     \big|\sum_{i=k+1}^{n-1}\lambda_{i} (\tilde{X}^T\tilde{X})
+    - \sum_{i=1}^{n-1} \lambda_{i} (\tilde{X}^T P_2 P_2^T\tilde{X})\big|\leq k \lambda_1(\tilde{X}^T P_2 P_2^T\tilde{X})= O_P(p).
+\end{equation}
+Since 
+\begin{equation}
+   \sum_{i=1}^{n-1} \lambda_{i} (\tilde{X}^T P_2 P_2^T\tilde{X})= \textrm{tr}\tilde{X}^T P_2 P_2^T \tilde{X}\sim \lambda \chi^2_{(p-k)(n-1)},
+\end{equation}
+we have by CLT that
+\begin{equation}\label{k2}
+    \sum_{i=1}^{n-1} \lambda_{i} (\tilde{X}^T P_2 P_2^T\tilde{X})=\lambda{(p-k)(n-1)}(1+O_P\big(\frac{1}{\sqrt{(p-r)(n-1)}}\big)).
+\end{equation}
+It follows from~\eqref{k1} and~\eqref{k2} that
+\begin{equation}
+    \frac{1}{(p-r)(n-1)}\sum_{i=k+1}^{n-1}\lambda_{i} (\tilde{X}^T\tilde{X})=\lambda+O_P(\frac{1}{\sqrt{np}})+O_P(\frac{1}{n})=\lambda+O_P(\frac{1}{n}).
+\end{equation}
+
+ When $\lambda$ is substituted by $\hat{\lambda}$,
+ the conclusion of Theorem~\ref{theorema},~\ref{theoremb} and~\ref{theoremc} will be still valid if we can prove
+\begin{equation}
+    \begin{aligned}
+        &\Big|\frac{T-{\hat{\lambda} p}}{\hat{\lambda}\sqrt{2p}}-
+        \frac{T-{\lambda p}}{\lambda\sqrt{2p}}\Big|\xrightarrow{P} 0.
+    \end{aligned}
+\end{equation}
+In fact
+\begin{equation}\label{lambdaAppr}
+    \begin{aligned}
+        &\Big|\frac{T-{\hat{\lambda} p}}{\hat{\lambda}\sqrt{2p}}-
+        \frac{T-{\lambda p}}{\lambda\sqrt{2p}}\Big|
+        =\frac{T}{\sqrt{2p}}\frac{|\hat{\lambda}-\lambda|}{\hat{\lambda}\lambda}
+        =O_P(\frac{T}{n\sqrt{p}}).
+    \end{aligned}
+\end{equation}
+In Theorem~\ref{theorema} and~\ref{theoremb}, $T=O_P(p)$. Combined with $p=o(n^2)$, it follows that $\eqref{lambdaAppr}\xrightarrow{P} 0$.
+
+In Theorem~\ref{theoremc}, $T=O_P(p+\lambda_1)$. To make $\eqref{lambdaAppr}\xrightarrow{P} 0$, we require ${(p+\lambda_1)}/{(n\sqrt{p})}\to 0$.
+
+
 
 \section{Simulation Results}
 
