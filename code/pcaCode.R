@@ -1,4 +1,4 @@
-
+mySeed=1
 myExp=function(
     n=15,
     p=100,
@@ -9,11 +9,12 @@ myExp=function(
     alpha=0,
     r=1,
     k=1,
+    Alt=TRUE,
     TheLambda=p){
     
-    beta=rep(c(1,-1),p/2)
+    #beta=rep(c(1,-1),p/2)
     #beta=c(rep(1,p/2),rep(0,p/2))
-    #beta=c(rep(1,5),rep(0,p-5))
+    beta=c(rep(1,5),rep(0,p-5))
     
     #beta=rnorm(p)
     #beta=beta[sample.int(p)]
@@ -30,12 +31,18 @@ myExp=function(
             D=TheLambda
             dim(D)=c(1,1)
         }
+        set.seed(mySeed)
         V=rnorm(p*r,0,1)
         dim(V)=c(p,r)
         V=svd(V)$u
         theSigma=rep(0,p*p)
         dim(theSigma)=c(p,p)
         theSigma=V%*%D%*%D%*%t(V)+diag(rep(1,p))
+        if(Alt==FALSE){
+            beta=(diag(p)-V%*%t(V))%*%beta
+            beta=beta/sqrt(sum(beta^2))
+            beta=sqrt(betaMod)*beta
+        }
     }
     
     
@@ -85,36 +92,43 @@ myExp=function(
                 )
                  myE=eigen(t(W)%*%t(X)%*%X%*%W)$values
                  lambdaEst=sum(myE[(k+1):(n-1)])/(p-k)/(n-1)
+                 lambdaEst=1
                  (temp-p*lambdaEst)/lambdaEst/sqrt(2*p)
         } 
         #T=0+(pnorm(myTCal(X,y))>=(1-0.05))
         T=myTCal(X,y)
         
+        pcaX=prcomp(t(X))$x[,k]
+        dim(pcaX)=c(n,k)
+        U=cbind(1,pcaX)
+        pE=solve(t(U)%*%U)%*%t(U)%*%y
+        pE2=pE[-1]
+        dim(pE2)=c(k,1)
+        fenzi=t(pE2)%*%solve(solve(t(U)%*%U)[2:(k+1),2:(k+1)])%*%pE2/k
+        fenmu=t(y)%*%(diag(n)-U%*%solve(t(U)%*%U)%*%t(U))%*%y/(n-k-1)
+        Fstat=fenzi/fenmu
         
-        
-        list(T=T)
+        list(T=T,Fstat=Fstat,ChenTT=ChenTT)
     }
     
     REL=NULL
+    FEL=NULL
+    CEL=NULL
     for(i in 1:500){
         temp=simul()
         REL[i]=temp$T
+        FEL[i]=temp$Fstat
+        CEL[i]=temp$ChenTT
     }
     
-    #xxx=NULL
-    #for(j in 1:length(REL)){
-    #xxx[j]=qchisq((j-0.5)/length(REL),df=1)
-    #}
-    #plot(xxx,sort(REL))
-    #abline(0,1)
     
-    #hist(pchisq(REL,df=1))
-    
-    list(myPower=mean(pnorm(REL)>=1-0.05))
+    list(myPower=mean(pnorm(REL)>=(1-0.05)),
+         FPower=mean(FEL>=qf(1-0.05,k,n-k-1)),
+    CPower=mean(ChenTT))
     
 }
 
-myExp(n=60,p=300,r=0,TheLambda = 100,varEpsilon = 1,betaMod =100)
+myExp(n=150,p=500,r=1,k=1, Alt=TRUE,TheLambda = sqrt(500),varEpsilon = 1,betaMod =1)
 
 
 library(xtable)
