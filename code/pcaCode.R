@@ -93,7 +93,7 @@ myExp=function(
                  myE=eigen(t(W)%*%t(X)%*%X%*%W)$values
                  lambdaEst=sum(myE[(k+1):(n-1)])/(p-k)/(n-1)
                  lambdaEst=1
-                 (temp-p*lambdaEst)/lambdaEst/sqrt(2*p)
+                 (temp-(p-n+2)*lambdaEst)/lambdaEst/sqrt(2*(p-n+2))
         } 
         #T=0+(pnorm(myTCal(X,y))>=(1-0.05))
         T=myTCal(X,y)
@@ -128,10 +128,58 @@ myExp=function(
     
 }
 
-myExp(n=150,p=500,r=1,k=1, Alt=TRUE,TheLambda = sqrt(500),varEpsilon = 1,betaMod =1)
+#myExp(n=150,p=500,r=1,k=1, Alt=TRUE,TheLambda = sqrt(500),varEpsilon = 4,betaMod =1)
+#myExp(n=10,p=100,r=0,k=1, Alt=TRUE,TheLambda = 100,varEpsilon = 4,betaMod =10)
 
+jjj=NULL
+ for(betaMod in c(0,0.4,0.8,1.2)){
+     jjj=c(jjj,list(list(n=150,p=500,betaMod=betaMod,r=1,k=1,TheLambda=sqrt(500))))
+ }
+ for(betaMod in c(0,0.4,0.8,1.2)){
+     jjj=c(jjj,list(list(n=150,p=500,betaMod=betaMod,r=0,k=1,TheLambda=sqrt(500))))
+ }
+ for(betaMod in c(0,0.04,0.08,0.12)){
+     jjj=c(jjj,list(list(n=150,p=500,betaMod=betaMod,r=1,k=1,TheLambda=500)))
+ }
+ for(betaMod in c(0,0.4,0.8,1.2)){
+     jjj=c(jjj,list(list(n=150,p=500,betaMod=betaMod,r=0,k=1,TheLambda=500)))
+ }
+ 
 
-library(xtable)
-myTable=xtable(resul)
-digits(myTable)=c(0,0,0,2,2,2)
-print(myTable,include.rownames = FALSE)
+ for(betaMod in c(0,2,4,6)){
+     jjj=c(jjj,list(list(n=50,p=200,betaMod=betaMod,r=1,k=1,TheLambda=sqrt(200))))
+ }
+ for(betaMod in c(0,2,4,6)){
+     jjj=c(jjj,list(list(n=50,p=200,betaMod=betaMod,r=0,k=1,TheLambda=sqrt(200))))
+ }
+ for(betaMod in c(0,2,4,6)){
+     jjj=c(jjj,list(list(n=50,p=200,betaMod=betaMod,r=1,k=1,TheLambda=200)))
+ }
+ for(betaMod in c(0,2,4,6)){
+     jjj=c(jjj,list(list(n=50,p=200,betaMod=betaMod,r=0,k=1,TheLambda=200)))
+ }
+ outN=NULL
+ outP=NULL
+ outMod=NULL
+ outR=NULL
+ outK=NULL
+ outLambda=NULL
+ outChen=NULL
+ outNew=NULL
+ for(pa in jjj){
+     outN=c(outN,pa$n)
+     outP=c(outP,pa$p)
+     outMod=c(outMod,pa$betaMod)
+     outR=c(outR,pa$r)
+     outK=c(outK,pa$k)
+     outLambda=c(outLambda,pa$TheLambda)
+     tmp=myExp(n=pa$n,p=pa$p,betaMod=pa$betaMod,r=pa$r,k=pa$k,TheLambda = pa$TheLambda)
+     outChen=c(outChen,tmp$CPower)
+     outNew=c(outNew,tmp$myPower)
+ }
+ resul=data.frame(outN,outP,outMod,outR,outK,outLambda,outChen,outNew)
+ 
+ library(xtable)
+ myTable=xtable(resul)
+ digits(myTable)=c(0,0,0,2,0,0,0,2,2)
+ print(myTable,include.rownames = FALSE)

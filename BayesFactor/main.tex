@@ -1,0 +1,231 @@
+\documentclass[11pt]{article}
+ 
+\newcommand\CG[1]{\textcolor{red}{#1}}
+
+\usepackage{lineno,hyperref}
+
+\usepackage[margin=1 in]{geometry}
+\renewcommand{\baselinestretch}{1.25}
+
+
+%\usepackage{refcheck}
+\usepackage{authblk}
+\usepackage{galois} % composition function \comp
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage[page,title]{appendix}
+%\renewcommand\appendixname{haha}
+\usepackage{enumerate}
+\usepackage{changepage}
+\usepackage{datetime}
+\newdate{date}{9}{1}{2017}
+
+%%%%%%%%%%%%%%  Notations %%%%%%%%%%
+\DeclareMathOperator{\mytr}{tr}
+\DeclareMathOperator{\mydiag}{diag}
+\DeclareMathOperator{\myrank}{Rank}
+\DeclareMathOperator{\myP}{P}
+\DeclareMathOperator{\myE}{E}
+\DeclareMathOperator{\myVar}{Var}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+\newcommand{\Ba}{\mathbf{a}}    \newcommand{\Bb}{\mathbf{b}}    \newcommand{\Bc}{\mathbf{c}}    \newcommand{\Bd}{\mathbf{d}}    \newcommand{\Be}{\mathbf{e}}    \newcommand{\Bf}{\mathbf{f}}    \newcommand{\Bg}{\mathbf{g}}    \newcommand{\Bh}{\mathbf{h}}    \newcommand{\Bi}{\mathbf{i}}    \newcommand{\Bj}{\mathbf{j}}    \newcommand{\Bk}{\mathbf{k}}    \newcommand{\Bl}{\mathbf{l}}
+\newcommand{\Bm}{\mathbf{m}}    \newcommand{\Bn}{\mathbf{n}}    \newcommand{\Bo}{\mathbf{o}}    \newcommand{\Bp}{\mathbf{p}}    \newcommand{\Bq}{\mathbf{q}}    \newcommand{\Br}{\mathbf{r}}    \newcommand{\Bs}{\mathbf{s}}    \newcommand{\Bt}{\mathbf{t}}    \newcommand{\Bu}{\mathbf{u}}    \newcommand{\Bv}{\mathbf{v}}    \newcommand{\Bw}{\mathbf{w}}    \newcommand{\Bx}{\mathbf{x}}
+\newcommand{\By}{\mathbf{y}}    \newcommand{\Bz}{\mathbf{z}}    
+\newcommand{\BA}{\mathbf{A}}    \newcommand{\BB}{\mathbf{B}}    \newcommand{\BC}{\mathbf{C}}    \newcommand{\BD}{\mathbf{D}}    \newcommand{\BE}{\mathbf{E}}    \newcommand{\BF}{\mathbf{F}}    \newcommand{\BG}{\mathbf{G}}    \newcommand{\BH}{\mathbf{H}}    \newcommand{\BI}{\mathbf{I}}    \newcommand{\BJ}{\mathbf{J}}    \newcommand{\BK}{\mathbf{K}}    \newcommand{\BL}{\mathbf{L}}
+\newcommand{\BM}{\mathbf{M}}    \newcommand{\BN}{\mathbf{N}}    \newcommand{\BO}{\mathbf{O}}    \newcommand{\BP}{\mathbf{P}}    \newcommand{\BQ}{\mathbf{Q}}    \newcommand{\BR}{\mathbf{R}}    \newcommand{\BS}{\mathbf{S}}    \newcommand{\BT}{\mathbf{T}}    \newcommand{\BU}{\mathbf{U}}    \newcommand{\BV}{\mathbf{V}}    \newcommand{\BW}{\mathbf{W}}    \newcommand{\BX}{\mathbf{X}}
+\newcommand{\BY}{\mathbf{Y}}    \newcommand{\BZ}{\mathbf{Z}}    
+
+\newcommand{\bfsym}[1]{\ensuremath{\boldsymbol{#1}}}
+
+ \def\balpha{\bfsym \alpha}
+ \def\bbeta{\bfsym \beta}
+ \def\bgamma{\bfsym \gamma}             \def\bGamma{\bfsym \Gamma}
+ \def\bdelta{\bfsym {\delta}}           \def\bDelta {\bfsym {\Delta}}
+ \def\bfeta{\bfsym {\eta}}              \def\bfEta {\bfsym {\Eta}}
+ \def\bmu{\bfsym {\mu}}                 \def\bMu {\bfsym {\Mu}}
+ \def\bnu{\bfsym {\nu}}
+ \def\btheta{\bfsym {\theta}}           \def\bTheta {\bfsym {\Theta}}
+ \def\beps{\bfsym \varepsilon}          \def\bepsilon{\bfsym \varepsilon}
+ \def\bsigma{\bfsym \sigma}             \def\bSigma{\bfsym \Sigma}
+ \def\blambda {\bfsym {\lambda}}        \def\bLambda {\bfsym {\Lambda}}
+ \def\bomega {\bfsym {\omega}}          \def\bOmega {\bfsym {\Omega}}
+ \def\brho   {\bfsym {\rho}}
+ \def\btau{\bfsym {\tau}}
+ \def\bxi{\bfsym {\xi}}
+ \def\bzeta{\bfsym {\zeta}}
+% May add more in future.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{\quad\quad Theorem}
+\newtheorem{proposition}{\quad\quad Proposition}
+\newtheorem{corollary}{\quad\quad Corollary}
+\newtheorem{lemma}{\quad\quad Lemma}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{\quad\quad Assumption}
+\newtheorem{condition}{\quad\quad Condition}
+
+\theoremstyle{definition}
+\newtheorem{definition}{\quad\quad Definition}
+\newtheorem{remark}{\quad\quad Remark}
+\theoremstyle{remark}
+
+
+
+\title{Bayes factors for linear regression}
+
+
+
+\author[1]{Rui Wang}
+%\author[2]{xx}
+%\author[1,3]{Xingzhong Xu\thanks{Corresponding author\\Email address: xuxz@bit.edu.cn}}
+%\affil[1]{
+%School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 
+    %100081,China
+%}
+%\affil[2]{
+    %xx
+%}
+%\affil[3]{
+%Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 100081,China
+%}
+
+
+
+\begin{document}
+\maketitle
+\section{Introduction}
+This note gives a review for Bayes factors for linear regression.
+\section{Mixture of $g$ prior}
+This section is adapted from \cite{Liang2008Mixtures}.
+Suppose $\BY\in \mathbb R^n$ is generated from the model
+\begin{equation*}
+    \mathcal M_{\gamma}: \BY=\mathbf 1_n \alpha + \BX \bbeta+\bepsilon,
+\end{equation*}
+where $\BX \in \mathbb R^{n\times p}$ and $\bepsilon\sim \mathcal N (0, \phi^{-1} \BI_n)$.
+
+Let $\BX_{\gamma}\in \mathbb R^{n\times p_{\gamma}}$ be a submatrix of $\BX$.
+Then the submodel $\mathcal M_\gamma$ is defined as 
+\begin{equation*}
+    \mathcal M_{\gamma}: \BY=\mathbf 1_n \alpha + \BX_\gamma \bbeta_{\gamma}+\bepsilon.
+\end{equation*}
+The null model $\mathcal M_N $ is 
+\begin{equation*}
+    \mathcal M_{\gamma}: \BY=\mathbf 1_n \alpha +\bepsilon.
+\end{equation*}
+We would like to compare $\mathcal M_\gamma$ with $\mathcal M_N$.
+Without loss of generality, we assume $\mathbf 1_n^\top \BX_\gamma=0$.
+Under $\mathcal M_N$, the $g$ prior is
+\begin{equation*}
+    p(\alpha,\phi|\mathcal M_N) = \frac{1}{\phi}.
+\end{equation*}
+Under $\mathcal M_\gamma$, the $g$ prior is
+\begin{equation*}
+    \bbeta_{\gamma}|\phi,\mathcal M_\gamma \sim \mathcal N (0,\frac{g}{\phi} (\BX_{\gamma}^\top \BX_{\gamma})^{-1}),
+    \quad p(\alpha|\phi,\mathcal M_\gamma)\propto 1,
+    \quad p(\phi|\mathcal M_\gamma) = \frac{1}{\phi}.
+\end{equation*}
+The joint pdf is
+\begin{equation*}
+    \begin{split}
+    &p(\BY,\alpha,\bbeta_{\gamma},\phi|\mathcal M_\gamma)
+    =
+    p(\BY|\alpha,\bbeta_\gamma,\phi,\mathcal M_\gamma)
+    p(\bbeta_\gamma |\phi,\mathcal M_\gamma)
+    p(\alpha |\phi,\mathcal M_\gamma)
+    p(\phi |\mathcal M_\gamma)
+    \\
+    =&
+    (2\pi)^{-(n+p_\gamma)/{2}} g^{-{p_\gamma}/{2}} \phi^{{(n+p_\gamma)}/{2}-1} |\BX_\gamma^\top \BX_\gamma|^{1/2}
+    \exp\left\{-\frac{n\phi}{2}(\bar{\BY}-\alpha)^2\right\}
+    \\
+    &\exp\left\{
+        -\frac{\phi (g+1)}{2g}\left\| \BX_\gamma \left(\bbeta_\gamma-\frac{g}{g+1}\hat{\bbeta}_\gamma\right)\right\|^2
+        -\frac{\phi}{2(g+1)} \left\|\BX_\gamma \hat{\bbeta}_\gamma\right\|^2
+        -\frac{\phi}{2}\left\|\BY-\mathbf 1_n \bar \BY- \BX_\gamma \hat{\bbeta}_\gamma\right\|^2
+    \right\},
+    \end{split}
+\end{equation*}
+where $\bar \BY= n^{-1}\mathbf 1_n^\top \BY$,
+$\hat{\bbeta}_\gamma =(\BX_\gamma^\top \BX_\gamma)^{-1} \BX_\gamma^\top \BY $.
+
+Direct calculation yields
+\begin{equation*}
+    p(\BY| \mathcal M_\gamma,g)
+    =
+    \frac{\Gamma((n-1)/2)}{\pi^{(n-1)/2}\sqrt{n}}
+    \left\|\BY-\mathbf 1_n \bar \BY\right\|^{-(n-1)}
+    \frac{(1+g)^{(n-p_{\gamma}-1)/2}}{[1+g(1-R_\gamma^2)]^{(n-1)/2}},
+\end{equation*}
+where $R_\gamma^2 = 1-\|\BY -\mathbf 1_n \bar \BY- \BX_\gamma \hat{\bbeta}_\gamma\|^2/\|\BY-\mathbf 1_n \bar \BY\|^2$.
+Also, we have
+\begin{equation*}
+    p(\BY| \mathcal M_N)
+    =
+    \frac{\Gamma((n-1)/2)}{\pi^{(n-1)/2}\sqrt{n}}
+    \left\|\BY-\mathbf 1_n \bar \BY\right\|^{-(n-1)}.
+\end{equation*}
+Thus,
+\begin{equation*}
+    \text{BF}[\mathcal M_\gamma :\mathcal M_N]=
+    (1+g)^{(n-p_\gamma-1)/2}
+    [1+g(1-R^2_\gamma)]^{-(n-1)/2}.
+\end{equation*}
+
+\subsection{Choices of $g$}
+\paragraph{Local empirical Bayes.} The local EB estimates a separate $g$ for each model $\mathcal M_\gamma$.
+\begin{equation*}
+    \hat g_\gamma^{\text{EBL}} =
+    \argmax_{g\geq 0} p(\BY | \mathcal M_\gamma, g) 
+    =
+    \argmax_{g\geq 0} \frac{(1+g)^{(n-p_{\gamma}-1)/2}}{[1+g(1-R_\gamma^2)]^{(n-1)/2}}
+    =\max\{F_\gamma-1, 0\},
+\end{equation*}
+where 
+\begin{equation*}
+F_\gamma=
+\frac{R^2_\gamma/p_\gamma}{
+    (1-R^2_\gamma) / (n-1-p_\gamma)
+}
+\end{equation*}
+is the usual $F$ statistic for testing $\bbeta_\gamma=0$.
+
+\paragraph{Global empirical Bayes.} The global EB procedure assumes one common $g$ for all models.
+\begin{equation*}
+    \hat g_\gamma^{\text{EBG}} =
+    \argmax_{g\geq 0} \sum_{\gamma} p(\mathcal M_\gamma) p(\BY | \mathcal M_\gamma, g) 
+    =
+    \argmax_{g\geq 0} \sum_{\gamma} p(\mathcal M_\gamma) \frac{(1+g)^{(n-p_{\gamma}-1)/2}}{[1+g(1-R_\gamma^2)]^{(n-1)/2}}.
+\end{equation*}
+
+
+
+
+
+
+
+%\begin{appendices}
+    %\section{haha1}
+    %\section{haha2}
+%\end{appendices}
+%\section*{Acknowledgements}
+%This work was supported by the National Natural Science Foundation of China under Grant Nos.\ xxxxx, xxxx.
+
+
+
+\bibliographystyle{apalike}
+\bibliography{mybibfile}
+
+\end{document}
