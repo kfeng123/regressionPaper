@@ -209,6 +209,404 @@ is the usual $F$ statistic for testing $\bbeta_\gamma=0$.
     =
     \argmax_{g\geq 0} \sum_{\gamma} p(\mathcal M_\gamma) \frac{(1+g)^{(n-p_{\gamma}-1)/2}}{[1+g(1-R_\gamma^2)]^{(n-1)/2}}.
 \end{equation*}
+In general, this marginal likelihood is not tractable and does not provide a closed-form solution for $\hat g_\gamma^{\text{EBG}}$.
+It can be computed by an EM algorithm, which is based on treating both the model indicator and the precision $\phi$ as latent data.
+
+
+
+
+
+
+
+\subsection{Mixtures of $g$ priors}
+Under $\mathcal M_\gamma$, the mixtures of $g$ prior take the form
+\begin{equation*}
+    \bbeta_{\gamma}|g, \phi,\mathcal M_\gamma \sim \mathcal N (0,\frac{g}{\phi} (\BX_{\gamma}^\top \BX_{\gamma})^{-1}),
+    \quad \pi(g),
+    \quad p(\alpha|\phi,\mathcal M_\gamma)\propto 1,
+    \quad p(\phi|\mathcal M_\gamma) = \frac{1}{\phi}.
+\end{equation*}
+
+\emph{Zellner-Siow Priors}
+\begin{equation*}
+    \pi(\bbeta_\gamma | \phi)
+    \propto
+    \frac{\Gamma(p_{\gamma})}{\pi^{p_\gamma/2}}
+    \left|
+    \frac{\BX_\gamma^\top \BX_\gamma}{n/\phi}
+    \right|^{1/2}
+    \left(
+        1+\bbeta_\gamma^\top \frac{\BX_\gamma^\top \BX_\gamma}{n/\phi}   \bbeta_\gamma
+    \right)^{-p_\gamma/2}
+\end{equation*}
+The Zellner-Siow priors can be represented as a mixture of $g$ priors with an Inv-Gamma(1/2,n/2) prior on $g$, namely,
+\begin{equation*}
+    \phi(\bbeta_\gamma|\phi)
+    \propto
+    \int \mathcal N (0,\frac{g}{\phi} (\BX_{\gamma}^\top \BX_{\gamma})^{-1}) \pi(g) dg,
+\end{equation*}
+with
+\begin{equation*}
+    \pi(g)=\frac{(n/2)^{1/2}}{\Gamma(1/2)} g^{-3/2} e^{-n/(2g)}.
+\end{equation*}
+
+\emph{Hyper-$g$ priors}
+\begin{equation*}
+    \pi(g)=\frac{a-2}{2} (1+g)^{-a/2}\mathbf{1}_{(0,\infty)}(g),\quad a>2.
+\end{equation*}
+Equivalently,
+\begin{equation*}
+    \frac{g}{1+g} \sim \text{Beta} (1,\frac{a}{2}-1).
+\end{equation*}
+The null-based Bayes factor is
+\begin{equation*}
+    \begin{split}
+    \text{BF}[\mathcal M_\gamma : \mathcal M_N]=
+&
+\frac{a-2}{2}\int_{0}^\infty (1+g)^{(n-1-p_\gamma -a)/2} [1+(1-R^2_\gamma)g]^{-(n-1)/2} dg
+\\
+=&
+\frac{a-2}{p_\gamma + a-2}
+\times
+{}_2 F_1
+\left(
+    \frac{n-1}{2}, 1;
+    \frac{p_\gamma+a}{2};
+    R^2_\gamma
+\right),
+\end{split}
+\end{equation*}
+where ${}_2 F_1 (a,b;c;z)$ is the Gaussian hypergeometric function defined as
+\begin{equation*}
+    {}_2 F_1 (a,b;c;z)
+    =\frac{\Gamma(c)}{\Gamma(b) \Gamma(c-b)}
+    \int_0^1
+    \frac{t^{b-1}(1-t)^{c-b-1}}{(1-tz)^a}
+    dt.
+\end{equation*}
+
+\emph{Beta prime prior}
+\cite{maruyama2011} proposed to use the beta prime prior for $g$:
+\begin{equation*}
+    \pi(g)=\frac{g^b (1+g)^{-a-b-2}}{B(a+1,b+1)}\mathbf{1}_{(0,\infty)}(g),
+\end{equation*}
+where $a>-1$, $b>-1$.
+Equivalently,
+\begin{equation*}
+    \frac{1}{1+g}\sim \text{Be} (a+1,b+1).
+\end{equation*}
+They observed that the Bayes factor has a closed form if we take
+\begin{equation*}
+    b=\frac{n-p_\gamma-5}{2}-a.
+\end{equation*}
+
+
+
+
+
+\section{Intrinsic prior}
+
+
+\section{Normal-inverse-gamma (NIG) prior}
+\cite{zhou2018On}
+
+Consider the testing problem in linear regression with independent normal errors:
+\begin{equation*}
+    \begin{split}
+    H_0:
+    \BY|\Ba,\tau \sim \mathcal N (\BW \Ba,\tau^{-1}\BI_n),
+    \\
+    H_1:
+    \BY|\Ba,\Bb, \tau \sim \mathcal N (\BW \Ba + \BL \Bb, \tau^{-1} \BI_n),
+    \end{split}
+\end{equation*}
+where $\BW$ is a full-rank $n\times q$ matrix representing the nuisance covariates, including a column of $\mathbf 1_n$.
+$\BL$ is an $n\times p$ matrix representing the covariates of interest.
+
+NIG prior:
+\begin{equation*}
+    \begin{split}
+        \Ba | \tau \sim \mathcal N (0, \tau^{-1} \BV_a),
+        \\
+        \Bb | \tau \sim \mathcal N (0, \tau^{-1} \BV_b),
+        \\
+        \tau \sim \text{Gamma} (\kappa_1/2,2/\kappa_2)
+        .
+    \end{split}
+\end{equation*}
+Here
+\begin{equation*}
+        \pi(\tau) =\frac{(\kappa_2/2)^{\kappa_1/2}}{\Gamma (\kappa_1/2)}
+        \tau^{\kappa_1/2-1} \exp\left\{-\frac{\kappa_2 \tau}{2}\right\}
+\end{equation*}
+
+
+Then
+\begin{equation*}
+    \begin{split}
+    &f(\BY|\Ba,\Bb, \tau)
+    \pi(\Ba|\tau)
+    \pi(\Bb|\tau)
+    \pi(\tau)
+    \\
+    =&
+    \frac{(\kappa_2/2)^{\kappa_1/2}\tau^{(n+p+q+\kappa_1)/2-1}}
+    {
+        (2\pi)^{(n+p+q)/2} |\BV_a|^{1/2} |\BV_b|^{1/2} \Gamma(\kappa_1/2)
+    }
+    \exp\left\{
+        -\frac{\tau}{2}
+        \left( \|\BY-\BW \Ba -\BL \Bb \|^2+\Ba^\top \BV_a^{-1} \Ba + \Bb^\top \BV_b^{-1} \Bb +\kappa_2\right)
+    \right\}
+    .
+    \end{split}
+\end{equation*}
+Let $\BH_{\BW}= \BW (\BW^\top \BW)^{-1} \BW^\top$.
+Then
+\begin{equation*}
+    \begin{split}
+    \|\BY-\BW \Ba -\BL \Bb \|^2
+=
+&\|\BY-\hat \BY\|^2+\|\hat \BY-\BW \Ba -\BL \Bb \|^2
+\\
+=
+&\|\BY-\hat \BY\|^2+
+\|\BH_\BW(\hat \BY - \BL \Bb)-\BW \Ba \|^2
++
+\|(\BI_n-\BH_\BW) (\hat \BY -\BL \Bb) \|^2
+.
+    \end{split}
+\end{equation*}
+We have
+\begin{equation*}
+    \begin{split}
+        &
+    \int_{\mathbb R^q}
+    \exp\left\{
+        -\frac{\tau }{2}
+        \left(
+\|\BH_\BW(\hat \BY - \BL \Bb)-\BW \Ba \|^2
++\Ba^\top \BV_a^{-1} \Ba
+\right)
+\right\}
+    d\Ba
+    \\
+        =&
+    \int_{\mathbb R^q}
+    \exp\Big\{
+        -\frac{\tau }{2}
+        \Big(
+            \left\|(\BW^\top \BW +\BV_a^{-1})^{1/2}
+\left[\Ba-(\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top (\BW^\top \BW +\BV_a^{-1})\right]\right\|^2
+\\
+&-(\hat \BY -\BL \Bb)^\top \BW (\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top(\hat \BY -\BL \Bb)
++\| \BH_\BW (\hat{\BY}-\BL \Bb)\|^2
+\Big)
+\Big\}
+    d\Ba
+    \\
+    =
+&
+(2\pi)^{q/2} \tau^{-q/2} |\BW\BW^\top+\BV_a^{-1}|^{-1/2}
+\\
+&\exp\left\{
+    -\frac{\tau}{2}\left(
+-(\hat \BY -\BL \Bb)^\top \BW (\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top(\hat \BY -\BL \Bb)
++\| \BH_\BW (\hat{\BY}-\BL \Bb)\|^2
+\right)
+\right\}
+.
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+    &
+    \int_{\mathbb R^q}f(\BY|\Ba,\Bb, \tau)
+    \pi(\Ba|\tau)
+    \pi(\Bb|\tau)
+    \pi(\tau)
+    d\Ba
+    \\
+    =&
+    \frac{(\kappa_2/2)^{\kappa_1/2}\tau^{(n+p+\kappa_1)/2-1}}
+    {
+        (2\pi)^{(n+p)/2} |\BV_a|^{1/2} |\BV_b|^{1/2} \Gamma(\kappa_1/2)
+|\BW\BW^\top+\BV_a^{-1}|^{1/2}
+    }
+    \\
+    &
+    \exp\Big\{
+        -\frac{\tau}{2}
+        \Big( 
+\|\BY-\hat \BY\|^2
+-(\hat \BY -\BL \Bb)^\top \BW (\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top(\hat \BY -\BL \Bb)
++\| \hat{\BY}-\BL \Bb\|^2
+\\
+&
+        + \Bb^\top \BV_b^{-1} \Bb +\kappa_2\Big)
+    \Big\}
+    .
+    \end{split}
+\end{equation*}
+Note that
+\begin{equation*}
+    \begin{split}
+    &
+    \int_{\mathbb R^p}\exp\left\{
+        -\frac{\tau}{2}
+        \left( 
+-(\hat \BY -\BL \Bb)^\top \BW (\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top(\hat \BY -\BL \Bb)
++\| \hat{\BY}-\BL \Bb\|^2
+        + \Bb^\top \BV_b^{-1} \Bb \right)
+    \right\}
+    d\Bb
+    \\
+    &=
+    (2\pi)^{p/2} \tau^{-p/2} |\BL^\top \BC \BL +\BV_b^{-1}|^{-1/2}
+    \exp\left\{
+        -\frac \tau 2
+        \hat \BY^\top 
+        \left(
+            \BC- \BC \BL (\BL^\top \BC \BL +\BV_b^{-1})^{-1} \BL^\top \BC
+        \right)
+        \hat \BY
+    \right\}
+    ,
+    \end{split}
+\end{equation*}
+where $\BC=\BI_n-\BW (\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top$.
+Thus,
+\begin{equation*}
+    \begin{split}
+    &
+    \int_{\mathbb R^p }\int_{\mathbb R^q}f(\BY|\Ba,\Bb, \tau)
+    \pi(\Ba|\tau)
+    \pi(\Bb|\tau)
+    \pi(\tau)
+    d\Ba
+    d\Bb
+    \\
+    =&
+    \frac{(\kappa_2/2)^{\kappa_1/2}\tau^{(n+\kappa_1)/2-1}}
+    {
+        (2\pi)^{n/2} |\BV_a|^{1/2} |\BV_b|^{1/2} \Gamma(\kappa_1/2)
+|\BW\BW^\top+\BV_a^{-1}|^{1/2}
+|\BL^\top \BC \BL +\BV_b^{-1}|^{1/2}
+    }
+    \\
+    &
+    \exp\Big\{
+        -\frac{\tau}{2}
+        \Big( 
+\|\BY-\hat \BY\|^2
+        +\hat \BY^\top 
+        \left(
+            \BC- \BC \BL (\BL^\top \BC \BL +\BV_b^{-1})^{-1} \BL^\top \BC
+        \right)
+        \hat \BY
+ +\kappa_2
+ \Big)
+    \Big\}
+    .
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+    &
+    \int_{0}^\infty \int_{\mathbb R^p }\int_{\mathbb R^q}f(\BY|\Ba,\Bb, \tau)
+    \pi(\Ba|\tau)
+    \pi(\Bb|\tau)
+    \pi(\tau)
+    d\Ba
+    d\Bb
+    d\tau
+    \\
+    =&
+    \frac{(\kappa_2/2)^{\kappa_1/2}\Gamma((n+\kappa_1)/2)}
+    {
+        (2\pi)^{n/2} |\BV_a|^{1/2} |\BV_b|^{1/2} \Gamma(\kappa_1/2)
+|\BW\BW^\top+\BV_a^{-1}|^{1/2}
+|\BL^\top \BC \BL +\BV_b^{-1}|^{1/2}
+    }
+    \\
+    &
+    \left(\frac{
+\|\BY-\hat \BY\|^2
+        +\hat \BY^\top 
+        \left(
+            \BC- \BC \BL (\BL^\top \BC \BL +\BV_b^{-1})^{-1} \BL^\top \BC
+        \right)
+        \hat \BY
+ +\kappa_2
+    }{2}\right)^{-(n+\kappa_1)/2}
+    .
+    \end{split}
+\end{equation*}
+Under $H_0$, that is $\BV_b\to 0$, we have
+\begin{equation*}
+    \begin{split}
+    &
+    \int_{0}^\infty \int_{\mathbb R^q}f(\BY|\Ba,0, \tau)
+    \pi(\Ba|\tau)
+    \pi(\tau)
+    d\Ba
+    d\tau
+    \\
+    =&
+    \frac{(\kappa_2/2)^{\kappa_1/2}\Gamma((n+\kappa_1)/2)}
+    {
+        (2\pi)^{n/2} |\BV_a|^{1/2} \Gamma(\kappa_1/2)
+|\BW\BW^\top+\BV_a^{-1}|^{1/2}
+    }
+    \\
+    &
+    \left(\frac{
+\|\BY-\hat \BY_0\|^2
+        +\hat \BY_0^\top 
+            \BC
+        \hat \BY_0
+ +\kappa_2
+    }{2}\right)^{-(n+\kappa_1)/2}
+    .
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \text{BF}=
+    \frac{1}
+    {
+         |\BV_b|^{1/2} 
+|\BL^\top \BC \BL +\BV_b^{-1}|^{1/2}
+    }
+    \left(\frac{
+\|\BY-\hat \BY\|^2
+        +\hat \BY^\top 
+        \left(
+            \BC- \BC \BL (\BL^\top \BC \BL +\BV_b^{-1})^{-1} \BL^\top \BC
+        \right)
+        \hat \BY
+ +\kappa_2
+    }{
+\|\BY-\hat \BY_0\|^2
+        +\hat \BY_0^\top 
+            \BC
+        \hat \BY_0
+ +\kappa_2
+}\right)^{-(n+\kappa_1)/2}
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
