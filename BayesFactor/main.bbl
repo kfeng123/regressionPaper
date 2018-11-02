@@ -1,5 +1,17 @@
 \begin{thebibliography}{}
 
+\bibitem[Berger and Pericchi, 1996]{intrisicBayesFactor}
+Berger, J.~O. and Pericchi, L.~R. (1996).
+\newblock The intrinsic bayes factor for model selection and prediction.
+\newblock {\em Journal of the American Statistical Association},
+  91(433):109--122.
+
+\bibitem[Casella and Moreno, 2006]{Casella2006Obj}
+Casella, G. and Moreno, E. (2006).
+\newblock Objective bayesian variable selection.
+\newblock {\em Journal of the American Statistical Association},
+  101(473):157--167.
+
 \bibitem[Liang et~al., 2008]{Liang2008Mixtures}
 Liang, F., Paulo, R., Molina, G., Clyde, M.~A., and Berger, J.~O. (2008).
 \newblock Mixtures of g priors for bayesian variable selection.
@@ -10,6 +22,13 @@ Liang, F., Paulo, R., Molina, G., Clyde, M.~A., and Berger, J.~O. (2008).
 Maruyama, Y. and George, E.~I. (2011).
 \newblock Fully bayes factors with a generalized g -prior.
 \newblock {\em Ann. Statist.}, 39(5):2740--2765.
+
+\bibitem[Moreno et~al., 1998]{Moreno1998An}
+Moreno, E., Bertolino, F., and Racugno, W. (1998).
+\newblock An intrinsic limiting procedure for model selection and hypotheses
+  testing.
+\newblock {\em Journal of the American Statistical Association},
+  93(444):1451--1460.
 
 \bibitem[Zhou and Guan, 2018]{zhou2018On}
 Zhou, Q. and Guan, Y. (2018).

@@ -305,6 +305,387 @@ They observed that the Bayes factor has a closed form if we take
 
 
 \section{Intrinsic prior}
+Intrinsic prior, introduced by \cite{intrisicBayesFactor} and further developed by \cite{Moreno1998An}, is a method for objective Bayes hypothesis testing.
+
+Suppose that two models are proposed for the data $\Bx=(x_1,\ldots, x_n)$.
+Under model $M_i, i=1,2$, the data are related to parameter $\theta_i$ by a density $f_i(\Bx | \theta_i)$.
+A noninformative prior for $\theta_i$ is denoted by $\pi_i^N(\theta_i)$, $i=1,2$.
+The conventional Bayes factor is defined as
+\begin{equation*}
+    B_{21}(\Bx) = \frac{m_2(\Bx)}{m_1(\Bx)}= \frac{\int_{\Theta_2} f_2(\Bx |\theta_2) \pi_2( \theta_2 ) d \theta_2}{\int_{\Theta_1} f_1(\Bx | \theta_1) \pi_1 (\theta_1) d \theta_1}.
+\end{equation*}
+But the conventional Bayes factor suffers from arbitrary normalizing constant.
+To solve this problem, \cite{intrisicBayesFactor} proposed the intrinsic Bayes factor.
+
+The intrinsic Bayes factor is based on training samples.
+This idea is to split the sample $\Bx$ into two parts as $\Bx=(x(l),x(n-l))$, where part $x(l)$, the training sample, is utilized to convert $\pi_i^N(\theta_i)$ into proper distributions,
+\begin{equation*}
+    \pi_i(\theta_i | x(l)) = \frac{f_i(x(l)|\theta_i) \pi_i^N (\theta_i)}{m_i^N (x(l))},
+\end{equation*}
+where $m_i^N (x(l))= \int f_i (x(l)| \theta_i) \pi_i^N (\theta_i) d\theta_i$.
+With the remaining portion of the data $x(n-l)$, the Bayes factor is computed using the foregoing $\pi_i(\theta_i | x(l))$ as priors.
+The resulting partial Bayes factor is
+\begin{equation*}
+    B_{21} (x(n-l)|x(l)) := B_{21} (l) = B_{21}^N (\Bx)\cdot B_{12}^N (x(l)),
+\end{equation*}
+where
+\begin{equation*}
+    B_{12}^N (x(l))= \frac{m_1^N (x(l))}{m_2^N (x(l))}.
+\end{equation*}
+
+Note that $B_{12}^N (l)$ does not depend on the arbitrary constants in $\pi_i^N (\theta_i)$.
+In addition, it is well defiend only if $x(l)$ is such that $0< m_i^N (x(l))<\infty$, $i=1,2$. 
+If there is no subsample of $x(l)$ for which $0<m_i^N (x(l)) < \infty$, $i=1,2$, then $x(l)$ is called a minimal training sample.
+
+\cite{intrisicBayesFactor} suggested using a minimal training sample to compute $B_{21}(l)$ and to take an averate over all of the minumal training samples contained in the sample.
+This gives the arithmetic intrinsic Bayes factor (AIBF) of $M_2$ against $M_1$ as
+\begin{equation*}
+    B_{21}^{AI} (\Bx) = B_{21}^N (\Bx) \frac 1 L \sum_{i=1}^L B_{12}^N (x(l)), 
+\end{equation*}
+where $L$ is the number of minimal training samples $x(l)$ contained in $\Bx$.
+
+Other averaging methods can also be used.
+The geometric intrinsic Bayes factor (GIBF) is defined by
+\begin{equation*}
+    B_{21}^{GI} (\Bx) = B_{21}^N (\Bx) \left( \prod_{i=1}^L B_{12}^N (x(l)) \right)^{1/L}.
+\end{equation*}
+
+
+However, IBF is not an actual Bayes factor and is not coherent in many aspect.
+An important question about the AIBF is to know whether it corresponds to an actual Bayes factor for sensible priors.
+Such a prior, if it exists, is called an intrinsic prior.
+\cite{intrisicBayesFactor} define intrinsic priors by using an (asymptotic) imaginary training sample.
+
+Let $\pi_1(\theta_1)$ and $\pi_2(\theta_2)$ be certain priors.
+The corresponding Bayes factor is
+\begin{equation*}
+    B_{21}(\Bx) = \frac{
+        \int_{\Theta_2} f_2 (\Bx |\theta_2) \pi_2 (\theta_2) d \theta_2
+    }{
+        \int_{\Theta_1} f_1 (\Bx |\theta_1) \pi_1 (\theta_1) d \theta_1
+    }.
+\end{equation*}
+The following approximation is valid in the standard situation.
+\begin{equation*}
+    B_{21}= B_{21}^N \cdot  \frac{\pi_2 (\hat \theta_2)\pi_1^N (\hat \theta_1)}{\pi_2^N (\hat \theta_2)\pi_1 (\hat \theta_1)}  \cdot (1+o_P(1)),
+\end{equation*}
+where $\hat \theta_i$ are the MLE's under $M_i$, $i=1,2$.
+Equating $B_{21}$ and $B_{21}^{AI} (\Bx)$, we have
+\begin{equation*}
+    \frac{\pi_2 (\hat \theta_2)\pi_1^N (\hat \theta_1)}{\pi_2^N (\hat \theta_2)\pi_1 (\hat \theta_1)}
+    =\frac 1 L \sum_{i=1}^L B_{12}^N (x(l))
+    \quad \text{or} \quad
+    \left( \prod_{i=1}^L B_{12}^N (x(l)) \right)^{1/L}.
+\end{equation*}
+Suppose $M_1$ is the true model and $\theta_1$ is the true parameter.
+Letting $n\to \infty$, we have
+\begin{equation}\label{eq:intrinsic1}
+    \frac{\pi_2 (\psi_2(\theta_1))\pi_1^N (\theta_1)}{\pi_2^N (\psi_2(\theta_1))\pi_1 ( \theta_1)}
+    =\myE_{\theta_1}^{M_1} B_{12}^N (x(l))
+    \quad \text{or} \quad
+    \exp\left(
+        \myE_{\theta_1}^{M_1} \log B_{12}^N (x(l)) 
+    \right),
+\end{equation}
+where $\psi_2(\theta_1)$ is the limiting MLE of $\theta_2$.
+Similarly,
+\begin{equation}\label{eq:intrinsic2}
+    \frac{\pi_2 (\theta_2)\pi_1^N (\psi_1(\theta_2))}{\pi_2^N (\theta_2)\pi_1 ( \psi_1(\theta_2))}
+    =\myE_{\theta_2}^{M_2} B_{12}^N (x(l))
+    \quad \text{or} \quad
+    \exp\left(
+        \myE_{\theta_2}^{M_2} \log B_{12}^N (x(l)) 
+    \right).
+\end{equation}
+If $M_1$ is nested in $M_2$, then \eqref{eq:intrinsic1} is implicit in \eqref{eq:intrinsic2}.
+A natural solution is given by
+\begin{equation*}
+    \pi_1^I(\theta_1)=  \pi_1^N (\theta_1),
+    \quad
+    \pi_2^I(\theta_2)=  \pi_2^N (\theta_2)\myE_{\theta_2}^{M_2} B_{12}^N (x(l)).
+\end{equation*}
+Equivalently,
+\begin{equation*}
+    \pi_2^I(\theta_2|\theta)=  \pi_2^N (\theta_2)\myE_{\theta_2}^{M_2} \frac{
+        f_1(x(l)|\theta_1)
+    }{m_2^N (x(l))}.
+\end{equation*}
+
+\subsection{Linear model}
+\cite{Casella2006Obj} proposed a fully automatic Bayesian procedure for variable selection in normal regression models.
+The posterior probabilities are computed using intrinsic priors.
+Consider the standard normal regression model
+\begin{equation*}
+    \By=\BX\balpha+\bepsilon,
+\end{equation*}
+where $\By= (y_1,\ldots, y_n)^\top$ is the vector of observations, $\BX=[\BX_1,\ldots,\BX_k]$ is the $n\times k$ design matrix, $\balpha=(\alpha_1,\ldots, \alpha_k)^\top$ is the $k \times 1$ column vector of the regression coefficients, and $\bepsilon$ is an error vector distributed as $\bepsilon\sim \mathcal N_n(0,\sigma^2 \BI_n)$.
+This is the full model for $\By$ and is denoted by $\mathcal N_n (\By | \BX \balpha, \sigma^2 \BI_n)$.
+
+Let $\bgamma$ denote a vector of length $k$ with components equal to either $0$ or $1$, and let $\BQ_{\bgamma}$ denote a $k\times k$ diagonal matrix with the elements of $\bgamma$ on the leading diagonal and $0$ elsewhere.
+Because we want to include the intercept in every model, the first component of each $\bgamma$ is equal to $1$. 
+We let $\gamma$ denote the set of $2^{k-1}$ different configurations of $\bgamma$.
+
+A submodel is written as $\mathcal N_n (\By| \BX \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)$, where $\bbeta_{\bgamma} =\BQ_{\bgamma} \balpha$ and $\bgamma$ is a configuration to be interpreted as $\gamma_i=0$ if $\alpha_i=0$ and $1$ otherwise.
+
+We have the Bayesian model
+\begin{equation*}
+    M_{\bgamma} : \{\mathcal N_n (\By | \BX \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n), \pi(\bbeta_{\bgamma}, \sigma_{\bgamma}) \}, \quad \bgamma \in \Gamma.
+\end{equation*}
+
+
+They used the full model method.
+The Bayes factor of a generic model $M_{\bgamma}$, when compared with the full model $M_{\mathbf 1}$, is given by  the ratio of marginal distributions
+\begin{equation*}
+    B_{\bgamma \mathbf 1} (\By, \BX)=
+    \frac{m_{\bgamma} (\By, \BX)}{m_{\mathbf 1}(\By, \BX)}
+    =\frac{
+        \int\mathcal N_n (\By | \BX \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)
+        \pi(\bbeta_{\bgamma}, \sigma_{\bgamma})
+        d \bbeta_{\bgamma} d \sigma_{\bgamma}
+    }{
+        \int\mathcal N_n (\By | \BX \balpha, \sigma^2 \BI_n)
+        \pi(\balpha, \sigma)
+        d \balpha d \sigma
+    }.
+\end{equation*}
+
+\cite{Casella2006Obj} considered the standard default prior on parameter $(\bbeta_{\bgamma},\sigma_{\bgamma})$, giving the Bayesian model
+\begin{equation*}
+    M_{\bgamma} : \{\mathcal N_n (\By | \BX \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n), \pi^N(\bbeta_{\bgamma}, \sigma_{\bgamma})=c_{\bgamma}/\sigma^2_{\bgamma} \}, \quad \bgamma \in \Gamma.
+\end{equation*}
+
+We first take an arbitrary but fixed point $(\bbeta_{\bgamma}, \sigma_{\bgamma})$ in the null space, and then find the intrinsic prior for $(\balpha, \sigma)$ conditional on $(\bbeta_{\bgamma}, \sigma_{\bgamma})$.
+To do this, we note that a theoretical minimal training sample for this problem is a random vector $\By^{ts}$ of dimension $k+1$ such that it is $\mathcal N_{k+1} (\By^{ts}|\BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)$ distributed under the null model and is $\mathcal N_{k+1} (\By^{ts}|\BZ^{ts} \balpha, \sigma^2 \BI_n)$ distributed under the full model.
+Here $\BZ^{ts}$ represents a $(k+1)\times k$ unknown design matrix associated with $\By^{ts}$.
+
+Therefore, 
+\begin{equation*}
+    \pi^I (\balpha, \sigma | \bbeta_{\bgamma}, \bsigma_{\bgamma}) 
+    =
+    \pi^N (\balpha, \sigma ) 
+    \times
+    \myE_{\By^{ts}|\balpha, \sigma}
+    \frac{N_{k+1} (\By^{ts} | \BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)}{\int N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n) \pi^N (\balpha, \sigma) d\balpha d \sigma}.
+\end{equation*}
+Note that
+\begin{equation*}
+    \int N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n) \pi^N (\balpha, \sigma) d\balpha d \sigma
+    =
+    \int\left(\int N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n)  d\balpha   \right) \frac{c}{\sigma^2} d \sigma.
+\end{equation*}
+We have
+\begin{equation*}
+    \begin{split}
+    &\int N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n)  d\balpha   
+    \\
+    =
+    &
+    \frac{1}{(2\pi)^{(k+1)/2} \sigma^{k+1}} \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+    \cdot
+    \\
+    &\int 
+    \exp\left\{-\frac{1}{2\sigma^2} \left\|\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\By^{ts}-\BZ^{ts}\balpha\right\|^2\right\}
+    d\balpha   
+    \\
+    =
+    &
+    \frac{1}{(2\pi)^{(k+1)/2} \sigma^{k+1}} \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+    \cdot
+    (2\pi)^{k/2} \sigma^k \left| \BZ^{ts\top} \BZ^{ts} \right|^{-1/2}
+    \\
+    =
+    &
+    \frac{1}{(2\pi)^{1/2} \sigma \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} } \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+    .
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+    &\int N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n) \pi^N (\balpha, \sigma) d\balpha d \sigma
+    \\
+    =&
+    \int
+    \frac{c}{(2\pi)^{1/2} \sigma^3 \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} } \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+     d \sigma
+     \\
+     (\phi:=\sigma^{-2})=&
+    \int
+    \frac{c \phi^{3/2}}{(2\pi)^{1/2} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} } \exp\left\{-\frac{\phi}{2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+    \frac{1}{2} \phi^{-3/2} d \phi
+     \\
+     =&
+    \frac{c }{2(2\pi)^{1/2} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} }
+    \int
+    \exp\left\{-\frac{\phi}{2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+      d \phi
+      \\
+     =&
+    \frac{c }{(2\pi)^{1/2} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} 
+     \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
+ }.
+    \end{split}
+\end{equation*}
+
+With the above expression, we have
+\begin{equation*}
+    \begin{split}
+    &\myE_{\By^{ts}|\balpha, \sigma}
+    \frac{N_{k+1} (\By^{ts} | \BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)}{\int N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n) \pi^N (\balpha, \sigma) d\balpha d \sigma}
+    \\
+    =
+    &
+    c^{-1}
+    (2\pi)^{1/2} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} 
+    \myE_{\By^{ts}|\balpha, \sigma}
+     \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
+    N_{k+1} (\By^{ts} | \BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)
+    \\
+    =
+    &
+    \frac{(2\pi)^{1/2}}{c} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} 
+    \int
+     \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
+    N_{k+1} (\By^{ts} | \BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)
+    N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n)
+    d\By^{ts}.
+    \end{split}
+\end{equation*}
+To compute this integral, we use the following lemma.
+\begin{lemma}
+    \begin{equation*}
+    \int_{\mathbb R^n} \left(\By^\top \BK \By \prod_{i=1}^2 \mathcal N_n (\By| \BX \theta_i ,\sigma^2_i \BI_n)\right) d\By
+    =
+    \frac{\sigma_2^2 \mytr(\BK) |\BX^\top \BX|^{-1/2}}{
+        (2\pi\sigma_1^2)^{(n-k)/2} (1+\sigma_2^2/\sigma_1^2)^{(n-k+2)/2}
+    }
+    \mathcal{N}_k (\theta_2 | \theta_1,(\sigma_1^2 +\sigma_2^2) (\BX^\top \BX)^{-1}),
+\end{equation*}
+where $\BK$ is an $n\times n$ symmetric matrix, $\BX$ is an $n\times k $ matrix of rank $k$ such that $\BK \BX=0$.
+\end{lemma}
+\begin{proof}
+    \begin{equation*}
+        \begin{split}
+    &\int_{\mathbb R^n} \left(\By^\top \BK \By \prod_{i=1}^2 \mathcal N_n (\By| \BX \theta_i ,\sigma^2_i \BI_n)\right) d\By
+    \\
+    =&
+    \frac{1}{(2\pi)^n \sigma_1^n \sigma_2^n}\int_{\mathbb R^n} \By^\top \BK \By 
+    \exp\left\{-\frac{1}{2\sigma_1^2} \|\By -\BX \theta_1\|^2-\frac{1}{2\sigma_2^2} \|\By -\BX \theta_2\|^2\right\}
+    d\By
+    \\
+    =&
+    \frac{1}{(2\pi)^n \sigma_1^n \sigma_2^n}
+    \exp\left\{
+        -\frac{1}{2\sigma_1^2} \theta_1^\top \BX^\top \BX \theta_1
+        -\frac{1}{2\sigma_2^2} \theta_2^\top \BX^\top \BX \theta_2
+    \right\}
+    \cdot
+    \\
+    &\int_{\mathbb R^n} \By^\top \BK \By 
+    \exp\left\{-\frac{1}{2}
+            \frac{\sigma_1^2 +\sigma_2^2}{\sigma_1^2 \sigma_2^2} 
+        \left(
+            \|\By\|^2
+            -2 \By^\top \BX \left(\frac{\sigma_2^2}{\sigma_1^2 + \sigma_2^2} \theta_1 +  \frac{\sigma_1^2}{\sigma_1^2 + \sigma_2^2} \theta_2 \right)
+        \right)
+    \right\}
+    d\By
+    \\
+    =&
+    \frac{1}{(2\pi)^n \sigma_1^n \sigma_2^n}
+    \exp\left\{
+        -\frac{1}{2\sigma_1^2} \theta_1^\top \BX^\top \BX \theta_1
+        -\frac{1}{2\sigma_2^2} \theta_2^\top \BX^\top \BX \theta_2
+    \right\}
+    \cdot
+    \\
+    &\int_{\mathbb R^n} \By^\top \BK \By 
+    \exp\left\{-\frac{1}{2}
+            \frac{\sigma_1^2 +\sigma_2^2}{\sigma_1^2 \sigma_2^2} 
+        \left(
+            \left\|\By
+            - \BX \left(\frac{\sigma_2^2}{\sigma_1^2 + \sigma_2^2} \theta_1 +  \frac{\sigma_1^2}{\sigma_1^2 + \sigma_2^2} \theta_2 \right)
+            \right\|^2
+            -
+            \left\|\BX \left(\frac{\sigma_2^2}{\sigma_1^2 + \sigma_2^2} \theta_1 +  \frac{\sigma_1^2}{\sigma_1^2 + \sigma_2^2} \theta_2 \right)
+            \right\|^2
+        \right)
+    \right\}
+    d\By
+    \\
+    =&
+    \frac{1}{(2\pi)^n \sigma_1^n \sigma_2^n}
+    \exp\left\{
+        -\frac{1}{2\sigma_1^2} \theta_1^\top \BX^\top \BX \theta_1
+        -\frac{1}{2\sigma_2^2} \theta_2^\top \BX^\top \BX \theta_2
+        +
+    \frac{\sigma_1^2 +\sigma_2^2}{2\sigma_1^2 \sigma_2^2} 
+            \left\|\BX \left(\frac{\sigma_2^2}{\sigma_1^2 + \sigma_2^2} \theta_1 +  \frac{\sigma_1^2}{\sigma_1^2 + \sigma_2^2} \theta_2 \right)
+            \right\|^2
+        \right\}
+    \cdot
+    \\
+    &\int_{\mathbb R^n} \By^\top \BK \By 
+    \exp\left\{-\frac{1}{2}
+            \frac{\sigma_1^2 +\sigma_2^2}{\sigma_1^2 \sigma_2^2} 
+            \left\|\By
+            - \BX \left(\frac{\sigma_2^2}{\sigma_1^2 + \sigma_2^2} \theta_1 +  \frac{\sigma_1^2}{\sigma_1^2 + \sigma_2^2} \theta_2 \right)
+            \right\|^2
+    \right\}
+    d\By
+    \\
+    =&
+    \frac{1}{(2\pi)^n \sigma_1^n \sigma_2^n}
+    \exp\left\{
+        -\frac{1}{2\sigma_1^2} \theta_1^\top \BX^\top \BX \theta_1
+        -\frac{1}{2\sigma_2^2} \theta_2^\top \BX^\top \BX \theta_2
+        +
+    \frac{\sigma_1^2 +\sigma_2^2}{2\sigma_1^2 \sigma_2^2} 
+            \left\|\BX \left(\frac{\sigma_2^2}{\sigma_1^2 + \sigma_2^2} \theta_1 +  \frac{\sigma_1^2}{\sigma_1^2 + \sigma_2^2} \theta_2 \right)
+            \right\|^2
+        \right\}
+    \cdot
+    \\
+    &
+    (2\pi)^{n/2}
+    \left(\frac{\sigma_1^2 \sigma_2^2}{\sigma_1^2 +\sigma_2^2}\right)^{n/2}
+    \int_{\mathbb R^n} \By^\top \BK \By 
+    \mathcal N_n \left(
+    \BX \left(\frac{\sigma_2^2}{\sigma_1^2 + \sigma_2^2} \theta_1 +  \frac{\sigma_1^2}{\sigma_1^2 + \sigma_2^2} \theta_2 \right)
+, \frac{\sigma_1^2 \sigma_2^2}{\sigma_1^2 +\sigma_2^2} \BI_n\right)
+    d\By
+    \\
+    =&
+    \frac{1}{(2\pi)^n \sigma_1^n \sigma_2^n}
+    \exp\left\{
+        -\frac{1}{2\sigma_1^2} \theta_1^\top \BX^\top \BX \theta_1
+        -\frac{1}{2\sigma_2^2} \theta_2^\top \BX^\top \BX \theta_2
+        +
+    \frac{\sigma_1^2 +\sigma_2^2}{2\sigma_1^2 \sigma_2^2} 
+            \left\|\BX \left(\frac{\sigma_2^2}{\sigma_1^2 + \sigma_2^2} \theta_1 +  \frac{\sigma_1^2}{\sigma_1^2 + \sigma_2^2} \theta_2 \right)
+            \right\|^2
+        \right\}
+    \cdot
+    \\
+    &
+    (2\pi)^{n/2}
+    \left(\frac{\sigma_1^2 \sigma_2^2}{\sigma_1^2 +\sigma_2^2}\right)^{n/2+1}
+    \mytr (\BK)
+    \\
+        \end{split}
+\end{equation*}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Normal-inverse-gamma (NIG) prior}
