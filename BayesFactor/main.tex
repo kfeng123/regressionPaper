@@ -480,22 +480,22 @@ We have
     \\
     =
     &
-    \frac{1}{(2\pi)^{(k+1)/2} \sigma^{k+1}} \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+    \frac{1}{(2\pi)^{(k+1)/2} \sigma^{k+1}} \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
     \cdot
     \\
     &\int 
-    \exp\left\{-\frac{1}{2\sigma^2} \left\|\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\By^{ts}-\BZ^{ts}\balpha\right\|^2\right\}
+    \exp\left\{-\frac{1}{2\sigma^2} \left\|\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\By^{ts}-\BZ^{ts}\balpha\right\|^2\right\}
     d\balpha   
     \\
     =
     &
-    \frac{1}{(2\pi)^{(k+1)/2} \sigma^{k+1}} \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+    \frac{1}{(2\pi)^{(k+1)/2} \sigma^{k+1}} \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
     \cdot
     (2\pi)^{k/2} \sigma^k \left| \BZ^{ts\top} \BZ^{ts} \right|^{-1/2}
     \\
     =
     &
-    \frac{1}{(2\pi)^{1/2} \sigma \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} } \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+    \frac{1}{(2\pi)^{1/2} \sigma \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} } \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
     .
     \end{split}
 \end{equation*}
@@ -506,23 +506,23 @@ Thus,
     \\
     =&
     \int
-    \frac{c}{(2\pi)^{1/2} \sigma^3 \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} } \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+    \frac{c}{(2\pi)^{1/2} \sigma^3 \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} } \exp\left\{-\frac{1}{2\sigma^2} \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
      d \sigma
      \\
      (\phi:=\sigma^{-2})=&
     \int
-    \frac{c \phi^{3/2}}{(2\pi)^{1/2} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} } \exp\left\{-\frac{\phi}{2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+    \frac{c \phi^{3/2}}{(2\pi)^{1/2} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} } \exp\left\{-\frac{\phi}{2} \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
     \frac{1}{2} \phi^{-3/2} d \phi
      \\
      =&
     \frac{c }{2(2\pi)^{1/2} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} }
     \int
-    \exp\left\{-\frac{\phi}{2} \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
+    \exp\left\{-\frac{\phi}{2} \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2\right\}
       d \phi
       \\
      =&
     \frac{c }{(2\pi)^{1/2} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} 
-     \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
+     \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
  }.
     \end{split}
 \end{equation*}
@@ -538,14 +538,14 @@ With the above expression, we have
     c^{-1}
     (2\pi)^{1/2} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} 
     \myE_{\By^{ts}|\balpha, \sigma}
-     \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
+     \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
     N_{k+1} (\By^{ts} | \BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)
     \\
     =
     &
     \frac{(2\pi)^{1/2}}{c} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} 
     \int
-     \left\|\left(I-\BZ^{ts} (\BZ^{ts} \BZ^{ts\top})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
+     \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
     N_{k+1} (\By^{ts} | \BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)
     N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n)
     d\By^{ts}.
@@ -672,13 +672,329 @@ where $\BK$ is an $n\times n$ symmetric matrix, $\BX$ is an $n\times k $ matrix 
     \left(\frac{\sigma_1^2 \sigma_2^2}{\sigma_1^2 +\sigma_2^2}\right)^{n/2+1}
     \mytr (\BK)
     \\
+    =&
+    \frac{\sigma_1^2 \sigma_2^2 \mytr(\BK) }{(2\pi)^{n/2} (\sigma_1^2 +\sigma_2^2)^{n/2+1}  }
+    \exp\left\{
+        -\frac{1}{2\sigma_1^2} \theta_1^\top \BX^\top \BX \theta_1
+        -\frac{1}{2\sigma_2^2} \theta_2^\top \BX^\top \BX \theta_2
+        +
+    \frac{\sigma_1^2 +\sigma_2^2}{2\sigma_1^2 \sigma_2^2} 
+            \left\|\BX \left(\frac{\sigma_2^2}{\sigma_1^2 + \sigma_2^2} \theta_1 +  \frac{\sigma_1^2}{\sigma_1^2 + \sigma_2^2} \theta_2 \right)
+            \right\|^2
+        \right\}
+    \\
+    =&
+    \frac{\sigma_1^2 \sigma_2^2 \mytr(\BK) }{(2\pi)^{n/2} (\sigma_1^2 +\sigma_2^2)^{n/2+1}  }
+    \exp\left\{
+        -\frac{1}{2(\sigma_1^2 + \sigma_2^2)}
+        (\theta_1-\theta_2)^\top \BX^\top \BX (\theta_1-\theta_2)
+        \right\}
+    \\
+    =&
+    \frac{\sigma_1^2 \sigma_2^2 \mytr(\BK) }{(2\pi)^{n/2} (\sigma_1^2 +\sigma_2^2)^{n/2+1}  }
+    \cdot (2\pi)^{k/2} (\sigma_1^2 +\sigma_2^2)^{k/2} |\BX^\top \BX|^{-1/2}
+    \mathcal N_n \left(\theta_2 |\theta_1,(\sigma_1^2 +\sigma_2^2) (\BX^\top \BX)^{-1}\right)
+    \\
+    =&
+    \frac{\sigma_1^2 \sigma_2^2 \mytr(\BK) |\BX^\top \BX|^{-1/2} }{ (2\pi)^{(n-k)/2}(\sigma_1^2 +\sigma_2^2)^{(n-k)/2+1}  }  
+    \mathcal N_n \left(\theta_2 |\theta_1,(\sigma_1^2 +\sigma_2^2) (\BX^\top \BX)^{-1}\right)
+    .
         \end{split}
 \end{equation*}
 \end{proof}
 
 
+Using the above Lemma, we have
+\begin{equation*}
+    \begin{split}
+    &\int
+     \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
+    N_{k+1} (\By^{ts} | \BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)
+    N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n)
+    d\By^{ts}
+    \\
+    =
+    &
+    \frac{\sigma^2 |\BZ^{ts \top} \BZ^{ts}|^{-1/2}}{(2\pi\sigma^2_{\bgamma})^{1/2}(1+\sigma^2/\sigma^2_{\bgamma})^{3/2}}
+    \mathcal N_k (\balpha | \bbeta_{\bgamma}, (\sigma^2 +\sigma^2_{\bgamma})(\BZ^{ts\top} \BZ^{ts})^{-1}).
+    \end{split}
+\end{equation*}
+It follows that
+\begin{equation*}
+    \begin{split}
+    &\myE_{\By^{ts}|\balpha, \sigma}
+    \frac{N_{k+1} (\By^{ts} | \BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)}{\int N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n) \pi^N (\balpha, \sigma) d\balpha d \sigma}
+    \\
+    =
+    &
+    \frac{(2\pi)^{1/2}}{c} \left| \BZ^{ts\top} \BZ^{ts} \right|^{1/2} 
+    \int
+     \left\|\left(I-\BZ^{ts} (\BZ^{ts\top} \BZ^{ts})^{-1}\BZ^{ts\top}\right)\By^{ts}\right\|^2
+    N_{k+1} (\By^{ts} | \BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)
+    N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n)
+    d\By^{ts}
+    \\
+    =
+    &
+    \frac{\sigma^2}{c \sigma_{\bgamma} (1+\sigma^2/\sigma^2_{\bgamma})^{3/2} }
+    \mathcal N_k (\balpha | \bbeta_{\bgamma}, (\sigma^2 +\sigma^2_{\bgamma})(\BZ^{ts\top} \BZ^{ts})^{-1}).
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+    &\pi^I (\balpha, \sigma | \bbeta_{\bgamma}, \bsigma_{\bgamma}) 
+    \\
+    =&
+    \pi^N (\balpha, \sigma ) 
+    \times
+    \myE_{\By^{ts}|\balpha, \sigma}
+    \frac{N_{k+1} (\By^{ts} | \BZ^{ts} \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)}{\int N_{k+1} (\By^{ts} | \BZ^{ts} \balpha, \sigma^2 \BI_n) \pi^N (\balpha, \sigma) d\balpha d \sigma}
+    \\
+    =
+    &
+    \frac{1}{ \sigma_{\bgamma} (1+\sigma^2/\sigma^2_{\bgamma})^{3/2} }
+    \mathcal N_k (\balpha | \bbeta_{\bgamma}, (\sigma^2 +\sigma^2_{\bgamma})(\BZ^{ts\top} \BZ^{ts})^{-1}).
+    \end{split}
+\end{equation*}
+
+\begin{proposition}
+The conditional intrinsic prior is
+\begin{equation*}
+    \begin{split}
+    \pi^I (\balpha, \sigma | \bbeta_{\bgamma}, \bsigma_{\bgamma}) 
+    =
+    \frac{1}{ \sigma_{\bgamma} (1+\sigma^2/\sigma^2_{\bgamma})^{3/2} }
+    \mathcal N_k (\balpha | \bbeta_{\bgamma}, (\sigma^2 +\sigma^2_{\bgamma})\BW^{-1}),
+    \end{split}
+\end{equation*}
+where $\BW= \BZ^{ts\top} \BZ^{ts}$.
+
+\end{proposition}
+A way of assesing $\BW^{-1}$ is to use the original idea of the arithmetic intrinsic Bayes factor.
+This entails averaging over all possible training samples of minimal size contained in the sample.
+This would give the matrix
+\begin{equation*}
+    \BW^{-1} = \frac{1}{L} \sum_{l=1}^L (\BZ^\top (l) \BZ(l))^{-1},
+\end{equation*}
+where $\{\BZ(l), l=1,\ldots, L\}$ is the set of all submatrices of $\BX$ of order $(k+1)\times k$ of rank $k$.
+
+For the data $(\By, \BX)$, the Bayes factor for comparing models $M_{\bgamma}$ and $M_{\mathbf 1}$ with the intrinsic priors $\{\pi^N (\bbeta_{\bgamma}, \sigma_{\bbeta}), \pi^I (\balpha, \sigma)\}$ has the formal expression
+\begin{equation*}
+    B_{\bgamma \mathbf 1} (\By, \BX)=
+    \frac{
+        \int\mathcal N_n (\By | \BX \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)
+        \pi^N (\bbeta_{\bgamma}, \sigma_{\bgamma}) d\bbeta_{\bgamma} d \sigma_{\bgamma}
+    }{
+        \int\mathcal N_n (\By | \BX \balpha, \sigma^2 \BI_n)
+        \pi^I (\balpha, \sigma |\bbeta_{\bgamma} ,\sigma_{\bgamma})
+        \pi^N (\bbeta_{\bgamma}, \sigma_{\bgamma}) d\balpha d\sigma d\bbeta_{\bgamma} d \sigma_{\bgamma}
+    }.
+\end{equation*}
 
 
+In what follows we partition the design matrix $\BX$ as $\BX=(\BX_{0\bgamma}|\BX_{\mathbf 1 \bgamma})$, where $\BX_{\mathbf 1 \bgamma}$ contains the column $j$ of $\BX$ if the configuration $\bgamma$ is such that $\gamma_j =1$.
+Therefore, the dimension of $\BX_{1\bgamma}$ is $n\times k_{\bgamma}$, where $k_{\bgamma}= \sum_{i=1}^k \gamma_i$.
+
+\begin{proposition}
+    The Bayes factor is given by
+    \begin{equation*}
+        B_{\bgamma \mathbf 1} (\By, \BX)
+        =
+        \left(
+            |\BX^\top_{\mathbf 1 \bgamma} \BX_{\mathbf 1 \bgamma}|^{1/2}
+            (\By^\top (\BI_n -\BH_{\bgamma}) \By)^{(n-k_{\bgamma}+1)/2} I_{\bgamma}
+        \right)^{-1}
+        ,
+    \end{equation*}
+    where $\BH_{\bgamma}= \BX_{\mathbf 1 \bgamma} (\BX_{\mathbf 1 \bgamma}^\top\BX_{\mathbf 1 \bgamma})\BX_{\mathbf 1 \bgamma}^\top$,
+    \begin{align*}
+        I_{\bgamma}=& \int_{0}^{\pi/2}\frac{d\varphi}{|\BA_{\bgamma}(\varphi)|^{1/2} |\BB(\varphi)|^{1/2} E_{\bgamma} (\varphi)^{(n-k_{\bgamma}+1)/2}},
+        \\
+        \BB(\varphi)=& (\sin^2 \varphi) \BI_n + \BX \BW^{-1} \BX^\top,
+        \\
+        \BA_{\bgamma} (\varphi) =& \BX_{\mathbf 1 \bgamma}^\top \BB^{-1} (\varphi) \BX_{\mathbf 1 \bgamma},
+        \\
+        E_{\bgamma} (\varphi) =& \By^\top \left( \BB^{-1} (\varphi)- \BB^{-1}(\varphi) \BX_{\mathbf 1 \bgamma} \BA_{\bgamma}^{-1} (\varphi) \BX_{\mathbf 1 \bgamma}^\top \BB^{-1} (\varphi)\right) \By
+        .
+    \end{align*}
+\end{proposition}
+\begin{proof}
+    For the numerator, we have
+    \begin{equation*}
+        \begin{split}
+        &\int\mathcal N_n (\By | \BX \bbeta_{\bgamma}, \sigma^2_{\bgamma} \BI_n)
+        \pi^N (\bbeta_{\bgamma}, \sigma_{\bgamma}) d\bbeta_{\bgamma} d \sigma_{\bgamma}
+        \\
+        =&
+        \int
+        \frac{1}{(2\pi)^{n/2}\sigma_{\bgamma}^n}\exp\left\{-\frac{1}{2\sigma_{\bgamma}^2}\|\By-\BX_{\mathbf 1 \bgamma} \bbeta_{\mathbf 1\bgamma}\|^2\right\}
+        \frac{c_{\bgamma}}{\sigma_{\bgamma}^2} d\bbeta_{1\bgamma} d \sigma_{\bgamma}
+        \\
+        =&
+        \int
+        \frac{1}{(2\pi)^{n/2}\sigma_{\bgamma}^n}\exp\left\{-\frac{1}{2\sigma_{\bgamma}^2}\|(\BI_n- \BH_{\bgamma})\By\|^2\right\}
+        \exp\left\{
+            -\frac{1}{2\sigma^2_{\bgamma}}\|\BX_{\mathbf 1 \bgamma}(\bbeta_{\mathbf 1 \bgamma}-\hat \bbeta_{\mathbf 1 \bgamma})\|^2
+        \right\}
+        \frac{c_{\bgamma}}{\sigma_{\bgamma}^2} d\bbeta_{1\bgamma} d \sigma_{\bgamma}
+        \\
+        =&
+        \int
+        \frac{1}{(2\pi)^{n/2}\sigma_{\bgamma}^n}
+        (2\pi)^{k_{\bgamma}/2}\sigma_{\bgamma}^{k_{\bgamma}}
+        |\BX_{\mathbf 1 \bgamma}^\top\BX_{\mathbf 1 \bgamma}|^{-1/2}\exp\left\{-\frac{1}{2\sigma_{\bgamma}^2}\|(\BI_n- \BH_{\bgamma})\By\|^2\right\}
+        \frac{c_{\bgamma}}{\sigma_{\bgamma}^2} d \sigma_{\bgamma}
+        \\
+        =&
+        \int
+        \frac{\phi^{(n-k_{\bgamma})/2}}{(2\pi)^{(n-k_{\bgamma})/2}}
+        |\BX_{\mathbf 1 \bgamma}^\top\BX_{\mathbf 1 \bgamma}|^{-1/2}
+        \exp\left\{-\frac{\phi}{2}\|(\BI_n- \BH_{\bgamma})\By\|^2\right\}
+        c_{\bgamma} \phi  \left(\frac{1}{2\phi^{3/2}}\right)d \phi
+        \\
+        =&
+        \int
+        \frac{c_{\bgamma}}{2}
+\frac{1}{(2\pi)^{(n-k_{\bgamma})/2}}
+        |\BX_{\mathbf 1 \bgamma}^\top\BX_{\mathbf 1 \bgamma}|^{-1/2}
+        \phi^{(n-k_{\bgamma}+1)/2-1}
+        \exp\left\{-\frac{\phi}{2}\|(\BI_n- \BH_{\bgamma})\By\|^2\right\}
+        d \phi
+        \\
+        =&
+        \frac{c_{\bgamma}}{2}
+\frac{1}{(2\pi)^{(n-k_{\bgamma})/2}}
+        |\BX_{\mathbf 1 \bgamma}^\top\BX_{\mathbf 1 \bgamma}|^{-1/2}
+        \Gamma((n-k_{\bgamma}+1)/2)\left(\frac{2}{\|(\BI_n -\BH_{\bgamma})\By\|^2}\right)^{(n-k_{\bgamma}+1)/2}
+        \\
+        =&
+        \frac{c_{\bgamma}}{\sqrt{2}}
+\frac{1}{(\pi)^{(n-k_{\bgamma})/2}}
+        |\BX_{\mathbf 1 \bgamma}^\top\BX_{\mathbf 1 \bgamma}|^{-1/2}
+        \Gamma((n-k_{\bgamma}+1)/2)\|(\BI_n -\BH_{\bgamma})\By\|^{-(n-k_{\bgamma}+1)}
+        .
+        \end{split}
+    \end{equation*}
+    Now we deal with the denominator
+    \begin{equation*}
+        \int\mathcal N_n (\By | \BX \balpha, \sigma^2 \BI_n)
+        \pi^I (\balpha, \sigma |\bbeta_{\bgamma} ,\sigma_{\bgamma})
+        \pi^N (\bbeta_{\bgamma}, \sigma_{\bgamma}) d\balpha d\sigma d\bbeta_{\bgamma} d \sigma_{\bgamma}.
+    \end{equation*}
+    We have
+    \begin{equation*}
+        \begin{split}
+        &\int\mathcal N_n (\By | \BX \balpha, \sigma^2 \BI_n)
+        \pi^I (\balpha, \sigma |\bbeta_{\bgamma} ,\sigma_{\bgamma})
+         d\balpha d\sigma 
+        \\
+        =&
+        \int\mathcal N_n (\By | \BX \balpha, \sigma^2 \BI_n)
+    \mathcal N_k (\balpha | \bbeta_{\bgamma}, (\sigma^2 +\sigma^2_{\bgamma})\BW^{-1})
+    \frac{1}{ \sigma_{\bgamma} (1+\sigma^2/\sigma^2_{\bgamma})^{3/2} }
+         d\balpha d\sigma 
+         \\
+         =& 
+        \int
+        \mathcal N_n (\By | \BX \bbeta_{\bgamma}, (\sigma^2 + \sigma_{\bgamma}^2)\BX\BW^{-1} \BX^\top+\sigma^2 \BI_n)
+    \frac{1}{ \sigma_{\bgamma} (1+\sigma^2/\sigma^2_{\bgamma})^{3/2} }
+    d\sigma.
+        \end{split}
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+        \begin{split}
+        &\int\mathcal N_n (\By | \BX \balpha, \sigma^2 \BI_n)
+        \pi^I (\balpha, \sigma |\bbeta_{\bgamma} ,\sigma_{\bgamma})
+        \pi^N (\bbeta_{\bgamma}, \sigma_{\bgamma}) d\balpha d\sigma d\bbeta_{\bgamma} d \sigma_{\bgamma}
+        \\
+        =&\int
+        \mathcal N_n (\By | \BX \bbeta_{\bgamma}, (\sigma^2 + \sigma_{\bgamma}^2)\BX\BW^{-1} \BX^\top+\sigma^2 \BI_n)
+    \frac{1}{ \sigma_{\bgamma} (1+\sigma^2/\sigma^2_{\bgamma})^{3/2} }
+\pi^N (\bbeta_{\bgamma}, \sigma_{\bgamma})
+    d\sigma
+d\bbeta_{\mathbf 1\bgamma}
+ d \sigma_{\bgamma}
+        \\
+        =&\int
+        \left(
+            \int
+            \mathcal N_n \left(\By | \BX_{\mathbf 1 \bgamma} \bbeta_{\mathbf 1\bgamma}, (\sigma^2 + \sigma_{\bgamma}^2)\BX\BW^{-1} \BX^\top+\sigma^2 \BI_n\right)
+d\bbeta_{\mathbf 1\bgamma}
+\right)
+    \frac{1}{ \sigma_{\bgamma} (1+\sigma^2/\sigma^2_{\bgamma})^{3/2} }
+    \frac{c_{\bgamma}}{\sigma_{\bgamma}^2}
+    d\sigma
+    d \sigma_{\bgamma}.
+        \end{split}
+    \end{equation*}
+    Let $\tilde \bSigma =(\sigma^2 + \sigma_{\bgamma}^2)\BX\BW^{-1} \BX^\top+\sigma^2 \BI_n$.
+    Then
+    \begin{equation*}
+        \begin{split}
+            &
+            \int
+            \mathcal N_n \left(\By | \BX_{\mathbf 1 \bgamma} \bbeta_{\mathbf 1\bgamma}, \tilde{\bSigma}\right)
+d\bbeta_{\mathbf 1\bgamma}
+\\
+=&
+\frac{1}{(2\pi)^{n/2} |\tilde\bSigma|^{1/2}}
+            \int
+            \exp \left\{
+                -\frac{1}{2} (\By- \BX_{\mathbf 1 \bgamma} \bbeta_{\mathbf 1 \bgamma} )^\top\tilde\bSigma^{-1}(\By- \BX_{\mathbf 1 \bgamma} \bbeta_{\mathbf 1 \bgamma} )
+            \right\}
+d\bbeta_{\mathbf 1\bgamma}
+\\
+=&
+\frac{1}{(2\pi)^{n/2} |\tilde\bSigma|^{1/2}}
+\exp\left\{
+    -\frac 1 2 
+    \By^\top \left(
+        \tilde\bSigma^{-1} -\tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma} (\BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma})^{-1} \BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1}
+    \right)\By
+\right\}
+\cdot
+\\
+&
+            \int
+            \exp \left\{
+                -\frac{1}{2} \left(\bbeta_{\mathbf 1 \bgamma}- (\BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma})^{-1} \BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \By  \right)^\top \BX_{\mathbf 1 \bgamma}^\top\tilde\bSigma^{-1}\BX_{\mathbf 1 \bgamma} \left(\bbeta_{\mathbf 1 \bgamma}- (\BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma})^{-1} \BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \By  \right)
+            \right\}
+d\bbeta_{\mathbf 1\bgamma}
+\\
+=&
+\frac{1}{(2\pi)^{n/2} |\tilde\bSigma|^{1/2}}
+\exp\left\{
+    -\frac 1 2 
+    \By^\top \left(
+        \tilde\bSigma^{-1} -\tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma} (\BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma})^{-1} \BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1}
+    \right)\By
+\right\}
+\cdot
+\\
+&
+(2\pi)^{k_{\bgamma}/2} |\BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma}|^{-1/2}
+\\
+=&
+\frac{1}{(2\pi)^{(n-k_{\bgamma})/2} |\tilde\bSigma|^{1/2}
+|\BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma}|^{1/2}
+}
+\exp\left\{
+    -\frac 1 2 
+    \By^\top \left(
+        \tilde\bSigma^{-1} -\tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma} (\BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma})^{-1} \BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1}
+    \right)\By
+\right\}.
+        \end{split}
+    \end{equation*}
+    Let $\sigma_{\bgamma}=\rho \cos \varphi$, $\sigma=\rho \sin \varphi$, where $\rho\in (0,+\infty)$, $\varphi\in (0,\pi/2)$.
+    Then
+    \begin{align*}
+        \tilde{\bSigma}&=\rho^2 (\BX  \BW^{-1} \BX^\top +\sin^2 \varphi \BI_n)
+        =\rho^2 \BB(\varphi),\\
+    \end{align*}
+\end{proof}
 
 
 
