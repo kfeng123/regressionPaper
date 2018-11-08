@@ -2,6 +2,15 @@
 \BOOKMARK [1][-]{section.2}{Mixture of g prior}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Choices of g}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Mixtures of g priors}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Intrinsic prior}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{Linear model}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Normal-inverse-gamma \(NIG\) prior}{}% 7
+\BOOKMARK [2][-]{subsection.2.3}{High-dimensional setting}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Intrinsic prior}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Linear model}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Fractional Bayes factor}{}% 8
+\BOOKMARK [1][-]{section.5}{Expected-posterior priors}{}% 9
+\BOOKMARK [1][-]{section.6}{Normal-inverse-gamma \(NIG\) prior}{}% 10
+\BOOKMARK [1][-]{section.7}{Nonnested linear models}{}% 11
+\BOOKMARK [1][-]{section.8}{High-dimensional setting}{}% 12
+\BOOKMARK [2][-]{subsection.8.1}{Nonlocal priors}{section.8}% 13
+\BOOKMARK [2][-]{subsection.8.2}{Intrinsic priors}{section.8}% 14
+\BOOKMARK [1][-]{section.9}{A fractional intrinsic Bayes factor for linear model in high-dimensional setting}{}% 15
+\BOOKMARK [2][-]{subsection.9.1}{Fractional intrinsic priors}{section.9}% 16

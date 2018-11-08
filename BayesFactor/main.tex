@@ -301,7 +301,14 @@ They observed that the Bayes factor has a closed form if we take
 \end{equation*}
 
 
+\cite{bayarri2012} proposed a ``robust prior'' on $g$, which is a class of priors including the three considered by \cite{Liang2008Mixtures} and some other related priors.
 
+
+\subsection{High-dimensional setting}
+The asymptotic behaviors of the Bayes factors with $g$ priors in high dimensional setting have been investigated by \cite{Mukhopadhyay2014}, \cite{wang2017posterior}, \cite{Wang2016}, \cite{WANG201495}, \cite{wang2017}, \cite{XIANG201664},
+\cite{Mukhopadhyay2016}.
+
+Generalization of $g$ priors to $p>n$: \cite{maruyama2011}, \cite{Shang2011}.
 
 
 \section{Intrinsic prior}
@@ -926,6 +933,16 @@ d\bbeta_{\mathbf 1\bgamma}
     \frac{1}{ \sigma_{\bgamma} (1+\sigma^2/\sigma^2_{\bgamma})^{3/2} }
     \frac{c_{\bgamma}}{\sigma_{\bgamma}^2}
     d\sigma
+    d \sigma_{\bgamma}
+        \\
+        =&\int
+        \left(
+            \int
+            \mathcal N_n \left(\By | \BX_{\mathbf 1 \bgamma} \bbeta_{\mathbf 1\bgamma}, (\sigma^2 + \sigma_{\bgamma}^2)\BX\BW^{-1} \BX^\top+\sigma^2 \BI_n\right)
+d\bbeta_{\mathbf 1\bgamma}
+\right)
+    \frac{c_{\bgamma}}{ (\sigma^2_{\bgamma}+\sigma^2)^{3/2} }
+    d\sigma
     d \sigma_{\bgamma}.
         \end{split}
     \end{equation*}
@@ -993,17 +1010,163 @@ d\bbeta_{\mathbf 1\bgamma}
     \begin{align*}
         \tilde{\bSigma}&=\rho^2 (\BX  \BW^{-1} \BX^\top +\sin^2 \varphi \BI_n)
         =\rho^2 \BB(\varphi),\\
+\BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma}
+&=\rho^{-2}
+\BX_{\mathbf 1 \bgamma}^\top \BB(\varphi)^{-1} \BX_{\mathbf 1 \bgamma}
+=\rho^{-2} \BA_{\bgamma} (\varphi),
+\\
+    \By^\top \left(
+        \tilde\bSigma^{-1} -\tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma} (\BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1} \BX_{\mathbf 1 \bgamma})^{-1} \BX_{\mathbf 1 \bgamma}^\top \tilde\bSigma^{-1}
+    \right)\By
+    &=
+    \rho^{-2} E_{\bgamma} (\varphi).
     \end{align*}
+    Then
+    \begin{equation*}
+            \int
+            \mathcal N_n \left(\By | \BX_{\mathbf 1 \bgamma} \bbeta_{\mathbf 1\bgamma}, \tilde{\bSigma}\right)
+d\bbeta_{\mathbf 1\bgamma}
+=
+\frac{1}{(2\pi)^{(n-k_{\bgamma})/2} \rho^{n-k_{\bgamma}} |\BB(\varphi)|^{1/2}
+    |\BA_{\bgamma}(\varphi)|^{1/2}
+}
+\exp\left\{
+    -\frac {1}{ 2 \rho^2}
+    E_{\bgamma} (\varphi)
+\right\}.
+    \end{equation*}
+    It follows that
+    \begin{equation*}
+        \begin{split}
+        &\int\mathcal N_n (\By | \BX \balpha, \sigma^2 \BI_n)
+        \pi^I (\balpha, \sigma |\bbeta_{\bgamma} ,\sigma_{\bgamma})
+        \pi^N (\bbeta_{\bgamma}, \sigma_{\bgamma}) d\balpha d\sigma d\bbeta_{\bgamma} d \sigma_{\bgamma}
+        \\
+        =&\int
+        \left(
+            \int
+            \mathcal N_n \left(\By | \BX_{\mathbf 1 \bgamma} \bbeta_{\mathbf 1\bgamma}, (\sigma^2 + \sigma_{\bgamma}^2)\BX\BW^{-1} \BX^\top+\sigma^2 \BI_n\right)
+d\bbeta_{\mathbf 1\bgamma}
+\right)
+    \frac{c_{\bgamma}}{ (\sigma^2_{\bgamma}+\sigma^2)^{3/2} }
+    d\sigma
+    d \sigma_{\bgamma}
+    \\
+    =&
+    \int
+\frac{1}{(2\pi)^{(n-k_{\bgamma})/2} \rho^{n-k_{\bgamma}} |\BB(\varphi)|^{1/2}
+    |\BA_{\bgamma}(\varphi)|^{1/2}
+}
+\exp\left\{
+    -\frac {1}{ 2 \rho^2}
+    E_{\bgamma} (\varphi)
+\right\}
+\frac{c_{\bgamma}}{\rho^2}
+ d \rho d\varphi
+    \\
+    =&
+    \int
+    \frac{c_{\bgamma}}{(2\pi)^{(n-k_{\bgamma})/2} \rho^{n-k_{\bgamma}+2} |\BB(\varphi)|^{1/2}
+    |\BA_{\bgamma}(\varphi)|^{1/2}
+}
+\exp\left\{
+    -\frac {1}{ 2 \rho^2}
+    E_{\bgamma} (\varphi)
+\right\}
+ d \rho d\varphi
+    \\
+    =&
+    \int
+    \frac{c_{\bgamma}\phi^{(n-k_{\bgamma}+2)/2} }{(2\pi)^{(n-k_{\bgamma})/2}  |\BB(\varphi)|^{1/2}
+    |\BA_{\bgamma}(\varphi)|^{1/2}
+}
+\exp\left\{
+    -\frac {\phi}{ 2 }
+    E_{\bgamma} (\varphi)
+\right\}
+\frac{1}{2\phi^{3/2}} d \phi d\varphi
+    \\
+    =&
+    \int
+    \frac{c_{\bgamma} }{2(2\pi)^{(n-k_{\bgamma})/2}  |\BB(\varphi)|^{1/2}
+    |\BA_{\bgamma}(\varphi)|^{1/2}
+}
+\phi^{(n-k_{\bgamma}+1)/2-1}
+\exp\left\{
+    -\frac {\phi}{ 2 }
+    E_{\bgamma} (\varphi)
+\right\}
+d \phi d\varphi
+    \\
+    =&
+    \int
+    \frac{c_{\bgamma} }{2(2\pi)^{(n-k_{\bgamma})/2}  |\BB(\varphi)|^{1/2}
+    |\BA_{\bgamma}(\varphi)|^{1/2}
+}
+\Gamma((n-k_{\bgamma}+1)/2)
+\left(\frac{2}{E_{\bgamma}(\varphi)}\right)^{(n-k_{\bgamma}+1)/2}
+ d\varphi
+    \\
+    =&
+    \frac{c_{\bgamma}\Gamma((n-k_{\bgamma}+1)/2)}{\sqrt{2}(\pi)^{(n-k_{\bgamma})/2}}
+    \int
+    \frac{ 
+ d\varphi
+    }{  |\BB(\varphi)|^{1/2}
+    |\BA_{\bgamma}(\varphi)|^{1/2}
+E_{\bgamma}(\varphi)^{(n-k_{\bgamma}+1)/2}
+}
+    \\
+    =&
+    \frac{c_{\bgamma}\Gamma((n-k_{\bgamma}+1)/2)}{\sqrt{2}(\pi)^{(n-k_{\bgamma})/2}}
+    I_{\bgamma}
+.
+        \end{split}
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+        \begin{split}
+        B_{\bgamma \mathbf 1} (\By, \BX)
+        =&
+        \frac{
+        \frac{c_{\bgamma}}{\sqrt{2}}
+\frac{1}{(\pi)^{(n-k_{\bgamma})/2}}
+        |\BX_{\mathbf 1 \bgamma}^\top\BX_{\mathbf 1 \bgamma}|^{-1/2}
+        \Gamma((n-k_{\bgamma}+1)/2)\|(\BI_n -\BH_{\bgamma})\By\|^{-(n-k_{\bgamma}+1)}
+        }{
+    \frac{c_{\bgamma}\Gamma((n-k_{\bgamma}+1)/2)}{\sqrt{2}(\pi)^{(n-k_{\bgamma})/2}}
+    I_{\bgamma}
+        }
+        \\
+        =&
+        \left(
+|\BX_{\mathbf 1 \bgamma}^\top\BX_{\mathbf 1 \bgamma}|^{1/2}
+\|(\BI_n -\BH_{\bgamma})\By\|^{n-k_{\bgamma}+1}
+    I_{\bgamma}
+\right)^{-1}.
+        \end{split}
+    \end{equation*}
+    This completes the proof.
+
 \end{proof}
 
 
 
+\section{Fractional Bayes factor}
+Fractional Bayes factor is proposed by \cite{Fractional1995}.
+Fractional intrinsic Bayes factor is proposed by \cite{santis1997Alt}.
+See \cite{Santis1999} for a review.
+Divergence-based (DB) priors are proposed by \cite{Bayarri2008Gen}.
 
 
 
 
 
 
+
+
+\section{Expected-posterior priors}
+Expected-posterior prior is proposed by \cite{Perez2002}.
 \section{Normal-inverse-gamma (NIG) prior}
 \cite{zhou2018On}
 
@@ -1058,249 +1221,155 @@ Then
     .
     \end{split}
 \end{equation*}
-Let $\BH_{\BW}= \BW (\BW^\top \BW)^{-1} \BW^\top$.
+
+
+
+\section{Nonnested linear models}
+\cite{Moreno2007} said:
+
+``There are two natural ways of encompassing: one way is to encompass all models into the model containing all possible regressors, and the other is to encompass the model containing only the intercept into any other.
+''
+
+\section{High-dimensional setting}
+\cite{Armagan2013P} investigated the posterior consistency in linear models.
+Their focus is on shrinkage priors, including
+Laplace prior,
+Student's $t$,
+Generalized double Pareto, and hourseshoe-type priors.
+\cite{Bai2018} investigated the posterior consistency under the global-local shrinkage priors.
+
+\subsection{Nonlocal priors}
+Nonlocal priors are proposed by \cite{nonlocalPrior} in the context of Bayesian hypothesis testing.
+\cite{Johnson2012} and \cite{Johnson2013} considered using nonlocal priors to solve model selection problem.
+A more recent work is \cite{Bhattacharya2018}.
+
+Estimation: \cite{Rossell2017Non}.
+
+
+
+
+
+\subsection{Intrinsic priors}
+The asymptotic behaviors of the Bayes factors with intrinsic priors in high dimensional setting have been investigated by \cite{Casella2009}, \cite{Giron2010} and \cite{moreno2010} and \cite{moreno2015}.
+
+
+
+
+
+
+
+
+
+
+\section{A fractional intrinsic Bayes factor for linear model in high-dimensional setting}
+Suppose we would like to compare models $\mathcal M_0$ and $\mathcal M_1$.
+\begin{align*}
+    \mathcal M_0:   \By = \BX_0 \bbeta_0 + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi_0^{-1} \BI_n),
+    \\
+    \mathcal M_1:   \By = \BX_0 \bbeta_0 + \BX_1 \bbeta_1 + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi_1^{-1} \BI_n).
+\end{align*}
+Here $\bbeta_0$ is $p_0$ dimensional and $\bbeta_1$ is $p_1$ dimensional.
+We assume that as $n$ tends to infinity, $p_0$ is fixed while $p_1$ may diverge.
+This assumption is reasonable.
+In practice, $p_0$ is often $1$ and $\BX_0$ is $\mathbf 1_n$.
+Under $\mathcal M_0$, we impose the reference prior $\pi_0 (\bbeta_0,\phi_0)=c_0/\phi_0$.
+Note that the posterior corresponding to the referece prior is proper \CG{only if $n>p_0 + p_1$?}
+That is, the minimal training sample size is $p_0 + p_1 +1$.
+So we cannot impose the reference prior under $\mathcal M_1$ provided $p_0 + p_1 +1 >n$.
+We impose the conditional prior $\bbeta_1|\bbeta_0, \phi_1 \sim \mathcal N_{p_1} (0, \kappa \phi_1^{-1} \BI_{p_1}) $.
+Following the heuristic device of \cite{Kass1995}, we choose $\kappa$ such that the amount of information about the parameter equal to the amount of information contained in one observation.
+\cite{Kass1995} used Fisher information to define ``amount of information''.
+In the $p_1>n$ setting, if $\BX_1$ is a fixed design, the Fisher information is not invertible which invalidate \cite{Kass1995}'s method.
+To overcome this difficulty, we temporarily assume that the rows of $\BX_1$ are iid $\mathcal N_p (0, c \BI_{p_1} )$ random vectors.
+Then the block of Fisher information matrix corresponding to $\bbeta_1$ is
+$c\phi_1 \BI_{p_1}$.
+Then $\kappa$ should satisfy
+\begin{equation*}
+    \kappa \phi_1^{-1} \BI_{p_1}  = (c\phi_1 \BI_{p_1})^{-1}.
+\end{equation*}
+That is, $\kappa$ should equal $c^{-1}$.
+However, $c$ is unknown.
+Note that $\|\BX_1\|_F^2/c\sim \chi^2(n p_1)$.
+An estimator of $c$ is $\|\BX_1\|_F^2/(np_1)$.
+So we put $\kappa=np_1/\|\BX_1\|_F^2$.
+Thus, under $\mathcal M_1$, we put prior
+\begin{equation*}
+    \pi_1 (\bbeta_1 | \bbeta_0, \phi_1) =\frac{(\phi_1 \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    \exp\left\{
+        -\frac{\phi_1 \|\BX_1\|_F^2}{2 n p_1} \|\bbeta_1\|^2
+    \right\}
+    ,\quad
+    \pi_1(\bbeta_0, \phi_1) = \frac{c_1}{\phi_1}.
+\end{equation*}
+
+\subsection{Fractional intrinsic priors}
+Suppose we are comparing two models based on $n$ iid observations, $\mathcal M_i: f_i (x|\theta_i)$, $i=0,1$, where $f_0(x|\theta_0)$ is nested in $f_1(x|\theta_1)$. Suppose prior $\pi_i (\theta_i)$ is imposed under $\mathcal M_i$, $i=0,1$.
+Bayes factors suffers from some paradox.
+Several remedies have been proposed.
+Fractional Bayes factor (\cite{Fractional1995}) is defined as
+\begin{equation*}
+    B^F_{10}=\frac{\int  \prod_{i=1}^n f_1(x_i|\theta_1) \pi_1(\theta_1) d\theta_1}{\int \prod_{i=1}^n f_0(x|\theta_0) \pi_0(\theta_0) d\theta_0} 
+    \cdot
+    \frac{\int (\prod_{i=1}^n f_0(x|\theta_0))^{m/n} \pi_0(\theta_0) d\theta_0}{\int (\prod_{i=1}^n f_1(x|\theta_1))^{m/n} \pi_1(\theta_1) d\theta_1},
+\end{equation*}
+where $1\leq  m \leq n$ is the training sample size.
+Although Fractional Bayes factor has good properties, it is not a real Bayes factor.
+Intrinsic fractional prior is proposed by \cite{santis1997Alt}.
+The Bayes factor derived from intrinsic fractional prior is asymptotically equivalent to the fractional Bayes factor.
+We can take $\pi_0^I (\theta_0)= \pi_0 (\theta_0)$ and $\pi_1^I (\theta_1)$ satisfies
+\begin{equation*}
+    B^{IF}_{10}:=
+    \frac{\int  \prod_{i=1}^n f_1(x_i|\theta_1) \pi_1^I(\theta_1) d\theta_1}{\int \prod_{i=1}^n f_0(x|\theta_0) \pi_0^I(\theta_0) d\theta_0} 
+    \approx
+    \frac{\int  \prod_{i=1}^n f_1(x_i|\theta_1) \pi_1(\theta_1) d\theta_1}{\int \prod_{i=1}^n f_0(x|\theta_0) \pi_0(\theta_0) d\theta_0} 
+    \cdot
+    \frac{\int (\prod_{i=1}^n f_0(x|\theta_0))^{m/n} \pi_0(\theta_0) d\theta_0}{\int (\prod_{i=1}^n f_1(x|\theta_1))^{m/n} \pi_1(\theta_1) d\theta_1}.
+\end{equation*}
+Suppose $f_1(x|\theta^*)$ is the true model which generates the data.
 Then
 \begin{equation*}
-    \begin{split}
-    \|\BY-\BW \Ba -\BL \Bb \|^2
-=
-&\|\BY-\hat \BY\|^2+\|\hat \BY-\BW \Ba -\BL \Bb \|^2
-\\
-=
-&\|\BY-\hat \BY\|^2+
-\|\BH_\BW(\hat \BY - \BL \Bb)-\BW \Ba \|^2
-+
-\|(\BI_n-\BH_\BW) (\hat \BY -\BL \Bb) \|^2
-.
-    \end{split}
-\end{equation*}
-We have
-\begin{equation*}
-    \begin{split}
-        &
-    \int_{\mathbb R^q}
-    \exp\left\{
-        -\frac{\tau }{2}
-        \left(
-\|\BH_\BW(\hat \BY - \BL \Bb)-\BW \Ba \|^2
-+\Ba^\top \BV_a^{-1} \Ba
-\right)
-\right\}
-    d\Ba
-    \\
-        =&
-    \int_{\mathbb R^q}
-    \exp\Big\{
-        -\frac{\tau }{2}
-        \Big(
-            \left\|(\BW^\top \BW +\BV_a^{-1})^{1/2}
-\left[\Ba-(\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top (\BW^\top \BW +\BV_a^{-1})\right]\right\|^2
-\\
-&-(\hat \BY -\BL \Bb)^\top \BW (\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top(\hat \BY -\BL \Bb)
-+\| \BH_\BW (\hat{\BY}-\BL \Bb)\|^2
-\Big)
-\Big\}
-    d\Ba
-    \\
+    \frac{\int (\prod_{i=1}^n f_0(x|\theta_0))^{m/n} \pi_0(\theta_0) d\theta_0}{\int (\prod_{i=1}^n f_1(x|\theta_1))^{m/n} \pi_1(\theta_1) d\theta_1}
     =
-&
-(2\pi)^{q/2} \tau^{-q/2} |\BW\BW^\top+\BV_a^{-1}|^{-1/2}
-\\
-&\exp\left\{
-    -\frac{\tau}{2}\left(
--(\hat \BY -\BL \Bb)^\top \BW (\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top(\hat \BY -\BL \Bb)
-+\| \BH_\BW (\hat{\BY}-\BL \Bb)\|^2
-\right)
-\right\}
-.
-    \end{split}
+    \frac{\int (\prod_{i=1}^n \frac{f_0(x|\theta_0)}{f_1(x|\theta^*)})^{m/n} \pi_0(\theta_0) d\theta_0}{\int (\prod_{i=1}^n \frac{f_1(x|\theta_1)}{f_1(x|\theta^*)})^{m/n} \pi_1(\theta_1) d\theta_1}
+    \approx
+    \frac{\int \exp\left\{-m \text{KL}(f_1(x|\theta^*)||f_0(x|\theta_0))\right\} \pi_0(\theta_0) d\theta_0}
+    {\int 
+\exp\left\{-m \text{KL}(f_1(x|\theta^*)||f_1(x|\theta_1))\right\}
+     \pi_1(\theta_1) d\theta_1}.
 \end{equation*}
 Thus,
 \begin{equation*}
     \begin{split}
-    &
-    \int_{\mathbb R^q}f(\BY|\Ba,\Bb, \tau)
-    \pi(\Ba|\tau)
-    \pi(\Bb|\tau)
-    \pi(\tau)
-    d\Ba
-    \\
-    =&
-    \frac{(\kappa_2/2)^{\kappa_1/2}\tau^{(n+p+\kappa_1)/2-1}}
-    {
-        (2\pi)^{(n+p)/2} |\BV_a|^{1/2} |\BV_b|^{1/2} \Gamma(\kappa_1/2)
-|\BW\BW^\top+\BV_a^{-1}|^{1/2}
-    }
-    \\
-    &
-    \exp\Big\{
-        -\frac{\tau}{2}
-        \Big( 
-\|\BY-\hat \BY\|^2
--(\hat \BY -\BL \Bb)^\top \BW (\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top(\hat \BY -\BL \Bb)
-+\| \hat{\BY}-\BL \Bb\|^2
-\\
-&
-        + \Bb^\top \BV_b^{-1} \Bb +\kappa_2\Big)
-    \Big\}
-    .
-    \end{split}
-\end{equation*}
-Note that
-\begin{equation*}
-    \begin{split}
-    &
-    \int_{\mathbb R^p}\exp\left\{
-        -\frac{\tau}{2}
-        \left( 
--(\hat \BY -\BL \Bb)^\top \BW (\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top(\hat \BY -\BL \Bb)
-+\| \hat{\BY}-\BL \Bb\|^2
-        + \Bb^\top \BV_b^{-1} \Bb \right)
-    \right\}
-    d\Bb
-    \\
-    &=
-    (2\pi)^{p/2} \tau^{-p/2} |\BL^\top \BC \BL +\BV_b^{-1}|^{-1/2}
-    \exp\left\{
-        -\frac \tau 2
-        \hat \BY^\top 
-        \left(
-            \BC- \BC \BL (\BL^\top \BC \BL +\BV_b^{-1})^{-1} \BL^\top \BC
-        \right)
-        \hat \BY
-    \right\}
-    ,
-    \end{split}
-\end{equation*}
-where $\BC=\BI_n-\BW (\BW^\top \BW +\BV_a^{-1})^{-1} \BW^\top$.
-Thus,
-\begin{equation*}
-    \begin{split}
-    &
-    \int_{\mathbb R^p }\int_{\mathbb R^q}f(\BY|\Ba,\Bb, \tau)
-    \pi(\Ba|\tau)
-    \pi(\Bb|\tau)
-    \pi(\tau)
-    d\Ba
-    d\Bb
-    \\
-    =&
-    \frac{(\kappa_2/2)^{\kappa_1/2}\tau^{(n+\kappa_1)/2-1}}
-    {
-        (2\pi)^{n/2} |\BV_a|^{1/2} |\BV_b|^{1/2} \Gamma(\kappa_1/2)
-|\BW\BW^\top+\BV_a^{-1}|^{1/2}
-|\BL^\top \BC \BL +\BV_b^{-1}|^{1/2}
-    }
-    \\
-    &
-    \exp\Big\{
-        -\frac{\tau}{2}
-        \Big( 
-\|\BY-\hat \BY\|^2
-        +\hat \BY^\top 
-        \left(
-            \BC- \BC \BL (\BL^\top \BC \BL +\BV_b^{-1})^{-1} \BL^\top \BC
-        \right)
-        \hat \BY
- +\kappa_2
- \Big)
-    \Big\}
-    .
+    \frac{\int  \prod_{i=1}^n f_1(x_i|\theta_1) \pi_1^I(\theta_1) d\theta_1}{\int \prod_{i=1}^n f_0(x|\theta_0) \pi_0^I(\theta_0) d\theta_0} 
+    &\approx
+    \frac{\int  \prod_{i=1}^n f_1(x_i|\theta_1) \pi_1(\theta_1) d\theta_1}{\int \prod_{i=1}^n f_0(x|\theta_0) \pi_0(\theta_0) d\theta_0} 
+    \cdot
+    \frac{\int \exp\left\{-m \text{KL}(f_1(x|\theta^*)||f_0(x|\theta_0))\right\} \pi_0(\theta_0) d\theta_0}
+    {\int 
+\exp\left\{-m \text{KL}(f_1(x|\theta^*)||f_1(x|\theta_1))\right\}
+     \pi_1(\theta_1) d\theta_1}
+     \\
+     &
+    \approx
+    \frac{\int  \prod_{i=1}^n f_1(x_i|\theta_1) \pi_1^I(\theta_1) d\theta_1}{\int \prod_{i=1}^n f_0(x|\theta_0) \pi_0^I(\theta_0) d\theta_0} 
+    \cdot
+    \frac{\pi_1(\theta^*)}{\pi_1^I(\theta^*)}
+    \cdot
+    \frac{\int \exp\left\{-m \text{KL}(f_1(x|\theta^*)||f_0(x|\theta_0))\right\} \pi_0(\theta_0) d\theta_0}
+    {\int 
+\exp\left\{-m \text{KL}(f_1(x|\theta^*)||f_1(x|\theta_1))\right\}
+     \pi_1(\theta_1) d\theta_1}.
     \end{split}
 \end{equation*}
 Thus,
 \begin{equation*}
-    \begin{split}
-    &
-    \int_{0}^\infty \int_{\mathbb R^p }\int_{\mathbb R^q}f(\BY|\Ba,\Bb, \tau)
-    \pi(\Ba|\tau)
-    \pi(\Bb|\tau)
-    \pi(\tau)
-    d\Ba
-    d\Bb
-    d\tau
-    \\
-    =&
-    \frac{(\kappa_2/2)^{\kappa_1/2}\Gamma((n+\kappa_1)/2)}
-    {
-        (2\pi)^{n/2} |\BV_a|^{1/2} |\BV_b|^{1/2} \Gamma(\kappa_1/2)
-|\BW\BW^\top+\BV_a^{-1}|^{1/2}
-|\BL^\top \BC \BL +\BV_b^{-1}|^{1/2}
-    }
-    \\
-    &
-    \left(\frac{
-\|\BY-\hat \BY\|^2
-        +\hat \BY^\top 
-        \left(
-            \BC- \BC \BL (\BL^\top \BC \BL +\BV_b^{-1})^{-1} \BL^\top \BC
-        \right)
-        \hat \BY
- +\kappa_2
-    }{2}\right)^{-(n+\kappa_1)/2}
-    .
-    \end{split}
+    \pi_1^I(\theta^*)=\pi_1(\theta^*)
+    \cdot
+    \frac{\int \exp\left\{-m \text{KL}(f_1(x|\theta^*)||f_0(x|\theta_0))\right\} \pi_0(\theta_0) d\theta_0}
+    {\int 
+\exp\left\{-m \text{KL}(f_1(x|\theta^*)||f_1(x|\theta_1))\right\}
+     \pi_1(\theta_1) d\theta_1}.
 \end{equation*}
-Under $H_0$, that is $\BV_b\to 0$, we have
-\begin{equation*}
-    \begin{split}
-    &
-    \int_{0}^\infty \int_{\mathbb R^q}f(\BY|\Ba,0, \tau)
-    \pi(\Ba|\tau)
-    \pi(\tau)
-    d\Ba
-    d\tau
-    \\
-    =&
-    \frac{(\kappa_2/2)^{\kappa_1/2}\Gamma((n+\kappa_1)/2)}
-    {
-        (2\pi)^{n/2} |\BV_a|^{1/2} \Gamma(\kappa_1/2)
-|\BW\BW^\top+\BV_a^{-1}|^{1/2}
-    }
-    \\
-    &
-    \left(\frac{
-\|\BY-\hat \BY_0\|^2
-        +\hat \BY_0^\top 
-            \BC
-        \hat \BY_0
- +\kappa_2
-    }{2}\right)^{-(n+\kappa_1)/2}
-    .
-    \end{split}
-\end{equation*}
-Thus,
-\begin{equation*}
-    \text{BF}=
-    \frac{1}
-    {
-         |\BV_b|^{1/2} 
-|\BL^\top \BC \BL +\BV_b^{-1}|^{1/2}
-    }
-    \left(\frac{
-\|\BY-\hat \BY\|^2
-        +\hat \BY^\top 
-        \left(
-            \BC- \BC \BL (\BL^\top \BC \BL +\BV_b^{-1})^{-1} \BL^\top \BC
-        \right)
-        \hat \BY
- +\kappa_2
-    }{
-\|\BY-\hat \BY_0\|^2
-        +\hat \BY_0^\top 
-            \BC
-        \hat \BY_0
- +\kappa_2
-}\right)^{-(n+\kappa_1)/2}
-\end{equation*}
-
-
-
-
-
-
-
-
 
 
 
@@ -1322,5 +1391,7 @@ Thus,
 
 \bibliographystyle{apalike}
 \bibliography{mybibfile}
+
+
 
 \end{document}

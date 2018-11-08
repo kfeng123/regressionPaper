@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  3 NOV 2018 12:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  8 NOV 2018 21:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -580,13 +580,13 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 221.
 
-[2] [3] [4] [5]
-Overfull \hbox (41.00615pt too wide) in paragraph at lines 553--553
+[2] [3] [4] [5] [6]
+Overfull \hbox (41.00615pt too wide) in paragraph at lines 560--560
 [] 
  []
 
-[6]
-Overfull \hbox (26.08093pt too wide) detected at line 563
+
+Overfull \hbox (26.08093pt too wide) detected at line 570
 [][] [] \OML/cmm/m/it/10.95 d\OT1/cmr/bx/n/10.95 y \OT1/cmr/m/n/10.95 = []\OMS/
 cmsy/m/n/10.95 N[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^R[]\OMS/cmsy/m/n/10
 .95 j\OML/cmm/m/it/10.95 ^^R[]; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^[[] \
@@ -595,45 +595,66 @@ OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^[[]\OT1/cmr/m/n/10.95 )(\OT1/cmr/bx/n
  []
 
 
-Overfull \hbox (60.0313pt too wide) in paragraph at lines 703--703
+Overfull \hbox (60.0313pt too wide) in paragraph at lines 710--710
 [] 
  []
 
 [7] [8]
-Overfull \hbox (37.96448pt too wide) in paragraph at lines 742--742
+Overfull \hbox (37.96448pt too wide) in paragraph at lines 749--749
 [] 
  []
 
 [9] [10]
-Overfull \hbox (52.82608pt too wide) in paragraph at lines 990--990
+Overfull \hbox (52.82608pt too wide) in paragraph at lines 1007--1007
 [] 
  []
 
-[11] [12]
-Overfull \hbox (20.52867pt too wide) detected at line 1295
-[] \OT1/cmr/m/n/10.95 = [] [][]
+[11]
+Missing character: There is no √ in font cmr10!
+Missing character: There is no ≠ in font cmr10!
+ [12] [13] [14]
+Overfull \hbox (59.22816pt too wide) detected at line 1339
+[] \OT1/cmr/m/n/10.95 = [] \OMS/cmsy/m/n/10.95 ^^Y []\OML/cmm/m/it/10.95 :
  []
 
-(./main.bbl [13])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1326.
- [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1326.
+
+Overfull \hbox (57.33405pt too wide) in paragraph at lines 1363--1363
+[] 
+ []
+
+(./main.bbl
+Missing character: There is no √ in font cmr10!
+Missing character: There is no ≠ in font cmr10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no ≠ in font cmr10!
+ [15]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no ≥ in font cmr10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no ≥ in font cmr10!
+ [16])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1397.
+ [17]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1397.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1326.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1326.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1397.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1397.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7FAE529132DC1664EEC2938E7B9F12E4;410.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1326.
+(rerunfilecheck)             Checksum: 93AB927BF9D01AD6F076D7FD5FB2F85F;1045.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1397.
  ) 
 Here is how much of TeX's memory you used:
- 8871 strings out of 493029
- 124312 string characters out of 6136233
- 251591 words of memory out of 5000000
- 12222 multiletter control sequences out of 15000+600000
+ 9002 strings out of 493029
+ 126585 string characters out of 6136233
+ 256566 words of memory out of 5000000
+ 12314 multiletter control sequences out of 15000+600000
  20683 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,23n,35p,1008b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,23n,35p,1008b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
@@ -650,13 +671,14 @@ mr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (14 pages, 262980 bytes).
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (17 pages, 294614 bytes).
 PDF statistics:
- 220 PDF objects out of 1000 (max. 8388607)
- 182 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 379 PDF objects out of 1000 (max. 8388607)
+ 335 compressed objects within 4 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 
