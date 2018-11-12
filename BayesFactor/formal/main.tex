@@ -1253,6 +1253,8 @@ Estimation: \cite{Rossell2017Non}.
 The asymptotic behaviors of the Bayes factors with intrinsic priors in high dimensional setting have been investigated by \cite{Casella2009}, \cite{Giron2010} and \cite{moreno2010} and \cite{moreno2015}.
 
 
+\subsection{$p>n$ case}
+Laplace approximation \cite{Barber2016}.
 
 
 
@@ -1264,28 +1266,31 @@ The asymptotic behaviors of the Bayes factors with intrinsic priors in high dime
 \section{A fractional intrinsic Bayes factor for linear model in high-dimensional setting}
 Suppose we would like to compare models $\mathcal M_0$ and $\mathcal M_1$.
 \begin{align*}
-    \mathcal M_0:   \By = \BX_0 \bbeta_0 + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi_0^{-1} \BI_n),
+    \mathcal M_0:   \By = \BX_0 \bbeta_0 + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n),
     \\
-    \mathcal M_1:   \By = \BX_0 \bbeta_0 + \BX_1 \bbeta_1 + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi_1^{-1} \BI_n).
+    \mathcal M_1:   \By = \BX_0 \bbeta_0 + \BX_1 \bbeta_1 + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n).
 \end{align*}
 Here $\bbeta_0$ is $p_0$ dimensional and $\bbeta_1$ is $p_1$ dimensional.
 We assume that as $n$ tends to infinity, $p_0$ is fixed while $p_1$ may diverge.
 This assumption is reasonable.
 In practice, $p_0$ is often $1$ and $\BX_0$ is $\mathbf 1_n$.
-Under $\mathcal M_0$, we impose the reference prior $\pi_0 (\bbeta_0,\phi_0)=c_0/\phi_0$.
+
+There have been several extensions of $g$-priors to $p>n$ case: \cite{maruyama2011}, \cite{Shang2011}.
+
+Under $\mathcal M_0$, we impose the reference prior $\pi_0 (\bbeta_0,\phi)=c_0/\phi$.
 Note that the posterior corresponding to the referece prior is proper \CG{only if $n>p_0 + p_1$?}
 That is, the minimal training sample size is $p_0 + p_1 +1$.
 So we cannot impose the reference prior under $\mathcal M_1$ provided $p_0 + p_1 +1 >n$.
-We impose the conditional prior $\bbeta_1|\bbeta_0, \phi_1 \sim \mathcal N_{p_1} (0, \kappa \phi_1^{-1} \BI_{p_1}) $.
+We impose the conditional prior $\bbeta_1|\bbeta_0, \phi \sim \mathcal N_{p_1} (0, \kappa \phi^{-1} \BI_{p_1}) $.
 Following the heuristic device of \cite{Kass1995}, we choose $\kappa$ such that the amount of information about the parameter equal to the amount of information contained in one observation.
 \cite{Kass1995} used Fisher information to define ``amount of information''.
 In the $p_1>n$ setting, if $\BX_1$ is a fixed design, the Fisher information is not invertible which invalidate \cite{Kass1995}'s method.
 To overcome this difficulty, we temporarily assume that the rows of $\BX_1$ are iid $\mathcal N_p (0, c \BI_{p_1} )$ random vectors.
 Then the block of Fisher information matrix corresponding to $\bbeta_1$ is
-$c\phi_1 \BI_{p_1}$.
+$c\phi \BI_{p_1}$.
 Then $\kappa$ should satisfy
 \begin{equation*}
-    \kappa \phi_1^{-1} \BI_{p_1}  = (c\phi_1 \BI_{p_1})^{-1}.
+    \kappa \phi^{-1} \BI_{p_1}  = (c\phi \BI_{p_1})^{-1}.
 \end{equation*}
 That is, $\kappa$ should equal $c^{-1}$.
 However, $c$ is unknown.
@@ -1294,12 +1299,12 @@ An estimator of $c$ is $\|\BX_1\|_F^2/(np_1)$.
 So we put $\kappa=np_1/\|\BX_1\|_F^2$.
 Thus, under $\mathcal M_1$, we put prior
 \begin{equation*}
-    \pi_1 (\bbeta_1 | \bbeta_0, \phi_1) =\frac{(\phi_1 \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    \pi_1 (\bbeta_1 | \bbeta_0, \phi) =\frac{(\phi \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
     \exp\left\{
-        -\frac{\phi_1 \|\BX_1\|_F^2}{2 n p_1} \|\bbeta_1\|^2
+        -\frac{\phi \|\BX_1\|_F^2}{2 n p_1} \|\bbeta_1\|^2
     \right\}
     ,\quad
-    \pi_1(\bbeta_0, \phi_1) = \frac{c_1}{\phi_1}.
+    \pi_1(\bbeta_0, \phi) = \frac{c_1}{\phi}.
 \end{equation*}
 
 \subsection{Fractional intrinsic priors}
@@ -1372,6 +1377,324 @@ Thus,
 \end{equation*}
 
 
+In the linear model case, we have
+\begin{equation*}
+    \pi_0^I(\bbeta_0, \phi) = c_0 / \phi.
+\end{equation*}
+Note that
+\begin{equation*}
+    \begin{split}
+    \text{KL}(f_1(x|\theta^*)||f_0(x|\theta_0))
+    =&
+    \text{KL}\left(\mathcal N_n (\BX_0 \bbeta_0^* +\BX_1 \bbeta_1^*, \phi^{*-1} \BI_n) || \mathcal N_n (\BX_0 \bbeta_0, \phi^{-1} \BI_n)\right)
+    \\
+    =&
+    \frac 1 2
+    \left(
+        n\frac{\phi}{\phi^*}
+        +
+            \phi\|\BX_0 (\bbeta_0-\bbeta_0^*) - \BX_1 \bbeta_1^*\|^2
+            -n
+        -n \log \frac{ \phi }{ \phi^* }
+    \right).
+    \end{split}
+\end{equation*}
+
+\begin{equation*}
+    \begin{split}
+    \text{KL}(f_1(x|\theta^*)||f_1(x|\theta_1))
+    =&
+    \text{KL}\left(\mathcal N_n (\BX_0 \bbeta_0^* +\BX_1 \bbeta_1^*, \phi^{*-1} \BI_n) || \mathcal N_n (\BX_0 \bbeta_0 + \BX_1 \bbeta_1, \phi^{-1} \BI_n)\right)
+    \\
+    =&
+    \frac 1 2
+    \left(
+        n\frac{\phi}{\phi^*}
+        +
+        \phi\|\BX_0 (\bbeta_0-\bbeta_0^*) + \BX_1 (\bbeta_1-\bbeta_1^*)\|^2
+            -n
+        -n \log \frac{ \phi }{ \phi^* }
+    \right).
+    \end{split}
+\end{equation*}
+Note that $m=p_0+1$.
+
+We have
+\begin{equation*}
+    \begin{split}
+    &\int \exp\left\{-m \text{KL}(f_1(x|\theta^*)||f_0(x|\theta_0))\right\} \pi_0(\theta_0) d\theta_0
+    \\
+    =&
+    \int
+    \exp\left\{
+        -\frac m 2
+    \left(
+        n\frac{\phi}{\phi^*}
+        +
+            \phi\|\BX_0 (\bbeta_0-\bbeta_0^*) - \BX_1 \bbeta_1^*\|^2
+            -n
+        -n \log \frac{ \phi }{ \phi^* }
+    \right)
+\right\}
+\frac{c_0}{\phi}
+d\bbeta_0 d\phi
+    \\
+    =&
+    \int
+    \exp\left\{
+        -\frac{mn\phi}{2\phi^*}
+        -\frac{m\phi}{2}\|\BX_0 (\bbeta_0-\bbeta_0^*) - \BX_1 \bbeta_1^*\|^2
+        +\frac{mn}{2}
+\right\}
+\left(\frac{\phi}{\phi^*}\right)^{mn/2}
+\frac{c_0}{\phi}
+d\bbeta_0 d\phi
+    \\
+    =&
+    c_0
+    \exp
+    \left\{
+        \frac{mn}{2}
+    \right\}
+    \phi^{*-mn/2}
+    \int
+    \exp\left\{
+        -\frac{mn\phi}{2\phi^*}
+        -\frac{m\phi}{2}\|\BX_0 (\bbeta_0-\bbeta_0^*) - \BX_1 \bbeta_1^*\|^2
+\right\}
+\phi^{mn/2-1}
+d\bbeta_0 d\phi
+    \\
+    =&
+    c_0
+    \exp
+    \left\{
+        \frac{mn}{2}
+    \right\}
+    \phi^{*-mn/2}
+    \int
+    \exp\left\{
+        -\frac{mn\phi}{2\phi^*}
+        -\frac{m\phi}{2}\|\BX_0 (\bbeta_0-\bbeta_0^* - (\BX_0^\top \BX_0)^{-1}\BX_0^\top \BX_1 \bbeta_1^*) \|^2
+        -\frac{m\phi}{2}\|(\BI_n- \BH_0) \BX_1 \bbeta_1^*\|^2
+\right\}
+\phi^{mn/2-1}
+d\bbeta_0 d\phi
+    \\
+    =&
+    c_0
+    \exp
+    \left\{
+        \frac{mn}{2}
+    \right\}
+    \phi^{*-mn/2}
+    (2\pi)^{p_0/2}
+    m^{-p_0/2}
+    |\BX_0^\top \BX_0|^{-1/2}
+    \int
+    \exp\left\{
+        -\frac{mn\phi}{2\phi^*}
+        -\frac{m\phi}{2}\|(\BI_n- \BH_0) \BX_1 \bbeta_1^*\|^2
+\right\}
+\phi^{(mn-p_0)/2-1}
+ d\phi
+    \\
+    =&
+    c_0
+    \exp
+    \left\{
+        \frac{mn}{2}
+    \right\}
+    \phi^{*-mn/2}
+    (2\pi)^{p_0/2}
+    m^{-p_0/2}
+    |\BX_0^\top \BX_0|^{-1/2}
+    \Gamma((mn-p_0)/2)
+    \left(
+        \frac{mn}{2\phi^*}
+        +\frac{m}{2}\|(\BI_n- \BH_0) \BX_1 \bbeta_1^*\|^2
+    \right)^{-(mn-p_0)/2}
+    \end{split}
+\end{equation*}
+
+
+On the other hand,
+\begin{equation*}
+    \begin{split}
+    &\int 
+\exp\left\{-m \text{KL}(f_1(x|\theta^*)||f_1(x|\theta_1))\right\}
+     \pi_1(\theta_1) d\theta_1
+     \\
+     =&
+    \int 
+\exp\left\{
+    -\frac m 2
+    \left(
+        n\frac{\phi}{\phi^*}
+        +
+        \phi\|\BX_0 (\bbeta_0-\bbeta_0^*) + \BX_1 (\bbeta_1-\bbeta_1^*)\|^2
+            -n
+        -n \log \frac{ \phi }{ \phi^* }
+    \right)
+\right\}
+\\
+&
+    \frac{(\phi \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    \exp\left\{
+        -\frac{\phi \|\BX_1\|_F^2}{2 n p_1} \|\bbeta_1\|^2
+    \right\}
+    \frac{c_1}{\phi}
+d\bbeta_1 d\bbeta_0 d\phi
+     \\
+     =&
+     c_1\exp\left\{ \frac{mn}{2}\right\}
+     \phi^{*-mn/2}
+    \int 
+\exp\left\{
+        -\frac{mn\phi}{2\phi^*}
+        -\frac{m\phi}{2}\|\BX_0 (\bbeta_0-\bbeta_0^*) + \BX_1 (\bbeta_1-\bbeta_1^*)\|^2
+\right\}
+\phi^{mn/2-1}
+\\
+&
+    \frac{(\phi \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    \exp\left\{
+        -\frac{\phi \|\BX_1\|_F^2}{2 n p_1} \|\bbeta_1\|^2
+    \right\}
+d\bbeta_1 d\bbeta_0 d\phi
+     \\
+     =&
+     c_1\exp\left\{ \frac{mn}{2}\right\}
+     \phi^{*-mn/2}
+    \frac{( \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    \\
+    &\int 
+\exp\left\{
+        -\frac{mn\phi}{2\phi^*}
+        -\frac{m\phi}{2}\|\BX_0 (\bbeta_0-\bbeta_0^*) + \BX_1 (\bbeta_1-\bbeta_1^*)\|^2
+        -\frac{\phi \|\BX_1\|_F^2}{2 n p_1} \|\bbeta_1\|^2
+\right\}
+\phi^{(mn+p_1)/2-1}
+d\bbeta_1 d\bbeta_0 d\phi
+     \\
+     =&
+     c_1\exp\left\{ \frac{mn}{2}\right\}
+     \phi^{*-mn/2}
+    \frac{( \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    \\
+    &\int 
+\exp\left\{
+        -\frac{mn\phi}{2\phi^*}
+        -\frac{m\phi}{2}\left\|\BX_0 \left(\bbeta_0-\bbeta_0^* + (\BX_0^\top \BX_0)^{-1} \BX_0^\top \BX_1 (\bbeta_1-\bbeta_1^*)\right)\right\|^2
+        -\frac{m\phi}{2}\|(\BI_n-\BH_0)\BX_1(\bbeta_1-\bbeta_1^*)\|^2
+        -\frac{\phi \|\BX_1\|_F^2}{2 n p_1} \|\bbeta_1\|^2
+\right\}
+\phi^{(mn+p_1)/2-1}
+d\bbeta_1 d\bbeta_0 d\phi
+     \\
+     =&
+     c_1\exp\left\{ \frac{mn}{2}\right\}
+     \phi^{*-mn/2}
+    \frac{( \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    (2\pi)^{p_0/2} m^{-p_0/2} |\BX_0^\top \BX_0|^{-1/2}
+    \\
+    &\int 
+\exp\left\{
+        -\frac{mn\phi}{2\phi^*}
+        -\frac{m\phi}{2}\left(
+            \|(\BI_n-\BH_0)\BX_1(\bbeta_1-\bbeta_1^*)\|^2
+        +\frac{\|\BX_1\|_F^2}{ nm p_1} \|\bbeta_1\|^2
+    \right)
+\right\}
+\phi^{(mn+p_1-p_0)/2-1}
+d\bbeta_1  d\phi
+     \\
+     =&
+     c_1\exp\left\{ \frac{mn}{2}\right\}
+     \phi^{*-mn/2}
+    \frac{( \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    (2\pi)^{p_0/2} m^{-p_0/2} |\BX_0^\top \BX_0|^{-1/2}
+    \\
+    &\int 
+\exp\left\{
+        -\frac{mn\phi}{2\phi^*}
+        -\frac{m\phi}{2}\left(
+            (\bbeta_1-\bbeta_1^*)^\top\BX_1^\top (\BI_n-\BH_0)\BX_1(\bbeta_1-\bbeta_1^*)
+        +\frac{\|\BX_1\|_F^2}{ nm p_1} \bbeta^\top \bbeta_1
+    \right)
+\right\}
+\phi^{(mn+p_1-p_0)/2-1}
+d\bbeta_1  d\phi
+     \\
+     =&
+     c_1\exp\left\{ \frac{mn}{2}\right\}
+     \phi^{*-mn/2}
+    \frac{( \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    (2\pi)^{p_0/2} m^{-p_0/2} |\BX_0^\top \BX_0|^{-1/2}
+    \\
+    &\int 
+\exp\left\{
+        -\frac{mn\phi}{2\phi^*}
+    \right\}
+\phi^{(mn+p_1-p_0)/2-1}
+\cdot
+(2\pi)^{p_1/2} (m\phi)^{-p_1/2} \left|\BX_1^\top (\BI_n-\BH_0)\BX_1+ \frac{\|\BX_1\|_F^2}{nmp_1} \BI_{p_1}\right|^{-1/2}
+\\
+    &\exp\left\{
+        -\frac{m\phi}{2}\left(
+            \bbeta_1^{*\top} \BX_1^\top (\BI- \BH_0) \BX_1 \bbeta_1^* 
+            -
+            \bbeta_1^{*\top} \BX_1^\top (\BI- \BH_0) \BX_1 (\BX_1^\top (\BI- \BH_0) \BX_1+ \frac{\|\BX_1\|_F^2}{n m p_1}\BI_{p_1})^{-1} \BX_1^\top (\BI- \BH_0) \BX_1 \bbeta_1^* 
+    \right)
+\right\}
+d\bbeta_1  d\phi
+     \\
+     =&
+     c_1\exp\left\{ \frac{mn}{2}\right\}
+     \phi^{*-mn/2}
+    \frac{( \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    (2\pi)^{(p_0+p_1)/2} m^{-(p_0+p_1)/2} |\BX_0^\top \BX_0|^{-1/2}
+  \left|\BX_1^\top (\BI_n-\BH_0)\BX_1+ \frac{\|\BX_1\|_F^2}{nmp_1} \BI_{p_1}\right|^{-1/2}
+    \\
+    &\int 
+\phi^{(mn-p_0)/2-1}
+\cdot
+\\
+    &\exp\left\{
+        -\frac{m\phi}{2}\left(
+            \frac{n}{\phi^*}
+            +
+            \bbeta_1^{*\top} \BX_1^\top (\BI- \BH_0) \BX_1 \bbeta_1^* 
+            -
+            \bbeta_1^{*\top} \BX_1^\top (\BI- \BH_0) \BX_1 (\BX_1^\top (\BI- \BH_0) \BX_1+ \frac{\|\BX_1\|_F^2}{n m p_1}\BI_{p_1})^{-1} \BX_1^\top (\BI- \BH_0) \BX_1 \bbeta_1^* 
+    \right)
+\right\}
+d\bbeta_1  d\phi
+     \\
+     =&
+     c_1\exp\left\{ \frac{mn}{2}\right\}
+     \phi^{*-mn/2}
+    \frac{( \|\BX_1\|_F^2)^{p_1/2}}{(2\pi n p_1 )^{p_1/2}}  
+    (2\pi)^{(p_0+p_1)/2} m^{-(p_0+p_1)/2} |\BX_0^\top \BX_0|^{-1/2}
+  \left|\BX_1^\top (\BI_n-\BH_0)\BX_1+ \frac{\|\BX_1\|_F^2}{nmp_1} \BI_{p_1}\right|^{-1/2}
+    \\
+        &
+        \Gamma((mn-p_0)/2)
+        \left[\frac{m}{2}\left(
+            \frac{n}{\phi^*}
+            +
+            \bbeta_1^{*\top} \BX_1^\top (\BI- \BH_0) \BX_1 \bbeta_1^* 
+            -
+            \bbeta_1^{*\top} \BX_1^\top (\BI- \BH_0) \BX_1 (\BX_1^\top (\BI- \BH_0) \BX_1+ \frac{\|\BX_1\|_F^2}{n m p_1}\BI_{p_1})^{-1} \BX_1^\top (\BI- \BH_0) \BX_1 \bbeta_1^* 
+    \right)
+\right]^{-(mn-p_0)/2}
+    .
+    \end{split}
+\end{equation*}
+
+
+
+\section{A Bayesian-motivated:} 
 
 
 

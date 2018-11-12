@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: elsarticle-num.bst
+Database file #1: mybibfile.bib
+Warning--empty journal in Eaton1983Multivariate
+You've used 6 entries,
+            2937 wiz_defined-function locations,
+            716 strings with 5987 characters,
+and the built_in function-call counts, 1605 in all, are:
+= -- 150
+> -- 39
+< -- 0
++ -- 17
+- -- 11
+* -- 119
+:= -- 239
+add.period$ -- 6
+call.type$ -- 6
+change.case$ -- 6
+chr.to.int$ -- 0
+cite$ -- 7
+duplicate$ -- 46
+empty$ -- 181
+format.name$ -- 15
+if$ -- 407
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 6
+newline$ -- 27
+num.names$ -- 6
+pop$ -- 32
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 98
+stack$ -- 0
+substring$ -- 100
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 12
+width$ -- 7
+write$ -- 54
+(There was 1 warning)
