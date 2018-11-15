@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  10 NOV 2018 08:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  15 NOV 2018 22:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -443,22 +443,22 @@ LaTeX Info: Redefining \today on input line 736.
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 107.
+Package hyperref Info: Link coloring OFF on input line 109.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -467,9 +467,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count169
 )
-LaTeX Info: Redefining \ref on input line 107.
-LaTeX Info: Redefining \pageref on input line 107.
-LaTeX Info: Redefining \nameref on input line 107.
+LaTeX Info: Redefining \ref on input line 109.
+LaTeX Info: Redefining \pageref on input line 109.
+LaTeX Info: Redefining \nameref on input line 109.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
@@ -538,161 +538,70 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 108.
+LaTeX Font Info:    Try loading font information for U+msa on input line 110.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 108.
+LaTeX Font Info:    Try loading font information for U+msb on input line 110.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 108.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 110.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 111.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 111.
-
-[1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 187.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 187.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 221.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 221.
-
-[2] [3] [4] [5] [6]
-Overfull \hbox (41.00615pt too wide) in paragraph at lines 560--560
+Overfull \hbox (9.68039pt too wide) in paragraph at lines 238--238
 [] 
  []
 
-
-Overfull \hbox (26.08093pt too wide) detected at line 570
-[][] [] \OML/cmm/m/it/10.95 d\OT1/cmr/bx/n/10.95 y \OT1/cmr/m/n/10.95 = []\OMS/
-cmsy/m/n/10.95 N[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^R[]\OMS/cmsy/m/n/10
-.95 j\OML/cmm/m/it/10.95 ^^R[]; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^[[] \
-OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^[[]\OT1/cmr/m/n/10.95 )(\OT1/cmr/bx/n
-/10.95 X[]X\OT1/cmr/m/n/10.95 )[])\OML/cmm/m/it/10.95 ;
- []
-
-
-Overfull \hbox (60.0313pt too wide) in paragraph at lines 710--710
-[] 
- []
-
-[7] [8]
-Overfull \hbox (37.96448pt too wide) in paragraph at lines 749--749
-[] 
- []
-
-[9] [10]
-Overfull \hbox (52.82608pt too wide) in paragraph at lines 1007--1007
-[] 
- []
-
-[11]
+[2] [3] (./main.bbl
 Missing character: There is no √ in font cmr10!
-Missing character: There is no ≠ in font cmr10!
- [12] [13] [14]
-Overfull \hbox (59.22816pt too wide) detected at line 1342
-[] \OT1/cmr/m/n/10.95 = [] \OMS/cmsy/m/n/10.95 ^^Y []\OML/cmm/m/it/10.95 :
- []
-
-
-Overfull \hbox (57.33405pt too wide) in paragraph at lines 1366--1366
-[] 
- []
-
-
-Overfull \hbox (134.14078pt too wide) in paragraph at lines 1516--1516
-[] 
- []
-
-[15]
-Overfull \hbox (230.46968pt too wide) in paragraph at lines 1691--1691
-[] 
- []
-
-[16]
-Overfull \vbox (24.25534pt too high) has occurred while \output is active []
-
-
-[17] (./main.bbl
-Missing character: There is no √ in font cmr10!
-Missing character: There is no ≠ in font cmr10!
-Missing character: There is no √ in font cmr10!
-Missing character: There is no ≠ in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ê in font cmr10!
- [18]
-Missing character: There is no √ in font cmr10!
-Missing character: There is no ≥ in font cmr10!
-Missing character: There is no √ in font cmr10!
-Missing character: There is no ≥ in font cmr10!
- [19])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1717.
- [20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1717.
+Missing character: There is no § in font cmr10!
+ [4])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 423.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 423.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1717.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1717.
-
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 423.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 423.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 93AB927BF9D01AD6F076D7FD5FB2F85F;1045.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1717.
+(rerunfilecheck)             Checksum: 4B42DDD80B5FAC4455EA966BB3694C60;286.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 423.
  ) 
 Here is how much of TeX's memory you used:
- 9005 strings out of 493029
- 126606 string characters out of 6136233
- 256566 words of memory out of 5000000
- 12314 multiletter control sequences out of 15000+600000
- 20683 words of font info for 79 fonts, out of 8000000 for 9000
+ 8832 strings out of 493029
+ 123762 string characters out of 6136233
+ 241575 words of memory out of 5000000
+ 12200 multiletter control sequences out of 15000+600000
+ 16397 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,23n,35p,1008b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,20n,35p,1008b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cmextra/cmmib6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (20 pages, 302238 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (5 pages, 209851 bytes).
 PDF statistics:
- 396 PDF objects out of 1000 (max. 8388607)
- 349 compressed objects within 4 object streams
- 78 named destinations out of 1000 (max. 500000)
- 129 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
+ 22 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
