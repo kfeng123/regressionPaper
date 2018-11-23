@@ -109,19 +109,31 @@ A Bayesian-motivated test for linear model in high-dimensional setting
 \begin{document}
 \maketitle
 \section{Introduction} 
-Suppose we would like to compare models $\mathcal M_0$ and $\mathcal M_1$.
+
+
+The proposed test is the limit of Bayes factors.
+
+Fixed design
+
+Suppose we would like to test the hypotheses:
 \begin{align*}
-    \mathcal M_0:   \By = \BX_a \bbeta_a + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n),
+    \mathcal H_0:   \By = \BX_a \bbeta_a + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n),
     \\
-    \mathcal M_1:   \By = \BX_a \bbeta_a + \BX_b \bbeta_b + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n).
+    \mathcal H_1:   \By = \BX_a \bbeta_a + \BX_b \bbeta_b + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n).
 \end{align*}
 Here $\bbeta_a$ is $q$ dimensional and $\bbeta_b$ is $p$ dimensional.
 We assume that as $n$ tends to infinity, $q$ is fixed while $p/n \to \infty$.
 This assumption is reasonable.
-In practice, $p_0$ is often $1$ and $\BX_0$ is $\mathbf 1_n$.
+We assume $\BX_a$ has full column rank and $\BX_b$ has full row rank.
+In practice, $p_0$ is often $1$ and $\BX_a$ is $\mathbf 1_n$.
 
 
-Although several tests have been proposed, the following proposition implies that there is no unbiased test.
+As \cite{Goeman2006} pointed out, if $\bbeta_b \neq 0$ but $\BX_b \bbeta_b =0$, no test has any power.
+\cite{Goeman2006} used Bayesian method.
+Their idea is to choose an  `unbiased' distribution of $\bbeta_b$.
+As they noticed, their test has negligible power for many alternatives, and is not unbiased.
+
+The following proposition implies that there is no nontrivial unbiased test.
 \begin{proposition}\label{prop:unbiased}
 Suppose
 $\By\sim \mathcal N_n (\mu, \phi^{-1}\BI_n)$.
@@ -141,30 +153,84 @@ So Bayesian methods are natural choices in this case.
 Bayes hypothesis testing use the Bayes factor.
 \begin{equation*}
     B_{10}= \frac {
-        \int f_1(y|\bbeta_b ,\bbeta_a, \phi) \pi_1(\bbeta_b,\bbeta_a,\phi) d\bbeta_b d\bbeta_a d\phi
+        \int f_1(\By|\bbeta_b ,\bbeta_a, \phi) \pi_1(\bbeta_b,\bbeta_a,\phi) d\bbeta_b d\bbeta_a d\phi
 }{
-        \int f_0(y|\bbeta_a, \phi) \pi_0(\bbeta_a,\phi) d\bbeta_a d\phi
+        \int f_0(\By|\bbeta_a, \phi) \pi_0(\bbeta_a,\phi) d\bbeta_a d\phi
     }.
 \end{equation*}
 
 There have been several extensions of $g$-priors to $p>n$ case: \cite{maruyama2011}, \cite{Shang2011}.
 
-Under $\mathcal M_0$, we impose the reference prior $\pi_0 (\bbeta_a,\phi)=c/\phi$.
-Note that under $\mathcal M_1$, the posterior corresponding to the referece prior is proper only if $n>q + p$?
+Under $H_0$, we impose the reference prior $\pi_0 (\bbeta_a,\phi)=c/\phi$.
+Note that under $H_1$, the posterior corresponding to the referece prior is proper if and only if $\myrank (\BX_a, \BX_b)= q+p$ and $n>q + p$.
 That is, the minimal training sample size is $q + p +1$.
-So we cannot impose the reference prior under $\mathcal M_1$ provided $q + p +1 >n$.
+So we cannot impose the reference prior under $ H_1$ provided $q + p  \geq n$.
 We temporarily impose the conditional prior $\bbeta_b|\bbeta_a, \phi \sim \mathcal N_{p} (0, \kappa^{-1} \phi^{-1} \BI_{p}) $.
-There are many literature consider the choice of $\kappa$.
+There are extansive literature consider the choice of $\kappa$.
 \cite{Kass1995} choose $\kappa$ such that the amount of information about the parameter equal to the amount of information contained in one observation.
-Thus, under $\mathcal M_1$, we put prior
+Thus, under $H_1$, we put the prior
 \begin{equation*}
-    \pi_1 (\bbeta_b | \bbeta_a, \phi) =\frac{(\kappa \phi )^{p/2}}{(2\pi )^{p/2}}  
-    \exp\left\{
-        -\frac{\kappa \phi }{2} \|\bbeta_b\|^2
-    \right\}
+    \pi_1 (\bbeta_b | \bbeta_a, \phi) =
+    \mathcal N_p\left(0,\frac{1}{\kappa \phi}\BI_p\right)(\bbeta_b)
+    %\frac{(\kappa \phi )^{p/2}}{(2\pi )^{p/2}}  
+    %\exp\left\{
+        %-\frac{\kappa \phi }{2} \|\bbeta_b\|^2
+    %\right\}
     ,\quad
     \pi_1(\bbeta_a, \phi) = \frac{c}{\phi}.
 \end{equation*}
+
+\begin{equation*}
+    \begin{split}
+    m_0(\By;\kappa, \tau) 
+    &:=
+    \int f_0^\tau (\By|\bbeta_a,\phi) \pi_0 (\bbeta_a, \phi) d\bbeta_a d\phi
+    \\
+    &=
+    \frac{
+        c_0 \Gamma\left( \frac{\tau n - q}{2}\right)
+    }{
+        \pi^{\frac{\tau n - q }{2}}
+        \tau^{\frac{\tau n}{2}}
+        |\BX_a^\top \BX_a|^{\frac{1}{2}}
+        \| (\BI_n -\BP_a) \By\|^{\tau n -q}
+    }.
+    \end{split}
+\end{equation*}
+
+\begin{equation*}
+    \begin{split}
+        m_1(\By;\kappa, \tau) 
+    &:=
+    \int f_1^\tau (\By|\bbeta_b,\bbeta_a,\phi) \pi_1 (\bbeta_b |\bbeta_a, \phi) \pi_1 (\bbeta_a, \phi)  d\bbeta_a d\bbeta_b d\phi
+    \\
+    &=
+    \frac{c_1\kappa^{\frac p 2} \Gamma \left(\frac{\tau n -q}{2}\right)}{
+        \pi^{\frac{\tau n -q}{ 2 }} \tau^{\frac{\tau n + p}{2}}
+        |\BX_a^\top \BX_a|^{\frac 1 2}
+        |\BX_b^{*\top} \BX_b^* + \frac{\kappa}{\tau } \BI_p|^{\frac 1 2}
+    }
+    \frac{1}{\left[ \By^{*\top} \By^* - \By^{*\top} \BX_b^* ( \BX_b^{*\top}\BX_b^* + \frac{\kappa}{\tau} \BI_p )^{-1} \BX_b^{*\top} \By^* \right]^{\frac{\tau n - q}{2}}}
+    .
+    \end{split}
+\end{equation*}
+
+\begin{equation*}
+    \begin{split}
+        \frac{m_1(\By;\kappa,\tau)}{m_0(\By;\kappa,\tau)} 
+        =
+        \frac{c_1 \kappa^{\frac{p}{2}}}{c_0 \tau^{\frac p 2}
+        |\BX_b^{*\top} \BX_b^* + \frac{\kappa}{\tau } \BI_p|^{\frac 1 2}
+        }
+        \left(
+            \frac{\By^{*\top} \By^*}{
+\By^{*\top} \By^* - \By^{*\top} \BX_b^* ( \BX_b^{*\top}\BX_b^* + \frac{\kappa}{\tau} \BI_p )^{-1} \BX_b^{*\top} \By^*
+            }
+        \right)^{\frac{\tau n - q }{2}}
+    \end{split}
+\end{equation*}
+
+
 It is straightforward to show that the Bayes factor associated with these priors is
 \begin{equation*}
     \begin{split}
@@ -330,6 +396,19 @@ It is straightforward to show that
 \end{equation*}
 $B_{10}^0$ can be regarded as the Bayes factor with respect to noninformative prior.
 
+Define
+\begin{equation*}
+    T_n= \frac{\By^{*\top} ( \BX_b^* \BX_b^{*\top} )^{-1} \By^* }{\By^{*\top} \By^*} .
+\end{equation*}
+Then we reject the null hypothesis if $T_n$ is small.
+It can be seen that under the null hypohtesis,
+\begin{equation*}
+    T_n \sim
+    \frac{\sum_{i=1}^{n-q} \gamma_i^{-1} Z_i^2}{\sum_{i=1}^{n-q} Z_i^2},
+    \end{equation*}
+    where $\gamma_i$ is the $i$th eigenvalue of $  \BX_b^* \BX_b^{*\top}$, $i=1,\ldots, n-q$, and $Z_1,\ldots, Z_{n-q}$ are iid $\mathcal N(0,1)$ random variables.
+
+
 \section{Distribution under the null hypothesis}
 Under the null hypothesis, the distribution of $2\log B_{10}$ does not rely on unknown parameters.
 Further more, its distribution is valid as long as the distribution of $\epsilon$ is spherically symmetric.
@@ -346,7 +425,7 @@ Further more, its distribution is valid as long as the distribution of $\epsilon
         \sim
         \frac{\sum_{i=1}^{n-q} \frac{\gamma_i}{\gamma_i +\kappa}Z_i^2}{\sum_{i=1}^{n-q} Z_i^2},
     \end{equation*}
-    where $\gamma_i$ is the $i$th eigenvalue of $\BX_b^\top (\BI_n -\BP_a) \BX_b$, $i=1,\ldots, n-q$, and $Z_1,\ldots, Z_{n-q}$ are iid $\mathcal N(0,1)$ random variables.
+    , and $Z_1,\ldots, Z_{n-q}$ are iid $\mathcal N(0,1)$ random variables.
 \end{proposition}
 Let $\nu_i={\gamma_i}/(\gamma_i +\kappa)$, $\bar \nu = (n-q)^{-1} \sum_{i=1}^{n-q} \nu_i$.
 
