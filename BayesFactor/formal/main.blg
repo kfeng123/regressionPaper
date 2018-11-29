@@ -8,45 +8,45 @@ Repeated entry---line 507 of file mybibfile.bib
  :                      ,
 I'm skipping whatever remains of this entry
 Warning--can't use both author and editor fields in book:992991
-You've used 5 entries,
+You've used 7 entries,
             1935 wiz_defined-function locations,
-            514 strings with 4530 characters,
-and the built_in function-call counts, 1976 in all, are:
-= -- 202
-> -- 59
+            529 strings with 4855 characters,
+and the built_in function-call counts, 2790 in all, are:
+= -- 285
+> -- 89
 < -- 5
-+ -- 20
-- -- 18
-* -- 173
-:= -- 339
-add.period$ -- 16
-call.type$ -- 5
-change.case$ -- 34
-chr.to.int$ -- 5
-cite$ -- 6
-duplicate$ -- 70
-empty$ -- 149
-format.name$ -- 31
-if$ -- 388
++ -- 30
+- -- 28
+* -- 251
+:= -- 480
+add.period$ -- 22
+call.type$ -- 7
+change.case$ -- 49
+chr.to.int$ -- 7
+cite$ -- 8
+duplicate$ -- 98
+empty$ -- 208
+format.name$ -- 41
+if$ -- 541
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 6
-newline$ -- 28
-num.names$ -- 15
-pop$ -- 20
+missing$ -- 8
+newline$ -- 38
+num.names$ -- 21
+pop$ -- 31
 preamble$ -- 1
-purify$ -- 34
+purify$ -- 49
 quote$ -- 0
-skip$ -- 55
+skip$ -- 75
 stack$ -- 0
-substring$ -- 176
-swap$ -- 6
+substring$ -- 248
+swap$ -- 8
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
+type$ -- 40
 warning$ -- 1
-while$ -- 17
+while$ -- 26
 width$ -- 0
-write$ -- 68
+write$ -- 94
 (There was 1 error message)

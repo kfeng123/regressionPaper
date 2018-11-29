@@ -34,6 +34,7 @@
 \DeclareMathOperator{\myP}{P}
 \DeclareMathOperator{\myE}{E}
 \DeclareMathOperator{\myVar}{Var}
+\DeclareMathOperator{\myCov}{Cov}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
@@ -409,68 +410,116 @@ It can be seen that under the null hypohtesis,
     where $\gamma_i$ is the $i$th eigenvalue of $  \BX_b^* \BX_b^{*\top}$, $i=1,\ldots, n-q$, and $Z_1,\ldots, Z_{n-q}$ are iid $\mathcal N(0,1)$ random variables.
 
 
-\section{Distribution under the null hypothesis}
-Under the null hypothesis, the distribution of $2\log B_{10}$ does not rely on unknown parameters.
-Further more, its distribution is valid as long as the distribution of $\epsilon$ is spherically symmetric.
-\begin{proposition}
-    Under the null hypothesis,
-    \begin{equation*}
-        T_n:=\frac{
-            \By\top (\BI_n-\BP_a) \BX_b
-            \left(\BX_b^\top  (\BI_n-\BP_a) \BX_b + \kappa \BI_p\right)^{-1}
-            \BX_b^\top (\BI_n-\BP_a) \By
-        }{
-            \By\top (\BI_n-\BP_a) \By
-        }
-        \sim
-        \frac{\sum_{i=1}^{n-q} \frac{\gamma_i}{\gamma_i +\kappa}Z_i^2}{\sum_{i=1}^{n-q} Z_i^2},
-    \end{equation*}
-    , and $Z_1,\ldots, Z_{n-q}$ are iid $\mathcal N(0,1)$ random variables.
-\end{proposition}
-Let $\nu_i={\gamma_i}/(\gamma_i +\kappa)$, $\bar \nu = (n-q)^{-1} \sum_{i=1}^{n-q} \nu_i$.
+
+
+\section{Asymptotic results}
+Let $\bepsilon=(\epsilon_1,\ldots,\epsilon_n)^\top$, where $\epsilon_i$'s are iid random variable.
+Denote $\mu_k=\myE \epsilon_1^k$.
+Then $\mu_1=0$, $\mu_2=\phi^{-1}$.
+
 
 \begin{lemma}
-    Under the null hypothesis, a necessary and sufficient condition for
-    \begin{equation}\label{eq:lemma1}
-        \frac{n-q}{
-        \sqrt{2\sum_{i=1}^{n-q}(\nu_i-\bar{\nu})^2}
-        }
-        (T_n- \bar \nu)
-        \xrightarrow{\mathcal L} \mathcal N (0,1)
-    \end{equation}
-    is that
-    \begin{equation}\label{eq:lemma12}
-        \frac{\max_{i\in\{1,\ldots, n-q\}} (\nu_i- \bar \nu)^2}{\sum_{i=1}^{n-q}(\nu_i- \bar \nu)^2} \to 0.
-    \end{equation}
+If $\phi^2\mu_4=o(n-q)$,
+\begin{equation*}
+    \By^{*\top} \By^*=(1+o_P(1))
+    \left(
+    \bbeta_b^\top \BX_b^\top (\BI_n-\BP_a) \BX_b \bbeta_b
+    + \phi^{-1}(n-q)
+\right).
+\end{equation*}
 \end{lemma}
 \begin{proof}
-    Note that 
-    \begin{equation*}
-        \frac{n-q}{
-        \sqrt{2\sum_{i=1}^{n-q}(\nu_i-\bar{\nu})^2}
-        }
-        (T_n- \bar \nu)
-    \sim
-        \frac{n-q}{
-    \sum_{i=1}^{n-q} Z_i^2
-        }
-    \frac{\sum_{i=1}^{n-q} (\nu_i- \bar \nu) Z_i^2}{
-        \sqrt{2\sum_{i=1}^{n-q}(\nu_i-\bar{\nu})^2}
-    }
+\begin{equation*}
+    \By^{*\top} \By^* = \bbeta_b^\top \BX_b^\top (\BI_n-\BP_a) \BX_b \bbeta_b
+    +2 \bepsilon^\top (\BI_n -\BP_a) \BX_b \bbeta_b + \bepsilon^\top (\BI_n - \BP_a) \bepsilon.
+\end{equation*}
+
+
+\begin{equation*}
+    \myE \left(\By^{*\top} \By^*\right) = \bbeta_b^\top \BX_b^\top (\BI_n-\BP_a) \BX_b \bbeta_b
+    + \phi^{-1}(n-q).
+\end{equation*}
+
+
+\begin{equation*}
+    \begin{split}
+    \myVar \left( \By^{*\top} \By^* \right) 
+    \leq  &
+    2\myVar \left( 2 \bepsilon^\top (\BI_n -\BP_a) \BX_b \bbeta_b \right) + 2\myVar \left( \bepsilon^\top (\BI_n - \BP_a) \bepsilon \right)
+    \\
+    %=&8 \bbeta_b^\top \BX_b^\top (\BI_n -\BP_a) \BX_b \bbeta_b 
+    \end{split}
+\end{equation*}
+
+From (i) of \cite[Proposition A.1]{chen2010tests},
+\begin{equation*}
+    \begin{split}
+\myVar\left( \bepsilon^\top (\BI_n - \BP_a) \bepsilon \right)
+&=
+\phi^{-2}\left(
+    (\phi^2 \mu_4 - 3) \sum_{i=1}^n \left((\BI_n -\BP_a)_{i,i}\right)^2
+    + 2(n-q)
+\right)
+    \leq
+    \phi^{-2}(2+\phi^2 \mu_4)(n-q)
     .
-    \end{equation*}
-    By Slutsky's theorem, \eqref{eq:lemma1} holds if and only if
-    \begin{equation*}
-    \frac{\sum_{i=1}^{n-q} (\nu_i- \bar \nu) Z_i^2}{
-        \sqrt{2\sum_{i=1}^{n-q}(\nu_i-\bar{\nu})^2}
+    \end{split}
+\end{equation*}
+Then
+\begin{equation*}
+    \begin{split}
+    \myVar \left( \By^{*\top} \By^* \right) 
+    \leq  &
+    8 \phi^{-1} \bbeta_b^\top \BX_b^\top (\BI_n -\BP_a) \BX_b \bbeta_b 
+    +
+    2 \phi^{-2} (2+\phi^2 \mu_4) (n-q)
+    \end{split}
+\end{equation*}
+Thus, if $\phi^2\mu_4=o(n-q)$, we have
+\begin{equation*}
+    \frac{
+        \myVar \left( \By^{*\top} \By^* \right) 
+    }{
+        \left(\myE \left( \By^{*\top} \By^* \right) \right)^2
     }
-    \xrightarrow{\mathcal L} \mathcal N (0,1).
-    \end{equation*}
-    From Lemma 1 of \cite{WANG2018225}, \eqref{eq:lemma12} is a necessary and sufficient condition for this to hold.
+    \to 0,
+\end{equation*}
+and consequently $\By^{*\top} \By^*=(1+o_P(1))\myE (\By^{*\top} \By^*)$.
+
 \end{proof}
 
 
+Note that under the normality, $T_n- \mytr ((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)$ has zero mean.
 
+\begin{theorem}\label{generalTheorem}
+    Let $\BA_n$ be an $(n-q)\times (n-q)$ symmetric matrix.
+\begin{equation*}
+    \left(
+    \bbeta_b^\top \BX_b^\top (\BI_n-\BP_a) \BX_b \bbeta_b
+    + \phi^{-1}(n-q)
+\right)
+    \left(
+        \frac{\By^{*\top} \BA_n \By^*}{\By^{*\top} \By^*} -\frac{\mytr (\BA_n)}{n-q}
+    \right)
+    \rightsquigarrow \mathcal N(0,1).
+\end{equation*}
+\end{theorem}
+\begin{proof}
+    \begin{equation*}
+        \frac{\By^{*\top} \BA_n \By^*}{\By^{*\top} \By^*} -\frac{\mytr (\BA_n)}{n-q}
+        =
+        \frac{\By^{\top}\left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
+                -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
+        \right) \By}{\By^{*\top} \By^*}.
+    \end{equation*}
+
+
+\begin{equation*}
+123 
+\end{equation*}
+
+    From \cite[Theorem 5.1]{jiang1996reml},
+\end{proof}
 
 
 
@@ -609,6 +658,215 @@ Let $\nu_i={\gamma_i}/(\gamma_i +\kappa)$, $\bar \nu = (n-q)^{-1} \sum_{i=1}^{n-
 
 
     \section{haha2}
+\begin{theorem}
+    Let $\zeta_1,\ldots,\zeta_d$ be iid random variables with mean $0$ and variance $1$, and assume $\mu_k:= \myE (\zeta_1^k)$ is finite for $k\leq 8$.
+    Let $\bzeta=(\zeta_1,\ldots,\zeta_d)^\top\in \mathbb R^d$.
+    For $k=1,\ldots, K$, let $\BQ_k=(q_{i_j}^{(k)})$ be a $d\times d$ symmetric matrix and let $\check\BQ_k=\mydiag(q_{11}^{(k)},\ldots, q_{dd}^{(k)})$, $\hat\BQ_k=\BI_d-\check\BQ_k$.
+    Define $\hat{w}_k= \bzeta^\top \hat\BQ_k \bzeta$, $\check w_k = \bzeta^\top \check \BQ_k \bzeta -\mytr(\BQ_k)$, and
+\begin{equation*}
+W=
+    \begin{pmatrix}
+   \hat w_1\\
+   \check w_1\\
+   \vdots\\
+   \hat w_K\\
+   \check w_K
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \bzeta^\top \hat \BQ_1 \bzeta
+        \\
+        \bzeta^\top \check \BQ_1 \bzeta -\mytr (\BQ_1)
+        \\
+        \vdots\\
+        \bzeta^\top \hat \BQ_1 \bzeta
+        \\
+        \bzeta^\top \check \BQ_1 \bzeta -\mytr (\BQ_1)
+        \\
+    \end{pmatrix}
+    \in \mathbb R^{2K}.
+\end{equation*}
+Finally, let $Z\sim \mathcal N_{2K} (0,\BI_{2K})$ and $\BV = \myCov (W)$. 
+There is an absolute constant $0<C<\infty$ such that
+\begin{equation*}
+    haha
+\end{equation*}
+\end{theorem}
+\begin{proof}
+    Let $f:\mathbb R^{2K} \to \mathbb R$ be a four-times differentiable function.
+    From xxx, there is a $4-times$ differentiable function $g : \mathbb R^{2K}\to \mathbb R$ satisfying the Stein identity
+\begin{equation*}
+    \myE [f(W)]    - \myE [f(\BV^{1/2} W)]=
+    \myE [\nabla^\top  \BV \nabla g(W) - W^\top \nabla g(W)]
+\end{equation*}
+and 
+\begin{equation*}
+    \left| \frac{\partial^k g(\Bx)}{\prod_{j=1}^k \partial x_{i_j}} \right| 
+    \leq
+    \frac{1}{k}
+    \left| \frac{\partial^k f(\Bx)}{\prod_{j=1}^k \partial x_{i_j}} \right|
+    \quad
+    \text{for all $\Bx=(x_1,\ldots, x_{2K})^\top \in \mathbb R^{2K}$,
+    $k=1,2,3$, and $i_j \in \{1,\ldots, 2K\}$.}
+\end{equation*}
+To prove the theorem, we bound
+\begin{equation*}
+    S=\myE [\nabla^\top \BV \nabla g(W) -W^\top \nabla g(W)].
+\end{equation*}
+
+Next, we use exchangeability.
+Let $\bzeta' = (\zeta_1',\ldots, \zeta_d')^\top$ be an independent copy of $\zeta$, and let $\underline i \in \{1,\ldots, d\}$ be an independent and uniformly distributed random index.
+Define the vector $W' \in \mathbb R^{2K}$ exactly as we defined $W$, except that $\bzeta_{\underline i}$ is replaced with $\bzeta_{\underline i}'$ throughout.
+More precisely, let $e_i \in \mathbb R^d$ be the $i$th standard basis vector in $\mathcal R^d$ and define
+\begin{equation*}
+\begin{split}
+    \hat w_k'=& (\bzeta + (\zeta_{\underline i}' - \zeta_{\underline i}) e_{\underline i})^\top 
+    \hat \BQ_k
+    (\bzeta + (\zeta_{\underline i}' - \zeta_{\underline i}) e_{\underline i})
+\\
+=& \hat w_k + 2 (\zeta_{\underline i}' - \zeta_{\underline i}) e_{\underline i}^\top \hat \BQ_k \bzeta,
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+    \check w_k'=& (\bzeta + (\zeta_{\underline i}' - \zeta_{\underline i}) e_{\underline i})^\top 
+    \check \BQ_k
+    (\bzeta + (\zeta_{\underline i}' - \zeta_{\underline i}) e_{\underline i})
+    -\mytr(\BQ_k)
+\\
+=& \check w_k +  e_{\underline i}^\top \check \BQ_k e_{\underline i} ((\zeta_{\underline i}')^2 - \zeta_{\underline i}^2) ,
+\end{split}
+\end{equation*}
+for $k=1,\ldots, K$.
+Then $W'= (\hat w_1',\check w_1', \ldots, \hat w_K', \check w_K')^\top \in \mathbb R^{2K}$.
+Its straightforward to verify that
+\begin{equation*}
+    \myE (\hat w_k' - \hat w_k|\bzeta)=-\frac{2}{d} \hat w_k,
+    \quad
+    \myE (\check w_k' - \check w_k|\bzeta)=-\frac{1}{d} \check w_k.
+\end{equation*}
+Then
+\begin{equation*}
+    \myE ( W' - W |\bzeta) = - \Lambda_K W,
+\end{equation*}
+where
+\begin{equation*}
+    \Lambda_1=
+    \begin{pmatrix}
+       \frac 2 d & 0\\
+       0 & \frac 1 d
+    \end{pmatrix}
+    ,
+    \quad
+    \Lambda_K =
+    \begin{pmatrix}
+        \Lambda_1 & 0 & \cdots & 0\\
+         0 &\Lambda_1  & \cdots & 0\\
+         \vdots & \vdots && \vdots\\
+         0 & 0 & \cdots & \Lambda_1
+    \end{pmatrix}
+    \in \mathbb R^{2K\times 2K}.
+\end{equation*}
+
+By exchangeability, we have
+\begin{equation*}
+    \begin{split}
+        0=&\frac 1 2 \myE [(W'-W)^\top \Lambda_K^{-\top} (\nabla g(W') +\nabla g(W))]
+        \\
+        =& \myE [(W'-W)^\top \Lambda_K^{-\top} \nabla g(W)]
+        +\frac{1}{2} \myE [(W'-W)^\top \Lambda_K^{-\top} (\nabla g(W') -\nabla g(W))]
+        \\
+        =&
+        - \myE [W^\top  \nabla g(W)]
+        +\frac{1}{2} \myE [(W'-W)^\top \Lambda_K^{-\top} (\nabla g(W') -\nabla g(W))].
+    \end{split}
+\end{equation*}
+That is,
+\begin{equation*}
+         \myE [W^\top  \nabla g(W)]
+         =
+        \frac{1}{2} \myE [(W'-W)^\top \Lambda_K^{-\top} (\nabla g(W') -\nabla g(W))].
+\end{equation*}
+Apply Taylor's theorem,
+\begin{equation}
+    \begin{split}
+         &W^\top  \nabla g(W)
+         \\
+         =&
+         \frac 1 2 \sum_{i,j=1}^{2K}
+         \Lambda_{K,ii}^{-1} D^{ij} g(W) (w_i'-w_i) (w_j'-w_j)
+         +
+         \frac 1 4 \sum_{i,j,k=1}^{2K}
+         \Lambda_{K,ii}^{-1} D^{ijk} g(W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k)
+         \\
+         &+
+         \frac{1}{12} \sum_{i,j,k,l=1}^{2K}
+         \Lambda_{K,ii}^{-1} D^{ijkl} g(t^*(W'-W)+W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k) (w_l'-w_l)
+         \\
+         =&
+         \frac 1 2 
+         \mytr
+         [
+         (W'-W)
+         (W'-W)^\top \Lambda_K^{-\top} \nabla^2 g(W)
+     ]
+         +
+         \frac 1 4 \sum_{i,j,k=1}^{2K}
+         \Lambda_{K,ii}^{-1} D^{ijk} g(W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k)
+         \\
+         &+
+         \frac{1}{12} \sum_{i,j,k,l=1}^{2K}
+         \Lambda_{K,ii}^{-1} D^{ijkl} g(t^*(W'-W)+W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k) (w_l'-w_l),
+    \end{split}
+\end{equation}
+where $t^*\in [0,1]$.
+Also by exchangeability,
+\begin{equation*}
+    \myE[(W'-W) (W'-W)^\top] 
+    =
+    2\myE[ W(W-W')^\top] 
+    =
+    2\myE[ W W^\top \Lambda_K^\top] 
+    =2\BV \Lambda_K^\top.
+\end{equation*}
+It follows that
+\begin{equation*}
+    \myE [\nabla^\top \BV \nabla g(W)] 
+    =
+    \myE \mytr [\BV \nabla^2 g(W)] 
+    =
+    \frac 1 2 \myE \mytr [ \myE [(W'-W)(W'-W)^\top] \Lambda_K^{-\top} \nabla^2 g(W)] 
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+    S=&\myE [\nabla^\top \BV \nabla g(W) -W^\top \nabla g(W)]\\
+    =
+&
+    \frac 1 2 \myE \mytr [ \myE [(W'-W)(W'-W)^\top] \Lambda_K^{-\top} \nabla^2 g(W)] 
+         -\frac 1 2 
+\myE
+         \mytr
+         [
+         (W'-W)
+         (W'-W)^\top \Lambda_K^{-\top} \nabla^2 g(W)
+     ]
+     \\
+         &-
+         \frac 1 4 \myE
+         \sum_{i,j,k=1}^{2K}
+         \Lambda_{K,ii}^{-1} D^{ijk} g(W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k)
+         \\
+         &-
+         \frac{1}{12} \myE
+         \sum_{i,j,k,l=1}^{2K}
+         \Lambda_{K,ii}^{-1} D^{ijkl} g(t^*(W'-W)+W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k) (w_l'-w_l).
+    \end{split}
+\end{equation*}
+
+
+\end{proof}
+
 \end{appendices}
 
 
