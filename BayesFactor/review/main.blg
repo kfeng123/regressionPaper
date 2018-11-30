@@ -7,46 +7,47 @@ Repeated entry---line 507 of file mybibfile.bib
  : @article{maruyama2011
  :                      ,
 I'm skipping whatever remains of this entry
+Warning--can't use both author and editor fields in berger2001Obj
 Warning--empty journal in Fractional1995
-You've used 33 entries,
+You've used 39 entries,
             1935 wiz_defined-function locations,
-            711 strings with 9545 characters,
-and the built_in function-call counts, 13436 in all, are:
-= -- 1337
-> -- 495
-< -- 23
-+ -- 168
-- -- 160
-* -- 1221
-:= -- 2309
-add.period$ -- 99
-call.type$ -- 33
-change.case$ -- 245
-chr.to.int$ -- 33
-cite$ -- 34
-duplicate$ -- 463
-empty$ -- 976
-format.name$ -- 229
-if$ -- 2623
+            760 strings with 10608 characters,
+and the built_in function-call counts, 16212 in all, are:
+= -- 1610
+> -- 594
+< -- 33
++ -- 198
+- -- 190
+* -- 1451
+:= -- 2757
+add.period$ -- 119
+call.type$ -- 39
+change.case$ -- 285
+chr.to.int$ -- 39
+cite$ -- 41
+duplicate$ -- 583
+empty$ -- 1187
+format.name$ -- 271
+if$ -- 3207
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 33
-newline$ -- 168
-num.names$ -- 99
-pop$ -- 165
+missing$ -- 41
+newline$ -- 198
+num.names$ -- 121
+pop$ -- 206
 preamble$ -- 1
-purify$ -- 245
+purify$ -- 286
 quote$ -- 0
-skip$ -- 356
+skip$ -- 450
 stack$ -- 0
-substring$ -- 1142
-swap$ -- 35
-text.length$ -- 1
+substring$ -- 1344
+swap$ -- 71
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 198
-warning$ -- 1
-while$ -- 115
+type$ -- 230
+warning$ -- 2
+while$ -- 140
 width$ -- 0
-write$ -- 428
+write$ -- 511
 (There was 1 error message)

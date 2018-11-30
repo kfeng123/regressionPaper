@@ -107,15 +107,102 @@
 \begin{document}
 \maketitle
 \section{Introduction}
+Bayes factor is proposed by Jeffreys.
 This note gives a review for Bayes factors for linear regression.
-\section{Mixture of $g$ prior}
-This section is adapted from \cite{Liang2008Mixtures}.
+\section{Bayes factor}
+\subsection{How it works}
+Suppose that $M$ models are proposed for the data $\Bx=(x_1,\ldots, x_n)$.
+Under model $\mathcal M_i, i=0,\ldots, M$, the data are related to parameter $\theta_i$ by a density $f_i(\Bx | \theta_i)$.
+Often, the null model $\mathcal M_0$ is nested in all other models.
+In this case, we can write $\theta_0= \balpha$, $\theta_i=(\balpha,\bbeta_i)$, $i=1,\ldots, M$, where $\balpha$ is the common parameter and $\bbeta_1,\ldots,\bbeta_{M}$ are model specific parameters.
+
+Let $\Pr(\mathcal M_i)$ be the prior probability of model $\mathcal M_i$.
+Under $\mathcal M_i$, let $\pi_i (\theta_i)$ be the prior density for $\theta_i$.
+The marginal density under model $\mathcal M_i$ is
+\begin{equation*}
+    m_i (\Bx) = \int_{\Theta_i} f_i(\Bx |\theta_i) \pi_i( \theta_i ) d \theta_i
+\end{equation*}
+Hence the posterior probability of $\mathcal M_i$ is
+\begin{equation*}
+    \Pr(\mathcal M_i |\Bx) = \frac{m_i(\Bx)\Pr(\mathcal M_i)}{\sum_{i=0}^{M} m_i(\Bx)\Pr (\mathcal M_i)}
+    =
+    \frac{B_{ij}(\Bx)\Pr(\mathcal M_i)}{\Pr(\mathcal M_j)+\sum_{i\neq j} B_{ij}(\Bx)\Pr (\mathcal M_i)}
+    ,
+\end{equation*}
+where $B_{ij}(\Bx) = m_i(\Bx)/m_j(\Bx)$ is the Bayes factor of $\mathcal M_i$ to $\mathcal M_j$.
+If $\mathcal M_0$ is the null model, then the null-Based approach takes $j=0$.
+It can be seen that the posterior model probability only depends on the Bayes factor.
+Note that
+\begin{equation*}
+    \frac{\Pr(\mathcal M_i | \Bx)}{\Pr (\mathcal M_j|\Bx)} = B_{ij}(\Bx) \frac{\Pr (\mathcal M_i)}{\Pr(\mathcal M_j)}.
+\end{equation*}
+Hence the Bayes factor is the ratio of the posterior odds to its prior odds.
+The logarithm of Bayes factor is called \emph{weight of evidence}.
+See \cite{Robert1995Bayes} for a review for the interpretation, computation and applications of Bayes factor.
+
+Consider hypothesis testing problem, that is, to compare two models $\mathcal M_i$ and $\mathcal M_j$.
+Bayesian hypothesis testing utilize Bayes factor, and reject the $\mathcal M_i$ if $B_{ji}(\Bx)$ is larger than certain threshold, say, $20$; see \cite{Robert1995Bayes}.
+Often, the Bayes factor is consistent in the sense that as $n\to \infty$,
+\begin{equation*}
+    \begin{split}
+        B_{ji}(\Bx)\xrightarrow P  0  \quad \text{if the true distribution belongs to $\mathcal M_j$},\\
+        B_{ji}(\Bx)\xrightarrow P  +\infty  \quad \text{if the true distribution belongs to $\mathcal M_i$}.\\
+    \end{split}
+\end{equation*}
+If the Bayes factor is consistent, then Bayesian test criterion has the property that the frequentist type I error rate and type II error rate both tend to $0$.
+This property is very different from frequentist significant tests which fix the type I error rate to the significant level, say, $0.05$.
+With this property, the Bayesian hypothesis testing method can be easily generalized to multiple hypothesis testing and model selection.
+In fact, if the Bayes factor $B_{ij}(\Bx)$ is consistent for all $i,j$, then the posterior model probability has the following property
+\begin{equation*}
+    \begin{split}
+        \Pr(\mathcal M_i |\Bx) \xrightarrow{P} 1   \quad \text{if the true distribution belongs to $\mathcal M_j$},\\
+\Pr(\mathcal M_i |\Bx) \xrightarrow{P} 0  \quad \text{if the true distribution belongs to $\mathcal M_i$}.\\
+    \end{split}
+\end{equation*}
+There are many papers consider the consistency of Bayes factor for specefic models.
+
+\subsection{Difficulties}
+\cite{berger2001Obj} listed several reasons to use Bayes factor.
+Also, they illustrated several difficulties with Bayes factor.
+One of the most serious difficulties is how to choose the prior distributions of parameters.
+
+In the field of objective Bayesian analysis, ``noninformative'' (or ``default'', ``automatic'') priors are used.
+The most commonly used noninformative priors are Jeffreys priors and reference priors.
+See \cite{BERNARDO200517} for a good introduction to reference priors.
+These noninformative priors are typically improper.
+However, improper noninformative priors yield indeterminate answers.
+To see this, suppose we use improper priors $\pi_i$ and $\pi_j$ to compute Bayes factor $B_{ij}(\Bx)$.
+Since priors are improper, one could have just as well used $c_i \pi_i$ and $c_j \pi_j$, which results in the Bayes factor $(c_i/c_j)B_{ij}(\Bx)$.
+Thus, ``default'' priors can not be used as default to do model selection.
+
+\subsection{Objective Bayesian model selection}
+
+\subsubsection{Conventional prior approach}
+\cite[Chapter 5]{book:821070} dealt with the issue of indeterminacy of noninformative priors by (i) using noninformative priors only for common (orthogonal) parameters in the models, so that the arbitrary multiplicative constant for the priors would cancel in all Bayes factors, and (ii) using default proper priors for  parameters that would occur in one model but not the other.
+This line of development has been successfully followed by many others.
+
+\begin{example}
+    Suppose $X_1,\ldots, X_n$ are iid $\mathcal N(\mu,\sigma_2^2)$ under $\mathcal M_2$.
+    Under $\mathcal M_1$, the $X_i$ are $\mathcal N (0, \sigma_1^2)$.
+    In this situation the mean and variance are orthogonal parameters, in which case Jeffreys argues that $\sigma^2_1$ and $\sigma^2_2$ do have the same meanning across models and can be identified as $\sigma_1^2 = \sigma_2^2 =\sigma^2$.
+    Because of this identification, Jeffreys suggests that the variances can be assigned the same (improper) noninformative prior $\pi^J (\sigma) = 1/\sigma$, since the indeterminate multiplicative constant for the prior would cancel in the Bayes factor.
+    As the unknown mean $\mu$ occurs in only $\mathcal M_2$, it needs to assigned a proper prior.
+Through a series of ingenious arguments, Jeffreys obtains the following desiderata that this proper prior should satisfy: i) it should be centered at zero (i.e., centered at $\mathcal M_1$); ii) have scale $\sigma$; iii) be symmetric around zero; and iv) have no moments.
+He argues that the simplest distribution that satisfies these conditions is the $Cauchy(0,\sigma^2)$.
+In summary, Jeffreys's conventional prior for this problem is:
+\begin{equation*}
+    \pi_1^{J} (\sigma_1) = \frac{1}{\sigma_1}, \quad \pi_2^J (\mu,\sigma_2) = \frac{1}{\sigma_2} \cdot \frac{1}{\pi \sigma_2 (1+\mu^2/\sigma_2^2)} .
+\end{equation*}
+Although this solution appears to be rather ad hoc, it is quite reasonable; choosing the scale of the prior for $\mu$ to be $\sigma_2$ and centering it at $\mathcal M_1$ are natural choices, and Cauchy priors are known to be robust in various ways.
+\end{example}
+
+\begin{example}
+
 Suppose $\BY\in \mathbb R^n$ is generated from the model
 \begin{equation*}
     \mathcal M_{\gamma}: \BY=\mathbf 1_n \alpha + \BX \bbeta+\bepsilon,
 \end{equation*}
 where $\BX \in \mathbb R^{n\times p}$ and $\bepsilon\sim \mathcal N (0, \phi^{-1} \BI_n)$.
-
 Let $\BX_{\gamma}\in \mathbb R^{n\times p_{\gamma}}$ be a submatrix of $\BX$.
 Then the submodel $\mathcal M_\gamma$ is defined as 
 \begin{equation*}
@@ -123,10 +210,48 @@ Then the submodel $\mathcal M_\gamma$ is defined as
 \end{equation*}
 The null model $\mathcal M_N $ is 
 \begin{equation*}
-    \mathcal M_{\gamma}: \BY=\mathbf 1_n \alpha +\bepsilon.
+    \mathcal M_{N}: \BY=\mathbf 1_n \alpha +\bepsilon.
 \end{equation*}
 We would like to compare $\mathcal M_\gamma$ with $\mathcal M_N$.
 Without loss of generality, we assume $\mathbf 1_n^\top \BX_\gamma=0$.
+    
+\cite{Zellner1980} proposed the following priors.
+Under $\mathcal M_N$, 
+\begin{equation*}
+    p(\alpha|\phi,\mathcal M_N) \propto 1,
+\quad
+    p(\phi|\mathcal M_N) = \frac{1}{\phi}.
+\end{equation*}
+Under $\mathcal M_\gamma$, 
+%\begin{equation*}
+    %\bbeta_{\gamma}|\phi,\mathcal M_\gamma \sim \mathcal N (0,\frac{g}{\phi} (\BX_{\gamma}^\top \BX_{\gamma})^{-1}),
+    %\quad p(\alpha|\phi,\mathcal M_\gamma)\propto 1,
+    %\quad p(\phi|\mathcal M_\gamma) = \frac{1}{\phi}.
+%\end{equation*}
+\begin{equation*}
+    \pi(\bbeta_\gamma | \phi,\mathcal M_\gamma)
+    \propto
+    \frac{\Gamma(p_{\gamma})}{\pi^{p_\gamma/2}}
+    \left|
+    \frac{\BX_\gamma^\top \BX_\gamma}{n/\phi}
+    \right|^{1/2}
+    \left(
+        1+\bbeta_\gamma^\top \frac{\BX_\gamma^\top \BX_\gamma}{n/\phi}   \bbeta_\gamma
+    \right)^{-p_\gamma/2}
+    ,
+    \quad p(\alpha|\phi,\mathcal M_\gamma)\propto 1,
+    \quad p(\phi|\mathcal M_\gamma) = \frac{1}{\phi}.
+\end{equation*}
+(Here need to be further confirmed.)
+Thus, the improper priors of the ``common'' $(\alpha,\phi)$ are assumed to be the same for the two models (again justifiable by orthogonality), while the conditional prior of the parameter $\beta_2$, given $\sigma$, is assumed to be the (proper) $p$-dimensional Cauchy distirbution, with location at $0$ (so that it is `centered' at $\mathcal M_1$) and covariance matrix $\phi \BX_\gamma^\top \BX_\gamma/n$, ``\dots a matrix suggested by the form of the information matrix,'' to quote
+\cite{Zellner1980}.
+
+\end{example}
+
+
+
+\begin{example}[$g$-priors]
+
 Under $\mathcal M_N$, the $g$ prior is
 \begin{equation*}
     p(\alpha,\phi|\mathcal M_N) = \frac{1}{\phi}.
@@ -183,9 +308,13 @@ Thus,
     (1+g)^{(n-p_\gamma-1)/2}
     [1+g(1-R^2_\gamma)]^{-(n-1)/2}.
 \end{equation*}
+    
+\end{example}
 
-\subsection{Choices of $g$}
-\paragraph{Local empirical Bayes.} The local EB estimates a separate $g$ for each model $\mathcal M_\gamma$.
+\begin{example}
+    Choices of $g$.
+
+\textbf{Local empirical Bayes.} The local EB estimates a separate $g$ for each model $\mathcal M_\gamma$.
 \begin{equation*}
     \hat g_\gamma^{\text{EBL}} =
     \argmax_{g\geq 0} p(\BY | \mathcal M_\gamma, g) 
@@ -202,7 +331,7 @@ F_\gamma=
 \end{equation*}
 is the usual $F$ statistic for testing $\bbeta_\gamma=0$.
 
-\paragraph{Global empirical Bayes.} The global EB procedure assumes one common $g$ for all models.
+\textbf{Global empirical Bayes.} The global EB procedure assumes one common $g$ for all models.
 \begin{equation*}
     \hat g_\gamma^{\text{EBG}} =
     \argmax_{g\geq 0} \sum_{\gamma} p(\mathcal M_\gamma) p(\BY | \mathcal M_\gamma, g) 
@@ -213,12 +342,10 @@ In general, this marginal likelihood is not tractable and does not provide a clo
 It can be computed by an EM algorithm, which is based on treating both the model indicator and the precision $\phi$ as latent data.
 
 
+    
+\end{example}
 
-
-
-
-
-\subsection{Mixtures of $g$ priors}
+\begin{example}[Mixtures of $g$ priors]
 Under $\mathcal M_\gamma$, the mixtures of $g$ prior take the form
 \begin{equation*}
     \bbeta_{\gamma}|g, \phi,\mathcal M_\gamma \sim \mathcal N (0,\frac{g}{\phi} (\BX_{\gamma}^\top \BX_{\gamma})^{-1}),
@@ -303,24 +430,22 @@ They observed that the Bayes factor has a closed form if we take
 
 \cite{bayarri2012} proposed a ``robust prior'' on $g$, which is a class of priors including the three considered by \cite{Liang2008Mixtures} and some other related priors.
 
+\end{example}
 
-\subsection{High-dimensional setting}
+\begin{example}[High-dimensional setting]
 The asymptotic behaviors of the Bayes factors with $g$ priors in high dimensional setting have been investigated by \cite{Mukhopadhyay2014}, \cite{wang2017posterior}, \cite{Wang2016}, \cite{WANG201495}, \cite{wang2017}, \cite{XIANG201664},
 \cite{Mukhopadhyay2016}.
 
 Generalization of $g$ priors to $p>n$: \cite{maruyama2011}, \cite{Shang2011}.
+    
+\end{example}
 
 
-\section{Intrinsic prior}
+\subsubsection{Intrinsic prior}
 Intrinsic prior, introduced by \cite{intrisicBayesFactor} and further developed by \cite{Moreno1998An}, is a method for objective Bayes hypothesis testing.
 
-Suppose that two models are proposed for the data $\Bx=(x_1,\ldots, x_n)$.
-Under model $M_i, i=1,2$, the data are related to parameter $\theta_i$ by a density $f_i(\Bx | \theta_i)$.
 A noninformative prior for $\theta_i$ is denoted by $\pi_i^N(\theta_i)$, $i=1,2$.
-The conventional Bayes factor is defined as
-\begin{equation*}
-    B_{21}(\Bx) = \frac{m_2(\Bx)}{m_1(\Bx)}= \frac{\int_{\Theta_2} f_2(\Bx |\theta_2) \pi_2( \theta_2 ) d \theta_2}{\int_{\Theta_1} f_1(\Bx | \theta_1) \pi_1 (\theta_1) d \theta_1}.
-\end{equation*}
+
 But the conventional Bayes factor suffers from arbitrary normalizing constant.
 To solve this problem, \cite{intrisicBayesFactor} proposed the intrinsic Bayes factor.
 
@@ -1149,6 +1274,16 @@ E_{\bgamma}(\varphi)^{(n-k_{\bgamma}+1)/2}
     This completes the proof.
 
 \end{proof}
+
+
+
+
+
+\section{Mixture of $g$ prior}
+This section is adapted from \cite{Liang2008Mixtures}.
+
+
+
 
 
 
