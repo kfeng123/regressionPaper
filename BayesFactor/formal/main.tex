@@ -417,6 +417,12 @@ Let $\bepsilon=(\epsilon_1,\ldots,\epsilon_n)^\top$, where $\epsilon_i$'s are ii
 Denote $\mu_k=\myE \epsilon_1^k$.
 Then $\mu_1=0$, $\mu_2=\phi^{-1}$.
 
+\begin{assumption}
+    Suppose 
+\end{assumption}
+
+
+
 
 \begin{lemma}
 If $\phi^2\mu_4=o(n-q)$,
@@ -508,18 +514,220 @@ Note that under the normality, $T_n- \mytr ((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)$
     \begin{equation*}
         \frac{\By^{*\top} \BA_n \By^*}{\By^{*\top} \By^*} -\frac{\mytr (\BA_n)}{n-q}
         =
-        \frac{\By^{\top}\left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
+        \frac{(\phi^{1/2}\By)^{\top}\left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
                 -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
-        \right) \By}{\By^{*\top} \By^*}.
+        \right) (\phi^{1/2}\By)}{\phi\By^{*\top} \By^*}.
     \end{equation*}
 
 
 \begin{equation*}
-123 
+    \begin{split}
+&(\phi^{1/2}\By)^{\top}\left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
+                -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
+        \right) (\phi^{1/2}\By)
+        \\
+        =&
+(\phi^{1/2}\bepsilon)^{\top}\left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
+                -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
+        \right) (\phi^{1/2}\bepsilon)
+        +
+        \\
+        &2\phi^{1/2} (\phi^{1/2}\bepsilon)^{\top}\left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
+                -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
+        \right) \BX_b \bbeta_b
+        +
+        \\
+        & \phi
+\bbeta_b^\top \BX_b^\top \left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
+                -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
+        \right) \BX_b \bbeta_b
+    \end{split}
 \end{equation*}
 
     From \cite[Theorem 5.1]{jiang1996reml},
 \end{proof}
+
+
+As in \cite{Roman2018}, sub-gaussian norm of a sub-gaussian random variable is defined as
+\begin{equation*}
+    \|X\|_{\psi_2} = \inf \{t>0: \myE \exp(X^2/t^2) \leq 2\}.
+\end{equation*}
+A random vector $Z\in \mathbb R^p$ is called sub-gaussian if $z\top Z$ are sub-gaussian random variables for all $z\in \mathbb R^p$.
+The sub-gaussian norm of $Z$ is defined as
+\begin{equation*}
+    \|Z\|_{\psi_2}= \sup_{z\in S^{p-1}} \|z^\top Z\|_{\psi_2},
+\end{equation*}
+where $S^{p-1}$ is the unit sphere in $\mathbb R^p$.
+
+Suppose $\BX_b =\BZ_b \Gamma + \mathbf 1_n \mu_b^\top$, where the rows of $\BZ_b$ are iid sub-gaussion random vectors with identity covariance matrix.
+
+
+The following lemma is a simple extension of Theorem 4.6.1 of \cite{Roman2018}.
+\begin{lemma}\label{lemma:con}
+    Let $\BZ$ be an $N\times n$ random matrix whose columns $Z_i$ are independent sub-gaussian random vectors with $\myE (Z_i)=0$, $\myVar (Z_i)= \BI_n$.
+    Suppose $K:=\max_i \|Z_i\|_{\psi_2}$ is uniformly bounded.
+    Write $Z_i=(z_{i1},\ldots,z_{iN})^\top$.
+    Assume that $\myE (z_{i\ell}^4)=3 + \Delta <\infty$ and for any intergers $\ell_v \geq 0$ with $\sum_{v=1}^s \ell_v \leq 4$,
+    \begin{equation*}
+        \myE (Z_{i j_1}^{\ell_1}Z_{i j_2}^{\ell_2}\cdots Z_{i j_s}^{\ell_s}) 
+        =
+    \myE (Z_{i j_1}^{\ell_1})\myE (Z_{i j_2}^{\ell_2})\cdots \myE (Z_{i j_s}^{\ell_s}) 
+    \end{equation*}
+    Let $\BW$ be a nonrandom $N \times N$ symmetric matrix.
+    Then
+    \begin{equation*}
+        \|\BZ^\top \BW \BZ -\mytr (\BW) \BI_n\| 
+        =
+        O_P(\sqrt n \|\BW\|_F+ n \|\BW\|).
+    \end{equation*}
+    TO BE DONE: 
+    \begin{equation*}
+        \|U\BZ^\top \BW \BZ U^\top -\mytr (\BW) \BI_n\| 
+    \end{equation*}
+\end{lemma}
+
+
+Next we verify the following.
+Let $\bSigma=\Gamma^\top \Gamma$.
+\begin{proof}
+    Let
+    \begin{equation*}
+    \BB=\BX_b^* \BX_b^{*\top} 
+    =
+    \tilde{\BU}_a^\top \BX_b \BX_b^{\top} \tilde{\BU}_a 
+    =
+    \tilde{\BU}_a^\top \BZ_b\Gamma \Gamma^\top \BZ_b^{\top} \tilde{\BU}_a 
+    \end{equation*}
+    Note that Lemma \ref{lemma:con} implies that
+    \begin{equation*}
+        \|\BB-\mytr(\bSigma)\BI_{n-q} \|
+        = 
+        O_P(\sqrt{n} \|\bSigma\|_F + n \|\bSigma\|).
+    \end{equation*}
+    That is, uniformly for $i=1,\ldots,n$,
+    \begin{equation*}
+        \frac{ \lambda_i (\BB) } {\mytr (\bSigma)} = 1 + O_P \left( \frac{\sqrt n \|\bSigma\|_F}{\mytr(\bSigma)} + \frac{n \|\bSigma\|}{\mytr(\bSigma)}\right)
+    \end{equation*}
+    Define
+    \begin{equation*}
+        \delta_i= \frac{ \lambda_i (\BB) } {\mytr (\bSigma)}-1
+    \end{equation*}
+    \begin{equation*}
+        \eta= \frac{\sqrt n \|\bSigma\|_F}{\mytr(\bSigma)} + \frac{n \|\bSigma\|}{\mytr(\bSigma)}
+    \end{equation*}
+    We assume $\eta \to 0$.
+
+    Thus,
+    we need to verify 
+    \begin{equation*}
+        \tilde{\BU}_a \BB^{-1} \tilde{\BU}_a^\top-\frac{\mytr( \BB^{-1} )}{n-q}\tilde{\BU}_a\tilde{\BU}_a^\top
+    \end{equation*}
+    satisfies that
+    \begin{equation}
+        \left\|
+            \BB^{-1} -\frac{\mytr( \BB^{-1} )}{n-q} \BI_{n-q}
+        \right\|^2
+        \bigg/
+        \mytr\left(
+            \BB^{-1} -\frac{\mytr( \BB^{-1} )}{n-q} \BI_{n-q}
+        \right)^2
+        \to 0.
+    \end{equation}
+    Note that
+    \begin{equation*}
+        \mytr\left(
+            \BB^{-1} -\frac{\mytr( \BB^{-1} )}{n-q} \BI_{n-q}
+        \right)^2
+        =\sum_{i=1}^{n-q} \frac{1}{\lambda_i^2(\BB)}
+        -\frac{1}{n-q}\left(\sum_{i=1}^{n-q}\frac{1}{\lambda_i(\BB)}\right)^2.
+    \end{equation*}
+    By Taylor's theorem, uniformly for $i=1,\ldots, n$, we have
+    \begin{equation*}
+        \begin{split}
+            &
+        \frac{1}{\lambda_i (\BB) }=\frac{1}{\mytr(\bSigma)}
+        \frac{1}{1+\delta_i}=
+        \frac{1}{\mytr(\bSigma)}\left(
+            1-\delta_i +\delta_i^2 +O_P(\eta^3)
+        \right),
+        \\
+        &
+        \frac{1}{\lambda_i^2 (\BB) }=\frac{1}{\mytr^2(\bSigma)}
+        \frac{1}{(1+\delta_i)^2}=
+        \frac{1}{\mytr^2(\bSigma)}\left(
+            1-2\delta_i +3\delta_i^2 +O_P(\eta^3)
+        \right).
+        \end{split}
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+        \begin{split}
+        &\mytr\left(
+            \BB^{-1} -\frac{\mytr( \BB^{-1} )}{n-q} \BI_{n-q}
+        \right)^2
+        \\
+        =&
+        \sum_{i=1}^{n-q}         \frac{1}{\mytr^2(\bSigma)}\left(
+            1-2\delta_i +3\delta_i^2 +O_P(\eta^3)
+        \right)
+        -\frac{1}{n-q}\left(\sum_{i=1}^{n-q}
+        \frac{1}{\mytr(\bSigma)}\left(
+            1-\delta_i +\delta_i^2 +O_P(\eta^3)
+        \right)
+        \right)^2
+        \\
+        =&
+\frac{1}{\mytr^2(\bSigma)}
+\left(
+    n-q
+        -2\sum_{i=1}^{n-q} \delta_i 
+             +3\sum_{i=1}^{n-q}\delta_i^2 +O_P(n\eta^3)
+        -\frac{1}{n-q}\left(
+            n-q - \sum_{i=1}^{n-q}\delta_i
+            +\sum_{i=1}^{n-q}\delta_i^2 +O_P(n\eta^3)
+        \right)^2
+\right) 
+\\
+        =&
+\frac{1}{\mytr^2(\bSigma)}
+\left(
+    n-q
+        -2\sum_{i=1}^{n-q} \delta_i 
+             +3\sum_{i=1}^{n-q}\delta_i^2 +O_P(n\eta^3)
+             -(n-q)\left(
+                 1 - \frac{1}{n-q}\sum_{i=1}^{n-q}\delta_i
+                 +\frac{1}{n-q}\sum_{i=1}^{n-q}\delta_i^2 +O_P(\eta^3)
+        \right)^2
+\right) 
+\\
+        =&
+\frac{1}{\mytr^2(\bSigma)}
+\Bigg(
+    n-q
+        -2\sum_{i=1}^{n-q} \delta_i 
+             +3\sum_{i=1}^{n-q}\delta_i^2 +O_P(n\eta^3)
+             \\
+             &-(n-q)\left(
+                 1 + \left(\frac{1}{n-q}\sum_{i=1}^{n-q}\delta_i\right)^2
+                 -\frac{2}{n-q}\sum_{i=1}^{n-q}\delta_i
+                 +\frac{2}{n-q}\sum_{i=1}^{n-q}\delta_i^2 +O_P(\eta^3)
+        \right)
+\Bigg) 
+\\
+        =&
+\frac{1}{\mytr^2(\bSigma)}
+\Bigg(
+             \sum_{i=1}^{n-q}\delta_i^2 
+             -
+\frac{1}{n-q}
+                   \left(\sum_{i=1}^{n-q}\delta_i\right)^2
++O_P(n\eta^3)
+\Bigg) 
+        .
+        \end{split}
+    \end{equation*}
+\end{proof}
+
 
 
 
@@ -656,6 +864,240 @@ Note that under the normality, $T_n- \mytr ((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)$
 
 \end{proof}
 
+\begin{proof}[\textbf{Proof of Lemma \ref{lemma:con}}]
+\begin{equation*}
+    \begin{split}
+    \|\BZ^\top \BW \BZ -\mytr (\BW) \BI_n\| 
+    \leq
+    \|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\| 
+    + 
+    \| \mydiag(\BZ^\top \BW \BZ) -\mytr (\BW) \BI_n\| 
+    \end{split}
+\end{equation*}
+We have
+\begin{equation*}
+    \| \mydiag(\BZ^\top \BW \BZ) -\mytr (\BW) \BI_n\| 
+    =
+    \max_{1\leq i\leq n}
+    |Z_i^\top \BW Z_i- \mytr (\BW)|
+    \leq
+    \sqrt{
+\sum_{i=1}^{ n}
+\left(Z_i^\top \BW Z_i- \mytr (\BW)\right)^2
+}
+\end{equation*}
+From \cite[Proposition A.1]{chen2010tests},
+\begin{equation*}
+    \myE \left[\sum_{i=1}^n \left(Z_i^\top \BW Z_i- \mytr (\BW)\right)^2\right]
+    =2n \mytr(\BW^2) + \Delta n \mytr(\BW\circ\BW)
+    \leq (2+\Delta) n \mytr(\BW^2).
+\end{equation*}
+Hence
+\begin{equation*}
+    \| \mydiag(\BZ^\top \BW \BZ) -\mytr (\BW) \BI_n\| 
+    =O_P(\sqrt n \|\BW\|_F).
+\end{equation*}
+Next we deal with
+\begin{equation*}
+    \|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\| 
+\end{equation*}
+From \cite[Lemma 5.2]{Roman2018}, there is a $1/4$-net $\mathcal C$ of the unit sphere $S^{n-1}$ such that $|\mathcal C|\leq 9^n$.
+By \cite[Exercise 4.4.3]{Roman2018}, 
+\begin{equation*}
+    \|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\|\leq 2 \sup_{x\in\mathcal C} \left|x^\top \left(\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ) \right) x\right|.
+\end{equation*}
+Fix $x\in \mathcal C$.
+Then
+\begin{equation*}
+ \left|x^\top \left(\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ) \right) x\right|
+ =
+ \left|
+ \sum_{i=1}^{n} \sum_{j\neq i}^n
+ x_i x_j Z_i^\top \BW Z_j  
+ \right|
+\end{equation*}
+Now we bound the moment generating function of $\sum_{i=1}^{n} \sum_{j\neq i}^n
+ x_i x_j Z_i^\top \BW Z_j$.
+ We apply the decoupling technique in \cite{Roman2018}, Section 6.1.
+ Let $\delta_1,\ldots,\delta_n$ be independent Bernoulli random variables with $\Pr\{\delta_i=0\}=\Pr\{\delta_i=1\}=1/2$.
+For any $\lambda \in \mathbb R$,
+\begin{equation*}
+    \begin{split}
+    \myE
+    \exp
+    \left\{
+        \lambda
+ \sum_{i=1}^{n} \sum_{j\neq i}^n
+ x_i x_j Z_i^\top \BW Z_j  
+ \right\}
+ =&
+    \myE
+    \exp
+    \left\{
+        \myE\left(
+            4
+        \lambda
+ \sum_{i=1}^{n} \sum_{j=1}^n
+ \delta_i (1-\delta_j) x_i x_j Z_i^\top \BW Z_j  
+ \bigg | \BZ \right)
+ \right\}
+ \\
+ \leq &
+        \myE
+    \exp
+    \left\{
+            4
+        \lambda
+ \sum_{i=1}^{n} \sum_{j=1}^n
+ \delta_i (1-\delta_j) x_i x_j Z_i^\top \BW Z_j  
+ \right\}
+ \\
+ = &
+        \myE
+    \exp
+    \left\{
+            4
+        \lambda
+        (\sum_{i:\delta_i=1} x_i Z_i)^\top \BW
+         (\sum_{j:\delta_j=0}
+         x_j  Z_j  )
+ \right\}
+ \\
+ \leq&
+ \max_{I\subset [n]}
+        \myE
+    \exp
+    \left\{
+            4
+        \lambda
+        (\sum_{i\in I}x_i  Z_i)^\top \BW (\sum_{j\notin I}x_j Z_j  )
+ \right\},
+    \end{split}
+\end{equation*}
+where the first inequality follows from Jensen's inequality.
+Fix an $I\subset [n]$.
+From \cite{Roman2018}, Proposition 2.6.1, $\|\sum_{ i \in I} x_i Z_i\|_{\psi_2}\leq C_1 K$, $\|\sum_{ j \notin I} x_j Z_j\|_{\psi_2}\leq C_1 K$ for some absolute constant $C_1$.
+Then \cite{Roman2018}, Lemma 6.2.2 and Lemma 6.2.3 imply that
+there exist absolute constants $C_2,C_3$ such that, 
+\begin{equation*}
+        \myE
+    \exp
+    \left\{
+            4
+        \lambda
+        (\sum_{i\in I}x_i  Z_i)^\top \BW (\sum_{j\notin I}x_j Z_j  )
+ \right\}
+ \leq
+ \exp
+ \left\{
+     C_2 K^4
+ \|\BW\|_F^2
+     \lambda^2 
+ \right\}
+\end{equation*}
+for all 
+$|\lambda|\leq {C_3}/{(K^2\|\BW\|)}$.
+Note that this bound does not depend on $I\subset [n]$.
+It follows that
+\begin{equation*}
+    \begin{split}
+    &\myE
+    \exp
+    \left\{
+        \lambda
+ \sum_{i=1}^{n} \sum_{j\neq i}^n
+ x_i x_j Z_i^\top \BW Z_j  
+ \right\}
+ \leq 
+\exp\left\{
+    C_2 K^4 \|\BW\|_F^2 \lambda^2
+\right\}
+,
+    \end{split}
+\end{equation*}
+for all $|\lambda|\leq {C_3}/{( K^2 \|\BW\|)}$.
+Then applying Chernoff bound yields that, for any $t>0$,
+\begin{equation*}
+    \begin{split}
+        \Pr\left(
+ \left|
+ \sum_{i=1}^{n} \sum_{j\neq i}^n
+ x_i x_j Z_i^\top \BW Z_j  
+ \right| > t
+        \right) 
+        %\\
+        %\leq
+        %&\inf_{0<\lambda\leq \frac{C_3}{ K^2 \|\BW\|}}
+        %\exp(-\lambda t)
+        %\myE 
+        %\left(
+        %\exp
+    %\left\{
+        %\lambda
+ %\sum_{i=1}^{n} \sum_{j\neq i}^n
+ %x_i x_j Z_i^\top \BW Z_j  
+ %\right\}
+ %+
+        %\exp
+    %\left\{
+        %-\lambda
+ %\sum_{i=1}^{n} \sum_{j\neq i}^n
+ %x_i x_j Z_i^\top \BW Z_j  
+ %\right\}
+ %\right)
+ %\\
+ \leq
+        &\inf_{0<\lambda\leq \frac{C_3}{ K^2 \|\BW\|}}
+        2\exp\left\{-\lambda t + C_2  K^4\|\BW\|_F^2 \lambda^2 \right\}
+        \\
+        \leq
+        &
+        2\exp\left\{
+            -\min\left(
+                \frac{t^2}{4 C_2  K^4 \|\BW\|^2_F}
+                ,
+                \frac{C_3 t}{2  K^2 \|\BW\|}
+            \right)
+        \right\}.
+    \end{split}
+\end{equation*}
+This inequality, combined with union bound, yields
+\begin{equation*}
+    \begin{split}
+        \Pr\left(\|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\|>t\right)
+        \leq &
+        \Pr\left(
+        2 \sup_{x\in\mathcal C} \left|x^\top \left(\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ) \right) x\right|
+        >t
+    \right)
+    \\
+    \leq&
+    2\cdot 9^n
+\exp\left\{
+            -\min\left(
+                \frac{t^2}{16 C_2  K^4 \|\BW\|^2_F}
+                ,
+                \frac{C_3 t}{4  K^2 \|\BW\|}
+            \right)
+        \right\}
+        .
+    \end{split}
+\end{equation*}
+Thus, there exists a large $C>0$ such that for every $t>0$,
+\begin{equation*}
+        \Pr\left(\|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\|>
+            C(K^2 (\sqrt {n}+t) \|\BW\|_F + K^2 (n+t^2) \|\BW\|)
+        \right)
+        \leq 2\exp\{-t^2\}.
+\end{equation*}
+Consequently,  $\|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\|=O_P(K^2(\sqrt n \|\BW\|_F+ n \|\BW\|))$.
+This completes the proof.
+
+
+
+
+ 
+\end{proof}
 
     \section{haha2}
 \begin{theorem}

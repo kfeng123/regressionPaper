@@ -42,4 +42,11 @@ Shang, Z. and Clayton, M.~K. (2011).
 \newblock {\em Journal of Statistical Planning and Inference},
   141(11):3463--3474.
 
+\bibitem[Vershynin, 2018]{Roman2018}
+Vershynin, R. (2018).
+\newblock {\em High-Dimensional Probability: An Introduction with Applications
+  in Data Science}.
+\newblock Cambridge Series in Statistical and Probabilistic Mathematics.
+  Cambridge University Press.
+
 \end{thebibliography}
