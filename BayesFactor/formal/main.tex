@@ -604,7 +604,7 @@ Let $\bSigma=\Gamma^\top \Gamma$.
         = 
         O_P(\sqrt{n} \|\bSigma\|_F + n \|\bSigma\|).
     \end{equation*}
-    That is, uniformly for $i=1,\ldots,n$,
+    That is, uniformly for $i=1,\ldots,n-q$,
     \begin{equation*}
         \frac{ \lambda_i (\BB) } {\mytr (\bSigma)} = 1 + O_P \left( \frac{\sqrt n \|\bSigma\|_F}{\mytr(\bSigma)} + \frac{n \|\bSigma\|}{\mytr(\bSigma)}\right)
     \end{equation*}
@@ -723,9 +723,426 @@ Let $\bSigma=\Gamma^\top \Gamma$.
                    \left(\sum_{i=1}^{n-q}\delta_i\right)^2
 +O_P(n\eta^3)
 \Bigg) 
+\\
+=&
+\frac{1}{\mytr^2(\bSigma)}
+\Bigg(
+    \mytr\left(\frac{1}{\mytr (\bSigma)} \BB -\BI_{n-q}\right)^2
+             -
+\frac{1}{n-q}
+\left(\frac{\mytr(\BB)}{\mytr(\bSigma)}-(n-q)\right)^2
++O_P(n\eta^3)
+\Bigg) 
+\\
+=&
+\frac{1}{\mytr^2(\bSigma)}
+\Bigg(
+    \frac{1}{\mytr^2 (\bSigma)}
+    \left(
+        \mytr (\BB^2) -\frac{1}{n-q} \mytr^2 (\BB)
+    \right)
++O_P(n\eta^3)
+\Bigg) 
         .
         \end{split}
     \end{equation*}
+\end{proof}
+
+\begin{lemma}
+    Let $\BZ$ be an $n\times m$ random matrix whose rows $Z_i$ are independent random vectors with $\myE (Z_i)=0$, $\myVar (Z_i)= \BI_m$.
+    Write $Z_i=(z_{i1},\ldots,z_{im})^\top$.
+    Assume that $\myE (z_{i\ell}^4)=3 + \Delta <\infty$ and for any intergers $\ell_v \geq 0$ with $\sum_{v=1}^s \ell_v \leq 8$.
+    Let $\BB$ be a $m\times m$ symmetric matrix.
+    Let $\BP$ be a $n\times n$ symmetric maitrx.
+    Then
+    \begin{equation*}
+    \mytr(\BP \BZ \BB \BZ^\top \BP)^2 - \frac{1}{\mytr(\BP^2)}\left( \mytr(\BP \BZ \BB \BZ^\top \BP)\right)^2
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $\BQ=\BP^2$,
+\begin{equation*}
+    \begin{split}
+    \mytr(\BP \BZ \BB \BZ^\top \BP)
+    =&
+    \mytr( \BZ \BB \BZ^\top \BQ)\\
+    =&\sum_{i=1}^n \sum_{j=1}^n  Z_{i}^\top \BB Z_{j} q_{j,i}
+    \\
+    =&
+    \sum_{i=1}^n q_{i,i} Z_{i}^\top \BB Z_{i} 
+    +
+    \sum_{i=1}^n \sum_{j\neq i}^n q_{i,j} Z_{i}^\top \BB Z_{j}
+    \end{split}
+\end{equation*}
+Then
+\begin{equation*}
+    \left(\mytr(\BP \BZ \BB \BZ^\top \BP)\right)^2
+    =
+    \sum_{i=1}^n
+    \sum_{i=1}^n
+    q_{i,i} q_{j,j} Z_{i}^\top \BB Z_{i} 
+     Z_{j}^\top \BB Z_{j} 
+    +
+     \sum_{i\neq j}^n
+     \sum_{k\neq l}^n
+     q_{i,j}
+     q_{k,l}
+     Z_{i}^\top \BB Z_{j}
+      Z_{k}^\top \BB Z_{l}
+      +\CG{what?}
+\end{equation*}
+On the other hand,
+\begin{equation*}
+    \begin{split}
+    &\mytr(\BP \BZ \BB \BZ^\top \BP)^2
+    \\
+    =&
+    \mytr(\BZ \BB \BZ^\top \BQ )^2
+    \\
+    =&
+    \sum_{i=1}^n\sum_{j=1}^n \sum_{k=1}^n \sum_{l=1}^n q_{j,k} q_{l,i} Z_{i}^\top \BB Z_{j} 
+      Z_{k}^\top \BB Z_{l} 
+      \\
+    =&
+    \sum_{i\neq j}^n \sum_{k\neq l}^n  q_{j,k} q_{l,i} Z_{i}^\top \BB Z_{j} 
+      Z_{k}^\top \BB Z_{l} 
+      +
+    2\sum_{i=1}^n \sum_{j\neq k}^n  q_{i,j} q_{i,k} Z_{i}^\top \BB Z_{i} 
+      Z_{j}^\top \BB Z_{k} 
+      +
+    \sum_{i=1}^n \sum_{j=1}^n  q_{i,j}^2 Z_{i}^\top \BB Z_{i} 
+      Z_{j}^\top \BB Z_{j} 
+      .
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+\begin{split}
+    &\mytr(\BP \BZ \BB \BZ^\top \BP)^2-
+\frac{1}{\mytr(\BP^2)}\left( \mytr(\BP \BZ \BB \BZ^\top \BP)\right)^2
+\\
+=&
+\sum_{i\neq j}^n \sum_{k\neq l}^n  \left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right) Z_{i}^\top \BB Z_{j} 
+      Z_{k}^\top \BB Z_{l} 
+      +
+    2\sum_{i=1}^n \sum_{j\neq k}^n  q_{i,j} q_{i,k} Z_{i}^\top \BB Z_{i} 
+      Z_{j}^\top \BB Z_{k} 
+      \\
+      &+
+      \sum_{i=1}^n \sum_{j=1}^n  \left(q_{i,j}^2 - C q_{i,i} q_{j,j} \right) Z_{i}^\top \BB Z_{i} 
+      Z_{j}^\top \BB Z_{j} 
+      \\
+      =:& A_1 + A_2 +A_3
+\end{split}
+\end{equation*}
+
+en
+
+\begin{equation*}
+    \begin{split}
+        A_1=&\sum_{i\neq j}^n \sum_{k=i,l=j} +
+\sum_{i\neq j}^n \sum_{k=j,l=i}
++
+\sum_{i\neq j}^n \sum_{k=i,l\notin\{i,j\}}
++
+\sum_{i\neq j}^n \sum_{k=j,l\notin\{i,j\}}
++
+\sum_{i\neq j}^n \sum_{l=i,k\notin\{i,j\}}
++
+\sum_{i\neq j}^n \sum_{l=j,k\notin\{i,j\}}
++
+\sum_{i\neq j}^n \sum_{k\notin\{i,j\}, l\notin\{i,j\}, k\neq l}
+\\
+=:& 
+A_{1,1}+\cdots+A_{1,7}
+    \end{split}
+\end{equation*}
+Note that
+\begin{equation*}
+    A_1^{(1)}:=A_{1,1}+A_{1,2}=\sum_{i\neq j}( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 ) (Z_i^\top \BB Z_j)^2
+\end{equation*}
+and
+\begin{equation*}
+    A_1^{(2)}:=
+    A_{1,3}+
+    A_{1,4}+
+    A_{1,5}+
+    A_{1,6}=
+    \sum_{i,j,k \text{ distinct}}
+    \left(2 q_{i,i}q_{j,k}-(2-4C) q_{i,j} q_{i,k}\right)
+    Z_{i}^\top \BB Z_j Z_i^\top \BB Z_k
+\end{equation*}
+and
+\begin{equation*}
+    A_1^{(3)}:=
+    A_{1,7}=\sum_{i,j,k,l\text{ distinct}}
+\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right) Z_{i}^\top \BB Z_{j} 
+      Z_{k}^\top \BB Z_{l}
+\end{equation*}
+
+For $A_1^{(3)}$, we have,
+\begin{equation*}
+    \myE A_{1}^{(3)}= 0 
+\end{equation*}
+and
+\begin{equation*}
+    \begin{split}
+    &\myE (A_{1}^{(3)})^2 
+    \\
+    =&
+    \myE
+    \sum_{i,j,k,l \text{ distinct}}
+    \sum_{\sigma: \text{permutation of $i,j,k,l$}}^{24}
+    \\
+    &
+\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right) Z_{i}^\top \BB Z_{j} 
+Z_{k}^\top \BB Z_{l}
+\left(q_{\sigma(i),\sigma(l)} q_{\sigma(j),\sigma(k)} -C q_{\sigma(i),\sigma(j)} q_{\sigma(k),\sigma(l)}\right) Z_{\sigma(i)}^\top \BB Z_{\sigma(j)} 
+Z_{\sigma(k)}^\top \BB Z_{\sigma(l)}
+\\
+\leq &
+    \sum_{i,j,k,l \text{ distinct}}
+    \sum_{\sigma: \text{permutation of $i,j,k,l$}}^{24}
+    \\
+    &
+\left|\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right) 
+\left(q_{\sigma(i),\sigma(l)} q_{\sigma(j),\sigma(k)} -C q_{\sigma(i),\sigma(j)} q_{\sigma(k),\sigma(l)}\right)
+\right|
+\\
+    &\myE
+    \left|
+Z_{i}^\top \BB Z_{j} 
+Z_{k}^\top \BB Z_{l}
+ Z_{\sigma(i)}^\top \BB Z_{\sigma(j)} 
+Z_{\sigma(k)}^\top \BB Z_{\sigma(l)}
+\right|
+\\
+\leq &
+    \sum_{i,j,k,l \text{ distinct}}
+    \sum_{\sigma: \text{permutation of $i,j,k,l$}}^{24}
+    \\
+    &
+\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right)^2+ 
+\left(q_{\sigma(i),\sigma(l)} q_{\sigma(j),\sigma(k)} -C q_{\sigma(i),\sigma(j)} q_{\sigma(k),\sigma(l)}\right)^2
+\\
+    &
+    \sqrt{\myE
+    \left(
+Z_{i}^\top \BB Z_{j} 
+Z_{k}^\top \BB Z_{l}\right)^2
+\myE\left(
+ Z_{\sigma(i)}^\top \BB Z_{\sigma(j)} 
+Z_{\sigma(k)}^\top \BB Z_{\sigma(l)}
+\right)^2
+}
+\\
+=&
+48
+    \sum_{i,j,k,l \text{ distinct}}
+\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right)^2
+\mytr^2(\BB^2)
+\\
+\leq&
+48
+    \sum_{i,j,k,l \text{ distinct}}
+\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right)^2
+\mytr^2(\BB^2)
+\\
+\leq &
+96 (1+C^2) 
+    \sum_{i,j,k,l \text{ distinct}}
+    \left(q_{i,l} q_{j,k}\right)^2
+    \mytr^2 (\BB^2)
+    \\
+\leq &
+96 (1+C^2) 
+    \sum_{i\neq j}
+    \sum_{k\neq l}
+    \left(q_{i,j} q_{k,l}\right)^2
+    \mytr^2 (\BB^2)
+    \\
+\leq &
+96 (1+C^2) 
+    \left(
+        \sum_{i\neq j}
+    \left(q_{i,j} \right)^2
+\right)^2
+    \mytr^2 (\BB^2)
+    \end{split}
+\end{equation*}
+
+For $A_1^{(2)}$,
+we have $\myE A_1^{(2)}=0$, and
+\begin{equation*}
+    \begin{split}
+        &\myE \left( A_1^{(2)}\right)^2
+        \\
+        =
+        &
+    \sum_{i,j,k \text{ distinct}}
+    \\
+    &
+    \sum_{i',j',k' \text{ distinct}}
+    \left(2 q_{i,i}q_{j,k}-(2-4C) q_{i,j} q_{i,k}\right)
+    Z_{i}^\top \BB Z_j Z_i^\top \BB Z_k
+    \left(2 q_{i',i'}q_{j',k'}-(2-4C) q_{i',j'} q_{i',k'}\right)
+    Z_{i'}^\top \BB Z_{j'} Z_{i'}^\top \BB Z_{k'}
+    \\
+        =
+        &
+    \sum_{i,j,k \text{ distinct}}
+    \left(
+        \sum_{\{i',j',k'\}=\{i,j,k\}}
+        +
+        \sum_{\{j',k'\}=\{j,k\},i'\notin \{j,k\}}
+\right)
+    \end{split}
+\end{equation*}
+Note that
+\begin{equation*}
+    \begin{split}
+    &
+    \sum_{i,j,k \text{ distinct}}
+    \sum_{\{i',j',k'\}=\{i,j,k\}}
+    \\
+    \leq&
+    \sum_{i,j,k \text{ distinct}}
+    \sum_{\{i',j',k'\}=\{i,j,k\}}
+    \left(
+    \left(2 q_{i,i}q_{j,k}-(2-4C) q_{i,j} q_{i,k}\right)^2
+    +
+    \left(2 q_{i',i'}q_{j',k'}-(2-4C) q_{i',j'} q_{i',k'}\right)^2
+\right)
+    \myE (Z_1^\top \BB Z_2)^4
+    \\
+    =&
+    12
+    \sum_{i,j,k \text{ distinct}}
+    \left(2 q_{i,i}q_{j,k}-(2-4C) q_{i,j} q_{i,k}\right)^2
+    \myE (Z_1^\top \BB Z_2)^4
+    \\
+    \leq&
+    96
+    \sum_{i,j,k \text{ distinct}}
+\left(
+    \left( q_{i,i}q_{j,k}\right)^2+(1-2C)^2\left( q_{i,j} q_{i,k}\right)^2
+\right)
+    \myE (Z_1^\top \BB Z_2)^4
+    \\
+    =&
+    O(1)
+    \left(
+        (\sum_{i=1}^n q_{i,i}^2)
+        (\sum_{i\neq j}^n q_{i,j}^2)
+        +
+        (1-2C)^2
+        \sum_{i=1}^n \left(\sum_{j:j\neq i} q_{i,j}^2\right)^2
+\right)
+    \mytr^2(\BB^2)
+    \end{split}
+\end{equation*}
+Now we deal with $A_1^{(1)}$.
+\begin{equation*}
+    A_1^{(1)}=\sum_{i\neq j}( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 ) (Z_i^\top \BB Z_j)^2
+\end{equation*}
+
+\begin{equation*}
+    \begin{split}
+    \myE A_1^{(1)}
+    &=
+    \sum_{i\neq j} q_{i,i} q_{j,j}  \mytr(\BB^2)
+    + \sum_{i\neq j}(1-2C) q_{i,j}^2  \mytr(\BB^2)
+    \\
+    &=
+\left((\sum_{i=1}^n q_{i,i})^2 -\sum_{i=1}^n q_{i,i}^2\right)  \mytr(\BB^2)
+    + \sum_{i\neq j}(1-2C) q_{i,j}^2  \mytr(\BB^2)
+    \\
+    \end{split}
+\end{equation*}
+And
+\begin{equation*}
+    \begin{split}
+    &\myVar \left( A_1^{(1)} \right)
+    \\
+    =
+    &
+    \myE \left(
+    \sum_{i\neq j}( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 ) \left( (Z_i^\top \BB Z_j)^2- \mytr (\BB^2)\right)
+\right)^2
+\\
+=
+    &
+    2\sum_{i\neq j}( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 )^2 \myE\left( (Z_i^\top \BB Z_j)^2- \mytr (\BB^2)\right)^2
+    \\
+    &+
+    4\sum_{i,j,k}^*( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 ) ( q_{i,i} q_{k,k} + (1-2C) q_{i,k}^2 ) \myE\left( (Z_i^\top \BB Z_j)^2- \mytr (\BB^2)\right)\left( (Z_i^\top \BB Z_k)^2- \mytr (\BB^2)\right)
+\\
+=
+    &
+    2\sum_{i\neq j}( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 )^2 \myE\left( (Z_i^\top \BB Z_j)^2- \mytr (\BB^2)\right)^2
+    \\
+    &+
+    4\sum_{i,j,k}^*( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 ) ( q_{i,i} q_{k,k} + (1-2C) q_{i,k}^2 ) 
+    \myE\left( Z_i^\top \BB^2 Z_i - \mytr (\BB^2)\right)^2
+    \end{split}
+\end{equation*}
+
+But
+\begin{equation*}
+    \begin{split}
+        \myE\left( (Z_i^\top \BB Z_j)^2- \mytr (\BB^2)\right)^2
+        =
+        \myE(Z_i^\top \BB Z_j)^4- \mytr^2 (\BB^2)
+        =O(\mytr^2(\BB^2))
+    \end{split}
+\end{equation*}
+and
+\begin{equation*}
+    \myE\left( Z_i^\top \BB^2 Z_i - \mytr (\BB^2)\right)^2
+    \leq
+    \sqrt{
+        \myE\left( Z_i^\top \BB^2 Z_i - \mytr (\BB^2)\right)^4
+    }
+    =O(\mytr(\BB^4)).
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+    &\myVar \left( A_1^{(1)} \right)
+    \\
+    =&O(\mytr^2(\BB^2)) \left(
+        (\sum_{i=1}^n q_{i,i}^2)^2
+        +
+        (1-2C)^2
+        \sum_{i\neq j} q_{i,j}^4
+    \right)
+    \\
+    &+
+    O(\mytr(\BB^4))
+    \left(
+        (\sum_{i=1}^n q_{i,i}^2)
+        (\sum_{i=1}^n q_{i,i})^2
+        +(\sum_{i=1}^n q_{i,i})
+        (\sum_{i=1}^n\sum_{j=1}^n q_{i,i}q_{i,j}^2)
+        +
+        \sum_{i=1}^n (\sum_{j=1}^n q_{i,j}^2)^2
+    \right)
+    \end{split}
+\end{equation*}
+
+Now we deal with $A_2$.
+\begin{equation*}
+    \begin{split}
+        A_2=&
+        \sum_{i=1}^n \sum_{j\neq k}^n q_{i,j} q_{i,k} Z_i^\top \BB Z_i Z_j^\top \BB Z_k
+        \\
+    =&
+    2\sum_{i,j}^* q_{i,j} q_{i,i} Z_i^\top \BB Z_i Z_i^\top \BB Z_j
+        +
+        \sum_{i,j,k}^*  q_{i,j} q_{i,k} Z_i^\top \BB Z_i Z_j^\top \BB Z_k
+\end{split} 
+\end{equation*}
+
 \end{proof}
 
 
@@ -862,6 +1279,39 @@ Let $\bSigma=\Gamma^\top \Gamma$.
         But the last inequality is a direct consequence of the concavity of $f(Y)$.
         This completes the proof.
 
+\end{proof}
+
+
+\begin{lemma}
+    Let $\BW$ be an $N\times N$ positive semi-definite matrix.
+    Let $Z$ be an $N$ dimensional sub-gaussian random vector with $\myE Z=0$, $\myVar (Z)= \BI_n$ and $\|Z\|_{\psi_2} \leq K$.
+    For all $t>0$,
+    \begin{equation*}
+        \Pr\left\{
+            Z^\top \BW Z >
+        \right\} 
+        \leq e^{-t}.
+    \end{equation*}
+\end{lemma}
+\begin{remark}
+    This lemma is adapted from \cite{Hsu2012} Theorem 2.1 with minor modifications.
+    Indeed, their result did not track the variance of $Z$.
+\end{remark}
+\begin{proof}
+    Let $\BA=\sqrt{\BW}$.
+    Let $Z^*$ be a vector of $N$ independent standard Gaussian random variables which are independent of $Z$.  
+    \begin{equation*}
+        \myE [\exp (\lambda Z^{*\top } \BA Z)]
+        =
+        \myE\myE [\exp (\lambda Z^{*\top } \BA Z)| Z]
+        =\myE[\exp (\frac{\lambda^2}{2} Z^\top \BW Z)]
+    \end{equation*}
+\end{proof}
+\begin{lemma}
+    
+\end{lemma}
+\begin{proof}
+    
 \end{proof}
 
 \begin{proof}[\textbf{Proof of Lemma \ref{lemma:con}}]

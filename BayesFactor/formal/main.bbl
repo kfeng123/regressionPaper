@@ -18,6 +18,11 @@ Goeman, J.~J., van~de Geer, S.~A., and van Houwelingen, H.~C. (2006).
 \newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
   Methodology)}, 68(3):477--493.
 
+\bibitem[Hsu et~al., 2012]{Hsu2012}
+Hsu, D., Kakade, S., and Zhang, T. (2012).
+\newblock A tail inequality for quadratic forms of subgaussian random vectors.
+\newblock {\em Electronic Communications in Probability}, 17(0).
+
 \bibitem[Jiang, 1996]{jiang1996reml}
 Jiang, J. (1996).
 \newblock Reml estimation: asymptotic behavior and related topics.
