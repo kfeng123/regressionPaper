@@ -748,403 +748,719 @@ Let $\bSigma=\Gamma^\top \Gamma$.
     \end{equation*}
 \end{proof}
 
+
+
+
 \begin{lemma}
     Let $\BZ$ be an $n\times m$ random matrix whose rows $Z_i$ are independent random vectors with $\myE (Z_i)=0$, $\myVar (Z_i)= \BI_m$.
     Write $Z_i=(z_{i1},\ldots,z_{im})^\top$.
     Assume that $\myE (z_{i\ell}^4)=3 + \Delta <\infty$ and for any intergers $\ell_v \geq 0$ with $\sum_{v=1}^s \ell_v \leq 8$.
     Let $\BB$ be a $m\times m$ symmetric matrix.
-    Let $\BP$ be a $n\times n$ symmetric maitrx.
+    Let $\BQ$ be a $n\times n$ projection maitrx with rank $r$.
     Then
     \begin{equation*}
-    \mytr(\BP \BZ \BB \BZ^\top \BP)^2 - \frac{1}{\mytr(\BP^2)}\left( \mytr(\BP \BZ \BB \BZ^\top \BP)\right)^2
+    \mytr(\BQ \BZ \BB \BZ^\top \BQ)^2 - 
+    \frac{1}{r}
+    \left( \mytr(\BQ \BZ \BB \BZ^\top \BQ)\right)^2
     \end{equation*}
 \end{lemma}
 \begin{proof}
-    Let $\BQ=\BP^2$,
-\begin{equation*}
-    \begin{split}
-    \mytr(\BP \BZ \BB \BZ^\top \BP)
-    =&
-    \mytr( \BZ \BB \BZ^\top \BQ)\\
-    =&\sum_{i=1}^n \sum_{j=1}^n  Z_{i}^\top \BB Z_{j} q_{j,i}
-    \\
-    =&
-    \sum_{i=1}^n q_{i,i} Z_{i}^\top \BB Z_{i} 
-    +
-    \sum_{i=1}^n \sum_{j\neq i}^n q_{i,j} Z_{i}^\top \BB Z_{j}
-    \end{split}
-\end{equation*}
+
+
+Let $\BQ=\BU\BU^\top$, where $\BU$ is a $n\times r$ column orthogonal matrix.
 Then
 \begin{equation*}
-    \left(\mytr(\BP \BZ \BB \BZ^\top \BP)\right)^2
-    =
-    \sum_{i=1}^n
-    \sum_{i=1}^n
-    q_{i,i} q_{j,j} Z_{i}^\top \BB Z_{i} 
-     Z_{j}^\top \BB Z_{j} 
-    +
-     \sum_{i\neq j}^n
-     \sum_{k\neq l}^n
-     q_{i,j}
-     q_{k,l}
-     Z_{i}^\top \BB Z_{j}
-      Z_{k}^\top \BB Z_{l}
-      +\CG{what?}
-\end{equation*}
-On the other hand,
-\begin{equation*}
     \begin{split}
-    &\mytr(\BP \BZ \BB \BZ^\top \BP)^2
-    \\
-    =&
-    \mytr(\BZ \BB \BZ^\top \BQ )^2
-    \\
-    =&
-    \sum_{i=1}^n\sum_{j=1}^n \sum_{k=1}^n \sum_{l=1}^n q_{j,k} q_{l,i} Z_{i}^\top \BB Z_{j} 
-      Z_{k}^\top \BB Z_{l} 
-      \\
-    =&
-    \sum_{i\neq j}^n \sum_{k\neq l}^n  q_{j,k} q_{l,i} Z_{i}^\top \BB Z_{j} 
-      Z_{k}^\top \BB Z_{l} 
-      +
-    2\sum_{i=1}^n \sum_{j\neq k}^n  q_{i,j} q_{i,k} Z_{i}^\top \BB Z_{i} 
-      Z_{j}^\top \BB Z_{k} 
-      +
-    \sum_{i=1}^n \sum_{j=1}^n  q_{i,j}^2 Z_{i}^\top \BB Z_{i} 
-      Z_{j}^\top \BB Z_{j} 
-      .
-    \end{split}
-\end{equation*}
-Thus,
-\begin{equation*}
-\begin{split}
-    &\mytr(\BP \BZ \BB \BZ^\top \BP)^2-
-\frac{1}{\mytr(\BP^2)}\left( \mytr(\BP \BZ \BB \BZ^\top \BP)\right)^2
+&\mytr(\BQ \BZ \BB \BZ^\top \BQ)^2 - 
+\frac{1}{r}
+\left( \mytr(\BQ \BZ \BB \BZ^\top \BQ)\right)^2
 \\
-=&
-\sum_{i\neq j}^n \sum_{k\neq l}^n  \left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right) Z_{i}^\top \BB Z_{j} 
-      Z_{k}^\top \BB Z_{l} 
-      +
-    2\sum_{i=1}^n \sum_{j\neq k}^n  q_{i,j} q_{i,k} Z_{i}^\top \BB Z_{i} 
-      Z_{j}^\top \BB Z_{k} 
-      \\
-      &+
-      \sum_{i=1}^n \sum_{j=1}^n  \left(q_{i,j}^2 - C q_{i,i} q_{j,j} \right) Z_{i}^\top \BB Z_{i} 
-      Z_{j}^\top \BB Z_{j} 
-      \\
-      =:& A_1 + A_2 +A_3
-\end{split}
-\end{equation*}
-
-en
-
-\begin{equation*}
-    \begin{split}
-        A_1=&\sum_{i\neq j}^n \sum_{k=i,l=j} +
-\sum_{i\neq j}^n \sum_{k=j,l=i}
-+
-\sum_{i\neq j}^n \sum_{k=i,l\notin\{i,j\}}
-+
-\sum_{i\neq j}^n \sum_{k=j,l\notin\{i,j\}}
-+
-\sum_{i\neq j}^n \sum_{l=i,k\notin\{i,j\}}
-+
-\sum_{i\neq j}^n \sum_{l=j,k\notin\{i,j\}}
-+
-\sum_{i\neq j}^n \sum_{k\notin\{i,j\}, l\notin\{i,j\}, k\neq l}
-\\
-=:& 
-A_{1,1}+\cdots+A_{1,7}
-    \end{split}
-\end{equation*}
-Note that
-\begin{equation*}
-    A_1^{(1)}:=A_{1,1}+A_{1,2}=\sum_{i\neq j}( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 ) (Z_i^\top \BB Z_j)^2
-\end{equation*}
-and
-\begin{equation*}
-    A_1^{(2)}:=
-    A_{1,3}+
-    A_{1,4}+
-    A_{1,5}+
-    A_{1,6}=
-    \sum_{i,j,k \text{ distinct}}
-    \left(2 q_{i,i}q_{j,k}-(2-4C) q_{i,j} q_{i,k}\right)
-    Z_{i}^\top \BB Z_j Z_i^\top \BB Z_k
-\end{equation*}
-and
-\begin{equation*}
-    A_1^{(3)}:=
-    A_{1,7}=\sum_{i,j,k,l\text{ distinct}}
-\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right) Z_{i}^\top \BB Z_{j} 
-      Z_{k}^\top \BB Z_{l}
-\end{equation*}
-
-For $A_1^{(3)}$, we have,
-\begin{equation*}
-    \myE A_{1}^{(3)}= 0 
-\end{equation*}
-and
-\begin{equation*}
-    \begin{split}
-    &\myE (A_{1}^{(3)})^2 
-    \\
-    =&
-    \myE
-    \sum_{i,j,k,l \text{ distinct}}
-    \sum_{\sigma: \text{permutation of $i,j,k,l$}}^{24}
-    \\
-    &
-\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right) Z_{i}^\top \BB Z_{j} 
-Z_{k}^\top \BB Z_{l}
-\left(q_{\sigma(i),\sigma(l)} q_{\sigma(j),\sigma(k)} -C q_{\sigma(i),\sigma(j)} q_{\sigma(k),\sigma(l)}\right) Z_{\sigma(i)}^\top \BB Z_{\sigma(j)} 
-Z_{\sigma(k)}^\top \BB Z_{\sigma(l)}
-\\
-\leq &
-    \sum_{i,j,k,l \text{ distinct}}
-    \sum_{\sigma: \text{permutation of $i,j,k,l$}}^{24}
-    \\
-    &
-\left|\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right) 
-\left(q_{\sigma(i),\sigma(l)} q_{\sigma(j),\sigma(k)} -C q_{\sigma(i),\sigma(j)} q_{\sigma(k),\sigma(l)}\right)
-\right|
-\\
-    &\myE
-    \left|
-Z_{i}^\top \BB Z_{j} 
-Z_{k}^\top \BB Z_{l}
- Z_{\sigma(i)}^\top \BB Z_{\sigma(j)} 
-Z_{\sigma(k)}^\top \BB Z_{\sigma(l)}
-\right|
-\\
-\leq &
-    \sum_{i,j,k,l \text{ distinct}}
-    \sum_{\sigma: \text{permutation of $i,j,k,l$}}^{24}
-    \\
-    &
-\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right)^2+ 
-\left(q_{\sigma(i),\sigma(l)} q_{\sigma(j),\sigma(k)} -C q_{\sigma(i),\sigma(j)} q_{\sigma(k),\sigma(l)}\right)^2
-\\
-    &
-    \sqrt{\myE
-    \left(
-Z_{i}^\top \BB Z_{j} 
-Z_{k}^\top \BB Z_{l}\right)^2
-\myE\left(
- Z_{\sigma(i)}^\top \BB Z_{\sigma(j)} 
-Z_{\sigma(k)}^\top \BB Z_{\sigma(l)}
-\right)^2
-}
-\\
-=&
-48
-    \sum_{i,j,k,l \text{ distinct}}
-\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right)^2
-\mytr^2(\BB^2)
-\\
-\leq&
-48
-    \sum_{i,j,k,l \text{ distinct}}
-\left(q_{i,l} q_{j,k} -C q_{i,j} q_{k,l}\right)^2
-\mytr^2(\BB^2)
-\\
-\leq &
-96 (1+C^2) 
-    \sum_{i,j,k,l \text{ distinct}}
-    \left(q_{i,l} q_{j,k}\right)^2
-    \mytr^2 (\BB^2)
-    \\
-\leq &
-96 (1+C^2) 
-    \sum_{i\neq j}
-    \sum_{k\neq l}
-    \left(q_{i,j} q_{k,l}\right)^2
-    \mytr^2 (\BB^2)
-    \\
-\leq &
-96 (1+C^2) 
-    \left(
-        \sum_{i\neq j}
-    \left(q_{i,j} \right)^2
-\right)^2
-    \mytr^2 (\BB^2)
+ =       
+&\mytr(\BU^\top \BZ \BB \BZ^\top \BU)^2 - 
+\frac{1}{r}
+\left( \mytr(\BU^\top \BZ \BB \BZ^\top \BU)\right)^2
+=
     \end{split}
 \end{equation*}
 
-For $A_1^{(2)}$,
-we have $\myE A_1^{(2)}=0$, and
-\begin{equation*}
-    \begin{split}
-        &\myE \left( A_1^{(2)}\right)^2
-        \\
-        =
-        &
-    \sum_{i,j,k \text{ distinct}}
-    \\
-    &
-    \sum_{i',j',k' \text{ distinct}}
-    \left(2 q_{i,i}q_{j,k}-(2-4C) q_{i,j} q_{i,k}\right)
-    Z_{i}^\top \BB Z_j Z_i^\top \BB Z_k
-    \left(2 q_{i',i'}q_{j',k'}-(2-4C) q_{i',j'} q_{i',k'}\right)
-    Z_{i'}^\top \BB Z_{j'} Z_{i'}^\top \BB Z_{k'}
-    \\
-        =
-        &
-    \sum_{i,j,k \text{ distinct}}
-    \left(
-        \sum_{\{i',j',k'\}=\{i,j,k\}}
-        +
-        \sum_{\{j',k'\}=\{j,k\},i'\notin \{j,k\}}
-\right)
-    \end{split}
-\end{equation*}
-Note that
-\begin{equation*}
-    \begin{split}
-    &
-    \sum_{i,j,k \text{ distinct}}
-    \sum_{\{i',j',k'\}=\{i,j,k\}}
-    \\
-    \leq&
-    \sum_{i,j,k \text{ distinct}}
-    \sum_{\{i',j',k'\}=\{i,j,k\}}
-    \left(
-    \left(2 q_{i,i}q_{j,k}-(2-4C) q_{i,j} q_{i,k}\right)^2
-    +
-    \left(2 q_{i',i'}q_{j',k'}-(2-4C) q_{i',j'} q_{i',k'}\right)^2
-\right)
-    \myE (Z_1^\top \BB Z_2)^4
-    \\
-    =&
-    12
-    \sum_{i,j,k \text{ distinct}}
-    \left(2 q_{i,i}q_{j,k}-(2-4C) q_{i,j} q_{i,k}\right)^2
-    \myE (Z_1^\top \BB Z_2)^4
-    \\
-    \leq&
-    96
-    \sum_{i,j,k \text{ distinct}}
-\left(
-    \left( q_{i,i}q_{j,k}\right)^2+(1-2C)^2\left( q_{i,j} q_{i,k}\right)^2
-\right)
-    \myE (Z_1^\top \BB Z_2)^4
-    \\
-    =&
-    O(1)
-    \left(
-        (\sum_{i=1}^n q_{i,i}^2)
-        (\sum_{i\neq j}^n q_{i,j}^2)
-        +
-        (1-2C)^2
-        \sum_{i=1}^n \left(\sum_{j:j\neq i} q_{i,j}^2\right)^2
-\right)
-    \mytr^2(\BB^2)
-    \end{split}
-\end{equation*}
-Now we deal with $A_1^{(1)}$.
-\begin{equation*}
-    A_1^{(1)}=\sum_{i\neq j}( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 ) (Z_i^\top \BB Z_j)^2
-\end{equation*}
 
 \begin{equation*}
     \begin{split}
-    \myE A_1^{(1)}
-    &=
-    \sum_{i\neq j} q_{i,i} q_{j,j}  \mytr(\BB^2)
-    + \sum_{i\neq j}(1-2C) q_{i,j}^2  \mytr(\BB^2)
-    \\
-    &=
-\left((\sum_{i=1}^n q_{i,i})^2 -\sum_{i=1}^n q_{i,i}^2\right)  \mytr(\BB^2)
-    + \sum_{i\neq j}(1-2C) q_{i,j}^2  \mytr(\BB^2)
-    \\
+    \mytr( \BZ \BB \BZ^\top \BQ)
+    =\sum_{i=1}^n \sum_{j=1}^n q_{i,j}  Z_{i}^\top \BB Z_{j} 
+    \end{split}
+\end{equation*}
+\begin{equation*}
+    \begin{split}
+    \mytr^2( \BZ \BB \BZ^\top \BQ)
+    =\sum_{i=1}^n \sum_{j=1}^n \sum_{k=1}^n \sum_{l=1}^n q_{i,j} q_{k,l}  Z_{i}^\top \BB Z_{j} Z_{k}^\top \BB Z_{l} 
     \end{split}
 \end{equation*}
 And
 \begin{equation*}
     \begin{split}
-    &\myVar \left( A_1^{(1)} \right)
-    \\
+    \mytr(\BZ \BB \BZ^\top \BQ )^2
     =
-    &
-    \myE \left(
-    \sum_{i\neq j}( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 ) \left( (Z_i^\top \BB Z_j)^2- \mytr (\BB^2)\right)
-\right)^2
-\\
-=
-    &
-    2\sum_{i\neq j}( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 )^2 \myE\left( (Z_i^\top \BB Z_j)^2- \mytr (\BB^2)\right)^2
-    \\
-    &+
-    4\sum_{i,j,k}^*( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 ) ( q_{i,i} q_{k,k} + (1-2C) q_{i,k}^2 ) \myE\left( (Z_i^\top \BB Z_j)^2- \mytr (\BB^2)\right)\left( (Z_i^\top \BB Z_k)^2- \mytr (\BB^2)\right)
-\\
-=
-    &
-    2\sum_{i\neq j}( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 )^2 \myE\left( (Z_i^\top \BB Z_j)^2- \mytr (\BB^2)\right)^2
-    \\
-    &+
-    4\sum_{i,j,k}^*( q_{i,i} q_{j,j} + (1-2C) q_{i,j}^2 ) ( q_{i,i} q_{k,k} + (1-2C) q_{i,k}^2 ) 
-    \myE\left( Z_i^\top \BB^2 Z_i - \mytr (\BB^2)\right)^2
+    \sum_{i=1}^n\sum_{j=1}^n \sum_{k=1}^n \sum_{l=1}^n q_{j,k} q_{l,i} Z_{i}^\top \BB Z_{j} 
+      Z_{k}^\top \BB Z_{l} 
+      \\
     \end{split}
-\end{equation*}
-
-But
-\begin{equation*}
-    \begin{split}
-        \myE\left( (Z_i^\top \BB Z_j)^2- \mytr (\BB^2)\right)^2
-        =
-        \myE(Z_i^\top \BB Z_j)^4- \mytr^2 (\BB^2)
-        =O(\mytr^2(\BB^2))
-    \end{split}
-\end{equation*}
-and
-\begin{equation*}
-    \myE\left( Z_i^\top \BB^2 Z_i - \mytr (\BB^2)\right)^2
-    \leq
-    \sqrt{
-        \myE\left( Z_i^\top \BB^2 Z_i - \mytr (\BB^2)\right)^4
-    }
-    =O(\mytr(\BB^4)).
 \end{equation*}
 Thus,
 \begin{equation*}
     \begin{split}
-    &\myVar \left( A_1^{(1)} \right)
+    \mytr(\BZ \BB \BZ^\top \BQ )^2
+    -r^{-1}
+    \mytr^2( \BZ \BB \BZ^\top \BQ)
+    =
+    \sum_{i=1}^n\sum_{j=1}^n \sum_{k=1}^n \sum_{l=1}^n (q_{i,l} q_{j,k}-r^{-1}q_{i,j}q_{k,l})  Z_{i}^\top \BB Z_{j} 
+      Z_{k}^\top \BB Z_{l} 
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    e(i,j,k,l):= 
+q_{i,l} q_{j,k}-r^{-1}q_{i,j}q_{k,l}
+\end{equation*}
+satisfies,
+    \begin{equation*}
+        \begin{split}
+            e(i_1,i_2,i_3,i_4)
+            =
+            e(i_2,i_1,i_4,i_3)
+            =
+            e(i_3,i_4,i_1,i_2)
+            =
+            e(i_4,i_3,i_2,i_1)
+        \end{split}
+    \end{equation*}
+\end{proof}
+
+
+\begin{lemma}
+    Let $e(i,j;k,l)$ satisfy:
+    \begin{equation*}
+        \begin{split}
+            e(i_1,i_2,i_3,i_4)
+            =
+            e(i_2,i_1,i_4,i_3)
+            =
+            e(i_3,i_4,i_1,i_2)
+            =
+            e(i_4,i_3,i_2,i_1)
+        \end{split}
+    \end{equation*}
+    Then
+    \begin{equation*}
+        \sum_{i,j,k,l=1}^n e(i,j,k,l) Z_i^\top \BB Z_j Z_k^\top \BB Z_l
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $f(i,j,k,l)= e(i,j,k,l)Z_i^\top \BB Z_j Z_k^\top \BB Z_l
+    $.
+    Then $f$ also satisfies
+    \begin{equation*}
+        \begin{split}
+            f(i_1,i_2,i_3,i_4)
+            =
+            f(i_2,i_1,i_4,i_3)
+            =
+            f(i_3,i_4,i_1,i_2)
+            =
+            f(i_4,i_3,i_2,i_1)
+        \end{split}
+    \end{equation*}
+
+\begin{equation*}
+    \begin{split}
+    &\sum_{i,j,k,l=1}^n f(i,j,k,l)    \\
+    =&
+    \sum_{i=j=1}^n
+    \sum_{k=l=1}^n 
++
+    \sum_{i=j=1}^n
+    \sum_{k,l}^*
++
+    \sum_{i,j}^*
+    \sum_{k=l=1}^n
++
+    \sum_{i,j}^*
+    \sum_{k,l}^{*}
     \\
-    =&O(\mytr^2(\BB^2)) \left(
-        (\sum_{i=1}^n q_{i,i}^2)^2
-        +
-        (1-2C)^2
-        \sum_{i\neq j} q_{i,j}^4
-    \right)
+    =&
+    \sum_{i=1}^n
+    \sum_{j=1}^n  f(i,i,j,j)
++
+    \sum_{i=1}^n
+    \sum_{j,k}^* f(i,i,j,k)
++
+    \sum_{i=1}^n
+    \sum_{j,k}^* f(j,k,i,i)
++
+    \sum_{i,j}^*
+    \sum_{k,l}^{*}
+        f(i,j,k,l)
     \\
-    &+
-    O(\mytr(\BB^4))
-    \left(
-        (\sum_{i=1}^n q_{i,i}^2)
-        (\sum_{i=1}^n q_{i,i})^2
-        +(\sum_{i=1}^n q_{i,i})
-        (\sum_{i=1}^n\sum_{j=1}^n q_{i,i}q_{i,j}^2)
+    =&
+    \sum_{i=1}^n
+    \sum_{j=1}^n  f(i,i,j,j)
++
+    2
+    \sum_{i=1}^n
+    \sum_{j,k}^* f(i,i,j,k)
++
+    \sum_{i,j}^*
+    \sum_{k,l}^{*}
+        f(i,j,k,l)
+    \end{split}
+\end{equation*}
+For the first term,
+\begin{equation*}
+    \sum_{i=1}^n
+    \sum_{j=1}^n  f(i,i,j,j)
+    =
+    \sum_{i=1}^n
+    f(i,i,i,i)
+    +\sum_{i,j}^*
+    f(i,i,j,j).
+\end{equation*}
+For the second term,
+\begin{equation*}
+    \begin{split}
+    &\sum_{i=1}^n
+    \sum_{j,k}^* f(i,i,j,k)
+    \\
+    =&
+    \sum_{i=1}^n \sum_{j\neq i}^n f(i,i,i,j)
+    +
+    \sum_{i=1}^n \sum_{j\neq i} f(i,i,j,i)
+    +
+    \sum_{i,j,k}^* f(i,i,j,k)
+    \\
+    =&
+    2\sum_{i,j}^*  f(i,i,i,j)
+    +
+    \sum_{i,j,k}^* f(i,i,j,k)
+    \end{split}
+\end{equation*}
+For the third term,
+\begin{equation*}
+    \begin{split}
+    &
+    \sum_{i,j}^*
+    \sum_{k,l}^{*} f(i,j,k,l)
+        \\
+        =&
+    \sum_{i,j}^*
+    \sum_{k=i,l=j}
         +
-        \sum_{i=1}^n (\sum_{j=1}^n q_{i,j}^2)^2
-    \right)
+    \sum_{i,j}^*
+    \sum_{k=j,l=i}
+        +
+    \sum_{i,j}^*
+    \sum_{k=i,l\neq \{i,j\}}
+        +
+    \sum_{i,j}^*
+    \sum_{k=j,l\neq \{i,j\}}
+        +
+    \sum_{i,j}^*
+    \sum_{l=i,k\neq \{i,j\}}
+        +
+    \sum_{i,j}^*
+    \sum_{l=j,k\neq \{i,j\}}
+    +
+    \sum_{i,j,k,l}^*
+        \\
+        =& 
+        \sum_{i,j}^* 
+        (f(i,j,i,j)
+            +
+        f(i,j,j,i)
+    )
+    +2\sum_{i,j,k}^* (f(i,j,i,k) + f(i,j,k,i))
+    +\sum_{i,j,k,l}^* f(i,j,k,l)
     \end{split}
 \end{equation*}
 
-Now we deal with $A_2$.
+Thus, 
 \begin{equation*}
     \begin{split}
-        A_2=&
-        \sum_{i=1}^n \sum_{j\neq k}^n q_{i,j} q_{i,k} Z_i^\top \BB Z_i Z_j^\top \BB Z_k
-        \\
-    =&
-    2\sum_{i,j}^* q_{i,j} q_{i,i} Z_i^\top \BB Z_i Z_i^\top \BB Z_j
-        +
-        \sum_{i,j,k}^*  q_{i,j} q_{i,k} Z_i^\top \BB Z_i Z_j^\top \BB Z_k
-\end{split} 
+        \sum_{i,j,k,l=1}^n 
+        f(i,j,k,l)
+        =&
+    \sum_{i=1}^n
+    f(i,i,i,i)
+    +\sum_{i,j}^*
+    f(i,i,j,j)\\
+    &+
+    4\sum_{i,j}^*  f(i,i,i,j)
+    +
+    2\sum_{i,j,k}^* f(i,i,j,k)
+    \\
+    &
+        \sum_{i,j}^* 
+        (f(i,j,i,j)
+            +
+        f(i,j,j,i)
+    )
+    +2\sum_{i,j,k}^* (f(i,j,i,k) + f(i,j,k,i))
+    +\sum_{i,j,k,l}^* f(i,j,k,l)
+\\
+=:&\sum_{i=1}^7 A_i
+    \end{split}
 \end{equation*}
+Note that for distinct $i,j,k,l$,
+\begin{align*}
+    &\myE f(i,i,i,i)= e(i,i,i,i) \myE (Z_i^\top \BB Z_i)^2=
+    e(i,i,i,i)\left(\mytr^2 (\BB) +2 \mytr(\BB^2) + \Delta \mytr (\BB\circ \BB)\right)
+    \\
+    &\myE f(i,i,j,j)= e(i,i,j,j) \myE (Z_i^\top \BB Z_i) (Z_i^\top \BB Z_i)=
+    e(i,i,j,j) \mytr^2 (\BB)
+    \\
+    &\myE f(i,i,i,j)= 0
+    \\
+    &\myE \left(f(i,j,i,j)+ f(i,j,j,i)\right)= 
+    \left(e(i,j,i,j)+e (i,j,j,i)\right) \myE (Z_i^\top \BB Z_j)^2
+    =
+    \left(e(i,j,i,j)+e (i,j,j,i)\right) \myE (\BB^2)
+    \\
+    &\myE \left(f(i,j,i,k)+ f(i,j,k,i)\right)= 
+    0
+    \\
+    &\myE f(i,j,k,l)= 
+    0
+\end{align*}
 
+Let $h(i,j,k,l)=f(i,j,k,l)-\myE f(i,j,k,l)$.
+Then
+\begin{equation*}
+    \begin{split}
+        \myVar \left(
+            \sum_{i,j,k,l=1}^n e(i,j,k,l) Z_i^\top \BB Z_j Z_k^\top \BB Z_l
+        \right)        
+        =&
+        \myE \left(
+            \sum_{i,j,k,l=1}^n h(i,j,k,l) 
+        \right)^2
+        \\
+        =&
+        \sum_{i=1}^7 \myE (A_i-\myE A_i)^2
+        +
+        2\sum_{1\leq i<j\leq 7} \myE (A_i-\myE A_i)(A_i-\myE A_i)
+    \end{split}
+\end{equation*}
+We have
+\begin{equation*}
+    \begin{split}
+         \myE (A_1-\myE A_1)^2
+         =\sum_{i=1}^n e(i,i,i,i)^2 \myE \left((Z_1^\top \BB Z_1)^2-\myE (Z_1^\top \BB Z_1)^2\right)^2
+    \end{split}
+\end{equation*}
+    
 \end{proof}
 
+
+\begin{lemma}
+\begin{equation*}
+    \myE \left((Z^\top \BB Z)^2-\myE (Z^\top \BB Z)^2\right)^2=
+\end{equation*}
+\end{lemma}
+\begin{proof}
+\begin{equation*}
+    \begin{split}
+    (Z^\top \BB Z)^2
+    =&
+    \left(\sum_{i=1}^m b_{i,i}z_{i}^2 + \sum_{i,j}^* b_{i,j} z_i z_j\right)^2
+    \\
+    =&
+    \left(\sum_{i=1}^m b_{i,i}z_{i}^2 \right)^2 + \left(\sum_{i,j}^* b_{i,j} z_i z_j\right)^2
+    +
+    2\left(\sum_{i=1}^m b_{i,i}z_{i}^2 \right)\left(\sum_{i,j}^* b_{i,j} z_i z_j\right)
+    \\
+    =&
+    \sum_{i=1}^m b_{i,i}^2 z_{i}^4
+    +\sum_{i,j}^* b_{i,i} b_{j,j} z_i^2 z_j^2
+    \\
+    &+ 
+    \sum_{i,j}^* \sum_{k,l}^* b_{i,j} b_{k,l} z_i z_j z_k z_l
+    +
+    2
+    \sum_{k=1}^m \sum_{i,j}^* b_{i,j} b_{k,k} z_i z_j z_{k}^2 
+    \end{split}
+\end{equation*}
+Note that
+\begin{equation*}
+    \begin{split}
+    &\sum_{i,j}^* \sum_{k,l}^*
+    b_{i,j} b_{k,l} z_i z_j z_k z_l
+    \\
+    =&
+    \sum_{i,j}^*
+    \sum_{k=i,l=j}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k=i,l\neq j}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k=j,l=i}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k=j,l\neq i}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k\notin \{i,j\},l=i}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k\notin \{i,j\},l=j}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k\notin \{i,j\},l\notin \{i,j\}}^*
+    \\
+    =&
+    2\sum_{i,j}^* b_{i,j}^2 z_i^2 z_j^2
+    +4\sum_{i,j,k}^* b_{i,j} b_{i,k} z_i^2 z_j z_k
+    +
+    \sum_{i,j,k,l}^*
+    b_{i,j} b_{k,l} z_i z_j z_k z_l
+    \end{split}
+\end{equation*}
+On the other hand
+\begin{equation*}
+\begin{split}
+    &\sum_{k=1}^m \sum_{i,j}^* b_{i,j} b_{k,k} z_i z_j z_{k}^2 
+    =
+     \sum_{i,j}^* \sum_{k=1}^m b_{i,j} b_{k,k} z_i z_j z_{k}^2 
+    \\
+    =
+    &
+     \sum_{i,j}^* b_{i,j} b_{i,i} z_i^3 z_j  
+     +
+     \sum_{i,j}^* b_{i,j} b_{j,j} z_i z_j^3
+     +
+     \sum_{i,j,k}^* b_{i,j} b_{k,k} z_{i} z_j z_k^2
+     =
+     \sum_{i,j}^* b_{i,i} b_{i,j}  z_i^3 z_j  
+     +
+     \sum_{i,j,k}^* b_{i,j} b_{k,k} z_{i} z_j z_k^2.
+\end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+    (Z^\top \BB Z)^2
+    =&
+    \sum_{i=1}^m b_{i,i}^2 z_{i}^4
+    +\sum_{i,j}^* b_{i,i} b_{j,j} z_i^2 z_j^2
+    + 
+    \sum_{i,j}^* \sum_{k,l}^* b_{i,j} b_{k,l} z_i z_j z_k z_l
+    +
+    2
+    \sum_{k=1}^m \sum_{i,j}^* b_{i,j} b_{k,k} z_i z_j z_{k}^2 
+    \\
+    =
+    &
+    \sum_{i=1}^m b_{i,i}^2 z_{i}^4
+    +
+    \sum_{i,j}^* b_{i,i} b_{j,j} z_i^2 z_j^2
+    +
+    2\sum_{i,j}^* b_{i,j}^2 z_i^2 z_j^2
+    +4\sum_{i,j,k}^* b_{i,j} b_{i,k} z_i^2 z_j z_k
+    +
+    \sum_{i,j,k,l}^*
+    b_{i,j} b_{k,l} z_i z_j z_k z_l
+    \\
+    &+
+     2\sum_{i,j}^* b_{i,i} b_{i,j}  z_i^3 z_j  
+     +
+     2\sum_{i,j,k}^* b_{i,j} b_{k,k} z_{i} z_j z_k^2.
+    \\
+    =
+    &
+    \sum_{i=1}^m b_{i,i}^2 z_{i}^4
+    +
+    \sum_{i,j}^* (b_{i,i} b_{j,j} + 2 b_{i,j}^2 )
+    z_i^2 z_j^2
+    +
+     2\sum_{i,j}^* b_{i,i} b_{i,j}  z_i^3 z_j  
+     \\
+     &+\sum_{i,j,k}^*  (2 b_{i,i} b_{j,k}+4 b_{i,j} b_{i,k}) z_i^2 z_j z_k
+    +
+    \sum_{i,j,k,l}^*
+    b_{i,j} b_{k,l} z_i z_j z_k z_l
+    \end{split}
+\end{equation*}
+
+
+Firstly,
+\begin{equation*}
+    \myVar \left(\sum_{i=1}^m b_{i,i}^2 z_{i}^4\right)=O(\sum_{i=1}^4 b_{i,i}^4)
+\end{equation*}
+
+Secondly,
+\begin{equation*}
+    \myE \sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2) z_i^2 z_j^2=
+    \sum_{i,j}^*  (b_{i,i} b_{j,j}+2b_{i,j}^2)
+    =
+(\sum_{i=1}^m b_{i,i} )^2
+-\sum_{i=1}^m b_{i,i}^2 
++2 \sum_{i,j=1}^n b_{i,j}^2 -2 \sum_{i=1}^n b_{i,i}^2
+\end{equation*}
+\begin{equation*}
+    \begin{split}
+    & (\sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2) z_i^2 z_j^2)^2
+        \\
+        =&
+    \sum_{i,j}^*
+    \sum_{k,l}^*
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{k,k} b_{l,l} +2b_{k,l}^2)
+     z_i^2 z_j^2 z_k^2 z_l^2
+     \\
+     =&
+    \sum_{i,j}^*
+    \sum_{k=i,l=j}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k=i,l\neq j}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k=j,l=i}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k=j,l\neq i}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k\notin \{i,j\},l=i}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k\notin \{i,j\},l=j}^*
+    +
+    \sum_{i,j}^*
+    \sum_{k\notin \{i,j\},l\notin \{i,j\}}^*
+    \\
+    =&
+2\sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2)^2 z_i^4 z_j^4
+    +
+    \sum_{i,j,l}^* 
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{i,i} b_{l,l} +2b_{i,l}^2)
+     z_i^4 z_j^2 z_l^2
+    \\
+    &+\sum_{i,j,l}^* 
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{j,j} b_{l,l} +2b_{j,l}^2)
+     z_i^2 z_j^4 z_l^2
+    \\
+    &+\sum_{i,j,k}^* 
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{k,k} b_{i,i} +2b_{k,i}^2)
+     z_i^4 z_j^2 z_k^2
+    \\
+    &+\sum_{i,j,k}^* 
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{k,k} b_{j,j} +2b_{k,j}^2)
+     z_i^2 z_j^4 z_k^2
+    \\
+    &+\sum_{i,j,k,l}^*
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{k,k} b_{l,l} +2b_{k,l}^2)
+    z_i^2 z_j^2 z_k^2 z_l^2
+    \\
+    =&
+2\sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2)^2 z_i^4 z_j^4
+    +
+    4\sum_{i,j,k}^* 
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{i,i} b_{k,k} +2b_{i,k}^2)
+     z_i^4 z_j^2 z_k^2
+    \\
+    &+\sum_{i,j,k,l}^*
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{k,k} b_{l,l} +2b_{k,l}^2)
+    z_i^2 z_j^2 z_k^2 z_l^2
+    \end{split}
+\end{equation*}
+Hence
+\begin{equation*}
+    \begin{split}
+        & \myE (\sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2) z_i^2 z_j^2)^2
+    \\
+    =&
+    2\mu_4^2 \sum_{i,j}^* (b_{i,i} b_{j,j} + 2b_{i,j}^2 )^2
+    +
+    4\mu_4 \sum_{i,j,k}^*
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{i,i} b_{k,k} +2b_{i,k}^2)
+    \\
+    &+\sum_{i,j,k,l}^* 
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{k,k} b_{l,l} +2b_{k,l}^2)
+    \\
+    =&
+    2(\mu_4^2-1) \sum_{i,j}^* (b_{i,i} b_{j,j} + 2b_{i,j}^2 )^2
+    +
+    4(\mu_4-1) \sum_{i,j,k}^*
+    (b_{i,i} b_{j,j} +2b_{i,j}^2)
+    (b_{i,i} b_{k,k} +2b_{i,k}^2)
+    \\
+    &+
+(\sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2) )^2
+    \end{split}
+\end{equation*}
+Note that
+\begin{equation*}
+    \sum_{i,j}^* b_{i,i}^2 b_{j,j}^2
+    =
+    \left(
+        \sum_{i=1}^m b_{i,i}^2 
+    \right)^2- \sum_{i=1}^m b_{i,i}^4
+\end{equation*}
+\begin{equation*}
+    \begin{split}
+    \sum_{i,j,k}^* b_{i,i}^2 b_{j,j} b_{k,k}
+    =&
+    \sum_{i=1}^m
+    \sum_{j\neq i}
+    \sum_{k\notin \{i,j\}}
+    b_{i,i}^2 b_{j,j} b_{k,k}
+    \\
+    =&
+    \sum_{i=1}^m
+    \sum_{j\neq i}
+    \sum_{k\neq i}
+    b_{i,i}^2 b_{j,j} b_{k,k}
+    -
+    \sum_{i=1}^m
+    \sum_{j\neq i}
+    b_{i,i}^2 b_{j,j}^2
+    \\
+    =&
+    2\sum_{i=1}^m b_{i,i}^4
+    -
+    (\sum_{i=1}^m b_{i,i}^2)^2
+    -
+    2
+    (\sum_{i=1}^m b_{i,i}^3)
+    (\sum_{i=1}^m b_{i,i})
+    +
+    (\sum_{i=1}^m b_{i,i}^2)
+    (\sum_{i=1}^m b_{i,i})^2
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+        & \myE (\sum_{i,j}^* b_{i,i} b_{j,j} z_i^2 z_j^2)^2
+    \\
+    =&
+    2\mu_4^2 \sum_{i,j}^* b_{i,i}^2 b_{j,j}^2
+    +
+    4\mu_4 \sum_{i,j,k}^* b_{i,i}^2 b_{j,j} b_{k,k}
+    +\sum_{i,j,k,l}^* b_{i,i} b_{j,j} b_{k,k} b_{l,l}
+    \\
+    =&
+    2(\mu_4^2-1) \sum_{i,j}^* b_{i,i}^2 b_{j,j}^2
+    +
+    4(\mu_4-1) \sum_{i,j,k}^* b_{i,i}^2 b_{j,j} b_{k,k}
+    +(\sum_{i,j}^* b_{i,i} b_{j,j})^2
+    \\
+    =&
+    2(\mu_4^2-1)\left(
+        (
+        \sum_{i=1}^m b_{i,i}^2 
+    )^2- \sum_{i=1}^m b_{i,i}^4
+\right)
+\\
+&+
+4(\mu_4-1)
+\left(
+    2\sum_{i=1}^m b_{i,i}^4
+    -
+    (\sum_{i=1}^m b_{i,i}^2)^2
+    -
+    2
+    (\sum_{i=1}^m b_{i,i}^3)
+    (\sum_{i=1}^m b_{i,i})
+    +
+    (\sum_{i=1}^m b_{i,i}^2)
+    (\sum_{i=1}^m b_{i,i})^2
+\right)
+\\
+&+
+(\sum_{i=1}^m b_{i,i}^2)^2
++
+(\sum_{i=1}^m b_{i,i})^4
+-2
+(\sum_{i=1}^m b_{i,i}^2)
+(\sum_{i=1}^m b_{i,i})^2
+    \\
+    =&
+    (\sum_{i=1}^m b_{i,i})^4
+    +
+    (2\mu_4^2-4\mu_4+3)
+        (
+        \sum_{i=1}^m b_{i,i}^2 
+    )^2
+    +(-2\mu_4^2 + 8 \mu_4 -6) \sum_{i=1}^m b_{i,i}^4
+\\
+&+
+    (-8\mu_4+8)
+    (\sum_{i=1}^m b_{i,i}^3)
+    (\sum_{i=1}^m b_{i,i})
+    +
+(4\mu_4-6)
+    (\sum_{i=1}^m b_{i,i}^2)
+    (\sum_{i=1}^m b_{i,i})^2
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+        & \myVar (\sum_{i,j}^* b_{i,i} b_{j,j} z_i^2 z_j^2)
+    \\
+    =&
+    (\sum_{i=1}^m b_{i,i})^4
+    +
+    (2\mu_4^2-4\mu_4+3)
+        (
+        \sum_{i=1}^m b_{i,i}^2 
+    )^2
+    +(-2\mu_4^2 + 8 \mu_4 -6) \sum_{i=1}^m b_{i,i}^4
+\\
+&+
+    (-8\mu_4+8)
+    (\sum_{i=1}^m b_{i,i}^3)
+    (\sum_{i=1}^m b_{i,i})
+    +
+(4\mu_4-6)
+    (\sum_{i=1}^m b_{i,i}^2)
+    (\sum_{i=1}^m b_{i,i})^2
+    \\
+    &-(\sum_{i=1}^m b_{i,i})^4
+    -(\sum_{i=1}^m b_{i,i}^2)^2
+    +2(\sum_{i=1}^m b_{i,i})^2 (\sum_{i=1}^m b_{i,i}^2)
+    \\
+    =&
+    (2\mu_4^2-4\mu_4+2)
+        (
+        \sum_{i=1}^m b_{i,i}^2 
+    )^2
+    +(-2\mu_4^2 + 8 \mu_4 -6) \sum_{i=1}^m b_{i,i}^4
+\\
+&+
+    (-8\mu_4+8)
+    (\sum_{i=1}^m b_{i,i}^3)
+    (\sum_{i=1}^m b_{i,i})
+    +
+(4\mu_4-4)
+    (\sum_{i=1}^m b_{i,i}^2)
+    (\sum_{i=1}^m b_{i,i})^2
+    \\
+    \end{split}
+\end{equation*}
+
+
+\end{proof}
 
 
 
