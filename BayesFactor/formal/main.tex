@@ -497,55 +497,275 @@ and consequently $\By^{*\top} \By^*=(1+o_P(1))\myE (\By^{*\top} \By^*)$.
 
 Note that under the normality, $T_n- \mytr ((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)$ has zero mean.
 
+
+
+
 \begin{theorem}\label{generalTheorem}
-    Let $\BA_n$ be an $(n-q)\times (n-q)$ symmetric matrix.
+    Suppose the rows of $\BX_b$ are iid random vectors with distribution $\mathcal N(0,\sigma_b^2\BI_p)$.
+    Suppose $p/(n-q)\to c \in (1,+\infty)$.
+    Then
 \begin{equation*}
     \left(
     \bbeta_b^\top \BX_b^\top (\BI_n-\BP_a) \BX_b \bbeta_b
     + \phi^{-1}(n-q)
 \right)
     \left(
-        \frac{\By^{*\top} \BA_n \By^*}{\By^{*\top} \By^*} -\frac{\mytr (\BA_n)}{n-q}
+        \frac{\By^{*\top} (\BX_b^* \BX_b^{*\top})^{-1} \By^*}{\By^{*\top} \By^*} -\frac{\mytr ((\BX_b^* \BX_b^{*\top})^{-1})}{n-q}
     \right)
     \rightsquigarrow \mathcal N(0,1).
 \end{equation*}
 \end{theorem}
 \begin{proof}
+    Note that $\BX_b^* \BX_b^{*\top} \sim \text{Wishart}(p,\sigma_b^2 \BI_{n-q})$.
     \begin{equation*}
-        \frac{\By^{*\top} \BA_n \By^*}{\By^{*\top} \By^*} -\frac{\mytr (\BA_n)}{n-q}
+        \frac{\By^{*\top} (\BX_b^* \BX_b^{*\top})^{-1} \By^*}{\By^{*\top} \By^*} -\frac{\mytr ((\BX_b^* \BX_b^{*\top})^{-1})}{n-q}
         =
-        \frac{(\phi^{1/2}\By)^{\top}\left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
-                -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
-        \right) (\phi^{1/2}\By)}{\phi\By^{*\top} \By^*}.
+        \frac{\phi\By^{*\top}\left( (\BX_b^* \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^* \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+        \right) \By^*}{\phi\By^{*\top} \By^*}.
     \end{equation*}
 
-
+We have
 \begin{equation*}
     \begin{split}
-&(\phi^{1/2}\By)^{\top}\left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
-                -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
-        \right) (\phi^{1/2}\By)
+&
+\phi\By^{*\top}\left( (\BX_b^* \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^* \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+        \right) \By^*
         \\
         =&
-(\phi^{1/2}\bepsilon)^{\top}\left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
-                -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
-        \right) (\phi^{1/2}\bepsilon)
-        +
+\phi
+\bepsilon^{\top} \tilde \BU_a \left( (\BX_b^* \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^* \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+        \right) \tilde \BU_a^\top \bepsilon
         \\
-        &2\phi^{1/2} (\phi^{1/2}\bepsilon)^{\top}\left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
-                -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
-        \right) \BX_b \bbeta_b
-        +
+        &+
+2\phi\bepsilon^{\top} \tilde \BU_a \left( (\BX_b^* \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^* \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+            \right)  \BX_b^* \bbeta_b
         \\
-        & \phi
-\bbeta_b^\top \BX_b^\top \left( \tilde{\BU}_a\BA_n \tilde{\BU}_a^\top
-                -\frac{\mytr (\BA_n)}{n-q} \tilde{\BU}_a\tilde{\BU}_a^\top
-        \right) \BX_b \bbeta_b
+        &+
+\phi
+ \bbeta_b^\top
+ \BX_b^{*\top}
+\left( (\BX_b^* \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^* \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+            \right)  \BX_b^* \bbeta_b
+            \\
+            =:& A_1 +A_2 +A_3.
     \end{split}
 \end{equation*}
 
+We have $\myE (A_1|\BX_b)=\myE (A_2|\BX_b)=0$.
+It is also straightforward to see that 
+\begin{equation*}
+    \begin{split}
+        \myVar (A_1|\BX_b)
+        &= 2\mytr  \left( (\BX_b^* \BX_b^{*\top})^{-2} \right)
+                -2\frac{1}{n-q} \mytr^2 \left( (\BX_b^* \BX_b^{*\top})^{-1}\right)
+                ,
+                \\
+                \myVar (A_2|\BX_b)&= 
+                4\bbeta_b^\top \BX_b^{*\top}
+                \left( (\BX_b^* \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^* \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \bbeta_b
+            ,\\
+            \text{Cov} (A_1,A_2|\BX_b)&=0.
+    \end{split}
+\end{equation*}
+
+\CG{By some theory, we have}
     From \cite[Theorem 5.1]{jiang1996reml},
+\begin{equation*}
+    \frac{A_1+A_2}{\sqrt{\myVar(A_1|\BX_b) + \myVar (A_2 |\BX_b)}} \rightsquigarrow \mathcal N(0,1).
+\end{equation*}
+
+
+From lemma \ref{lemma:MP},
+\begin{equation*}
+    \begin{split}
+    \myVar (A_1 |\BX_b)
+    &=
+(1+o_P(1))
+    2 \sigma_b^{-4} p^{-2} (n-q) \myVar (\xi^{-2}) 
+    .
+    \end{split}
+\end{equation*}
+Let $\BO$ be a $p\times p$ random matrix with Haar distribution which is independent of $\BX_b$.
+The rotation invariance of normal distribution implies that $\BX_b\BO$ has the same distribution as $\BX_b$ and is independent of $\BO$.
+Then
+\begin{equation*}
+    \begin{split}
+    \myVar (A_2 |\BX_b)
+    &=
+                4\bbeta_b^\top \BO \BO^\top  \BX_b^{*\top}
+                \left( (\BX_b^* \BO \BO^\top \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^* \BO \BO^\top  \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \BO \BO^\top  \bbeta_b
+            \\
+            &\overset{d}{=}
+                4\bbeta_b^\top \BO  \BX_b^{*\top}
+                \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \BO^\top  \bbeta_b.
+    \end{split}
+\end{equation*}
+Note that $\BO^\top \bbeta_b/\|\BO^\top \bbeta_b\|$ is uniformly distributed on the unit sphere $S^{p-1}$.
+From Lemma \ref{lemma:uniform},
+\begin{equation*}
+    \begin{split}
+        &
+                \myE\left(
+                    4\bbeta_b^\top \BO  \BX_b^{*\top}
+                \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \BO^\top  \bbeta_b
+            \bigg| \BX_b
+        \right)
+        \\
+        =&
+        4p^{-1}\|\bbeta_b\|^2
+        \mytr \left(  \BX_b^{*\top}
+                \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* 
+\right)
+\\
+=&
+        4p^{-1}\|\bbeta_b\|^2
+        \left(  
+            \frac{1}{(n-q)^2}
+            \mytr^2 \left[ (\BX_b^* \BX_b^{*\top})^{-1} \right]
+            \mytr(\BX_b^* \BX_b^{*\top})
+            -\mytr\left[(\BX_b^*  \BX_b^{*\top})^{-1}\right]
+        \right).
+    \end{split}
+\end{equation*}
+Then Lemma \ref{lemma:MP} implies that
+\begin{equation*}
+    \begin{split}
+        &
+                \myE\left(
+                    4\bbeta_b^\top \BO  \BX_b^{*\top}
+                \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \BO^\top  \bbeta_b
+            \bigg| \BX_b
+        \right)
+        \\
+        =&
+        (1+o_P(1))4\|\bbeta_b\|^2
+        \sigma_b^{-2} p^{-2} (n-q)
+        \left(  
+            \myE (\xi)
+            \left(\myE (\xi^{-1})\right)^2
+            -\myE (\xi^{-1})
+        \right).
+    \end{split}
+\end{equation*}
+Similarly,
+\begin{equation*}
+    \begin{split}
+        &
+                \myVar\left(
+                    4\bbeta_b^\top \BO  \BX_b^{*\top}
+                \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \BO^\top  \bbeta_b
+            \bigg| \BX_b
+        \right)
+        \\
+        \leq&
+        \frac{32}{p^2} \|\bbeta_b\|^4
+        \Bigg(
+            \mytr((\BX_b^* \BX_b^{*\top})^{-2}) 
+            +\frac{1}{(n-q)^2}
+            \mytr^4((\BX_b^* \BX_b^{*\top})^{-1}) 
+            \mytr((\BX_b^* \BX_b^{*\top})^{2}) 
+            \\
+            &
+            +2\mytr^2((\BX_b^* \BX_b^{*\top})^{-1})
+            -\frac{4}{(n-q)^2} \mytr^3 ((\BX_b^* \BX_b^{*\top})^{-1})
+\mytr (\BX_b^* \BX_b^{*\top})
+        \Bigg)
+        \\
+        =&
+        (1+o_P(1))
+        32 \|\bbeta_b\|^4
+            \sigma_b^{-4} p^{-4}
+        \\
+        &\Bigg(
+            \left(
+                (n-q) \myE (\xi^{-2})
+                +(n-q)^3 (\myE (\xi^{-1}))^4 \myE (\xi^{2})
+                +2(n-q)^2 (\myE (\xi^{-1}))^2
+                -4(n-q)^2 (\myE (\xi^{-1}))^3 \myE (\xi)
+            \right)
+        \Bigg)
+    \end{split}
+\end{equation*}
+
+
+
+
+
+
 \end{proof}
+
+\begin{lemma}\label{lemma:uniform}
+    Let $\BA$ be an $p\times p$ symmetric matrix.
+    Let $Z$ be a $p$ dimensional random vector with uniform distribution on the unit sphere $ S^{p-1}$.
+    Then 
+    \begin{equation*}
+        \begin{split}
+            &\myE (Z^\top \BA Z) = \frac{1}{p} \mytr (\BA),
+        \quad
+        \myVar (Z^\top \BA Z) =
+        \frac{2}{p(p+2)}\left( \mytr (\BA^2) - \frac{1}{p} \mytr^2 (\BA) \right)
+        \leq
+        \frac{2}{p^2} \mytr (\BA^2)  
+        .
+        \end{split}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    The result follows from direct calculation and the fact that for nonnegative integers $k_1,\ldots, k_{p}$,
+\begin{equation*}
+    \myE \prod_{i=1}^p z_i^{2k_i} 
+    =
+    \frac{\Gamma(p/2) \prod_{i=1}^p \Gamma(k_i+1/2)}{ \pi^{p/2} \Gamma(\sum_{i=1}^p k_i + p/2)}
+    ,
+\end{equation*}
+where $z_i$ is the $i$th coordinate of $Z$.
+\end{proof}
+
+The following lemma is a direct consequence of MP law and Bai Yin law.
+\begin{lemma}\label{lemma:MP}
+    Under the assumptions of Theorem \ref{generalTheorem}, for every $r\in \mathbb R$,
+    \begin{equation*}
+        \frac{1}{\sigma_b^{2r} p^r (n-q)}\mytr ((\BX_b^* \BX_b^{*\top})^{r} )
+        \xrightarrow{a.s.}
+        \myE \xi^r,
+    \end{equation*}
+    where $\xi$ is a random variable with density function
+    \begin{equation*}
+        p_{c}(x)=\mathbf{1}_{\left[(1-c^{-1/2})^2,(1+c^{-1/2})^2\right]}(x)
+        \frac{c}{2\pi x} \sqrt{4/c - \left(x-(1/c+1)\right)^2}.
+    \end{equation*}
+\end{lemma}
 
 
 As in \cite{Roman2018}, sub-gaussian norm of a sub-gaussian random variable is defined as
