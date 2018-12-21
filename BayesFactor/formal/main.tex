@@ -85,6 +85,9 @@
 
 
 
+
+
+\begin{document}
 \title{
 A Bayesian-motivated test for linear model in high-dimensional setting
 }
@@ -92,47 +95,88 @@ A Bayesian-motivated test for linear model in high-dimensional setting
 
 
 \author[1]{Rui Wang}
-%\author[2]{xx}
-%\author[1,3]{Xingzhong Xu\thanks{Corresponding author\\Email address: xuxz@bit.edu.cn}}
-%\affil[1]{
-%School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 
-    %100081,China
-%}
-%\affil[2]{
-    %xx
-%}
-%\affil[3]{
-%Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 100081,China
-%}
+\author[1,2]{Xingzhong Xu\thanks{Corresponding author\\Email address: xuxz@bit.edu.cn}}
+\affil[1]{
+School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 
+    100081,China
+}
+\affil[2]{
+Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 100081,China
+}
 
-
-
-\begin{document}
 \maketitle
-\section{Introduction} 
+\begin{abstract}
+    Using the idea of Bayesian factor, a new test for linear model in high-dimensional setting is proposed.
 
+    Our theory is also useful in.
+\end{abstract}
+\section{Introduction} 
+Consider the high-dimensional linear regression model of the form
+\begin{equation*}
+    \By = 
+    \BX_a \bbeta_a + \BX_b \bbeta_b + \bepsilon, %\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n),
+\end{equation*}
+where $\By \in \mathbb R^n$ is the response, 
+$\BX_a$, $\BX_b$ are $n\times q$ and $n\times p$ design matrices, respectively,  $\bbeta_a\in \mathbb R^q$, $\bbeta_b\in \mathbb R^p$ are unknown regression coefficients, and $\bepsilon=(\epsilon_1,\ldots,\epsilon_n)^\top$ are the iid errors with mean $0$ and covariance $\sigma^2=\phi^{-1}$.
+Here we break the predictors into two parts $\BX_a$ and $\BX_b$ such that $\BX_a$ contains the predictors that are known to have effect on the response,
+and we would like to know if $\BX_b$ contains useful predictors.
+That is, we are interested in testing the hypotheses
+\begin{align}\label{theHypothesis}
+    \mathcal H_0:   \bbeta_b =0,\quad
+    \text{v.s.} \quad
+    \mathcal H_1:   \bbeta_b \neq 0.
+\end{align}
+Motivated by many recent applications of high dimensional regression, we consider the situation where $p+q$ is much larger than $n$.
+
+
+\subsection{Overview of existing tests}
+The conventional test for hypotheses \eqref{theHypothesis} is the $F$-test which is also the likelihood ratio test under normality.
+However, the $F$-test is not well defined in high dimensional setting.
+In fact, if $\bepsilon$ is normal distributed and $\myrank[\BX_a;\BX_b]=n$, then the likelihood is unbounded under the alternative hypothesis.
+This calls for new test methodologies in high-dimensional setting.
+
+Two different high-dimensional settings have been extensively considered in the literature.
+One is the small $p$, large $q$ setting.
+An important example of this setting is testing individual coefficients of a high-dimensional regression.
+See \cite{buhlmann2013statistical}, \cite{Zhang2013} and \cite{Lan2016} for testing procedures in this setting.
+In this paper, however, we focus on the other setting, namely the large $p$, small $q$ setting.
+In this case, there are just a few covariates, namely $\BX_a$, are known to have effect on the response, while there remain a large number of covariates, namely $\BX_b$, to be tested.
+%We assume $\BX_a$ has full column rank and $\BX_b$ has full row rank.
+In practice, which covariates belong to the part $\BX_a$ is determined apriori.
+If no prior knowledge is available, $\BX_a$ can be $\mathbf 1_n$.
+%In both cases, $q$ is often relatively small.
+%However, there may remain a very large number of variables in $\BX_b$, so $p>n$.
+
+Many test procedures have been proposed in the large $p$, small $q$ setting.
+Based on an empirical Bayes model, \cite{Goeman2006} and \cite{Goeman2011} proposed a score test as well as a method to determine the critical value of their test statistic.
+Later, \cite{Lan2014Testing} proposed a similar test, but using normal distribution to determine the critical value.
+There are also many other lines of search.
+\cite{Zhong2011Tests} proposed a test based on $U$-statistics for the case $\BX_a=\mathbf 1_n$.
+Later, \cite{Wang2015} generalized their test for general design matrix $\BX_a$.
+Scalar invariant tests: \cite{Feng2013} and \cite{Xu2016a}.
+Debiased tests: .
+
+
+
+Also, many Bayesian hypothesis testing procedures have been proposed in the literature.
+See \cite{javier2006Obj,Goddard2016,zhou2018On} and the references therein.
+
+\subsection{Main contributions}
+Bayesian methods may be powerful tools in high dimensional setting.
+
+\subsection{Organization of the paper}
 
 The proposed test is the limit of Bayes factors.
 
-Fixed design
-
-Suppose we would like to test the hypotheses:
-\begin{align*}
-    \mathcal H_0:   \By = \BX_a \bbeta_a + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n),
-    \\
-    \mathcal H_1:   \By = \BX_a \bbeta_a + \BX_b \bbeta_b + \bepsilon,\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n).
-\end{align*}
-Here $\bbeta_a$ is $q$ dimensional and $\bbeta_b$ is $p$ dimensional.
-We assume that as $n$ tends to infinity, $q$ is fixed while $p/n \to \infty$.
-This assumption is reasonable.
-We assume $\BX_a$ has full column rank and $\BX_b$ has full row rank.
-In practice, $p_0$ is often $1$ and $\BX_a$ is $\mathbf 1_n$.
 
 
+\section{Methodology}
 As \cite{Goeman2006} pointed out, if $\bbeta_b \neq 0$ but $\BX_b \bbeta_b =0$, no test has any power.
 \cite{Goeman2006} used Bayesian method.
 Their idea is to choose an  `unbiased' distribution of $\bbeta_b$.
 As they noticed, their test has negligible power for many alternatives, and is not unbiased.
+In theory, we prove that there is no nontrivial unbiased test.
+
 
 The following proposition implies that there is no nontrivial unbiased test.
 \begin{proposition}\label{prop:unbiased}
@@ -424,7 +468,7 @@ Then $\mu_1=0$, $\mu_2=\phi^{-1}$.
 
 
 
-\begin{lemma}
+\begin{lemma}\label{lemma:denom}
 If $\phi^2\mu_4=o(n-q)$,
 \begin{equation*}
     \By^{*\top} \By^*=(1+o_P(1))
@@ -571,7 +615,7 @@ It is also straightforward to see that
                 ,
                 \\
                 \myVar (A_2|\BX_b)&= 
-                4\bbeta_b^\top \BX_b^{*\top}
+                4 \phi \bbeta_b^\top \BX_b^{*\top}
                 \left( (\BX_b^* \BX_b^{*\top})^{-1} 
                 -\frac{\mytr ( (\BX_b^* \BX_b^{*\top})^{-1})}{n-q} 
                 \BI_{n-q}
@@ -594,10 +638,11 @@ From lemma \ref{lemma:MP},
     \myVar (A_1 |\BX_b)
     &=
 (1+o_P(1))
-    2 \sigma_b^{-4} p^{-2} (n-q) \myVar (\xi^{-2}) 
+2 \sigma_b^{-4} p^{-2} (n-q) \left( \nu_{-2,c}-\nu_{-1,c}^2 \right)
     .
     \end{split}
 \end{equation*}
+Now we deal with $\myVar (A_2 |\BX_b)$.
 Let $\BO$ be a $p\times p$ random matrix with Haar distribution which is independent of $\BX_b$.
 The rotation invariance of normal distribution implies that $\BX_b\BO$ has the same distribution as $\BX_b$ and is independent of $\BO$.
 Then
@@ -605,14 +650,14 @@ Then
     \begin{split}
     \myVar (A_2 |\BX_b)
     &=
-                4\bbeta_b^\top \BO \BO^\top  \BX_b^{*\top}
+                4\phi \bbeta_b^\top \BO \BO^\top  \BX_b^{*\top}
                 \left( (\BX_b^* \BO \BO^\top \BX_b^{*\top})^{-1} 
                 -\frac{\mytr ( (\BX_b^* \BO \BO^\top  \BX_b^{*\top})^{-1})}{n-q} 
                 \BI_{n-q}
             \right)^2  \BX_b^* \BO \BO^\top  \bbeta_b
             \\
             &\overset{d}{=}
-                4\bbeta_b^\top \BO  \BX_b^{*\top}
+                4\phi \bbeta_b^\top \BO  \BX_b^{*\top}
                 \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
                 -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
                 \BI_{n-q}
@@ -625,7 +670,7 @@ From Lemma \ref{lemma:uniform},
     \begin{split}
         &
                 \myE\left(
-                    4\bbeta_b^\top \BO  \BX_b^{*\top}
+                    4\phi \bbeta_b^\top \BO  \BX_b^{*\top}
                 \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
                 -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
                 \BI_{n-q}
@@ -634,7 +679,7 @@ From Lemma \ref{lemma:uniform},
         \right)
         \\
         =&
-        4p^{-1}\|\bbeta_b\|^2
+        4\phi p^{-1}\|\bbeta_b\|^2
         \mytr \left(  \BX_b^{*\top}
                 \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
                 -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
@@ -643,7 +688,7 @@ From Lemma \ref{lemma:uniform},
 \right)
 \\
 =&
-        4p^{-1}\|\bbeta_b\|^2
+        4\phi p^{-1}\|\bbeta_b\|^2
         \left(  
             \frac{1}{(n-q)^2}
             \mytr^2 \left[ (\BX_b^* \BX_b^{*\top})^{-1} \right]
@@ -657,7 +702,7 @@ Then Lemma \ref{lemma:MP} implies that
     \begin{split}
         &
                 \myE\left(
-                    4\bbeta_b^\top \BO  \BX_b^{*\top}
+                    4\phi \bbeta_b^\top \BO  \BX_b^{*\top}
                 \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
                 -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
                 \BI_{n-q}
@@ -666,12 +711,12 @@ Then Lemma \ref{lemma:MP} implies that
         \right)
         \\
         =&
-        (1+o_P(1))4\|\bbeta_b\|^2
+        (1+o_P(1))4\phi \|\bbeta_b\|^2
         \sigma_b^{-2} p^{-2} (n-q)
         \left(  
-            \myE (\xi)
-            \left(\myE (\xi^{-1})\right)^2
-            -\myE (\xi^{-1})
+            \nu_{1,c}
+            \nu_{-1,c}^2
+            -\nu_{-1,c}
         \right).
     \end{split}
 \end{equation*}
@@ -680,7 +725,7 @@ Similarly,
     \begin{split}
         &
                 \myVar\left(
-                    4\bbeta_b^\top \BO  \BX_b^{*\top}
+                    4\phi \bbeta_b^\top \BO  \BX_b^{*\top}
                 \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
                 -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
                 \BI_{n-q}
@@ -689,7 +734,7 @@ Similarly,
         \right)
         \\
         \leq&
-        \frac{32}{p^2} \|\bbeta_b\|^4
+        \frac{32}{p^2} \phi^2 \|\bbeta_b\|^4
         \Bigg(
             \mytr((\BX_b^* \BX_b^{*\top})^{-2}) 
             +\frac{1}{(n-q)^2}
@@ -704,19 +749,329 @@ Similarly,
         \\
         =&
         (1+o_P(1))
-        32 \|\bbeta_b\|^4
-            \sigma_b^{-4} p^{-4}
+        32 \phi^2 \|\bbeta_b\|^4
+        \sigma_b^{-4} p^{-4} (n-q)
+        \left(
+            \myE (\xi^{-2})
+            +
+            2\left(\myE (\xi^{-1})\right)^2
+            -4
+            \left(\myE (\xi^{-1})\right)^3 \myE (\xi)
+            +
+            \left(\myE (\xi^{-1})\right)^4 \myE (\xi^2)
+        \right)
         \\
-        &\Bigg(
-            \left(
-                (n-q) \myE (\xi^{-2})
-                +(n-q)^3 (\myE (\xi^{-1}))^4 \myE (\xi^{2})
-                +2(n-q)^2 (\myE (\xi^{-1}))^2
-                -4(n-q)^2 (\myE (\xi^{-1}))^3 \myE (\xi)
-            \right)
-        \Bigg)
+        =&o_P(1)
+\left(
+                \myE\left(
+                    4\bbeta_b^\top \BO  \BX_b^{*\top}
+                \left( (\BX_b^*  \BX_b^{*\top})^{-1} 
+                -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{-1})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \BO^\top  \bbeta_b
+            \bigg| \BX_b
+        \right)
+    \right)^2
     \end{split}
 \end{equation*}
+Thus, we conclude that
+\begin{equation*}
+    \myVar (A_2 | \BX_b)= 
+        (1+o_P(1))4
+        \phi
+        \|\bbeta_b\|^2
+        \sigma_b^{-2} p^{-2} (n-q)
+        \left(  
+            \nu_{1,c}
+            \nu_{-1,c}^2
+            -\nu_{-1,c}
+        \right).
+\end{equation*}
+Using the same technique, one can show that
+\begin{equation*}
+    A_3=(1+o_P(1)) \phi \|\bbeta_b\|^2 p^{-1} (n-q) \left(1- \nu_{1,c}\nu_{-1,c}\right).
+\end{equation*}
+
+    From lemma \ref{lemma:denom}, we have
+    \begin{equation*}
+        \phi\By^{*\top} \By^*
+        =
+        (1+o_P(1))\left(
+            \phi \bbeta_b^\top \BX_b^{*\top}  \BX_b^* \bbeta_b
+    + 
+    (n-q)
+\right).
+    \end{equation*}
+    Using the same technique, we have
+    \begin{equation*}
+        \phi\By^{*\top} \By^*
+        =
+        (1+o_P(1))(n-q)\left(
+            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
+\right)
+    .
+    \end{equation*}
+
+We have 
+\begin{equation*}
+    \begin{split}
+    &\sqrt{\myVar(A_1|\BX_b) + \myVar (A_2 |\BX_b)}
+    \\
+    =&(1+o_P(1))
+    \sqrt{
+    2\sigma_b^{-2} p^{-2} (n-q)
+    \left( 
+        \sigma_b^{-2} (\nu_{-2,c} - \nu_{-1,c}^2)
+        +
+        2\phi\|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+    \right)
+}
+.
+    \end{split}
+\end{equation*}
+Since $[-\infty,0]$ is compact, for every subsequence of $\{n\}$, there is a further subsequence along which 
+\begin{equation*}
+    \frac{
+\phi \|\bbeta_b\|^2 p^{-1} (n-q) \left(1- \nu_{1,c}\nu_{-1,c}\right)
+    }{
+    \sqrt{
+    2\sigma_b^{-2} p^{-2} (n-q)
+    \left( 
+        \sigma_b^{-2} (\nu_{-2,c} - \nu_{-1,c}^2)
+        +
+        2\phi \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+    \right)
+}
+    }
+    \to s \in [-\infty, 0].
+\end{equation*}
+Then along this further subsequence, we have
+\begin{equation*}
+    \frac{A_1+A_2+A_3}{
+        \sqrt{
+    2\sigma_b^{-2} p^{-2} (n-q)
+    \left( 
+        \sigma_b^{-2} (\nu_{-2,c} - \nu_{-1,c}^2)
+        +
+        2\phi \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+    \right)
+}
+}
+\rightsquigarrow \mathcal N(s,1).
+\end{equation*}
+If $s=-\infty$, the above expression means the left hand side tends to $-\infty$ in probability.
+Thus
+\begin{equation*}
+    \begin{split}
+        &
+\left(
+    T_n - \mytr((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)
+\right)
+    \frac{
+     (n-q)\left(
+            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
+\right)
+    }{
+        \sqrt{
+    2\sigma_b^{-2} p^{-2} (n-q)
+    \left( 
+        \sigma_b^{-2} (\nu_{-2,c} - \nu_{-1,c}^2)
+        +
+        2\phi \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+    \right)
+}
+    } 
+\\
+&
+\rightsquigarrow \mathcal N(s,1).
+    \end{split}
+\end{equation*}
+Under the null hypothesis,
+\begin{equation*}
+    \begin{split}
+        &
+\left(
+    T_n - \mytr((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)
+\right)
+    \frac{
+     n-q
+    }{
+        \sqrt{
+    2\sigma_b^{-4} p^{-2} (n-q)
+         (\nu_{-2,c} - \nu_{-1,c}^2)
+}
+    } 
+\rightsquigarrow \mathcal N(0,1).
+    \end{split}
+\end{equation*}
+Thus the critical value of
+$
+    T_n - \mytr((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)
+$ is
+\begin{equation*}
+    \Phi(\alpha) 
+    \frac{
+        \sqrt{
+    2\sigma_b^{-4} p^{-2} (n-q)
+         (\nu_{-2,c} - \nu_{-1,c}^2)
+}
+    }{
+     n-q
+    } 
+    .
+\end{equation*}
+Then the power function is
+\begin{equation*}
+    \begin{split}
+    &\Pr
+    \left(
+        T_n - \mytr((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)
+        \leq
+    \Phi(\alpha) 
+    \frac{
+        \sqrt{
+    2\sigma_b^{-4} p^{-2} (n-q)
+         (\nu_{-2,c} - \nu_{-1,c}^2)
+}
+    }{
+     n-q
+    } 
+\right)
+\\
+=&
+\Pr\left( \mathcal N (s,1)
+    \leq
+    \Phi(\alpha) 
+    \frac{
+(n-q)\left(
+            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
+\right)
+        \sqrt{
+    2\sigma_b^{-4} p^{-2} (n-q)
+         (\nu_{-2,c} - \nu_{-1,c}^2)
+}
+    }{
+        (n-q)
+        \sqrt{
+    2\sigma_b^{-2} p^{-2} (n-q)
+    \left( 
+        \sigma_b^{-2} (\nu_{-2,c} - \nu_{-1,c}^2)
+        +
+        2\phi \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+    \right)
+}
+    } 
+\right)
++o(1)
+\\
+=&
+\Pr\left( \mathcal N (s,1)
+    \leq
+    \Phi(\alpha) 
+    \frac{
+\left(
+            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
+\right)
+    }{
+        \sqrt{
+            1
+        +
+        \frac{
+            2\phi \sigma_b^2 \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+        }{\nu_{-2,c} - \nu_{-1,c}^2}
+}
+    } 
+\right)
++o(1)
+\\
+=&
+\Phi\left( 
+    -s
+    +
+    \Phi(\alpha) 
+    \frac{
+\left(
+            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
+\right)
+    }{
+        \sqrt{
+            1
+        +
+        \frac{
+            2\phi \sigma_b^2 \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+        }{\nu_{-2,c} - \nu_{-1,c}^2}
+}
+    } 
+\right)
++o(1)
+\\
+=&
+\Phi\left( 
+    \frac{
+\phi \|\bbeta_b\|^2 p^{-1} (n-q) \left(\nu_{1,c}\nu_{-1,c}-1\right)
+    }{
+    \sqrt{
+    2\sigma_b^{-2} p^{-2} (n-q)
+    \left( 
+        \sigma_b^{-2} (\nu_{-2,c} - \nu_{-1,c}^2)
+        +
+        2\phi \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+    \right)
+}
+    }
+    +
+    \Phi(\alpha) 
+    \frac{
+\left(
+            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
+\right)
+    }{
+        \sqrt{
+            1
+        +
+        \frac{
+            2\phi \sigma_b^2 \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+        }{\nu_{-2,c} - \nu_{-1,c}^2}
+}
+    } 
+\right)
++o(1)
+\\
+=&
+\Phi\left( 
+    \frac{
+       \sqrt{n-q}  \phi \sigma_b^2 \|\bbeta_b\|^2  \left(\nu_{1,c}\nu_{-1,c}-1\right)
+    }{
+    \sqrt{
+    2  
+    \left( 
+         (\nu_{-2,c} - \nu_{-1,c}^2)
+        +
+        2\phi \sigma_b^2 \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+    \right)
+}
+    }
+    +
+    \Phi(\alpha) 
+    \frac{
+\left(
+            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
+\right)
+    }{
+        \sqrt{
+            1
+        +
+        \frac{
+            2\phi \sigma_b^2 \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
+        }{\nu_{-2,c} - \nu_{-1,c}^2}
+}
+    } 
+\right)
++o(1)
+    \end{split}
+\end{equation*}
+
+
 
 
 
@@ -758,9 +1113,13 @@ The following lemma is a direct consequence of MP law and Bai Yin law.
     \begin{equation*}
         \frac{1}{\sigma_b^{2r} p^r (n-q)}\mytr ((\BX_b^* \BX_b^{*\top})^{r} )
         \xrightarrow{a.s.}
-        \myE \xi^r,
+        \nu_{r,c}
     \end{equation*}
-    where $\xi$ is a random variable with density function
+    where $
+        \nu_{r,c}
+        =
+        \myE \xi^r,
+        $, and $\xi$ is a random variable with density function
     \begin{equation*}
         p_{c}(x)=\mathbf{1}_{\left[(1-c^{-1/2})^2,(1+c^{-1/2})^2\right]}(x)
         \frac{c}{2\pi x} \sqrt{4/c - \left(x-(1/c+1)\right)^2}.
@@ -768,919 +1127,14 @@ The following lemma is a direct consequence of MP law and Bai Yin law.
 \end{lemma}
 
 
-As in \cite{Roman2018}, sub-gaussian norm of a sub-gaussian random variable is defined as
-\begin{equation*}
-    \|X\|_{\psi_2} = \inf \{t>0: \myE \exp(X^2/t^2) \leq 2\}.
-\end{equation*}
-A random vector $Z\in \mathbb R^p$ is called sub-gaussian if $z\top Z$ are sub-gaussian random variables for all $z\in \mathbb R^p$.
-The sub-gaussian norm of $Z$ is defined as
-\begin{equation*}
-    \|Z\|_{\psi_2}= \sup_{z\in S^{p-1}} \|z^\top Z\|_{\psi_2},
-\end{equation*}
-where $S^{p-1}$ is the unit sphere in $\mathbb R^p$.
-
-Suppose $\BX_b =\BZ_b \Gamma + \mathbf 1_n \mu_b^\top$, where the rows of $\BZ_b$ are iid sub-gaussion random vectors with identity covariance matrix.
-
-
-The following lemma is a simple extension of Theorem 4.6.1 of \cite{Roman2018}.
-\begin{lemma}\label{lemma:con}
-    Let $\BZ$ be an $N\times n$ random matrix whose columns $Z_i$ are independent sub-gaussian random vectors with $\myE (Z_i)=0$, $\myVar (Z_i)= \BI_n$.
-    Suppose $K:=\max_i \|Z_i\|_{\psi_2}$ is uniformly bounded.
-    Write $Z_i=(z_{i1},\ldots,z_{iN})^\top$.
-    Assume that $\myE (z_{i\ell}^4)=3 + \Delta <\infty$ and for any intergers $\ell_v \geq 0$ with $\sum_{v=1}^s \ell_v \leq 4$,
-    \begin{equation*}
-        \myE (Z_{i j_1}^{\ell_1}Z_{i j_2}^{\ell_2}\cdots Z_{i j_s}^{\ell_s}) 
-        =
-    \myE (Z_{i j_1}^{\ell_1})\myE (Z_{i j_2}^{\ell_2})\cdots \myE (Z_{i j_s}^{\ell_s}) 
-    \end{equation*}
-    Let $\BW$ be a nonrandom $N \times N$ symmetric matrix.
-    Then
-    \begin{equation*}
-        \|\BZ^\top \BW \BZ -\mytr (\BW) \BI_n\| 
-        =
-        O_P(\sqrt n \|\BW\|_F+ n \|\BW\|).
-    \end{equation*}
-    TO BE DONE: 
-    \begin{equation*}
-        \|U\BZ^\top \BW \BZ U^\top -\mytr (\BW) \BI_n\| 
-    \end{equation*}
-\end{lemma}
-
-
-Next we verify the following.
-Let $\bSigma=\Gamma^\top \Gamma$.
-\begin{proof}
-    Let
-    \begin{equation*}
-    \BB=\BX_b^* \BX_b^{*\top} 
-    =
-    \tilde{\BU}_a^\top \BX_b \BX_b^{\top} \tilde{\BU}_a 
-    =
-    \tilde{\BU}_a^\top \BZ_b\Gamma \Gamma^\top \BZ_b^{\top} \tilde{\BU}_a 
-    \end{equation*}
-    Note that Lemma \ref{lemma:con} implies that
-    \begin{equation*}
-        \|\BB-\mytr(\bSigma)\BI_{n-q} \|
-        = 
-        O_P(\sqrt{n} \|\bSigma\|_F + n \|\bSigma\|).
-    \end{equation*}
-    That is, uniformly for $i=1,\ldots,n-q$,
-    \begin{equation*}
-        \frac{ \lambda_i (\BB) } {\mytr (\bSigma)} = 1 + O_P \left( \frac{\sqrt n \|\bSigma\|_F}{\mytr(\bSigma)} + \frac{n \|\bSigma\|}{\mytr(\bSigma)}\right)
-    \end{equation*}
-    Define
-    \begin{equation*}
-        \delta_i= \frac{ \lambda_i (\BB) } {\mytr (\bSigma)}-1
-    \end{equation*}
-    \begin{equation*}
-        \eta= \frac{\sqrt n \|\bSigma\|_F}{\mytr(\bSigma)} + \frac{n \|\bSigma\|}{\mytr(\bSigma)}
-    \end{equation*}
-    We assume $\eta \to 0$.
-
-    Thus,
-    we need to verify 
-    \begin{equation*}
-        \tilde{\BU}_a \BB^{-1} \tilde{\BU}_a^\top-\frac{\mytr( \BB^{-1} )}{n-q}\tilde{\BU}_a\tilde{\BU}_a^\top
-    \end{equation*}
-    satisfies that
-    \begin{equation}
-        \left\|
-            \BB^{-1} -\frac{\mytr( \BB^{-1} )}{n-q} \BI_{n-q}
-        \right\|^2
-        \bigg/
-        \mytr\left(
-            \BB^{-1} -\frac{\mytr( \BB^{-1} )}{n-q} \BI_{n-q}
-        \right)^2
-        \to 0.
-    \end{equation}
-    Note that
-    \begin{equation*}
-        \mytr\left(
-            \BB^{-1} -\frac{\mytr( \BB^{-1} )}{n-q} \BI_{n-q}
-        \right)^2
-        =\sum_{i=1}^{n-q} \frac{1}{\lambda_i^2(\BB)}
-        -\frac{1}{n-q}\left(\sum_{i=1}^{n-q}\frac{1}{\lambda_i(\BB)}\right)^2.
-    \end{equation*}
-    By Taylor's theorem, uniformly for $i=1,\ldots, n$, we have
-    \begin{equation*}
-        \begin{split}
-            &
-        \frac{1}{\lambda_i (\BB) }=\frac{1}{\mytr(\bSigma)}
-        \frac{1}{1+\delta_i}=
-        \frac{1}{\mytr(\bSigma)}\left(
-            1-\delta_i +\delta_i^2 +O_P(\eta^3)
-        \right),
-        \\
-        &
-        \frac{1}{\lambda_i^2 (\BB) }=\frac{1}{\mytr^2(\bSigma)}
-        \frac{1}{(1+\delta_i)^2}=
-        \frac{1}{\mytr^2(\bSigma)}\left(
-            1-2\delta_i +3\delta_i^2 +O_P(\eta^3)
-        \right).
-        \end{split}
-    \end{equation*}
-    Thus,
-    \begin{equation*}
-        \begin{split}
-        &\mytr\left(
-            \BB^{-1} -\frac{\mytr( \BB^{-1} )}{n-q} \BI_{n-q}
-        \right)^2
-        \\
-        =&
-        \sum_{i=1}^{n-q}         \frac{1}{\mytr^2(\bSigma)}\left(
-            1-2\delta_i +3\delta_i^2 +O_P(\eta^3)
-        \right)
-        -\frac{1}{n-q}\left(\sum_{i=1}^{n-q}
-        \frac{1}{\mytr(\bSigma)}\left(
-            1-\delta_i +\delta_i^2 +O_P(\eta^3)
-        \right)
-        \right)^2
-        \\
-        =&
-\frac{1}{\mytr^2(\bSigma)}
-\left(
-    n-q
-        -2\sum_{i=1}^{n-q} \delta_i 
-             +3\sum_{i=1}^{n-q}\delta_i^2 +O_P(n\eta^3)
-        -\frac{1}{n-q}\left(
-            n-q - \sum_{i=1}^{n-q}\delta_i
-            +\sum_{i=1}^{n-q}\delta_i^2 +O_P(n\eta^3)
-        \right)^2
-\right) 
-\\
-        =&
-\frac{1}{\mytr^2(\bSigma)}
-\left(
-    n-q
-        -2\sum_{i=1}^{n-q} \delta_i 
-             +3\sum_{i=1}^{n-q}\delta_i^2 +O_P(n\eta^3)
-             -(n-q)\left(
-                 1 - \frac{1}{n-q}\sum_{i=1}^{n-q}\delta_i
-                 +\frac{1}{n-q}\sum_{i=1}^{n-q}\delta_i^2 +O_P(\eta^3)
-        \right)^2
-\right) 
-\\
-        =&
-\frac{1}{\mytr^2(\bSigma)}
-\Bigg(
-    n-q
-        -2\sum_{i=1}^{n-q} \delta_i 
-             +3\sum_{i=1}^{n-q}\delta_i^2 +O_P(n\eta^3)
-             \\
-             &-(n-q)\left(
-                 1 + \left(\frac{1}{n-q}\sum_{i=1}^{n-q}\delta_i\right)^2
-                 -\frac{2}{n-q}\sum_{i=1}^{n-q}\delta_i
-                 +\frac{2}{n-q}\sum_{i=1}^{n-q}\delta_i^2 +O_P(\eta^3)
-        \right)
-\Bigg) 
-\\
-        =&
-\frac{1}{\mytr^2(\bSigma)}
-\Bigg(
-             \sum_{i=1}^{n-q}\delta_i^2 
-             -
-\frac{1}{n-q}
-                   \left(\sum_{i=1}^{n-q}\delta_i\right)^2
-+O_P(n\eta^3)
-\Bigg) 
-\\
-=&
-\frac{1}{\mytr^2(\bSigma)}
-\Bigg(
-    \mytr\left(\frac{1}{\mytr (\bSigma)} \BB -\BI_{n-q}\right)^2
-             -
-\frac{1}{n-q}
-\left(\frac{\mytr(\BB)}{\mytr(\bSigma)}-(n-q)\right)^2
-+O_P(n\eta^3)
-\Bigg) 
-\\
-=&
-\frac{1}{\mytr^2(\bSigma)}
-\Bigg(
-    \frac{1}{\mytr^2 (\bSigma)}
-    \left(
-        \mytr (\BB^2) -\frac{1}{n-q} \mytr^2 (\BB)
-    \right)
-+O_P(n\eta^3)
-\Bigg) 
-        .
-        \end{split}
-    \end{equation*}
-\end{proof}
 
 
 
 
-\begin{lemma}
-    Let $\BZ$ be an $n\times m$ random matrix whose rows $Z_i$ are independent random vectors with $\myE (Z_i)=0$, $\myVar (Z_i)= \BI_m$.
-    Write $Z_i=(z_{i1},\ldots,z_{im})^\top$.
-    Assume that $\myE (z_{i\ell}^4)=3 + \Delta <\infty$ and for any intergers $\ell_v \geq 0$ with $\sum_{v=1}^s \ell_v \leq 8$.
-    Let $\BB$ be a $m\times m$ symmetric matrix.
-    Let $\BQ$ be a $n\times n$ projection maitrx with rank $r$.
-    Then
-    \begin{equation*}
-    \mytr(\BQ \BZ \BB \BZ^\top \BQ)^2 - 
-    \frac{1}{r}
-    \left( \mytr(\BQ \BZ \BB \BZ^\top \BQ)\right)^2
-    \end{equation*}
-\end{lemma}
-\begin{proof}
 
 
-Let $\BQ=\BU\BU^\top$, where $\BU$ is a $n\times r$ column orthogonal matrix.
-Then
-\begin{equation*}
-    \begin{split}
-&\mytr(\BQ \BZ \BB \BZ^\top \BQ)^2 - 
-\frac{1}{r}
-\left( \mytr(\BQ \BZ \BB \BZ^\top \BQ)\right)^2
-\\
- =       
-&\mytr(\BU^\top \BZ \BB \BZ^\top \BU)^2 - 
-\frac{1}{r}
-\left( \mytr(\BU^\top \BZ \BB \BZ^\top \BU)\right)^2
-=
-    \end{split}
-\end{equation*}
 
 
-\begin{equation*}
-    \begin{split}
-    \mytr( \BZ \BB \BZ^\top \BQ)
-    =\sum_{i=1}^n \sum_{j=1}^n q_{i,j}  Z_{i}^\top \BB Z_{j} 
-    \end{split}
-\end{equation*}
-\begin{equation*}
-    \begin{split}
-    \mytr^2( \BZ \BB \BZ^\top \BQ)
-    =\sum_{i=1}^n \sum_{j=1}^n \sum_{k=1}^n \sum_{l=1}^n q_{i,j} q_{k,l}  Z_{i}^\top \BB Z_{j} Z_{k}^\top \BB Z_{l} 
-    \end{split}
-\end{equation*}
-And
-\begin{equation*}
-    \begin{split}
-    \mytr(\BZ \BB \BZ^\top \BQ )^2
-    =
-    \sum_{i=1}^n\sum_{j=1}^n \sum_{k=1}^n \sum_{l=1}^n q_{j,k} q_{l,i} Z_{i}^\top \BB Z_{j} 
-      Z_{k}^\top \BB Z_{l} 
-      \\
-    \end{split}
-\end{equation*}
-Thus,
-\begin{equation*}
-    \begin{split}
-    \mytr(\BZ \BB \BZ^\top \BQ )^2
-    -r^{-1}
-    \mytr^2( \BZ \BB \BZ^\top \BQ)
-    =
-    \sum_{i=1}^n\sum_{j=1}^n \sum_{k=1}^n \sum_{l=1}^n (q_{i,l} q_{j,k}-r^{-1}q_{i,j}q_{k,l})  Z_{i}^\top \BB Z_{j} 
-      Z_{k}^\top \BB Z_{l} 
-    \end{split}
-\end{equation*}
-Thus,
-\begin{equation*}
-    e(i,j,k,l):= 
-q_{i,l} q_{j,k}-r^{-1}q_{i,j}q_{k,l}
-\end{equation*}
-satisfies,
-    \begin{equation*}
-        \begin{split}
-            e(i_1,i_2,i_3,i_4)
-            =
-            e(i_2,i_1,i_4,i_3)
-            =
-            e(i_3,i_4,i_1,i_2)
-            =
-            e(i_4,i_3,i_2,i_1)
-        \end{split}
-    \end{equation*}
-\end{proof}
-
-
-\begin{lemma}
-    Let $e(i,j;k,l)$ satisfy:
-    \begin{equation*}
-        \begin{split}
-            e(i_1,i_2,i_3,i_4)
-            =
-            e(i_2,i_1,i_4,i_3)
-            =
-            e(i_3,i_4,i_1,i_2)
-            =
-            e(i_4,i_3,i_2,i_1)
-        \end{split}
-    \end{equation*}
-    Then
-    \begin{equation*}
-        \sum_{i,j,k,l=1}^n e(i,j,k,l) Z_i^\top \BB Z_j Z_k^\top \BB Z_l
-    \end{equation*}
-\end{lemma}
-\begin{proof}
-    Let $f(i,j,k,l)= e(i,j,k,l)Z_i^\top \BB Z_j Z_k^\top \BB Z_l
-    $.
-    Then $f$ also satisfies
-    \begin{equation*}
-        \begin{split}
-            f(i_1,i_2,i_3,i_4)
-            =
-            f(i_2,i_1,i_4,i_3)
-            =
-            f(i_3,i_4,i_1,i_2)
-            =
-            f(i_4,i_3,i_2,i_1)
-        \end{split}
-    \end{equation*}
-
-\begin{equation*}
-    \begin{split}
-    &\sum_{i,j,k,l=1}^n f(i,j,k,l)    \\
-    =&
-    \sum_{i=j=1}^n
-    \sum_{k=l=1}^n 
-+
-    \sum_{i=j=1}^n
-    \sum_{k,l}^*
-+
-    \sum_{i,j}^*
-    \sum_{k=l=1}^n
-+
-    \sum_{i,j}^*
-    \sum_{k,l}^{*}
-    \\
-    =&
-    \sum_{i=1}^n
-    \sum_{j=1}^n  f(i,i,j,j)
-+
-    \sum_{i=1}^n
-    \sum_{j,k}^* f(i,i,j,k)
-+
-    \sum_{i=1}^n
-    \sum_{j,k}^* f(j,k,i,i)
-+
-    \sum_{i,j}^*
-    \sum_{k,l}^{*}
-        f(i,j,k,l)
-    \\
-    =&
-    \sum_{i=1}^n
-    \sum_{j=1}^n  f(i,i,j,j)
-+
-    2
-    \sum_{i=1}^n
-    \sum_{j,k}^* f(i,i,j,k)
-+
-    \sum_{i,j}^*
-    \sum_{k,l}^{*}
-        f(i,j,k,l)
-    \end{split}
-\end{equation*}
-For the first term,
-\begin{equation*}
-    \sum_{i=1}^n
-    \sum_{j=1}^n  f(i,i,j,j)
-    =
-    \sum_{i=1}^n
-    f(i,i,i,i)
-    +\sum_{i,j}^*
-    f(i,i,j,j).
-\end{equation*}
-For the second term,
-\begin{equation*}
-    \begin{split}
-    &\sum_{i=1}^n
-    \sum_{j,k}^* f(i,i,j,k)
-    \\
-    =&
-    \sum_{i=1}^n \sum_{j\neq i}^n f(i,i,i,j)
-    +
-    \sum_{i=1}^n \sum_{j\neq i} f(i,i,j,i)
-    +
-    \sum_{i,j,k}^* f(i,i,j,k)
-    \\
-    =&
-    2\sum_{i,j}^*  f(i,i,i,j)
-    +
-    \sum_{i,j,k}^* f(i,i,j,k)
-    \end{split}
-\end{equation*}
-For the third term,
-\begin{equation*}
-    \begin{split}
-    &
-    \sum_{i,j}^*
-    \sum_{k,l}^{*} f(i,j,k,l)
-        \\
-        =&
-    \sum_{i,j}^*
-    \sum_{k=i,l=j}
-        +
-    \sum_{i,j}^*
-    \sum_{k=j,l=i}
-        +
-    \sum_{i,j}^*
-    \sum_{k=i,l\neq \{i,j\}}
-        +
-    \sum_{i,j}^*
-    \sum_{k=j,l\neq \{i,j\}}
-        +
-    \sum_{i,j}^*
-    \sum_{l=i,k\neq \{i,j\}}
-        +
-    \sum_{i,j}^*
-    \sum_{l=j,k\neq \{i,j\}}
-    +
-    \sum_{i,j,k,l}^*
-        \\
-        =& 
-        \sum_{i,j}^* 
-        (f(i,j,i,j)
-            +
-        f(i,j,j,i)
-    )
-    +2\sum_{i,j,k}^* (f(i,j,i,k) + f(i,j,k,i))
-    +\sum_{i,j,k,l}^* f(i,j,k,l)
-    \end{split}
-\end{equation*}
-
-Thus, 
-\begin{equation*}
-    \begin{split}
-        \sum_{i,j,k,l=1}^n 
-        f(i,j,k,l)
-        =&
-    \sum_{i=1}^n
-    f(i,i,i,i)
-    +\sum_{i,j}^*
-    f(i,i,j,j)\\
-    &+
-    4\sum_{i,j}^*  f(i,i,i,j)
-    +
-    2\sum_{i,j,k}^* f(i,i,j,k)
-    \\
-    &
-        \sum_{i,j}^* 
-        (f(i,j,i,j)
-            +
-        f(i,j,j,i)
-    )
-    +2\sum_{i,j,k}^* (f(i,j,i,k) + f(i,j,k,i))
-    +\sum_{i,j,k,l}^* f(i,j,k,l)
-\\
-=:&\sum_{i=1}^7 A_i
-    \end{split}
-\end{equation*}
-Note that for distinct $i,j,k,l$,
-\begin{align*}
-    &\myE f(i,i,i,i)= e(i,i,i,i) \myE (Z_i^\top \BB Z_i)^2=
-    e(i,i,i,i)\left(\mytr^2 (\BB) +2 \mytr(\BB^2) + \Delta \mytr (\BB\circ \BB)\right)
-    \\
-    &\myE f(i,i,j,j)= e(i,i,j,j) \myE (Z_i^\top \BB Z_i) (Z_i^\top \BB Z_i)=
-    e(i,i,j,j) \mytr^2 (\BB)
-    \\
-    &\myE f(i,i,i,j)= 0
-    \\
-    &\myE \left(f(i,j,i,j)+ f(i,j,j,i)\right)= 
-    \left(e(i,j,i,j)+e (i,j,j,i)\right) \myE (Z_i^\top \BB Z_j)^2
-    =
-    \left(e(i,j,i,j)+e (i,j,j,i)\right) \myE (\BB^2)
-    \\
-    &\myE \left(f(i,j,i,k)+ f(i,j,k,i)\right)= 
-    0
-    \\
-    &\myE f(i,j,k,l)= 
-    0
-\end{align*}
-
-Let $h(i,j,k,l)=f(i,j,k,l)-\myE f(i,j,k,l)$.
-Then
-\begin{equation*}
-    \begin{split}
-        \myVar \left(
-            \sum_{i,j,k,l=1}^n e(i,j,k,l) Z_i^\top \BB Z_j Z_k^\top \BB Z_l
-        \right)        
-        =&
-        \myE \left(
-            \sum_{i,j,k,l=1}^n h(i,j,k,l) 
-        \right)^2
-        \\
-        =&
-        \sum_{i=1}^7 \myE (A_i-\myE A_i)^2
-        +
-        2\sum_{1\leq i<j\leq 7} \myE (A_i-\myE A_i)(A_i-\myE A_i)
-    \end{split}
-\end{equation*}
-We have
-\begin{equation*}
-    \begin{split}
-         \myE (A_1-\myE A_1)^2
-         =\sum_{i=1}^n e(i,i,i,i)^2 \myE \left((Z_1^\top \BB Z_1)^2-\myE (Z_1^\top \BB Z_1)^2\right)^2
-    \end{split}
-\end{equation*}
-    
-\end{proof}
-
-
-\begin{lemma}
-\begin{equation*}
-    \myE \left((Z^\top \BB Z)^2-\myE (Z^\top \BB Z)^2\right)^2=
-\end{equation*}
-\end{lemma}
-\begin{proof}
-\begin{equation*}
-    \begin{split}
-    (Z^\top \BB Z)^2
-    =&
-    \left(\sum_{i=1}^m b_{i,i}z_{i}^2 + \sum_{i,j}^* b_{i,j} z_i z_j\right)^2
-    \\
-    =&
-    \left(\sum_{i=1}^m b_{i,i}z_{i}^2 \right)^2 + \left(\sum_{i,j}^* b_{i,j} z_i z_j\right)^2
-    +
-    2\left(\sum_{i=1}^m b_{i,i}z_{i}^2 \right)\left(\sum_{i,j}^* b_{i,j} z_i z_j\right)
-    \\
-    =&
-    \sum_{i=1}^m b_{i,i}^2 z_{i}^4
-    +\sum_{i,j}^* b_{i,i} b_{j,j} z_i^2 z_j^2
-    \\
-    &+ 
-    \sum_{i,j}^* \sum_{k,l}^* b_{i,j} b_{k,l} z_i z_j z_k z_l
-    +
-    2
-    \sum_{k=1}^m \sum_{i,j}^* b_{i,j} b_{k,k} z_i z_j z_{k}^2 
-    \end{split}
-\end{equation*}
-Note that
-\begin{equation*}
-    \begin{split}
-    &\sum_{i,j}^* \sum_{k,l}^*
-    b_{i,j} b_{k,l} z_i z_j z_k z_l
-    \\
-    =&
-    \sum_{i,j}^*
-    \sum_{k=i,l=j}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k=i,l\neq j}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k=j,l=i}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k=j,l\neq i}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k\notin \{i,j\},l=i}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k\notin \{i,j\},l=j}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k\notin \{i,j\},l\notin \{i,j\}}^*
-    \\
-    =&
-    2\sum_{i,j}^* b_{i,j}^2 z_i^2 z_j^2
-    +4\sum_{i,j,k}^* b_{i,j} b_{i,k} z_i^2 z_j z_k
-    +
-    \sum_{i,j,k,l}^*
-    b_{i,j} b_{k,l} z_i z_j z_k z_l
-    \end{split}
-\end{equation*}
-On the other hand
-\begin{equation*}
-\begin{split}
-    &\sum_{k=1}^m \sum_{i,j}^* b_{i,j} b_{k,k} z_i z_j z_{k}^2 
-    =
-     \sum_{i,j}^* \sum_{k=1}^m b_{i,j} b_{k,k} z_i z_j z_{k}^2 
-    \\
-    =
-    &
-     \sum_{i,j}^* b_{i,j} b_{i,i} z_i^3 z_j  
-     +
-     \sum_{i,j}^* b_{i,j} b_{j,j} z_i z_j^3
-     +
-     \sum_{i,j,k}^* b_{i,j} b_{k,k} z_{i} z_j z_k^2
-     =
-     \sum_{i,j}^* b_{i,i} b_{i,j}  z_i^3 z_j  
-     +
-     \sum_{i,j,k}^* b_{i,j} b_{k,k} z_{i} z_j z_k^2.
-\end{split}
-\end{equation*}
-Thus,
-\begin{equation*}
-    \begin{split}
-    (Z^\top \BB Z)^2
-    =&
-    \sum_{i=1}^m b_{i,i}^2 z_{i}^4
-    +\sum_{i,j}^* b_{i,i} b_{j,j} z_i^2 z_j^2
-    + 
-    \sum_{i,j}^* \sum_{k,l}^* b_{i,j} b_{k,l} z_i z_j z_k z_l
-    +
-    2
-    \sum_{k=1}^m \sum_{i,j}^* b_{i,j} b_{k,k} z_i z_j z_{k}^2 
-    \\
-    =
-    &
-    \sum_{i=1}^m b_{i,i}^2 z_{i}^4
-    +
-    \sum_{i,j}^* b_{i,i} b_{j,j} z_i^2 z_j^2
-    +
-    2\sum_{i,j}^* b_{i,j}^2 z_i^2 z_j^2
-    +4\sum_{i,j,k}^* b_{i,j} b_{i,k} z_i^2 z_j z_k
-    +
-    \sum_{i,j,k,l}^*
-    b_{i,j} b_{k,l} z_i z_j z_k z_l
-    \\
-    &+
-     2\sum_{i,j}^* b_{i,i} b_{i,j}  z_i^3 z_j  
-     +
-     2\sum_{i,j,k}^* b_{i,j} b_{k,k} z_{i} z_j z_k^2.
-    \\
-    =
-    &
-    \sum_{i=1}^m b_{i,i}^2 z_{i}^4
-    +
-    \sum_{i,j}^* (b_{i,i} b_{j,j} + 2 b_{i,j}^2 )
-    z_i^2 z_j^2
-    +
-     2\sum_{i,j}^* b_{i,i} b_{i,j}  z_i^3 z_j  
-     \\
-     &+\sum_{i,j,k}^*  (2 b_{i,i} b_{j,k}+4 b_{i,j} b_{i,k}) z_i^2 z_j z_k
-    +
-    \sum_{i,j,k,l}^*
-    b_{i,j} b_{k,l} z_i z_j z_k z_l
-    \end{split}
-\end{equation*}
-
-
-Firstly,
-\begin{equation*}
-    \myVar \left(\sum_{i=1}^m b_{i,i}^2 z_{i}^4\right)=O(\sum_{i=1}^4 b_{i,i}^4)
-\end{equation*}
-
-Secondly,
-\begin{equation*}
-    \myE \sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2) z_i^2 z_j^2=
-    \sum_{i,j}^*  (b_{i,i} b_{j,j}+2b_{i,j}^2)
-    =
-(\sum_{i=1}^m b_{i,i} )^2
--\sum_{i=1}^m b_{i,i}^2 
-+2 \sum_{i,j=1}^n b_{i,j}^2 -2 \sum_{i=1}^n b_{i,i}^2
-\end{equation*}
-\begin{equation*}
-    \begin{split}
-    & (\sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2) z_i^2 z_j^2)^2
-        \\
-        =&
-    \sum_{i,j}^*
-    \sum_{k,l}^*
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{k,k} b_{l,l} +2b_{k,l}^2)
-     z_i^2 z_j^2 z_k^2 z_l^2
-     \\
-     =&
-    \sum_{i,j}^*
-    \sum_{k=i,l=j}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k=i,l\neq j}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k=j,l=i}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k=j,l\neq i}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k\notin \{i,j\},l=i}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k\notin \{i,j\},l=j}^*
-    +
-    \sum_{i,j}^*
-    \sum_{k\notin \{i,j\},l\notin \{i,j\}}^*
-    \\
-    =&
-2\sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2)^2 z_i^4 z_j^4
-    +
-    \sum_{i,j,l}^* 
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{i,i} b_{l,l} +2b_{i,l}^2)
-     z_i^4 z_j^2 z_l^2
-    \\
-    &+\sum_{i,j,l}^* 
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{j,j} b_{l,l} +2b_{j,l}^2)
-     z_i^2 z_j^4 z_l^2
-    \\
-    &+\sum_{i,j,k}^* 
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{k,k} b_{i,i} +2b_{k,i}^2)
-     z_i^4 z_j^2 z_k^2
-    \\
-    &+\sum_{i,j,k}^* 
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{k,k} b_{j,j} +2b_{k,j}^2)
-     z_i^2 z_j^4 z_k^2
-    \\
-    &+\sum_{i,j,k,l}^*
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{k,k} b_{l,l} +2b_{k,l}^2)
-    z_i^2 z_j^2 z_k^2 z_l^2
-    \\
-    =&
-2\sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2)^2 z_i^4 z_j^4
-    +
-    4\sum_{i,j,k}^* 
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{i,i} b_{k,k} +2b_{i,k}^2)
-     z_i^4 z_j^2 z_k^2
-    \\
-    &+\sum_{i,j,k,l}^*
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{k,k} b_{l,l} +2b_{k,l}^2)
-    z_i^2 z_j^2 z_k^2 z_l^2
-    \end{split}
-\end{equation*}
-Hence
-\begin{equation*}
-    \begin{split}
-        & \myE (\sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2) z_i^2 z_j^2)^2
-    \\
-    =&
-    2\mu_4^2 \sum_{i,j}^* (b_{i,i} b_{j,j} + 2b_{i,j}^2 )^2
-    +
-    4\mu_4 \sum_{i,j,k}^*
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{i,i} b_{k,k} +2b_{i,k}^2)
-    \\
-    &+\sum_{i,j,k,l}^* 
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{k,k} b_{l,l} +2b_{k,l}^2)
-    \\
-    =&
-    2(\mu_4^2-1) \sum_{i,j}^* (b_{i,i} b_{j,j} + 2b_{i,j}^2 )^2
-    +
-    4(\mu_4-1) \sum_{i,j,k}^*
-    (b_{i,i} b_{j,j} +2b_{i,j}^2)
-    (b_{i,i} b_{k,k} +2b_{i,k}^2)
-    \\
-    &+
-(\sum_{i,j}^* (b_{i,i} b_{j,j}+2b_{i,j}^2) )^2
-    \end{split}
-\end{equation*}
-Note that
-\begin{equation*}
-    \sum_{i,j}^* b_{i,i}^2 b_{j,j}^2
-    =
-    \left(
-        \sum_{i=1}^m b_{i,i}^2 
-    \right)^2- \sum_{i=1}^m b_{i,i}^4
-\end{equation*}
-\begin{equation*}
-    \begin{split}
-    \sum_{i,j,k}^* b_{i,i}^2 b_{j,j} b_{k,k}
-    =&
-    \sum_{i=1}^m
-    \sum_{j\neq i}
-    \sum_{k\notin \{i,j\}}
-    b_{i,i}^2 b_{j,j} b_{k,k}
-    \\
-    =&
-    \sum_{i=1}^m
-    \sum_{j\neq i}
-    \sum_{k\neq i}
-    b_{i,i}^2 b_{j,j} b_{k,k}
-    -
-    \sum_{i=1}^m
-    \sum_{j\neq i}
-    b_{i,i}^2 b_{j,j}^2
-    \\
-    =&
-    2\sum_{i=1}^m b_{i,i}^4
-    -
-    (\sum_{i=1}^m b_{i,i}^2)^2
-    -
-    2
-    (\sum_{i=1}^m b_{i,i}^3)
-    (\sum_{i=1}^m b_{i,i})
-    +
-    (\sum_{i=1}^m b_{i,i}^2)
-    (\sum_{i=1}^m b_{i,i})^2
-    \end{split}
-\end{equation*}
-Thus,
-\begin{equation*}
-    \begin{split}
-        & \myE (\sum_{i,j}^* b_{i,i} b_{j,j} z_i^2 z_j^2)^2
-    \\
-    =&
-    2\mu_4^2 \sum_{i,j}^* b_{i,i}^2 b_{j,j}^2
-    +
-    4\mu_4 \sum_{i,j,k}^* b_{i,i}^2 b_{j,j} b_{k,k}
-    +\sum_{i,j,k,l}^* b_{i,i} b_{j,j} b_{k,k} b_{l,l}
-    \\
-    =&
-    2(\mu_4^2-1) \sum_{i,j}^* b_{i,i}^2 b_{j,j}^2
-    +
-    4(\mu_4-1) \sum_{i,j,k}^* b_{i,i}^2 b_{j,j} b_{k,k}
-    +(\sum_{i,j}^* b_{i,i} b_{j,j})^2
-    \\
-    =&
-    2(\mu_4^2-1)\left(
-        (
-        \sum_{i=1}^m b_{i,i}^2 
-    )^2- \sum_{i=1}^m b_{i,i}^4
-\right)
-\\
-&+
-4(\mu_4-1)
-\left(
-    2\sum_{i=1}^m b_{i,i}^4
-    -
-    (\sum_{i=1}^m b_{i,i}^2)^2
-    -
-    2
-    (\sum_{i=1}^m b_{i,i}^3)
-    (\sum_{i=1}^m b_{i,i})
-    +
-    (\sum_{i=1}^m b_{i,i}^2)
-    (\sum_{i=1}^m b_{i,i})^2
-\right)
-\\
-&+
-(\sum_{i=1}^m b_{i,i}^2)^2
-+
-(\sum_{i=1}^m b_{i,i})^4
--2
-(\sum_{i=1}^m b_{i,i}^2)
-(\sum_{i=1}^m b_{i,i})^2
-    \\
-    =&
-    (\sum_{i=1}^m b_{i,i})^4
-    +
-    (2\mu_4^2-4\mu_4+3)
-        (
-        \sum_{i=1}^m b_{i,i}^2 
-    )^2
-    +(-2\mu_4^2 + 8 \mu_4 -6) \sum_{i=1}^m b_{i,i}^4
-\\
-&+
-    (-8\mu_4+8)
-    (\sum_{i=1}^m b_{i,i}^3)
-    (\sum_{i=1}^m b_{i,i})
-    +
-(4\mu_4-6)
-    (\sum_{i=1}^m b_{i,i}^2)
-    (\sum_{i=1}^m b_{i,i})^2
-    \end{split}
-\end{equation*}
-Thus,
-\begin{equation*}
-    \begin{split}
-        & \myVar (\sum_{i,j}^* b_{i,i} b_{j,j} z_i^2 z_j^2)
-    \\
-    =&
-    (\sum_{i=1}^m b_{i,i})^4
-    +
-    (2\mu_4^2-4\mu_4+3)
-        (
-        \sum_{i=1}^m b_{i,i}^2 
-    )^2
-    +(-2\mu_4^2 + 8 \mu_4 -6) \sum_{i=1}^m b_{i,i}^4
-\\
-&+
-    (-8\mu_4+8)
-    (\sum_{i=1}^m b_{i,i}^3)
-    (\sum_{i=1}^m b_{i,i})
-    +
-(4\mu_4-6)
-    (\sum_{i=1}^m b_{i,i}^2)
-    (\sum_{i=1}^m b_{i,i})^2
-    \\
-    &-(\sum_{i=1}^m b_{i,i})^4
-    -(\sum_{i=1}^m b_{i,i}^2)^2
-    +2(\sum_{i=1}^m b_{i,i})^2 (\sum_{i=1}^m b_{i,i}^2)
-    \\
-    =&
-    (2\mu_4^2-4\mu_4+2)
-        (
-        \sum_{i=1}^m b_{i,i}^2 
-    )^2
-    +(-2\mu_4^2 + 8 \mu_4 -6) \sum_{i=1}^m b_{i,i}^4
-\\
-&+
-    (-8\mu_4+8)
-    (\sum_{i=1}^m b_{i,i}^3)
-    (\sum_{i=1}^m b_{i,i})
-    +
-(4\mu_4-4)
-    (\sum_{i=1}^m b_{i,i}^2)
-    (\sum_{i=1}^m b_{i,i})^2
-    \\
-    \end{split}
-\end{equation*}
-
-
-\end{proof}
 
 
 
@@ -1818,482 +1272,337 @@ Thus,
 \end{proof}
 
 
-\begin{lemma}
-    Let $\BW$ be an $N\times N$ positive semi-definite matrix.
-    Let $Z$ be an $N$ dimensional sub-gaussian random vector with $\myE Z=0$, $\myVar (Z)= \BI_n$ and $\|Z\|_{\psi_2} \leq K$.
-    For all $t>0$,
-    \begin{equation*}
-        \Pr\left\{
-            Z^\top \BW Z >
-        \right\} 
-        \leq e^{-t}.
-    \end{equation*}
-\end{lemma}
-\begin{remark}
-    This lemma is adapted from \cite{Hsu2012} Theorem 2.1 with minor modifications.
-    Indeed, their result did not track the variance of $Z$.
-\end{remark}
-\begin{proof}
-    Let $\BA=\sqrt{\BW}$.
-    Let $Z^*$ be a vector of $N$ independent standard Gaussian random variables which are independent of $Z$.  
-    \begin{equation*}
-        \myE [\exp (\lambda Z^{*\top } \BA Z)]
-        =
-        \myE\myE [\exp (\lambda Z^{*\top } \BA Z)| Z]
-        =\myE[\exp (\frac{\lambda^2}{2} Z^\top \BW Z)]
-    \end{equation*}
-\end{proof}
-\begin{lemma}
-    
-\end{lemma}
-\begin{proof}
-    
-\end{proof}
-
-\begin{proof}[\textbf{Proof of Lemma \ref{lemma:con}}]
-\begin{equation*}
-    \begin{split}
-    \|\BZ^\top \BW \BZ -\mytr (\BW) \BI_n\| 
-    \leq
-    \|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\| 
-    + 
-    \| \mydiag(\BZ^\top \BW \BZ) -\mytr (\BW) \BI_n\| 
-    \end{split}
-\end{equation*}
-We have
-\begin{equation*}
-    \| \mydiag(\BZ^\top \BW \BZ) -\mytr (\BW) \BI_n\| 
-    =
-    \max_{1\leq i\leq n}
-    |Z_i^\top \BW Z_i- \mytr (\BW)|
-    \leq
-    \sqrt{
-\sum_{i=1}^{ n}
-\left(Z_i^\top \BW Z_i- \mytr (\BW)\right)^2
-}
-\end{equation*}
-From \cite[Proposition A.1]{chen2010tests},
-\begin{equation*}
-    \myE \left[\sum_{i=1}^n \left(Z_i^\top \BW Z_i- \mytr (\BW)\right)^2\right]
-    =2n \mytr(\BW^2) + \Delta n \mytr(\BW\circ\BW)
-    \leq (2+\Delta) n \mytr(\BW^2).
-\end{equation*}
-Hence
-\begin{equation*}
-    \| \mydiag(\BZ^\top \BW \BZ) -\mytr (\BW) \BI_n\| 
-    =O_P(\sqrt n \|\BW\|_F).
-\end{equation*}
-Next we deal with
-\begin{equation*}
-    \|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\| 
-\end{equation*}
-From \cite[Lemma 5.2]{Roman2018}, there is a $1/4$-net $\mathcal C$ of the unit sphere $S^{n-1}$ such that $|\mathcal C|\leq 9^n$.
-By \cite[Exercise 4.4.3]{Roman2018}, 
-\begin{equation*}
-    \|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\|\leq 2 \sup_{x\in\mathcal C} \left|x^\top \left(\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ) \right) x\right|.
-\end{equation*}
-Fix $x\in \mathcal C$.
-Then
-\begin{equation*}
- \left|x^\top \left(\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ) \right) x\right|
- =
- \left|
- \sum_{i=1}^{n} \sum_{j\neq i}^n
- x_i x_j Z_i^\top \BW Z_j  
- \right|
-\end{equation*}
-Now we bound the moment generating function of $\sum_{i=1}^{n} \sum_{j\neq i}^n
- x_i x_j Z_i^\top \BW Z_j$.
- We apply the decoupling technique in \cite{Roman2018}, Section 6.1.
- Let $\delta_1,\ldots,\delta_n$ be independent Bernoulli random variables with $\Pr\{\delta_i=0\}=\Pr\{\delta_i=1\}=1/2$.
-For any $\lambda \in \mathbb R$,
-\begin{equation*}
-    \begin{split}
-    \myE
-    \exp
-    \left\{
-        \lambda
- \sum_{i=1}^{n} \sum_{j\neq i}^n
- x_i x_j Z_i^\top \BW Z_j  
- \right\}
- =&
-    \myE
-    \exp
-    \left\{
-        \myE\left(
-            4
-        \lambda
- \sum_{i=1}^{n} \sum_{j=1}^n
- \delta_i (1-\delta_j) x_i x_j Z_i^\top \BW Z_j  
- \bigg | \BZ \right)
- \right\}
- \\
- \leq &
-        \myE
-    \exp
-    \left\{
-            4
-        \lambda
- \sum_{i=1}^{n} \sum_{j=1}^n
- \delta_i (1-\delta_j) x_i x_j Z_i^\top \BW Z_j  
- \right\}
- \\
- = &
-        \myE
-    \exp
-    \left\{
-            4
-        \lambda
-        (\sum_{i:\delta_i=1} x_i Z_i)^\top \BW
-         (\sum_{j:\delta_j=0}
-         x_j  Z_j  )
- \right\}
- \\
- \leq&
- \max_{I\subset [n]}
-        \myE
-    \exp
-    \left\{
-            4
-        \lambda
-        (\sum_{i\in I}x_i  Z_i)^\top \BW (\sum_{j\notin I}x_j Z_j  )
- \right\},
-    \end{split}
-\end{equation*}
-where the first inequality follows from Jensen's inequality.
-Fix an $I\subset [n]$.
-From \cite{Roman2018}, Proposition 2.6.1, $\|\sum_{ i \in I} x_i Z_i\|_{\psi_2}\leq C_1 K$, $\|\sum_{ j \notin I} x_j Z_j\|_{\psi_2}\leq C_1 K$ for some absolute constant $C_1$.
-Then \cite{Roman2018}, Lemma 6.2.2 and Lemma 6.2.3 imply that
-there exist absolute constants $C_2,C_3$ such that, 
-\begin{equation*}
-        \myE
-    \exp
-    \left\{
-            4
-        \lambda
-        (\sum_{i\in I}x_i  Z_i)^\top \BW (\sum_{j\notin I}x_j Z_j  )
- \right\}
- \leq
- \exp
- \left\{
-     C_2 K^4
- \|\BW\|_F^2
-     \lambda^2 
- \right\}
-\end{equation*}
-for all 
-$|\lambda|\leq {C_3}/{(K^2\|\BW\|)}$.
-Note that this bound does not depend on $I\subset [n]$.
-It follows that
-\begin{equation*}
-    \begin{split}
-    &\myE
-    \exp
-    \left\{
-        \lambda
- \sum_{i=1}^{n} \sum_{j\neq i}^n
- x_i x_j Z_i^\top \BW Z_j  
- \right\}
- \leq 
-\exp\left\{
-    C_2 K^4 \|\BW\|_F^2 \lambda^2
-\right\}
-,
-    \end{split}
-\end{equation*}
-for all $|\lambda|\leq {C_3}/{( K^2 \|\BW\|)}$.
-Then applying Chernoff bound yields that, for any $t>0$,
-\begin{equation*}
-    \begin{split}
-        \Pr\left(
- \left|
- \sum_{i=1}^{n} \sum_{j\neq i}^n
- x_i x_j Z_i^\top \BW Z_j  
- \right| > t
-        \right) 
-        %\\
-        %\leq
-        %&\inf_{0<\lambda\leq \frac{C_3}{ K^2 \|\BW\|}}
-        %\exp(-\lambda t)
-        %\myE 
-        %\left(
-        %\exp
-    %\left\{
-        %\lambda
- %\sum_{i=1}^{n} \sum_{j\neq i}^n
- %x_i x_j Z_i^\top \BW Z_j  
- %\right\}
- %+
-        %\exp
-    %\left\{
-        %-\lambda
- %\sum_{i=1}^{n} \sum_{j\neq i}^n
- %x_i x_j Z_i^\top \BW Z_j  
- %\right\}
- %\right)
- %\\
- \leq
-        &\inf_{0<\lambda\leq \frac{C_3}{ K^2 \|\BW\|}}
-        2\exp\left\{-\lambda t + C_2  K^4\|\BW\|_F^2 \lambda^2 \right\}
-        \\
-        \leq
-        &
-        2\exp\left\{
-            -\min\left(
-                \frac{t^2}{4 C_2  K^4 \|\BW\|^2_F}
-                ,
-                \frac{C_3 t}{2  K^2 \|\BW\|}
-            \right)
-        \right\}.
-    \end{split}
-\end{equation*}
-This inequality, combined with union bound, yields
-\begin{equation*}
-    \begin{split}
-        \Pr\left(\|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\|>t\right)
-        \leq &
-        \Pr\left(
-        2 \sup_{x\in\mathcal C} \left|x^\top \left(\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ) \right) x\right|
-        >t
-    \right)
-    \\
-    \leq&
-    2\cdot 9^n
-\exp\left\{
-            -\min\left(
-                \frac{t^2}{16 C_2  K^4 \|\BW\|^2_F}
-                ,
-                \frac{C_3 t}{4  K^2 \|\BW\|}
-            \right)
-        \right\}
-        .
-    \end{split}
-\end{equation*}
-Thus, there exists a large $C>0$ such that for every $t>0$,
-\begin{equation*}
-        \Pr\left(\|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\|>
-            C(K^2 (\sqrt {n}+t) \|\BW\|_F + K^2 (n+t^2) \|\BW\|)
-        \right)
-        \leq 2\exp\{-t^2\}.
-\end{equation*}
-Consequently,  $\|\BZ^\top \BW \BZ - \mydiag(\BZ^\top \BW \BZ)\|=O_P(K^2(\sqrt n \|\BW\|_F+ n \|\BW\|))$.
-This completes the proof.
 
 
 
 
  
-\end{proof}
 
-    \section{haha2}
+\section{haha3}
 \begin{theorem}
-    Let $\zeta_1,\ldots,\zeta_d$ be iid random variables with mean $0$ and variance $1$, and assume $\mu_k:= \myE (\zeta_1^k)$ is finite for $k\leq 8$.
-    Let $\bzeta=(\zeta_1,\ldots,\zeta_d)^\top\in \mathbb R^d$.
-    For $k=1,\ldots, K$, let $\BQ_k=(q_{i_j}^{(k)})$ be a $d\times d$ symmetric matrix and let $\check\BQ_k=\mydiag(q_{11}^{(k)},\ldots, q_{dd}^{(k)})$, $\hat\BQ_k=\BI_d-\check\BQ_k$.
-    Define $\hat{w}_k= \bzeta^\top \hat\BQ_k \bzeta$, $\check w_k = \bzeta^\top \check \BQ_k \bzeta -\mytr(\BQ_k)$, and
-\begin{equation*}
-W=
-    \begin{pmatrix}
-   \hat w_1\\
-   \check w_1\\
-   \vdots\\
-   \hat w_K\\
-   \check w_K
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-        \bzeta^\top \hat \BQ_1 \bzeta
-        \\
-        \bzeta^\top \check \BQ_1 \bzeta -\mytr (\BQ_1)
-        \\
-        \vdots\\
-        \bzeta^\top \hat \BQ_1 \bzeta
-        \\
-        \bzeta^\top \check \BQ_1 \bzeta -\mytr (\BQ_1)
-        \\
-    \end{pmatrix}
-    \in \mathbb R^{2K}.
-\end{equation*}
-Finally, let $Z\sim \mathcal N_{2K} (0,\BI_{2K})$ and $\BV = \myCov (W)$. 
-There is an absolute constant $0<C<\infty$ such that
-\begin{equation*}
-    haha
-\end{equation*}
+    Let $\BA$ be an $n\times n$ symmetric matrix.
+    Suppose the elements of $\bepsilon$ are symmetric and have finite eighth moments.
+    Then
+    \begin{equation*}
+        \frac{
+            \bepsilon^\top \BA \bepsilon-\sigma^2 \mytr (\BA)
+        }{
+            \sqrt{
+    2\sigma^4 \mytr(\BA^2)
+    +
+        (\mu_4-3\sigma^4)\mytr(\BA\circ \BA)
+            }             
+        }
+    \end{equation*}
+    \label{approximation}
 \end{theorem}
 \begin{proof}
-    Let $f:\mathbb R^{2K} \to \mathbb R$ be a four-times differentiable function.
-    From xxx, there is a $4-times$ differentiable function $g : \mathbb R^{2K}\to \mathbb R$ satisfying the Stein identity
-\begin{equation*}
-    \myE [f(W)]    - \myE [f(\BV^{1/2} W)]=
-    \myE [\nabla^\top  \BV \nabla g(W) - W^\top \nabla g(W)]
-\end{equation*}
-and 
-\begin{equation*}
-    \left| \frac{\partial^k g(\Bx)}{\prod_{j=1}^k \partial x_{i_j}} \right| 
-    \leq
-    \frac{1}{k}
-    \left| \frac{\partial^k f(\Bx)}{\prod_{j=1}^k \partial x_{i_j}} \right|
-    \quad
-    \text{for all $\Bx=(x_1,\ldots, x_{2K})^\top \in \mathbb R^{2K}$,
-    $k=1,2,3$, and $i_j \in \{1,\ldots, 2K\}$.}
-\end{equation*}
-To prove the theorem, we bound
-\begin{equation*}
-    S=\myE [\nabla^\top \BV \nabla g(W) -W^\top \nabla g(W)].
-\end{equation*}
-
-Next, we use exchangeability.
-Let $\bzeta' = (\zeta_1',\ldots, \zeta_d')^\top$ be an independent copy of $\zeta$, and let $\underline i \in \{1,\ldots, d\}$ be an independent and uniformly distributed random index.
-Define the vector $W' \in \mathbb R^{2K}$ exactly as we defined $W$, except that $\bzeta_{\underline i}$ is replaced with $\bzeta_{\underline i}'$ throughout.
-More precisely, let $e_i \in \mathbb R^d$ be the $i$th standard basis vector in $\mathcal R^d$ and define
-\begin{equation*}
-\begin{split}
-    \hat w_k'=& (\bzeta + (\zeta_{\underline i}' - \zeta_{\underline i}) e_{\underline i})^\top 
-    \hat \BQ_k
-    (\bzeta + (\zeta_{\underline i}' - \zeta_{\underline i}) e_{\underline i})
-\\
-=& \hat w_k + 2 (\zeta_{\underline i}' - \zeta_{\underline i}) e_{\underline i}^\top \hat \BQ_k \bzeta,
-\end{split}
-\end{equation*}
-\begin{equation*}
-\begin{split}
-    \check w_k'=& (\bzeta + (\zeta_{\underline i}' - \zeta_{\underline i}) e_{\underline i})^\top 
-    \check \BQ_k
-    (\bzeta + (\zeta_{\underline i}' - \zeta_{\underline i}) e_{\underline i})
-    -\mytr(\BQ_k)
-\\
-=& \check w_k +  e_{\underline i}^\top \check \BQ_k e_{\underline i} ((\zeta_{\underline i}')^2 - \zeta_{\underline i}^2) ,
-\end{split}
-\end{equation*}
-for $k=1,\ldots, K$.
-Then $W'= (\hat w_1',\check w_1', \ldots, \hat w_K', \check w_K')^\top \in \mathbb R^{2K}$.
-Its straightforward to verify that
-\begin{equation*}
-    \myE (\hat w_k' - \hat w_k|\bzeta)=-\frac{2}{d} \hat w_k,
-    \quad
-    \myE (\check w_k' - \check w_k|\bzeta)=-\frac{1}{d} \check w_k.
-\end{equation*}
+    Let
+    \begin{equation*}
+        \tilde a_{i,j}=
+        \frac{a_{i,j}}{
+            \sqrt{
+    2\sigma^4 \mytr(\BA^2)
+    +
+        (\mu_4-3\sigma^4)\mytr(\BA\circ \BA)
+            }             
+        }
+    \end{equation*}
 Then
-\begin{equation*}
-    \myE ( W' - W |\bzeta) = - \Lambda_K W,
-\end{equation*}
-where
-\begin{equation*}
-    \Lambda_1=
-    \begin{pmatrix}
-       \frac 2 d & 0\\
-       0 & \frac 1 d
-    \end{pmatrix}
-    ,
-    \quad
-    \Lambda_K =
-    \begin{pmatrix}
-        \Lambda_1 & 0 & \cdots & 0\\
-         0 &\Lambda_1  & \cdots & 0\\
-         \vdots & \vdots && \vdots\\
-         0 & 0 & \cdots & \Lambda_1
-    \end{pmatrix}
-    \in \mathbb R^{2K\times 2K}.
-\end{equation*}
+    \begin{equation*}
+        \frac{
+            \bepsilon^\top \BA \bepsilon-\sigma^2 \mytr (\BA)
+        }{
+            \sqrt{
+    2\sigma^4 \mytr(\BA^2)
+    +
+        (\mu_4-3\sigma^4)\mytr(\BA\circ \BA)
+            }             
+        }
+        =\sum_{i=1}^n \tilde a_{i,i}\epsilon_i^2
+    +\sum_{i=1}^n \sum_{j\neq i}^n \tilde a_{i,j} \epsilon_i \epsilon_j
+    \end{equation*}
 
-By exchangeability, we have
-\begin{equation*}
-    \begin{split}
-        0=&\frac 1 2 \myE [(W'-W)^\top \Lambda_K^{-\top} (\nabla g(W') +\nabla g(W))]
+
+    Let $z_1,\ldots,z_n$  be iid random variables with distribution $\mathcal N (0, \tilde{\sigma}^2) $ and $\check z_1, \ldots, \check z_n$ be iid random variables with distribution $\mathcal N (0,\tilde{\mu}_4-\tilde \sigma^4)$ which are independent of $\epsilon_1,\ldots, \epsilon_n$.
+    For $l=1,\ldots, n$, let
+    \begin{align*}
+        S_l = & 
+        \sum_{i=1}^{l-1} \tilde a_{i,i}(\epsilon_i^2-\sigma^2)
+        +
+        \sum_{i=l+1}^{n} \tilde a_{i,i}  \check  z_i
+        +\sum_{i=1}^{l-1} \sum_{j\neq i}^{l-1} \tilde a_{i,j} \epsilon_i \epsilon_j
+        +2\sum_{i=1}^{l-1} \sum_{j=l+1}^n \tilde a_{i,j} \epsilon_i z_j
+        +\sum_{i=l+1}^n \sum_{j=l+1}^n \tilde a_{i,j} z_i z_j
         \\
-        =& \myE [(W'-W)^\top \Lambda_K^{-\top} \nabla g(W)]
-        +\frac{1}{2} \myE [(W'-W)^\top \Lambda_K^{-\top} (\nabla g(W') -\nabla g(W))]
+        \xi_l = & \tilde a_{l,l} (\epsilon_l^2 -\sigma^2)
+        +2\sum_{i < l} \tilde a_{i,l} \epsilon_i \epsilon_l
+        +2\sum_{i > l} \tilde a_{i,l} z_i \epsilon_l
+        \\
+        \eta_l = &
+        \tilde a_{l,l} \check z_l
+        +2\sum_{i < l} \tilde a_{i,l} \epsilon_i z_l
+        +2\sum_{i > l} \tilde a_{i,l} z_i z_l
+    \end{align*}
+    Then
+    \begin{equation*}
+        S_n + \xi_n =  \sum_{i=1}^n \tilde a_{i,i}(\epsilon_i^2 - \sigma^2)
+        +\sum_{i=1}^n \sum_{j\neq i}^n \tilde a_{i,j} \epsilon_i \epsilon_j
+    \end{equation*}
+    \begin{equation*}
+        S_1 +  \eta_1 = \sum_{i=1}^n \tilde a_{i,i}\check z_i
+        +\sum_{i=1}^n \sum_{j\neq i}^n \tilde a_{i,j} z_i z_j
+    \end{equation*}
+    For $l=1,\ldots, n-1$, 
+    \begin{equation*}
+        S_l+ \xi_l =S_{l+1} + \eta_{l+1} 
+    \end{equation*}
+
+    Thus, for any $f \in \mathscr C^4 (\mathbb R)$,
+    \begin{equation*}
+        \begin{split}
+        &
+        \left|\myE f\left(\sum_{i=1}^n \tilde a_{i,i}(\epsilon_i^2 - \sigma^2)
+        +\sum_{i=1}^n \sum_{j\neq i}^n \tilde a_{i,j} \epsilon_i \epsilon_j\right)
+        -
+        \myE f\left(\sum_{i=1}^n \tilde a_{i,i}\check z_i
+        +\sum_{i=1}^n \sum_{j\neq i}^n \tilde a_{i,j} z_i z_j\right)\right| 
         \\
         =&
-        - \myE [W^\top  \nabla g(W)]
-        +\frac{1}{2} \myE [(W'-W)^\top \Lambda_K^{-\top} (\nabla g(W') -\nabla g(W))].
-    \end{split}
-\end{equation*}
-That is,
+        \left| \myE f(S_n+\xi_n)-\myE f(S_1+\eta_1)\right|
+        \\
+        =&
+        \left|\sum_{l=2}^{n} \left(\myE f(S_{l}+\xi_{l})-\myE f(S_{l-1}+\xi_{l-1})\right)+\myE f(S_{1}+\xi_{1})-\myE f(S_{1}+\eta_{1})\right|
+        \\
+        = &
+       \left| \sum_{l=1}^{n} \myE f(S_{l}+\xi_{l})-\myE f(S_{l}+\eta_{l})\right|
+        \end{split}
+    \end{equation*}
+    Apply Taylor's theorem, for $l=1,\ldots,n$,
+    \begin{equation*}
+        \begin{split}
+            f(S_{l}+\xi_{l})=&
+            f(S_{l})
+            +
+            \xi_{l}f'(S_{l})
+            +
+            \frac{1}{2}\xi_{l}^2f''(S_{l})
+            +\frac{1}{6}\xi_{l}^3 f''' (S_{l})
+            +
+            \frac{1}{24}\xi_{l}^4 f'''' (S_{l}+\theta_1 \xi_{l}),
+            \\
+            f(S_{l}+\eta_{l})=&
+            f(S_{l})
+            +
+            \eta_{l}f'(S_{l})
+            +
+            \frac{1}{2}\eta_{l}^2f''(S_{l})
+            +\frac{1}{6}\eta_{l}^3 f''' (S_{l})
+            +
+            \frac{1}{24}\eta_{l}^4 f'''' (S_{l}+\theta_2 \eta_{l}),
+        \end{split}
+    \end{equation*}
+    where $\theta_1,\theta_2\in[0,1]$.
+    Thus,
+    \begin{equation*}
+        \begin{split}
+             &\left| \myE f(S_{l}+\xi_{l})-\myE f(S_{l}+\eta_{l})\right|
+             \\
+\leq&
+\left|
+\myE (\xi_{l}-\eta_{l})f'(S_{l})
+            +
+            \myE \frac{1}{2}(\xi_{l}^2-\eta_l^2)f''(S_{l})
+            +
+            \myE \frac{1}{6}(\xi_{l}^3-\eta_l^3) f''' (S_{l})
+            \right|
+            +
+        \frac{1}{12} \|f'''' \|_{\infty} \left( \myE (\xi_{l}^4)+\myE (\eta_{l}^4)\right)
+             \\
+=&
+\left|
+\myE f'(S_{l})
+\myE_l (\xi_{l}-\eta_{l})
+            +
+            \myE \frac{1}{2}f''(S_{l})
+\myE_l (\xi_{l}^2-\eta_l^2)
+            +
+            \myE \frac{1}{6} f''' (S_{l})
+            \myE_l (\xi_{l}^3-\eta_l^3)
+            \right|
+            +
+            \frac{1}{12} \|f'''' \|_{\infty} \left(\myE (\xi_{l}^4)+\myE (\eta_{l}^4)\right),
+        \end{split}
+    \end{equation*}
+where $\myE_l$ is the expectation with respect to $\epsilon_l, z_l ,\check z_l$.
+It is straightforward to show that
 \begin{equation*}
-         \myE [W^\top  \nabla g(W)]
-         =
-        \frac{1}{2} \myE [(W'-W)^\top \Lambda_K^{-\top} (\nabla g(W') -\nabla g(W))].
-\end{equation*}
-Apply Taylor's theorem,
-\begin{equation}
     \begin{split}
-         &W^\top  \nabla g(W)
-         \\
-         =&
-         \frac 1 2 \sum_{i,j=1}^{2K}
-         \Lambda_{K,ii}^{-1} D^{ij} g(W) (w_i'-w_i) (w_j'-w_j)
-         +
-         \frac 1 4 \sum_{i,j,k=1}^{2K}
-         \Lambda_{K,ii}^{-1} D^{ijk} g(W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k)
-         \\
-         &+
-         \frac{1}{12} \sum_{i,j,k,l=1}^{2K}
-         \Lambda_{K,ii}^{-1} D^{ijkl} g(t^*(W'-W)+W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k) (w_l'-w_l)
-         \\
-         =&
-         \frac 1 2 
-         \mytr
-         [
-         (W'-W)
-         (W'-W)^\top \Lambda_K^{-\top} \nabla^2 g(W)
-     ]
-         +
-         \frac 1 4 \sum_{i,j,k=1}^{2K}
-         \Lambda_{K,ii}^{-1} D^{ijk} g(W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k)
-         \\
-         &+
-         \frac{1}{12} \sum_{i,j,k,l=1}^{2K}
-         \Lambda_{K,ii}^{-1} D^{ijkl} g(t^*(W'-W)+W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k) (w_l'-w_l),
+        \myE_l (\xi_l-\eta_l)&=0, 
+        \\
+        \myE_l (\xi_l^2-\eta_l^2)&= 
+        \left(
+            (\mu_4-\sigma^4)
+            -
+            (\tilde \mu_4- \tilde \sigma^4)
+        \right)
+        \tilde a_{l,l}^2
+        +4(\sigma^2 - \tilde \sigma^2) 
+        \left( \sum_{i<l} \tilde a_{i,l} \epsilon_i + \sum_{i>l} \tilde a_{i,l} z_i   \right)^2
+        ,
+        \\
+        \myE_l (\xi_l^3-\eta_l^3)&= 
+        (\mu_6 - 3\mu_4 \sigma^2 + 2\sigma^6)
+        \tilde a_{l,l}^3 
+        +
+        12 (\mu_4-\sigma^4) \tilde a_{l,l} \left( \sum_{i<l} \tilde a_{i,l} \epsilon_i + \sum_{i>l} \tilde a_{i,l} z_i    \right)^2 
+        .
     \end{split}
-\end{equation}
-where $t^*\in [0,1]$.
-Also by exchangeability,
-\begin{equation*}
-    \myE[(W'-W) (W'-W)^\top] 
-    =
-    2\myE[ W(W-W')^\top] 
-    =
-    2\myE[ W W^\top \Lambda_K^\top] 
-    =2\BV \Lambda_K^\top.
-\end{equation*}
-It follows that
-\begin{equation*}
-    \myE [\nabla^\top \BV \nabla g(W)] 
-    =
-    \myE \mytr [\BV \nabla^2 g(W)] 
-    =
-    \frac 1 2 \myE \mytr [ \myE [(W'-W)(W'-W)^\top] \Lambda_K^{-\top} \nabla^2 g(W)] 
 \end{equation*}
 Thus,
+    \begin{equation*}
+        \begin{split}
+             &\left| \myE f(S_{l}+\xi_{l})-\myE f(S_{l}+\eta_{l})\right|
+             \\
+\leq&
+\frac{1}{2}
+\|f''\|_\infty
+\left(
+\left|
+            (\mu_4-\sigma^4)
+            -
+            (\tilde \mu_4- \tilde \sigma^4)
+\right|
+        \tilde a_{l,l}^2
+        +4|\sigma^2 - \tilde \sigma^2|
+        \myE\left( \sum_{i<l} \tilde a_{i,l} \epsilon_i + \sum_{i>l} \tilde a_{i,l} z_i   \right)^2
+        \right)
+        \\
+            &+
+            \frac{1}{6} \|f'''\|_{\infty}
+\left(
+        (\mu_6 - 3\mu_4 \sigma^2 + 2\sigma^6)
+        |\tilde a_{l,l}^3 |
+        +
+        12 (\mu_4-\sigma^4)
+            \myE 
+        |\tilde a_{l,l}| \left( \sum_{i<l} \tilde a_{i,l} \epsilon_i + \sum_{i>l} \tilde a_{i,l} z_i    \right)^2 
+    \right)
+    \\
+            &+
+            \frac{1}{12} \|f'''' \|_{\infty} \left(\myE (\xi_{l}^4)+\myE (\eta_{l}^4)\right)
+            \\
+=&\frac{1}{2}
+\|f''\|_\infty
+\left(
+\left|
+            (\mu_4-\sigma^4)
+            -
+            (\tilde \mu_4- \tilde \sigma^4)
+\right|
+        \tilde a_{l,l}^2
+        +4|\sigma^2 - \tilde \sigma^2|
+        \left( \sum_{i<l} \tilde a_{i,l}^2 \sigma^2 + \sum_{i>l} \tilde a_{i,l}^2 \tilde \sigma^2   \right)
+        \right)
+        \\
+            &+
+\frac{1}{6} \|f'''\|_\infty
+\left(
+        (\mu_6 - 3\mu_4 \sigma^2 + 2\sigma^6)
+        |\tilde a_{l,l}^3 |
+        +
+        12 (\mu_4-\sigma^4)
+        |\tilde a_{l,l}| \left( \sum_{i<l} \tilde a_{i,l}^2 \sigma^2 + \sum_{i>l} \tilde a_{i,l}^2 \tilde \sigma^2    \right)
+    \right)
+    \\
+            &+
+            \frac{1}{12} \|f'''' \|_{\infty} \left(\myE (\xi_{l}^4)+\myE (\eta_{l}^4)\right)
+            .
+        \end{split}
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+        \begin{split}
+             &
+             \sum_{l=1}^n \left| \myE f(S_{l}+\xi_{l})-\myE f(S_{l}+\eta_{l})\right|
+             \\
+\leq&
+\frac{1}{2}
+\|f''\|_\infty
+\left(
+\left|
+            \mu_4
+            -
+            \tilde \mu_4
+\right|
+\sum_{l=1}^n \tilde a_{l,l}^2
+        +2|\sigma^4 - \tilde \sigma^4|
+        \sum_{i=1}^n \sum_{l=1}^n \tilde a_{i,l}^2    \right)
+        \\
+            &+
+            \frac{1}{6} \|f'''\|_{\infty}
+\left(
+        (\mu_6 - 3\mu_4 \sigma^2 + 2\sigma^6)
+        \sum_{l=1}^n  |\tilde a_{l,l}^3 |
+        +
+        12 (\mu_4-\sigma^4)
+        \sum_{l=1}^n |\tilde a_{l,l}| \left( \sum_{i<l} \tilde a_{i,l}^2 \sigma^2 + \sum_{i>l} \tilde a_{i,l}^2 \tilde \sigma^2    \right)
+    \right)
+    \\
+            &+
+            \frac{1}{12} \|f'''' \|_{\infty} \left(\myE (\xi_{l}^4)+\myE (\eta_{l}^4)\right)
+            .
+        \end{split}
+    \end{equation*}
+
+We have
 \begin{equation*}
     \begin{split}
-    S=&\myE [\nabla^\top \BV \nabla g(W) -W^\top \nabla g(W)]\\
-    =
-&
-    \frac 1 2 \myE \mytr [ \myE [(W'-W)(W'-W)^\top] \Lambda_K^{-\top} \nabla^2 g(W)] 
-         -\frac 1 2 
-\myE
-         \mytr
-         [
-         (W'-W)
-         (W'-W)^\top \Lambda_K^{-\top} \nabla^2 g(W)
-     ]
-     \\
-         &-
-         \frac 1 4 \myE
-         \sum_{i,j,k=1}^{2K}
-         \Lambda_{K,ii}^{-1} D^{ijk} g(W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k)
-         \\
-         &-
-         \frac{1}{12} \myE
-         \sum_{i,j,k,l=1}^{2K}
-         \Lambda_{K,ii}^{-1} D^{ijkl} g(t^*(W'-W)+W) (w_i'-w_i) (w_j'-w_j)(w_k'-w_k) (w_l'-w_l).
+        \myE (\xi_l^4)&=
+        O((\sum_{i=1}^n \tilde a_{i,l}^2 )^2)
+        ,
+        \quad
+        \myE (\eta_l^4)=
+O((\sum_{i=1}^n \tilde a_{i,l}^2 )^2)
+.
     \end{split}
 \end{equation*}
+Then
 
+    \begin{equation*}
+        \begin{split}
+             &
+             \sum_{l=1}^n \left| \myE f(S_{l}+\xi_{l})-\myE f(S_{l}+\eta_{l})\right|
+             \\
+\leq&
+\frac{1}{2}
+\|f''\|_\infty
+\left(
+\left|
+            \mu_4
+            -
+            \tilde \mu_4
+\right|
+\sum_{l=1}^n \tilde a_{l,l}^2
+        +2|\sigma^4 - \tilde \sigma^4|
+        \sum_{i=1}^n \sum_{l=1}^n \tilde a_{i,l}^2    \right)
+        \\
+            &+
+            O(1) \|f'''\|_{\infty}
+            \max_{l\in\{1,\ldots,n\}} |\tilde a_{l,l}|
+            +
+            O(1) \|f'''' \|_{\infty} 
+                \max_{l\in\{1,\ldots, n\}}
+            \left(
+   \sum_{i=1}^n \tilde a_{i,l}^2 
+        \right)
+            .
+        \end{split}
+    \end{equation*}
 
+ 
 \end{proof}
+
 
 \end{appendices}
 
