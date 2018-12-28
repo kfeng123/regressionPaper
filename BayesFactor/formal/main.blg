@@ -3,54 +3,54 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: apalike.bst
 Database file #1: mybibfile.bib
-Repeated entry---line 507 of file mybibfile.bib
- : @article{maruyama2011
- :                      ,
-I'm skipping whatever remains of this entry
 Repeated entry---line 739 of file mybibfile.bib
  : @article{zhou2018On
  :                    ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 1020 of file mybibfile.bib
+ : @article{jiang1996reml
+ :                       ,
+I'm skipping whatever remains of this entry
 Warning--can't use both author and editor fields in book:992991
-You've used 19 entries,
+You've used 27 entries,
             1935 wiz_defined-function locations,
-            615 strings with 6898 characters,
-and the built_in function-call counts, 7795 in all, are:
-= -- 785
-> -- 278
-< -- 12
-+ -- 96
-- -- 90
-* -- 715
-:= -- 1337
-add.period$ -- 58
-call.type$ -- 19
-change.case$ -- 140
-chr.to.int$ -- 19
-cite$ -- 20
-duplicate$ -- 266
-empty$ -- 570
-format.name$ -- 125
-if$ -- 1513
+            670 strings with 8037 characters,
+and the built_in function-call counts, 10693 in all, are:
+= -- 1065
+> -- 372
+< -- 18
++ -- 130
+- -- 120
+* -- 962
+:= -- 1847
+add.period$ -- 82
+call.type$ -- 27
+change.case$ -- 194
+chr.to.int$ -- 27
+cite$ -- 28
+duplicate$ -- 377
+empty$ -- 791
+format.name$ -- 165
+if$ -- 2080
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 20
-newline$ -- 98
-num.names$ -- 57
-pop$ -- 91
+missing$ -- 29
+newline$ -- 138
+num.names$ -- 81
+pop$ -- 131
 preamble$ -- 1
-purify$ -- 140
+purify$ -- 195
 quote$ -- 0
-skip$ -- 202
+skip$ -- 287
 stack$ -- 0
-substring$ -- 689
-swap$ -- 20
+substring$ -- 913
+swap$ -- 28
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 112
+type$ -- 158
 warning$ -- 1
-while$ -- 70
+while$ -- 93
 width$ -- 0
-write$ -- 250
+write$ -- 352
 (There were 2 error messages)
