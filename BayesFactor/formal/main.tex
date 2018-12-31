@@ -573,7 +573,7 @@ Define
     \end{equation}
     \label{approximation}
 \end{theorem}
-\begin{remark}
+\begin{remark}\label{remark1}
     If $\tau^2=\myE (\xi_1^4) -1$, the first term of the right hand side of \eqref{eq:longInequality} disappear.
     In practice, however, the quantity $\myE (\xi_1^4)$ is often unknown and
     $\tau^2$ should be chosen as an estimator of $\myE (\xi_1^4)-1$.
@@ -609,158 +609,55 @@ Define
 \end{remark}
 
 
-
-\begin{theorem}
-    Suppose the conditions of Theorem \ref{TheoremLindeberg} hold with 
-    $\bxi=\sqrt \phi \bepsilon$ and
+We now apply Theorem \ref{approximation} to approximate the null distribution of the proposed statistic $T$.
+Note that under the null hypothesis,
+\begin{equation*}
+    T+\frac{\mytr\left( (\BX_b^* \BX_{b}^{*\top})^{-1} \right)}{n-q} 
+    =\frac{ (\sqrt \phi \bepsilon)^\top 
+        \left( 
+    -\tilde \BU_a (\BX_b^* \BX_b^{*\top})^{-1} \tilde \BU_a^\top
+ + \frac{\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1} \right)}{n-q}\tilde{\BU}_b \tilde{\BU}_b^\top
+        \right)
+    (\sqrt \phi \bepsilon)}{ (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)},
+\end{equation*}
+where the numerator has zero mean and the denominator is close to $n-q$.
+In what follows, let $\bxi=\sqrt \phi \bepsilon$ and 
     \begin{equation*}
         \BA= -\tilde{\BU}_b (\BX_{b}^* \BX_b^{*\top})^{-1} \tilde{\BU}_b^\top 
         + \frac{\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1} \right)}{n-q}\tilde{\BU}_b \tilde{\BU}_b^\top.
     \end{equation*}
-    Furthermore, suppose as $n\to \infty$, the condition \eqref{eq:generalC} holds.
     Let $F_{\tau} (x)$ be the cumulative distribution function of $
             \tau \sum_{i=1}^n  a_{i,i}\check z_i
         +2\sum_{1\leq i <j \leq n} a_{i,j} z_i z_j
         $.
+        As noted in Remark \ref{remark1}, $\tau^2$ should be a consistent estimator of $\phi^2 \myE (\epsilon_1^4)-1$ under the null hypothesis.
+
+\begin{theorem}
+    Suppose the conditions of Theorem \ref{TheoremLindeberg} hold. Furthermore, suppose as $n\to \infty$, the condition \eqref{eq:generalC} holds.
         Let $\hat \tau^2$ be an consistent estimator of $\phi^2 \myE (\epsilon_1^4)-1$ based on $\BX$, $\By$.
     Then
+    \begin{equation*}
+            \Pr\left( T > \frac{F^{-1}_{\hat \tau} (1-\alpha)-\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1}  \right)}{n-q} \right)
+            \to \alpha.
+    \end{equation*}
     \label{thm:criticalValue}
 \end{theorem}
-\begin{proof}[\textbf{Proof of Theorem \ref{thm:criticalValue}}]
-    By a standard subsequence argument, we only need to prove the theorem holds along a subsequence of $\{n\}$.
-    Hence, without loss of generality, we assume $\hat \tau^2 \xrightarrow{a.s.} \phi^2 \myE (\epsilon_1^4)-1$.
-    Note that almost surely, the distributions $\mathcal L (S_{\hat \tau}^*  |\hat \tau)$
-    have bounded second moment and are thus tight.
-    Hence, without loss of generality, we assume $\mathcal L (S_{\hat \tau}^*  |\hat \tau)$ weakly converges to a limit distribution with distribution function $F(x)$.
-    Let $S^\dagger$ be a random variable with this limit distribution.
-    Similar to \cite{chen2010tests}, Proposition A.1.(iii), it can be shown that $\myE [(S^*_{\hat \tau})^4|\hat \tau]$ is uniformly bounded almost surely.
-    Then almost surely, $\mathcal L ((S_{\hat \tau}^*)^2  |\hat \tau)$ is  uniformly integrable.
-    Hence $F(x)$ can not concentrate on a single point.
-    Consequently, $F(x)$ is continous and is strict increasing for $x\in\{x:0<F(x)<1\}$; see \cite{Sevast1961A} as well as the remark made by A. N. Kolmogorov.
 
-    For every $f\in \mathscr C^4 (\mathbb R)$,
-    we have $| \myE [f(S^*_{\hat \tau}) |\hat\tau] - \myE f(S^\dagger) |\to 0$ almost surely.
-    Also, Theorem \ref{approximation} implies
-        $|\myE f(S)- \myE [f(S^*_{\hat \tau})|\hat\tau] |\to 0$ almost surely.
-        Thus, $|\myE f(S)- \myE f(S^\dagger) |\to 0$.
-        That is, $S\rightsquigarrow S^\dagger$.
-        On the other hand, since
-    \begin{equation*}
-        \Pr\left(
-            S_{\hat \tau}^*
-            >
-            \frac{F^{-1}_{\hat \tau} (1-\alpha)}{
-            \sqrt{
-    2 \mytr(\BA^2)
-    +
-    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
-            }             
-    }
-\Bigg | \hat{\tau} \right)=\alpha,
-    \end{equation*}
-    we have almost surely,
-    \begin{equation}\label{eq:slt1}
-            \frac{F^{-1}_{\hat \tau} (1-\alpha)}{
-            \sqrt{
-    2 \mytr(\BA^2)
-    +
-    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
-            }             
-    }
-    \to F^{-1}(1-\alpha).
-    \end{equation}
-We also need the fact that
-\begin{equation}
-    (\sqrt \phi \bepsilon)^\top 
-    \tilde \BU_a \tilde \BU_a^\top
-(\sqrt \phi \bepsilon)
-=
-(1+o_p(1))(n-q),
-    \label{eq:slt2}
-\end{equation}
-which is a consequence of
+        A consistent estimator of $\sigma^{-4} \myE (\epsilon_1^4)-1$ has already appeared in \cite{Bai2017} based on the standardized residuals.
+        Here we use a slightly different estimator which is based on the ordinary least squares residuals $\tilde \bepsilon=(\tilde \epsilon_1,\ldots, \tilde \epsilon_n)^\top=(\BI_n - \BP_a) \By$.
+        Define
 \begin{equation*}
-    \myE\left(  (\sqrt \phi \bepsilon)^\top 
-    \tilde \BU_a \tilde \BU_a^\top
-(\sqrt \phi \bepsilon)
-\right)
-=n-q
-,\quad
-    \myVar\left(  (\sqrt \phi \bepsilon)^\top 
-    \tilde \BU_a \tilde \BU_a^\top
-(\sqrt \phi \bepsilon)
-\right)
-=O(n-q)
-    .
+    \hat \tau^2 =     
 \end{equation*}
-The fact $S\rightsquigarrow S^\dagger$, the equations \eqref{eq:slt1}, \eqref{eq:slt2} and Slutsky's theorem leads to
-\begin{align*}
-            &\Pr\left( T > \frac{F^{-1}_{\hat \tau} (1-\alpha)-\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1}  \right)}{n-q} \right)
-            \\
-            =&\Pr
-            \Bigg( 
-                (\sqrt \phi \bepsilon)^\top \left( -  \tilde \BU_a (\BX_b^* \BX_b^{*\top})^{-1} \tilde \BU_a^\top 
-            +\frac{
-\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1}  \right)
-}{n-q}
-\tilde \BU_a  \tilde \BU_a^\top
- \right) 
-(\sqrt \phi \bepsilon)
-            \\
-            &
-            \quad
-            \quad
-            >
-            \frac{
-            (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)
-}{n-q} F^{-1}_{\hat \tau} (1-\alpha)
-\Bigg)
-            \\
-            =&
-            \Pr \left( \bxi^\top \BA \bxi  
-                >
-                \frac{
-            (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)
-}{n-q}
-                F^{-1}_{\hat \tau} (1-\alpha)
-            \right)
-            \\
-            =&
-            \Pr \left( S> 
-\frac{
-            (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)
-}{n-q}
-            \frac{F^{-1}_{\hat \tau} (1-\alpha)}{
-            \sqrt{
-    2 \mytr(\BA^2)
-    +
-    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
-            }             
-    }
-             \right) 
-             \\
-            =& 
-            \Pr \Bigg( S+F^{-1}(1-\alpha)-
-\frac{
-            (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)
-}{n-q}
-            \frac{F^{-1}_{\hat \tau} (1-\alpha)}{
-            \sqrt{
-    2 \mytr(\BA^2)
-    +
-    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
-            }             
-    }
-    \\
-    &\quad \quad>F^{-1}(1-\alpha)
-             \Bigg) 
-             \\
-             \to&  \alpha
-             .
-\end{align*}
-This completes the proof.
 
+\begin{proposition}
+    Suppose the conditions of \ref{TheoremLindeberg} holds for $\bxi=\sqrt \phi \bepsilon$.
+    Then under the null hypothesis, $\hat \tau^2 \xrightarrow{P} \sigma^{-4} \myE (\epsilon_1^4)-1$.
+\end{proposition}
+\begin{proof}
+    
 \end{proof}
+
 
 
 
@@ -1228,6 +1125,142 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
  
 \end{proof}
 
+
+\begin{proof}[\textbf{Proof of Theorem \ref{thm:criticalValue}}]
+    By a standard subsequence argument, we only need to prove the theorem holds along a subsequence of $\{n\}$.
+    Hence, without loss of generality, we assume $\hat \tau^2 \xrightarrow{a.s.} \phi^2 \myE (\epsilon_1^4)-1$.
+    Note that almost surely, the distributions $\mathcal L (S_{\hat \tau}^*  |\hat \tau)$
+    have bounded second moment and are thus tight.
+    Hence, without loss of generality, we assume $\mathcal L (S_{\hat \tau}^*  |\hat \tau)$ weakly converges to a limit distribution with distribution function $F(x)$.
+    Let $S^\dagger$ be a random variable with this limit distribution.
+    Similar to \cite{chen2010tests}, Proposition A.1.(iii), it can be shown that $\myE [(S^*_{\hat \tau})^4|\hat \tau]$ is uniformly bounded almost surely.
+    Then almost surely, $\mathcal L ((S_{\hat \tau}^*)^2  |\hat \tau)$ is  uniformly integrable.
+    Hence $F(x)$ can not concentrate on a single point.
+    Consequently, $F(x)$ is continous and is strict increasing for $x\in\{x:0<F(x)<1\}$; see \cite{Sevast1961A} as well as the remark made by A. N. Kolmogorov.
+
+    For every $f\in \mathscr C^4 (\mathbb R)$,
+    we have $| \myE [f(S^*_{\hat \tau}) |\hat\tau] - \myE f(S^\dagger) |\to 0$ almost surely.
+    Also, Theorem \ref{approximation} implies
+        $|\myE f(S)- \myE [f(S^*_{\hat \tau})|\hat\tau] |\to 0$ almost surely.
+        Thus, $|\myE f(S)- \myE f(S^\dagger) |\to 0$.
+        That is, $S\rightsquigarrow S^\dagger$.
+        On the other hand, since
+    \begin{equation*}
+        \Pr\left(
+            S_{\hat \tau}^*
+            >
+            \frac{F^{-1}_{\hat \tau} (1-\alpha)}{
+            \sqrt{
+    2 \mytr(\BA^2)
+    +
+    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+            }             
+    }
+\Bigg | \hat{\tau} \right)=\alpha,
+    \end{equation*}
+    we have almost surely,
+    \begin{equation}\label{eq:slt1}
+            \frac{F^{-1}_{\hat \tau} (1-\alpha)}{
+            \sqrt{
+    2 \mytr(\BA^2)
+    +
+    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+            }             
+    }
+    \to F^{-1}(1-\alpha).
+    \end{equation}
+We also need the fact that
+\begin{equation}
+    (\sqrt \phi \bepsilon)^\top 
+    \tilde \BU_a \tilde \BU_a^\top
+(\sqrt \phi \bepsilon)
+=
+(1+o_p(1))(n-q),
+    \label{eq:slt2}
+\end{equation}
+which is a consequence of
+\begin{equation*}
+    \myE\left(  (\sqrt \phi \bepsilon)^\top 
+    \tilde \BU_a \tilde \BU_a^\top
+(\sqrt \phi \bepsilon)
+\right)
+=n-q
+,\quad
+    \myVar\left(  (\sqrt \phi \bepsilon)^\top 
+    \tilde \BU_a \tilde \BU_a^\top
+(\sqrt \phi \bepsilon)
+\right)
+=O(n-q)
+    .
+\end{equation*}
+The fact $S\rightsquigarrow S^\dagger$, the equations \eqref{eq:slt1}, \eqref{eq:slt2} and Slutsky's theorem leads to
+\begin{align*}
+            &\Pr\left( T > \frac{F^{-1}_{\hat \tau} (1-\alpha)-\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1}  \right)}{n-q} \right)
+            \\
+            =&\Pr
+            \Bigg( 
+                (\sqrt \phi \bepsilon)^\top \left( -  \tilde \BU_a (\BX_b^* \BX_b^{*\top})^{-1} \tilde \BU_a^\top 
+            +\frac{
+\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1}  \right)
+}{n-q}
+\tilde \BU_a  \tilde \BU_a^\top
+ \right) 
+(\sqrt \phi \bepsilon)
+            \\
+            &
+            \quad
+            \quad
+            >
+            \frac{
+            (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)
+}{n-q} F^{-1}_{\hat \tau} (1-\alpha)
+\Bigg)
+            \\
+            =&
+            \Pr \left( \bxi^\top \BA \bxi  
+                >
+                \frac{
+            (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)
+}{n-q}
+                F^{-1}_{\hat \tau} (1-\alpha)
+            \right)
+            \\
+            =&
+            \Pr \left( S> 
+\frac{
+            (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)
+}{n-q}
+            \frac{F^{-1}_{\hat \tau} (1-\alpha)}{
+            \sqrt{
+    2 \mytr(\BA^2)
+    +
+    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+            }             
+    }
+             \right) 
+             \\
+            =& 
+            \Pr \Bigg( S+F^{-1}(1-\alpha)-
+\frac{
+            (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)
+}{n-q}
+            \frac{F^{-1}_{\hat \tau} (1-\alpha)}{
+            \sqrt{
+    2 \mytr(\BA^2)
+    +
+    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+            }             
+    }
+    \\
+    &\quad \quad>F^{-1}(1-\alpha)
+             \Bigg) 
+             \\
+             \to&  \alpha
+             .
+\end{align*}
+This completes the proof.
+
+\end{proof}
 
 \section{hahayy}
 \begin{lemma}\label{lemma:denom}
