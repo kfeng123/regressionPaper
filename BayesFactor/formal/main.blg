@@ -11,46 +11,50 @@ Repeated entry---line 1020 of file mybibfile.bib
  : @article{jiang1996reml
  :                       ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 1063 of file mybibfile.bib
+ : @article{Sevast1961A
+ :                     ,
+I'm skipping whatever remains of this entry
 Warning--can't use both author and editor fields in book:992991
-You've used 27 entries,
+You've used 29 entries,
             1935 wiz_defined-function locations,
-            670 strings with 8037 characters,
-and the built_in function-call counts, 10693 in all, are:
-= -- 1065
-> -- 372
-< -- 18
-+ -- 130
-- -- 120
-* -- 962
-:= -- 1847
-add.period$ -- 82
-call.type$ -- 27
-change.case$ -- 194
-chr.to.int$ -- 27
-cite$ -- 28
-duplicate$ -- 377
-empty$ -- 791
-format.name$ -- 165
-if$ -- 2080
+            680 strings with 8266 characters,
+and the built_in function-call counts, 11304 in all, are:
+= -- 1125
+> -- 392
+< -- 20
++ -- 136
+- -- 126
+* -- 1005
+:= -- 1959
+add.period$ -- 89
+call.type$ -- 29
+change.case$ -- 206
+chr.to.int$ -- 29
+cite$ -- 30
+duplicate$ -- 405
+empty$ -- 837
+format.name$ -- 175
+if$ -- 2202
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 29
-newline$ -- 138
-num.names$ -- 81
-pop$ -- 131
+missing$ -- 33
+newline$ -- 148
+num.names$ -- 87
+pop$ -- 145
 preamble$ -- 1
-purify$ -- 195
+purify$ -- 208
 quote$ -- 0
-skip$ -- 287
+skip$ -- 307
 stack$ -- 0
-substring$ -- 913
-swap$ -- 28
+substring$ -- 937
+swap$ -- 30
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 158
+type$ -- 166
 warning$ -- 1
-while$ -- 93
+while$ -- 97
 width$ -- 0
-write$ -- 352
-(There were 2 error messages)
+write$ -- 378
+(There were 3 error messages)

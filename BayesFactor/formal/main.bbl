@@ -40,6 +40,11 @@ Cohn, D.~L. (2013).
 \newblock Birkhauser Advanced Texts Basler Lehrbucher. Birkhäuser Basel, 2
   edition.
 
+\bibitem[DasGupta, 2008]{book:336898}
+DasGupta, A. (2008).
+\newblock {\em Asymptotic Theory of Statistics and Probability}.
+\newblock Springer Texts in Statistics. Springer-Verlag New York, 1 edition.
+
 \bibitem[Dicker and Erdogdu, 2017]{Dicker2015Flexible}
 Dicker, L.~H. and Erdogdu, M.~A. (2017).
 \newblock Flexible results for quadratic forms with applications to variance
@@ -77,6 +82,11 @@ Goeman, J.~J., van Houwelingen, H.~C., and Finos, L. (2011).
 G\"otze, F. and Tikhomirov, A. (2002).
 \newblock Asymptotic distribution of quadratic forms and applications.
 \newblock {\em Journal of Theoretical Probability}, 15(2):423--475.
+
+\bibitem[Horn and Johnson, 1991]{book:1244195}
+Horn, R.~A. and Johnson, C.~R. (1991).
+\newblock {\em Topics in Matrix Analysis}.
+\newblock Cambridge University Press.
 
 \bibitem[Javier~Gir\'on et~al., 2006]{javier2006Obj}
 Javier~Gir\'on, F., Lina~Mart\'inez, M., Moreno, E., and Torres, F. (2006).
