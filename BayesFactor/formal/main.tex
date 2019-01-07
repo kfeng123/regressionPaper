@@ -111,7 +111,7 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
     Our theory is also useful in.
 \end{abstract}
 \section{Introduction} 
-Consider the high-dimensional linear regression model of the form
+Consider linear regression model of the form
 \begin{equation}\label{label:linearModel}
     \By = 
     \BX_a \bbeta_a + \BX_b \bbeta_b + \bepsilon, %\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n),
@@ -119,18 +119,15 @@ Consider the high-dimensional linear regression model of the form
 where $\By \in \mathbb R^n$ is the response, 
 $\BX_a$, $\BX_b$ are $n\times q$ and $n\times p$ design matrices, respectively,  $\bbeta_a\in \mathbb R^q$, $\bbeta_b\in \mathbb R^p$ are unknown regression coefficients, and $\bepsilon=(\epsilon_1,\ldots,\epsilon_n)^\top$ are the iid errors with mean $0$ and covariance $\sigma^2=\phi^{-1}$.
 Here we break the predictors into two parts $\BX_a$ and $\BX_b$ such that $\BX_a$ contains the predictors that are known to have effect on the response,
-and we would like to know if $\BX_b$ contains useful predictors.
+and we would like to test if $\BX_b$ contains any useful predictors.
 That is, we are interested in testing the hypotheses
 \begin{align}\label{theHypothesis}
     \mathcal H_0:   \bbeta_b =0,\quad
     \text{v.s.} \quad
     \mathcal H_1:   \bbeta_b \neq 0.
 \end{align}
-Motivated by many recent applications of high dimensional regression, we consider the situation where $p+q$ is much larger than $n$.
-Unless mentioned otherwise, we consider fixed design in this article.
-
-
-The conventional test for hypotheses \eqref{theHypothesis} is the $F$-test which is also the likelihood ratio test under normality.
+%Motivated by many recent applications of high dimensional regression, we consider the situation where $p+q$ is much larger than $n$.
+The conventional test for hypotheses \eqref{theHypothesis} is the $F$-test which is also the likelihood ratio test under normal errors.
 However, the $F$-test is not well defined in high dimensional setting.
 In fact, if $\bepsilon$ is normal distributed and $\myRank[\BX_a;\BX_b]=n$, then the likelihood is unbounded under the alternative hypothesis.
 This calls for new test methodologies in high-dimensional setting.
@@ -149,7 +146,7 @@ If no prior knowledge is available, $\BX_a$ can be $\mathbf 1_n$.
 
 Many test procedures have been proposed in the large $p$, small $q$ setting.
 Based on an empirical Bayes model, \cite{Goeman2006} and \cite{Goeman2011} proposed a score test statistic as well as a method to determine the critical value of their test statistic.
-Later, \cite{Lan2014Testing} proposed a similar test, but they used asymptotic normality to determine the critical value.
+This score test was further investigated by \cite{Lan2014Testing} and \cite{Lan2016a}.
 Based on $U$-statistics,
 \cite{Zhong2011Tests} proposed a test for the case where $\BX_a=\mathbf 1_n$.
 Later, a generalization of this test to the general design matrix $\BX_a$ is proposed by \cite{Wang2015}.
@@ -159,14 +156,26 @@ proposed a rank-based test for the entire coefficients.
 Apart from the afore mentioned tests,
 there is another line of research utilizing desparsified Lasso estimator; see \cite{zhang2016simultaneous} and the references therein.
 
-We note that the test procedure in \cite{Goeman2006} and \cite{Goeman2011} is motivated by Bayesian methods but is treated as a frequentist significance test.
-Bayesian-motivated tests are very suitable for high-dimensional testing problems since the Bayes factors corresponding to proper priors are always well defined, even if the likelihood is unbounded.
-In the Bayesian literature, many Bayesian tests have been proposed for hypothesis \eqref{theHypothesis} in low-dimensional setting; see \cite{javier2006Obj,Goddard2016,zhou2018On} and the references therein.
-However, most existing Bayesian tests are designed for small $p$, small $q$ setting and are not well defined in large $p$, small $q$ setting.
+Except for the test in \cite{Goeman2006}, most existing high dimensional tests adopted the random design assumption, that is, the rows of $\BX_b$ are considered as being generated from a super population.
+As noted by \cite{Lei2018}, assuming a fixed design or a random design could lead to qualitatively different inferential results and the former is preferable from a theoretical point of view.
+Hence in this paper, we focus on the fixed design setting.
+Of course, our results are still valid for random design from a conditional inference perspective.
+
+
+
+
+In Bayesian literature, many Bayesian tests have been proposed for hypothesis \eqref{theHypothesis} in low-dimensional setting; see \cite{javier2006Obj,Goddard2016,zhou2018On} and the references therein.
+Although most existing Bayesian tests are not applicable in large $p$, small $q$ setting,
+Bayes factor based tests are in principle suitable for high-dimensional testing problems for at least two reasons.
+First, the Bayes factors corresponding to proper priors are always well defined, even if the likelihood is unbounded.
+Second, under mild conditions, tests based on Bayes factors are admissible (See, e.g., \cite{Lehmann}, Theorem 6.7.2).
+In fact, the test procedure in \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist significance test.
+
+
 In this paper, we propose a new test statistic in large $p$, small $q$ setting which is the limit of Bayes factors under normal linear model.
 We prove that, under mild conditions, the distribution of the proposed test statistic can be accurately approximated using Lindeberg's replacement trick.
 And the critical value is determined by this approximated distribution.
-Under stronger assumptions, we also derive the asymptotic power funcion.
+Under normal error assumption, we also derive the asymptotic power funcion of the proposed test and the test in \cite{Goeman2006}.
 A simulation is conducted to examine the performance of the proposed test.
 
 The rest of the paper is organized as follows.
@@ -179,7 +188,7 @@ Testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a ch
 %Based on an empirical Bayes model,
 %\cite{Goeman2006} and \cite{Goeman2011} proposed a score test which can be used.
 As \cite{Goeman2006} noticed, if $\bbeta_b \neq 0$ but $\BX_b \bbeta_b =0$, no test has any power.
-They also pointed out their test has negligible power for many alternatives and consequently is not unbiased.
+They also pointed out that their test has negligible power for many alternatives and consequently is not unbiased.
 For low-dimensional testing problems, a biased test is often regarded as problematic.
 However, the following proposition shows that under normal assumption, there is no nontrivial unbiased test in large $p$, small $q$ setting.
 \begin{proposition}\label{prop:unbiased}
@@ -208,17 +217,17 @@ The behavior of a Bayes factor largely depends on the choice of priors.
 In Bayesian literature, many priors have been considered for testing the coefficients of linear model.
 Popular priors include $g$-priors \citep{Liang2008Mixtures} and intrinsic priors \citep{Casella2006Obj}.
 Unfortunately, these priors are not well defined in large $p$, small $q$ setting.
-To obtain valid Bayes factor, we use simple priors.
+%To obtain valid Bayes factor, we use simple priors.
 
 Note that under the null hypothesis $\mathcal H_0$, the model is low-dimensional.
 This allows us to impose the reference prior $\pi_0 (\bbeta_a,\phi)=c/\phi$, where $c$ is a constant.
 Under $\mathcal H_1$,
 write $\pi_1(\bbeta_b,\bbeta_a,\phi)=\pi_1(\bbeta_b|\bbeta_a,\phi) \pi_1(\bbeta_a,\phi)$.
-For parameters $\bbeta_a,\phi$, we consider the same prior as in $\mathcal H_0$, that is $\pi_1(\bbeta_a,\phi)=\pi_0(\bbeta_a,\phi)$.
-For parameter $\bbeta_b$, however, imposing the improper reference prior will result in infinite marginal density of $\By$.
+For parameters $\bbeta_a $ and $\phi$, we consider the same prior as in $\mathcal H_0$, that is $\pi_1(\bbeta_a,\phi)=\pi_0(\bbeta_a,\phi)$.
+For parameter $\bbeta_b$, however, imposing the improper reference prior would not produce valid marginal density of $\By$.
 %That is, the minimal training sample size is $q + p +1$.
 %So we cannot impose the reference prior under $ H_1$ provided $q + p  \geq n$.
-To make the marginal density of $\By$ finite,
+To make the marginal density of $\By$ well defined,
 we consider the simple normal prior $p_1(\bbeta_b|\bbeta_a, \phi) = d \mathcal N_{p} (0, \kappa^{-1} \phi^{-1} \BI_{p}) (\bbeta_b) $, where $\kappa>0$ is a hyperparameter.
 That is, we put the following priors,
 \begin{equation}\label{priors}
@@ -353,82 +362,23 @@ The main part of the above expression is
 \end{equation*}
 A large value of $T_{\kappa}$ supports the alternative hypothesis.
 Hence $T_{\kappa}$ can be regarded as a frequentist test statistic.
-The remaining problem is how to choose the hyperparameter $\kappa$.
+The remaining problem is to choose an appropriate hyperparameter $\kappa$.
 %Note that $\kappa$ controls the prior magnitude of $\bbeta_b$.
 As $\kappa$ increases, the prior magnitude of $\bbeta_b$ decreases.
 As \cite{Goeman2006} noted, the priors should place most probability on the alternatives which are perceived as more interesting to detect.
-Their stretagy is to let the prior magnitude tend to zero to obtain a score test.
+Their stretagy is to let the prior magnitude tend to zero to obtain a test with good power behavior under local alternatives, that is, $\|\bbeta_b\|$ is small.
 In fact, if we let $\kappa$ tends to infinity, the limit
 \begin{equation*}
     \lim_{\kappa\to \infty} \kappa T_{\kappa} = \frac{\By^{*\top} \BX_b^* \BX_b^{*\top} \By^* }{\By^{*\top} \By^*}
 \end{equation*}
 is exactly the test statistic of \cite{Goeman2006}.
-This statistic has good power behavior under local alternatives, that is, $\|\bbeta_b\|$ is small.
-As implied by Proposition \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a difficult problem.
-Intuitively, it may be too ambitious to talk about local power provided the test may have negligible power even when $\|\bbeta_b\|$ is large.
+
+As implied by Proposition \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a difficult problem and there is no nontrivial unbiased test.
+%In fact, we shall see that for certain directions of $\bbeta_b$, the test in \cite{Goeman2006} has negligible power for any magnitude of $\|\bbeta_b\|$.
+Hence it may be too ambitious to consider local power behavior provided the test is biased.
 %In fact, the test of \cite{Goeman2006} may have negligible power even when $\|\bbeta_b\|$ is large.
 %Hence it is questionable if a test with good local power behavior is a good choice in practice.
-
-Now we take further look at the statistics $T_{\kappa}$.
-Under the null hypothesis, 
-\begin{equation*}
-    \myE T_{\kappa}=
-    \frac{1}{n-q} \mytr \left( \BD_b^{*2} ( \BD_b^{*2} + \kappa \BI_{n-q})^{-1}\right).
-\end{equation*}
-Under the alternative hypothesis, we consider the limiting behaivior of $T_{\kappa}$ when $\|\bbeta_b\|$ tends to infinity.
-Let $\bbeta_b=c \bbeta_b^\dagger$ where $\bbeta_b^\dagger\neq 0$ is fixed and $c>0$.
-As $c \to \infty$, 
-\begin{equation*}
-    T_{\kappa} \to
-\frac{
-    \bbeta_b^{\dagger \top} \BV_b^* \BD_b^{*2} \left( \BD_b^{*2} + \kappa \BI_{n-q} \right)^{-1} \BD_b^{*2} \BV_b^{*\top} \bbeta_b^{\dagger}
-}{
-    \bbeta_b^{\dagger \top} \BV_b^* \BD_b^{*2} \BV_b^{*\top} \bbeta_b^{\dagger}
-}
-.
-\end{equation*}
-Then the test $T_{n,\kappa}$ is unbiased along the direction of $\bbeta_b^\dagger$ if
-\begin{equation*}
-\frac{
-    \bbeta_b^{\dagger \top} \BV_b^* \BD_b^{*2} \left( \BD_b^{*2} + \kappa \BI_{n-q} \right)^{-1} \BD_b^{*2} \BV_b^{*\top} \bbeta_b^{\dagger}
-}{
-    \bbeta_b^{\dagger \top} \BV_b^* \BD_b^{*2} \BV_b^{*\top} \bbeta_b^{\dagger}
-}
->
-\frac{1}{n-q} \mytr \left( \BD_b^{*2} ( \BD_b^{*2} + \kappa \BI_{n-q})^{-1}\right),
-\end{equation*}
-or equivalently
-\begin{equation}\label{eq:hardToInterpret}
-    \bbeta_b^{\dagger \top} \BV_b^*
-\left[
-    \BD_b^{*2} \left( \BD_b^{*2} + \kappa \BI_{n-q} \right)^{-1} \BD_b^{*2} 
--\frac{1}{n-q} \mytr \left( \BD_b^{*2} ( \BD_b^{*2} + \kappa \BI_{n-q})^{-1}\right)
-     \BD_b^{*2} 
-\right]
-    \BV_b^{*\top} \bbeta_b^{\dagger}
-    >0.
-\end{equation}
-Let $k_{\kappa}$ be the number of positive eigenvalues of
-\begin{equation*}
-    \BV_b^*
-\left[
-    \BD_b^{*2} \left( \BD_b^{*2} + \kappa \BI_{n-q} \right)^{-1} \BD_b^{*2} 
--\frac{1}{n-q} \mytr \left( \BD_b^{*2} ( \BD_b^{*2} + \kappa \BI_{n-q})^{-1}\right)
-     \BD_b^{*2} 
-\right]
-\BV_b^{*\top}.
-\end{equation*}
-Let $\mathcal S_{\kappa}$ be the linear space spanned by the first $k_{\kappa}$ columns of $\BV_{b}^*$.
-Denote by $\mathcal S_{\kappa}^{\bot}$ the orthogonal complement space of $\mathcal S_\kappa$.
-Then $\mathbb R^p=\mathcal S_\kappa \oplus \mathcal  S_{\kappa}^{\bot}$.
-It can be seen that \eqref{eq:hardToInterpret} holds for $\bbeta_b^\dagger \in \mathcal S_\kappa$ and \eqref{eq:hardToInterpret} does not hold for $\bbeta_b^\dagger \in \mathcal S_{\kappa}^\bot$.
-Hence to achieve maximum unbiased directions, we would like to choose the $\kappa$ which  maximize $k_{\kappa}$.
-
-\begin{proposition}\label{prop:monotone}
-    The dimension $k_{\kappa}$ of $\mathcal S_{\kappa}$ is nonincreasing in $\kappa$ for $\kappa>0$.
-That is, $k_{\kappa_1} \geq k_{\kappa_2}$ for $ \kappa _2 > \kappa_1 > 0$.
-\end{proposition}
-Proposition \ref{prop:monotone} implies that we should let $\kappa$ tend to $0$ to achieve maximum unbiased directions.
+Thus, contrary to the strategy of \cite{Goeman2006}, we let $\kappa$ tend to $0$ to obtain a test with good power behavior for large $\|\bbeta_b\|$.
 While the statistic $ T_{\kappa}$ itself degenerates to $1$ as $\kappa\to 0$,
 the right derivative of $T_{\kappa}$ at $\kappa=0$ is well defined.
 Thus, we proposed the following test statistic
@@ -445,28 +395,25 @@ The null hypothesis will be rejected if $T$ is large.
 
 
 
-\section{Critical value}
 To formulate a valid frequentist test, we need to determine the critical value of $T$.
-If the data were indeed from normal distribution, then under the null hypohtesis,
-\begin{equation*}
-    T \sim
+If $\bepsilon$ were indeed normally distributed, then under the null hypohtesis,
+    $T \sim
     -
-    \frac{\sum_{i=1}^{n-q} \gamma_i^{-1} z_i^2}{\sum_{i=1}^{n-q} z_i^2},
-    \end{equation*}
+    {(\sum_{i=1}^{n-q} \gamma_i^{-1} z_i^2)}/{(\sum_{i=1}^{n-q} z_i^2)}$,
 where $z_1,\ldots, z_{n-q}$ are iid $\mathcal N(0,1)$ random variables.
-And the exact critical value can be easily obtained.
+In this case, the exact critical value can be easily obtained.
 However, normal distribution rarely appears in practice.
-We would like to derive an asymptotic valid critical value for $T_{n}$ for general distributions of $\epsilon$.
+We would like to derive an asymptotic valid critical value for $T_{n}$ for general distributions of $\bepsilon$.
 
 Under the null hypothesis,
 \begin{equation*}
     T=-\frac{ (\sqrt \phi \bepsilon)^\top \tilde \BU_a (\BX_b^* \BX_b^{*\top})^{-1} \tilde \BU_a^\top (\sqrt \phi \bepsilon)}{ (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)}.
 \end{equation*}
 The numerator and the denominator of the above expression are both quadratic forms of iid random variables with mean $0$ and variance $1$.
-Hence our first step towards the goal is to approximate the distribution of the quadratic form of iid standardized random variables.
-The asymptotics of quaatratic form have been extensively studied; see, e.g., \cite{jiang1996reml,Bentkus1996Optimal,Goetze2002,Dicker2015Flexible,Bai2017}.
-Most existing work focus on normal approximation.
-However, normal is just one of the possible limit distributions of quadratic form.
+Hence the key step towards the goal is to approximate the distribution of the quadratic form of iid standardized random variables.
+The asymptotics of quadratic form have been extensively studied; see, e.g., \cite{jiang1996reml,Bentkus1996Optimal,Goetze2002,Dicker2015Flexible,Bai2017}.
+Most existing work use normal distribution to approximate the distribution of the quadratic form.
+However, normal distribution is just one of the possible limit distributions of quadratic form.
 See \cite{Sevast1961A} for a full characterazation of the limit distributions of quadratic form of normal random variables.
 Our approximation stretegy is to replace the random variables in quadratic form by suitable normal random variables.
 The error bound of this approximation will be derived by Lindeberg's replacement trick (see, e.g., \cite{pollard1984convergence}, Section III.4).
@@ -623,8 +570,8 @@ Note that under the null hypothesis,
 where the numerator has zero mean and the denominator is close to $n-q$.
 In what follows, let $\bxi=\sqrt \phi \bepsilon$ and 
     \begin{equation*}
-        \BA= -\tilde{\BU}_b (\BX_{b}^* \BX_b^{*\top})^{-1} \tilde{\BU}_b^\top 
-        + \frac{\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1} \right)}{n-q}\tilde{\BU}_b \tilde{\BU}_b^\top.
+        \BA= -\tilde{\BU}_a (\BX_{b}^* \BX_b^{*\top})^{-1} \tilde{\BU}_a^\top 
+        + \frac{\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1} \right)}{n-q}\tilde{\BU}_a \tilde{\BU}_a^\top.
     \end{equation*}
     Let $F_{\tau} (x)$ be the cumulative distribution function of $
             \tau \sum_{i=1}^n  a_{i,i}\check z_i
@@ -681,9 +628,11 @@ This test procedure is asymptotically exact of size $\alpha$ under the condition
 
 
 \section{Power analysis}
-In this section, we investigate the power behavior of the proposed test procedure under a special case.
+In this section, we investigate the asymptotic power of the proposed test procedure as well as the test in \cite{Goeman2006}.
+To make the expression of the asymptotic power functions tractable, we shall assume further conditions so that the test statistics are asymptotically normally distributed.
+Also, $\bepsilon$ is assumed to be normally distributed so that we can can obtain the full power function rather than only local power function.
 
-Let
+Define
 \begin{equation*}
     R_k=
     \frac{
@@ -694,243 +643,250 @@ Let
 -
 \frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q}.
 \end{equation*}
+Then the proposed test rejects the null hypothesis when $R_{-1}$ is small and the test in \cite{Goeman2006} rejects the null hypothesis when $R_{1}$ is large.
+The constant term $
+-
+{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}/{(n-q)}
+$ makes $\myE R_k=0$ under the null hypothesis.
+Note that
+\begin{equation*}
+    R_k=
+    \frac{
+\By^{*\top}
+\left( 
+    (\BX_b^* \BX_b^{*\top})^{k} 
+-
+\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q}
+\right)
+        \By^*
+    }{\By^{*\top} \By^*}.
+\end{equation*}
+The following proposition is the key to investigate the asymptotic.
+\begin{proposition}
+    Let $Z=(z_1,\ldots, z_n)^\top$, where $z_i$'s are iid $\mathcal N(0,1)$ random variables.
+    Let $\BA$ be an $n\times n$ symmetric matrix with elements $a_{i,j}$.
+    Let $\Bb=(b_1,\ldots, b_n)^\top$ be an $n$ dimensional vector.
+    If $\mytr(\BA^4)/\mytr^2(\BA^2)\to 0$,
+    then
+    \begin{equation*}
+        \frac{Z^\top \BA Z + b^\top Z - \mytr(\BA)}{\sqrt{2\mytr(\BA^2)+\|\Bb\|^2}}
+        \rightsquigarrow \mathcal N(0,1).
+    \end{equation*}
+    \label{Lemma:normal}
+\end{proposition}
 
 
+
+Define $w_i=(\BV_b^{*\top} \bbeta_b)_i$, $i=1,\ldots, n-q$.
 
 \begin{theorem}\label{generalTheorem}
-    Suppose the rows of $\BX_b$ are iid random vectors with distribution $\mathcal N_p(0,\sigma_b^2\BI_p)$.
     Suppose $\bepsilon\sim \mathcal N_n (0,\phi^{-1} \BI_n)$.
     Suppose $k\neq 0$.
-    Suppose $n-q\to \infty$, $p/(n-q)\to c \in (1,+\infty)$.
-    Then
+    Suppose $n-q\to \infty$.
+
+    Suppose
+\begin{equation}
+    \frac{
+        \max_{1\leq i \leq n-q}
+        \left( 
+        \gamma_i^k
+            -
+                \myE (\gamma_I^k)
+        \right)^2
+    }{
+        (n-q) \myVar (\gamma_I^k)
+    }
+    \label{eq:toBeCondition}
+\end{equation}
+    %Then for any $x\in \mathbb R$,
+%\begin{equation*}
+    %\begin{split}
+        %&
+        %\Pr\left( 
+            %R_k
+        %\leq
+    %\frac{\sqrt{
+            %2
+            %\sigma_b^{4k} p^{2k}
+            %\myE (\eta^k - \myE \eta^k)^2
+    %}}{
+        %\sqrt{n-q}
+    %}
+        %x
+        %\right) 
+        %-
+        %\Phi\left( 
+    %x
+    %-
+    %\frac{
+        %\sqrt{n-q}
+          %\|\bbeta_b\|^2 \phi \sigma_b^{2} \left(\myE \eta^{k+1} - \myE \eta^k \myE \eta\right)
+    %}{\sqrt{
+            %2
+            %\myE (\eta^k - \myE \eta^k)^2
+    %}} 
+        %\right)
+        %\to 0
+        %.
+    %\end{split}
+%\end{equation*}
+For any $x\in \mathbb R$ such that
+\begin{equation*}
+    \sqrt{n-q}
+\phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+             =O\left( 
+                 \left|
+    \left( \phi \myE \gamma_I w_I^2 + 1  \right)
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
+    }
+x
+   - 
+    \sqrt{n-q}
+   \phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+             \right|
+         \right),
+\end{equation*}
+
 \begin{equation*}
     \begin{split}
-        &
-        \sup_{x\in\mathbb R}\left|
-        \Pr\left( 
-            R_k
-        \leq
-        x
-        \right) 
-        -
-        \Phi\left( 
-    \frac{
-        \sqrt{n-q}
-    }{\sqrt{
-            2
-            \sigma_b^{4k} p^{2k}
-            \myE (\eta^k - \myE \eta^k)^2
-    }}
-    \left( 
-    x
-    -
-          \|\bbeta_b\|^2 \phi \sigma_b^{2k+2} p^k  \left(\myE \eta^{k+1} - \myE \eta^k \myE \eta\right)
+    &
+    \Pr\left( 
+   R_k 
+   \leq
+\frac
+{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
+    }
+}
+{
+    \sqrt{n-q}
+}
+x
     \right)
-        \right)
-        \right|
-        \to 0
-        .
+=
+\Phi\left( 
+\frac{
+\left( \phi \myE \gamma_I w_I^2 + 1  \right)
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
+    }
+x
+-
+    \sqrt{n-q}
+   \phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+}{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
++
+            4\phi
+                \myE \left(( \gamma_I^{k} - \myE \gamma_I^{k})^2 \gamma_I w_I^2 \right)
+    }
+} 
+\right)
++o(1).
     \end{split}
 \end{equation*}
+
 \end{theorem}
-The proposed test reject the null hypothesis if $R_{-1}$ is small.
-Their test reject the null hypothesis if $R_{1}$ is large.
 
-Under the null hypothesis, we have
-\begin{equation*}
-    \Pr\left( 
-        R_{-1} \leq  
-    \frac{\sqrt{
-            2
-            \sigma_b^{-4} p^{-2}
-            \myE (\eta^{-1} - \myE \eta^{-1})^2
-    }}{
-        \sqrt{n-q}
-    }
-    \Phi^{-1}(\alpha)
-    \right) 
-    \to \alpha.
-\end{equation*}
-Under the alternative hypothesis,
-\begin{equation*}
-    \Pr\left( 
-        R_{-1} \leq  
-    \frac{\sqrt{
-            2
-            \sigma_b^{-4} p^{-2}
-            \myE (\eta^{-1} - \myE \eta^{-1})^2
-    }}{
-        \sqrt{n-q}
-    }
-    \Phi^{-1}(\alpha)
-    \right) 
-\end{equation*}
-
-And
-\begin{equation*}
-    \Pr\left( 
-        R_{1} >  
-    \frac{\sqrt{
-            2
-            \sigma_b^{4} p^{2}
-            \myE (\eta - \myE \eta)^2
-    }}{
-        \sqrt{n-q}
-    }
-    \Phi^{-1}(1-\alpha)
-    \right) 
-    \to \alpha.
-\end{equation*}
-
-
-Then the power function is
+From Theorem \ref{generalTheorem}, the asymptotic power function of the proposed test is
 \begin{equation*}
     \begin{split}
-    &\Pr
-    \left(
-        T_n - \mytr((\BX_b^* \BX_b^{*\top})^{k})/(n-q)
-        \leq
-    \Phi(\alpha) 
-    \frac{
-        \sqrt{
-    2\sigma_b^{-4} p^{-2} (n-q)
-         (\nu_{-2,c} - \nu_{-1,c}^2)
-}
-    }{
-     n-q
-    } 
-\right)
-\\
-=&
-\Pr\left( \mathcal N (s,1)
-    \leq
-    \Phi(\alpha) 
-    \frac{
-(n-q)\left(
-            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
-\right)
-        \sqrt{
-    2\sigma_b^{-4} p^{-2} (n-q)
-         (\nu_{-2,c} - \nu_{-1,c}^2)
-}
-    }{
-        (n-q)
-        \sqrt{
-    2\sigma_b^{-2} p^{-2} (n-q)
-    \left( 
-        \sigma_b^{-2} (\nu_{-2,c} - \nu_{-1,c}^2)
-        +
-        2\phi \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
-    \right)
-}
-    } 
-\right)
-+o(1)
-\\
-=&
-\Pr\left( \mathcal N (s,1)
-    \leq
-    \Phi(\alpha) 
-    \frac{
-\left(
-            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
-\right)
-    }{
-        \sqrt{
-            1
-        +
-        \frac{
-            2\phi \sigma_b^2 \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
-        }{\nu_{-2,c} - \nu_{-1,c}^2}
-}
-    } 
-\right)
-+o(1)
-\\
-=&
-\Phi\left( 
-    -s
-    +
-    \Phi(\alpha) 
-    \frac{
-\left(
-            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
-\right)
-    }{
-        \sqrt{
-            1
-        +
-        \frac{
-            2\phi \sigma_b^2 \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
-        }{\nu_{-2,c} - \nu_{-1,c}^2}
-}
-    } 
-\right)
-+o(1)
-\\
-=&
-\Phi\left( 
-    \frac{
-\phi \|\bbeta_b\|^2 p^{-1} (n-q) \left(\nu_{1,c}\nu_{-1,c}-1\right)
-    }{
+    &
+    \Pr\left( 
+        R_{-1}
+   \leq
+\frac
+{
     \sqrt{
-    2\sigma_b^{-2} p^{-2} (n-q)
-    \left( 
-        \sigma_b^{-2} (\nu_{-2,c} - \nu_{-1,c}^2)
-        +
-        2\phi \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
-    \right)
-}
+        2 
+        \myVar\left( \gamma_I^{-1} \right)
     }
-    +
-    \Phi(\alpha) 
-    \frac{
-\left(
-            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
-\right)
-    }{
-        \sqrt{
-            1
-        +
-        \frac{
-            2\phi \sigma_b^2 \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
-        }{\nu_{-2,c} - \nu_{-1,c}^2}
 }
-    } 
-\right)
-+o(1)
-\\
-=&
+{
+    \sqrt{n-q}
+}
+\Phi^{-1}(\alpha)
+    \right)
+=
 \Phi\left( 
-    \frac{
-       \sqrt{n-q}  \phi \sigma_b^2 \|\bbeta_b\|^2  \left(\nu_{1,c}\nu_{-1,c}-1\right)
-    }{
+\frac{
+\left( \phi \myE \gamma_I w_I^2 + 1  \right)
     \sqrt{
-    2  
-    \left( 
-         (\nu_{-2,c} - \nu_{-1,c}^2)
-        +
-        2\phi \sigma_b^2 \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
-    \right)
-}
+        2 
+        \myVar\left( \gamma_I^{-1} \right)
     }
-    +
-    \Phi(\alpha) 
-    \frac{
-\left(
-            1+ \phi \sigma_b^2 \|\bbeta_b\|^2  \nu_{1,c}
+    \Phi^{-1}(\alpha)
++
+    \sqrt{n-q}
+   \phi
+   \myCov \left(-\gamma_I^{-1}, \gamma_I w_I^2\right)
+}{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{-1} \right)
++
+            4\phi
+                \myE \left(( \gamma_I^{-1} - \myE \gamma_I^{-1})^2 \gamma_I w_I^2 \right)
+    }
+} 
 \right)
-    }{
-        \sqrt{
-            1
-        +
-        \frac{
-            2\phi \sigma_b^2 \|\bbeta_b\|^2 (\nu_{1,c} \nu_{-1,c}^2 -\nu_{-1,c})
-        }{\nu_{-2,c} - \nu_{-1,c}^2}
++o(1).
+    \end{split}
+\end{equation*}
+
+The asymptotic power function of their test is
+\begin{equation*}
+    \begin{split}
+    &
+    \Pr\left( 
+   R_1 
+   >
+\frac
+{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I \right)
+    }
 }
-    } 
+{
+    \sqrt{n-q}
+}
+\Phi^{-1}(1-\alpha)
+    \right)
+=
+\Phi\left( 
+\frac{
+\left( \phi \myE \gamma_I w_I^2 + 1  \right)
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I \right)
+    }
+    \Phi^{-1}(\alpha)
++
+    \sqrt{n-q}
+   \phi
+             \myCov \left(\gamma_I, \gamma_I w_I^2\right)
+}{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I \right)
++
+            4\phi
+                \myE \left(( \gamma_I - \myE \gamma_I)^2 \gamma_I w_I^2 \right)
+    }
+} 
 \right)
-+o(1)
++o(1).
     \end{split}
 \end{equation*}
 
@@ -940,7 +896,65 @@ Then the power function is
 
 
 
+Now we take further look at the statistics $T_{\kappa}$.
+Under the null hypothesis, 
+\begin{equation*}
+    \myE T_{\kappa}=
+    \frac{1}{n-q} \mytr \left( \BD_b^{*2} ( \BD_b^{*2} + \kappa \BI_{n-q})^{-1}\right).
+\end{equation*}
+Under the alternative hypothesis, we consider the limiting behaivior of $T_{\kappa}$ when $\|\bbeta_b\|$ tends to infinity.
+Let $\bbeta_b=c \bbeta_b^\dagger$ where $\bbeta_b^\dagger\neq 0$ is fixed and $c>0$.
+As $c \to \infty$, 
+\begin{equation*}
+    T_{\kappa} \to
+\frac{
+    \bbeta_b^{\dagger \top} \BV_b^* \BD_b^{*2} \left( \BD_b^{*2} + \kappa \BI_{n-q} \right)^{-1} \BD_b^{*2} \BV_b^{*\top} \bbeta_b^{\dagger}
+}{
+    \bbeta_b^{\dagger \top} \BV_b^* \BD_b^{*2} \BV_b^{*\top} \bbeta_b^{\dagger}
+}
+.
+\end{equation*}
+Then the test $T_{n,\kappa}$ is unbiased along the direction of $\bbeta_b^\dagger$ if
+\begin{equation*}
+\frac{
+    \bbeta_b^{\dagger \top} \BV_b^* \BD_b^{*2} \left( \BD_b^{*2} + \kappa \BI_{n-q} \right)^{-1} \BD_b^{*2} \BV_b^{*\top} \bbeta_b^{\dagger}
+}{
+    \bbeta_b^{\dagger \top} \BV_b^* \BD_b^{*2} \BV_b^{*\top} \bbeta_b^{\dagger}
+}
+>
+\frac{1}{n-q} \mytr \left( \BD_b^{*2} ( \BD_b^{*2} + \kappa \BI_{n-q})^{-1}\right),
+\end{equation*}
+or equivalently
+\begin{equation}\label{eq:hardToInterpret}
+    \bbeta_b^{\dagger \top} \BV_b^*
+\left[
+    \BD_b^{*2} \left( \BD_b^{*2} + \kappa \BI_{n-q} \right)^{-1} \BD_b^{*2} 
+-\frac{1}{n-q} \mytr \left( \BD_b^{*2} ( \BD_b^{*2} + \kappa \BI_{n-q})^{-1}\right)
+     \BD_b^{*2} 
+\right]
+    \BV_b^{*\top} \bbeta_b^{\dagger}
+    >0.
+\end{equation}
+Let $k_{\kappa}$ be the number of positive eigenvalues of
+\begin{equation*}
+    \BV_b^*
+\left[
+    \BD_b^{*2} \left( \BD_b^{*2} + \kappa \BI_{n-q} \right)^{-1} \BD_b^{*2} 
+-\frac{1}{n-q} \mytr \left( \BD_b^{*2} ( \BD_b^{*2} + \kappa \BI_{n-q})^{-1}\right)
+     \BD_b^{*2} 
+\right]
+\BV_b^{*\top}.
+\end{equation*}
+Let $\mathcal S_{\kappa}$ be the linear space spanned by the first $k_{\kappa}$ columns of $\BV_{b}^*$.
+Denote by $\mathcal S_{\kappa}^{\bot}$ the orthogonal complement space of $\mathcal S_\kappa$.
+Then $\mathbb R^p=\mathcal S_\kappa \oplus \mathcal  S_{\kappa}^{\bot}$.
+It can be seen that \eqref{eq:hardToInterpret} holds for $\bbeta_b^\dagger \in \mathcal S_\kappa$ and \eqref{eq:hardToInterpret} does not hold for $\bbeta_b^\dagger \in \mathcal S_{\kappa}^\bot$.
+Hence to achieve maximum unbiased directions, we would like to choose the $\kappa$ which  maximize $k_{\kappa}$.
 
+\begin{proposition}\label{prop:monotone}
+    The dimension $k_{\kappa}$ of $\mathcal S_{\kappa}$ is nonincreasing in $\kappa$ for $\kappa>0$.
+That is, $k_{\kappa_1} \geq k_{\kappa_2}$ for $ \kappa _2 > \kappa_1 > 0$.
+\end{proposition}
 
 
 
@@ -1599,19 +1613,7 @@ This completes the proof.
 
 \section{hahayy}
 
-\begin{lemma}
-    Let $Z=(z_1,\ldots, z_n)^\top$, where $z_i$'s are iid $\mathcal N(0,1)$ random variables.
-    Let $\BA$ be an $n\times n$ symmetric matrix with elements $a_{i,j}$.
-    Let $\Bb=(b_1,\ldots, b_n)^\top$ be an $n$ dimensional vector.
-    If $\mytr(\BA^4)/\mytr^2(\BA^2)\to 0$,
-    then
-    \begin{equation*}
-        \frac{Z^\top \BA Z + b^\top Z - \mytr(\BA)}{\sqrt{2\mytr(\BA^2)+\|\Bb\|^2}}
-        \rightsquigarrow \mathcal N(0,1).
-    \end{equation*}
-    \label{Lemma:normal}
-\end{lemma}
-\begin{proof}
+\begin{proof}[\textbf{Proof of Proposition \ref{Lemma:normal}}]
 
     Without loss of generality, we assume $\BA$ is a diagonal matrix and $|b_1|\geq \cdots\geq |b_n|$.
     By a standard subsequence argument, we only need to prove the result along a subsequence.
@@ -1797,7 +1799,6 @@ Note that under the normality, $T_n- \mytr ((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)$
 
 
 \begin{proof}[\textbf{Proof of Theorem \ref{generalTheorem}}]
-    Note that $\BX_b^* \BX_b^{*\top} \sim \text{Wishart}(p,\sigma_b^2 \BI_{n-q})$.
     \begin{equation*}
         \frac{\By^{*\top} (\BX_b^* \BX_b^{*\top})^{k} \By^*}{\By^{*\top} \By^*} -\frac{\mytr (\BX_b^* \BX_b^{*\top})^{k}}{n-q}
         =
@@ -1837,195 +1838,61 @@ We have
             A_1+ A_2 +A_3
             .
 \end{align*}
-To deal with $A_1+A_2$,
-note that $\tilde \BU_a^\top \bepsilon\sim \mathcal N_{n-q} (0, \phi^{-1} \BI_{n-q})$.
-We would like to apply Lemma \ref{Lemma:normal} conditioning on $\BX_b$.
-From lemma \ref{lemma:MP},
-\begin{align}
-    \mytr \left( (\BX_b^* \BX_b^{*\top})^{k} 
-    -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
-                \BI_{n-q}
-        \right)^2
-        =&(1+o_P(1))\sigma_b^{4k} p^{2k} (n-q) \myVar (\eta^k),
-        \label{eq:etavar}
-        \\
-        \notag
-    \mytr \left( (\BX_b^* \BX_b^{*\top})^{k} 
-    -\frac{\mytr (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
-                \BI_{n-q}
-        \right)^4
-        =&
-        (1+o_P(1))\sigma_b^{8k} p^{4k} (n-q) \myE (\eta^k - \myE \eta^k)^4,
-\end{align}
-where $\eta$ is a random variable with density function
-    \begin{equation*}
-        p_{c}(x)=\mathbf{1}_{\left[(1-c^{-1/2})^2,(1+c^{-1/2})^2\right]}(x)
-        \frac{c}{2\pi x} \sqrt{4/c - \left(x-(1/c+1)\right)^2}.
-    \end{equation*}
-    It follows that
+
+Let $I$ be a random variable uniformly distributed on $\{1,\ldots, n-q\}$.
 \begin{equation*}
     \begin{split}
-    \frac{
-        \mytr \left( (\BX_b^* \BX_b^{*\top})^{k} 
-    -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
-                \BI_{n-q}
-        \right)^4
-    }
-    {
-    \mytr^2 \left( (\BX_b^* \BX_b^{*\top})^{k} 
-    -\frac{\mytr (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
-                \BI_{n-q}
-        \right)^2
-    }
-    \to 0.
+        A_3=&\bbeta_b^\top  \BV_b^* 
+        \left( 
+        \BD_b^{*2k+2}
+        -\frac{\mytr (\BD_b^{*2k})}{n-q}  \BD_b^{*2}
+        \right)
+         \BV_b^{*\top} \bbeta_b
+         \\
+         =&
+         \sum_{i=1}^{n-q}\gamma_i^{k+1} w_i^2
+         -\frac{1}{n-q} \sum_{i=1}^{n-q} \gamma_i^{k} \sum_{i=1}^{n-q} \gamma_i w_i^2
+         =
+         (n-q)  
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+    .
     \end{split}
 \end{equation*}
-Then Lemma \ref{Lemma:normal} implies that
-\begin{equation}\label{eq:roughCLT}
-    \frac{
-        A_1+A_2
-    }{\sqrt{
-            \myVar(A_1| \BX_b)
-            +
-            \myVar(A_2| \BX_b)
-    }} \rightsquigarrow \mathcal N(0,1).
-\end{equation}
-We have 
-\begin{equation}\label{eq:varA1}
-    \begin{split}
-        \myVar (A_1|\BX_b)
+
+It is straight forward to show that
+\begin{align*}
+        \myVar (A_1)
         &=
         2\phi^{-2}
     \mytr \left( (\BX_b^* \BX_b^{*\top})^{k} 
     -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
                 \BI_{n-q}
         \right)^2
+        =
+        2\phi^{-2} (n-q)
+        \myVar\left( \gamma_I^{k} \right)
+        ,
         \\
-        &=
-(1+o_P(1))
-2 \phi^{-2} \sigma_b^{4k} p^{2k} (n-q) \myVar(\eta^k)
-                ,
-                \\
-    \end{split}
-\end{equation}
-where the last equality follows from \eqref{eq:etavar}.
-
-Now we deal with $\myVar (A_2 |\BX_b)$.
-We have
-\begin{align*}
-                \myVar (A_2|\BX_b)&= 
+                \myVar (A_2)&= 
                 4 \phi^{-1} \bbeta_b^\top \BX_b^{*\top}
                 \left( (\BX_b^* \BX_b^{*\top})^{k} 
                     -\frac{\mytr ( (\BX_b^* \BX_b^{*\top})^{k})}{n-q} 
                 \BI_{n-q}
             \right)^2  \BX_b^* \bbeta_b
+            \\
+            &=
+            4\phi^{-1} (n-q) 
+                \myE \left(( \gamma_I^{k} - \myE \gamma_I^{k})^2 \gamma_I w_I^2 \right)
             .
 \end{align*}
-Let $\BO$ be a $p\times p$ random matrix  which is generated from Haar distribution and is independent of $\BX_b$.
-The rotation invariance of normal distribution implies that $\BX_b\BO$ has the same distribution as $\BX_b$ and is independent of $\BO$.
-Then
-\begin{equation*}
-    \begin{split}
-    \myVar (A_2 |\BX_b)
-    &=
-    4\phi^{-1} \bbeta_b^\top \BO \BO^\top  \BX_b^{*\top}
-                \left( (\BX_b^* \BO \BO^\top \BX_b^{*\top})^{k} 
-                    -\frac{\mytr ( (\BX_b^* \BO \BO^\top  \BX_b^{*\top})^{k})}{n-q} 
-                \BI_{n-q}
-            \right)^2  \BX_b^* \BO \BO^\top  \bbeta_b
-            \\
-            &\overset{d}{=}
-            4\phi^{-1} \bbeta_b^\top \BO  \BX_b^{*\top}
-                \left( (\BX_b^*  \BX_b^{*\top})^{k} 
-                    -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{k})}{n-q} 
-                \BI_{n-q}
-            \right)^2  \BX_b^* \BO^\top  \bbeta_b.
-    \end{split}
-\end{equation*}
-Note that $\BO^\top \bbeta_b/\|\BO^\top \bbeta_b\|$ is uniformly distributed on the unit sphere $S^{p-1}$.
-From Lemma \ref{lemma:uniform} and Lemma \ref{lemma:MP}, we have
-\begin{equation*}
-    \begin{split}
-        &
-                \myE\left(
-                    4\phi^{-1} \bbeta_b^\top \BO  \BX_b^{*\top}
-                    \left( (\BX_b^*  \BX_b^{*\top})^{k} 
-                        -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{k})}{n-q} 
-                \BI_{n-q}
-            \right)^2  \BX_b^* \BO^\top  \bbeta_b
-            \bigg| \BX_b
-        \right)
-        \\
-        =&
-        4\phi^{-1} p^{-1}\|\bbeta_b\|^2
-        \mytr \left(  \BX_b^{*\top}
-            \left( (\BX_b^*  \BX_b^{*\top})^{k} 
-                -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{k})}{n-q} 
-                \BI_{n-q}
-            \right)^2  \BX_b^* 
-\right)
-\\
-=&
-(1+o_P(1)) 4\phi^{-1} \|\bbeta_b\|^2
-\sigma_b^{4k+2} p^{2k} (n-q) \myE [(\eta^k -\myE \eta^k)^2 \eta]
-,
-    \end{split}
-\end{equation*}
-and
-\begin{equation*}
-    \begin{split}
-        &
-                \myVar\left(
-                    4\phi^{-1} \bbeta_b^\top \BO  \BX_b^{*\top}
-                    \left( (\BX_b^*  \BX_b^{*\top})^{k} 
-                        -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{k})}{n-q} 
-                \BI_{n-q}
-            \right)^2  \BX_b^* \BO^\top  \bbeta_b
-            \bigg| \BX_b
-        \right)
-        \\
-        \leq&
-        \frac{32}{p^2} \phi^{-2} \|\bbeta_b\|^4
-        \mytr
-        \Bigg(
-\BX_b^{*\top}
-                    \left( (\BX_b^*  \BX_b^{*\top})^{k} 
-                        -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{k})}{n-q} 
-                \BI_{n-q}
-            \right)^2  \BX_b^*
-        \Bigg)^2
-        \\
-        =&
-        (1+o_P(1))
-        32 \phi^{-2} \|\bbeta_b\|^4
-        \sigma_b^{8k + 4} p^{4k} (n-q)
-        \myE [(\eta^k - \myE \eta^k)^4 \eta^2]
-        .
-    \end{split}
-\end{equation*}
-It follows that
-\begin{equation}\label{eq:varA2}
-    \myVar (A_2 | \BX_b)= 
-        (1+o_P(1))4
-        \phi^{-1}
-        \|\bbeta_b\|^2
-        \sigma_b^{4k+2} p^{2k} (n-q)
-        \myE [(\eta^k -\myE \eta^k)^2 \eta]
-        .
-\end{equation}
-Combining \eqref{eq:roughCLT}, \eqref{eq:varA1} and \eqref{eq:varA2} yields
-\begin{equation}\label{eq:roughCLT2}
+Then Lemma \ref{Lemma:normal} implies that
+\begin{equation}\label{eq:roughCLT}
     \frac{
         A_1+A_2
     }{\sqrt{
-            2\phi^{-1}
-            \sigma_b^{4k} p^{2k}
-            (n-q)
-            \left( 
-                \phi^{-1} \myE (\eta^k - \myE \eta^k)^2
-                +
-                2\|\bbeta_b\|^2 \sigma_b^2 \myE [(\eta^k - \myE \eta^k)^2\eta]
-            \right)
+            \myVar(A_1)
+            +
+            \myVar(A_2)
     }} \rightsquigarrow \mathcal N(0,1).
 \end{equation}
 
@@ -2033,10 +1900,10 @@ Now we deal with $\By^{*\top} \By^*$.
 Note that
 \begin{equation*}
     \begin{split}
-        \myE (\By^{*\top} \By^* |\BX_b ) =& \bbeta_b^\top \BX_b^{*\top}  \BX_b^* \bbeta_b
+        \myE (\By^{*\top} \By^*  ) =& \bbeta_b^\top \BX_b^{*\top}  \BX_b^* \bbeta_b
     + \phi^{-1}(n-q),
     \\
-    \myVar ( \By^{*\top} \By^* |\BX_b ) 
+    \myVar ( \By^{*\top} \By^*  ) 
     \leq  &
     2\myVar \left( 2 \bepsilon^\top \tilde{\BU}_a  \BX_b^{*} \bbeta_b \right) + 2\myVar \left( \bepsilon^\top  \tilde{\BU}_a \tilde{\BU}_a^\top \bepsilon \right)
     \\
@@ -2044,208 +1911,485 @@ Note that
         \bbeta_b^\top \BX_b^{*\top}  \BX_b^* \bbeta_b 
 + n-q\right)
 \\
-=&o\left( \left( \myE (\By^{*\top} \By^* |\BX_b ) \right)^2 \right).
+=&o\left( \left( \myE \By^{*\top} \By^*   \right)^2 \right).
     \end{split}
 \end{equation*}
 Consequently,
 \begin{equation*}
-    \By^{*\top} \By^* = (1+o_P(1))
+    \By^{*\top} \By^* = 
+    (1+o_P(1))
     \left( 
         \bbeta_b^\top \BX_b^{*\top} \BX_b^* \bbeta_b
     + \phi^{-1}(n-q)
-\right).
+\right)
+=
+(1+o_P(1)) (n-q) \left( \myE \gamma_I w_I^2 + \phi^{-1}  \right)
+.
 \end{equation*}
-By the same techniques as we deal with $\myVar (A_2 |\BX_b)$,
-\begin{equation}\label{eq:den}
-        \By^{*\top} \By^*
-        =
-        (1+o_P(1))(n-q)\left(
-        \sigma_b^2 \|\bbeta_b\|^2  \myE \eta
-+\phi^{-1}
-\right)
-    .
-    \end{equation}
-It follows from \eqref{eq:roughCLT2} and \eqref{eq:den} that
-    \begin{equation}\label{eq:roughCLT3}
-        \begin{split}
-    &
-    \frac{
-        (n-q)\left(
-        \sigma_b^2 \|\bbeta_b\|^2  \myE \eta
-+\phi^{-1}
-\right)
-    }{\sqrt{
-            2\phi^{-1}
-            \sigma_b^{4k} p^{2k}
-            (n-q)
-            \left( 
-                \phi^{-1} \myE (\eta^k - \myE \eta^k)^2
-                +
-                2\|\bbeta_b\|^2 \sigma_b^2 \myE [(\eta^k - \myE \eta^k)^2\eta]
-            \right)
-    }}
-    \frac{
-        A_1+A_2
-    }{\By^{*\top} \By^*}
-    \rightsquigarrow \mathcal N(0,1).
-        \end{split}
-    \end{equation}
 
-Again by the same techniques as we deal with $\myVar (A_2 | \BX_b)$, 
-\begin{equation*}
-    A_3=
-    (1+o_P(1)) \|\bbeta_b\|^2 \sigma_b^{2k+2} p^{k} (n-q) \left(\myE \eta^{k+1} - \myE \eta^k \myE \eta\right)
-    .
-\end{equation*}
 Thus,
-\begin{equation}\label{eq:raA3}
-    \begin{split}
-    &\frac{
-        (n-q)\left(
-        \sigma_b^2 \|\bbeta_b\|^2  \myE \eta
-+\phi^{-1}
+\begin{equation*}
+\frac{
+    \sqrt{n-q}
+}{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
++
+            4\phi
+                \myE \left(( \gamma_I^{k} - \myE \gamma_I^{k})^2 \gamma_I w_I^2 \right)
+    }
+}
+\left( 
+    \left( \phi \myE \gamma_I w_I^2 + 1  \right)
+   R_k 
+   -(1+o_P(1))  \phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
 \right)
-    }{\sqrt{
-            2\phi^{-1}
-            \sigma_b^{4k} p^{2k}
-            (n-q)
-            \left( 
-                \phi^{-1} \myE (\eta^k - \myE \eta^k)^2
-                +
-                2\|\bbeta_b\|^2 \sigma_b^2 \myE [(\eta^k - \myE \eta^k)^2\eta]
-            \right)
-    }}
-    \frac{
-        A_3
-    }{\By^{*\top} \By^*}
+\rightsquigarrow \mathcal N(0,1).
+\end{equation*}
+
+Under the null hypothesis,
+\begin{equation*}
+\frac{
+    \sqrt{n-q}
+}{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
+    }
+}
+   R_k 
+\rightsquigarrow \mathcal N(0,1).
+\end{equation*}
+For any $x\in \mathbb R$ such that
+\begin{equation*}
+\phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+             =O\left( 
+                 \left|
+    \left( \phi \myE \gamma_I w_I^2 + 1  \right)
+\frac
+{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
+    }
+}
+{
+    \sqrt{n-q}
+}
+x
+   -  \phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+             \right|
+         \right),
+\end{equation*}
+\begin{equation*}
+    \begin{split}
+    &
+    \Pr\left( 
+   R_k 
+   \leq
+\frac
+{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
+    }
+}
+{
+    \sqrt{n-q}
+}
+x
+    \right)
+    \\
+    =
+&
+\Pr\Bigg(
+\frac{
+    \sqrt{n-q}
+}{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
++
+            4\phi
+                \myE \left(( \gamma_I^{k} - \myE \gamma_I^{k})^2 \gamma_I w_I^2 \right)
+    }
+}
+\left( 
+    \left( \phi \myE \gamma_I w_I^2 + 1  \right)
+   R_k 
+   -(1+o_P(1))  \phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+\right)
+\\
+&
+\leq
+\frac{
+    \sqrt{n-q}
+}{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
++
+            4\phi
+                \myE \left(( \gamma_I^{k} - \myE \gamma_I^{k})^2 \gamma_I w_I^2 \right)
+    }
+}
+\left( 
+    \left( \phi \myE \gamma_I w_I^2 + 1  \right)
+\frac
+{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
+    }
+}
+{
+    \sqrt{n-q}
+}
+x
+   -(1+o_P(1))  \phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+\right)
+\Bigg)
+    \\
+    =
+&
+\Pr\Bigg(
+\frac{
+    \sqrt{n-q}
+}{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
++
+            4\phi
+                \myE \left(( \gamma_I^{k} - \myE \gamma_I^{k})^2 \gamma_I w_I^2 \right)
+    }
+}
+\left( 
+    \left( \phi \myE \gamma_I w_I^2 + 1  \right)
+   R_k 
+   -(1+o_P(1))  \phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+\right)
+\\
+&
+\leq
+\frac{
+(1+o_P(1))
+    \sqrt{n-q}
+}{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
++
+            4\phi
+                \myE \left(( \gamma_I^{k} - \myE \gamma_I^{k})^2 \gamma_I w_I^2 \right)
+    }
+}
+\left( 
+    \left( \phi \myE \gamma_I w_I^2 + 1  \right)
+\frac
+{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
+    }
+}
+{
+    \sqrt{n-q}
+}
+x
+   -  \phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+\right)
+\Bigg)
+\\
+=&
+\Phi\left( 
+\frac{
+    \sqrt{n-q}
+}{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
++
+            4\phi
+                \myE \left(( \gamma_I^{k} - \myE \gamma_I^{k})^2 \gamma_I w_I^2 \right)
+    }
+}
+\left( 
+    \left( \phi \myE \gamma_I w_I^2 + 1  \right)
+\frac
+{
+    \sqrt{
+        2 
+        \myVar\left( \gamma_I^{k} \right)
+    }
+}
+{
+    \sqrt{n-q}
+}
+x
+   -  \phi
+             \myCov \left(\gamma_I^k, \gamma_I w_I^2\right)
+\right)
+\right)
++o(1).
+    \end{split}
+\end{equation*}
+
+
+
+\begin{equation}
+    \begin{split}
+    &\Pr\left( 
+        \frac{
+            \By^{*\top} \left( \BX_b^* \BX_b^{*\top} \right)^k \By^*
+        }{
+            \By^{*\top} \By^*
+        } 
+        \leq 
+        \frac{
+            \mytr(\BX_b^* \BX_b^{*\top})^k
+        }{
+            n-q 
+        }
+        +\sqrt{
+            \frac{2\myVar\left( \gamma_I^k \right)}{n-q} 
+        }
+        x
+    \right) 
     \\
     =&
-    \frac{
-        (1+o_P(1)) \sqrt{n-q} \|\bbeta_b\|^2 \sigma_b^{2}  \left(\myE \eta^{k+1} - \myE \eta^k \myE \eta\right)
-    }{\sqrt{
-                2\phi^{-2} \myE (\eta^k - \myE \eta^k)^2
-                +
-            4\phi^{-1}
-                \|\bbeta_b\|^2 \sigma_b^2 \myE [(\eta^k - \myE \eta^k)^2\eta]
-        }}.
+    \Pr\left( 
+            \By^{*\top} \left( \BX_b^* \BX_b^{*\top} \right)^k \By^*
+        \leq 
+        \left( 
+        \frac{
+            \mytr(\BX_b^* \BX_b^{*\top})^k
+        }{
+            n-q 
+        }
+        +\sqrt{
+            \frac{2\myVar\left( \gamma_I^k \right)}{n-q} 
+        }
+        x
+        \right)
+            \By^{*\top} \By^*
+    \right) 
+    \\
+    =&
+    \Pr\left( 
+            \By^{*\top}
+            \BB
+            \By^*
+            \leq 0
+    \right) 
+    ,
     \end{split}
+    \label{eq:to2}
+\end{equation}
+where
+\begin{equation*}
+   \BB= 
+            \left( \BX_b^* \BX_b^{*\top} \right)^k 
+        -
+        \left( 
+            \myE (\gamma_I^k)
+        +\sqrt{
+            \frac{2\myVar\left( \gamma_I^k \right)}{n-q} 
+        }
+        x
+        \right)
+        \BI_{n-q}.
+\end{equation*}
+Since $\By^{*\top} \BB \By^*= \bepsilon^\top \tilde{\BU}_a \BB \tilde{\BU}_a^\top\bepsilon + 2\bepsilon^\top \tilde{\BU}_a \BB \BX_b^* \bbeta_b + \bbeta_b^{\top} \BX_b^{*\top} \BB \BX_b^* \bbeta_b$, we have
+\begin{equation*}
+    \Pr\left( 
+            \By^{*\top}
+            \BB
+            \By^*
+            \leq 0
+    \right) 
+    =
+    \Pr\left( 
+        \frac{
+    \bepsilon^\top \tilde{\BU}_a \BB \tilde{\BU}_a^\top\bepsilon + 2\bepsilon^\top \tilde{\BU}_a \BB \BX_b^* \bbeta_b 
+}{
+    \sqrt{
+        2\phi^{-2}\mytr(\BB^2)
+        +4 \phi^{-1}
+        \bbeta_b^\top
+        \BX_b^{*\top}
+        \BB^2
+        \BX_b^*
+        \bbeta_b
+    }
+}
+    \leq
+    - \frac{
+        \bbeta_b^{\top} \BX_b^{*\top} \BB \BX_b^* \bbeta_b
+    }{
+    \sqrt{
+        2\phi^{-2}
+        \mytr(\BB^2)
+        +4\phi^{-1}
+        \bbeta_b^\top
+        \BX_b^{*\top}
+        \BB^2
+        \BX_b^*
+        \bbeta_b
+    }
+    }
+\right).
+\end{equation*}
+It is straightforward to show that
+\begin{align}\label{eq:to1}
+    \mytr(\BB^2) &=  ( n-q +2x^2 ) \myVar ( \gamma_I^k ).
+\end{align}
+To apply proposition \ref{Lemma:normal}, we need to verify the condition $\lambda_1\left( \BB^2 \right)/\mytr\left(  \BB^2 \right)\to 0$.
+Note that
+\begin{equation*}
+    \lambda_1\left( \BB^2 \right) 
+    =\max_{1\leq i \leq n-q}
+    \left( 
+    \gamma_i^k
+        -
+            \myE (\gamma_I^k)
+        -
+        \sqrt{
+            \frac{2\myVar\left( \gamma_I^k \right)}{n-q} 
+        }
+        x
+    \right)^2
+    \leq
+    2
+    \max_{1\leq i \leq n-q}
+    \left( 
+    \gamma_i^k
+        -
+            \myE (\gamma_I^k)
+    \right)^2
+        +
+        4
+            \frac{\myVar\left( \gamma_I^k \right)}{n-q} 
+        x^2
+        .
+\end{equation*}
+Then
+\begin{equation*}
+    \begin{split}
+    \frac{
+        \lambda_1(\BB^2)
+    }{
+        \mytr(\BB^2)
+    } 
+    \leq
+    &
+    2
+    \frac{
+        \max_{1\leq i \leq n-q}
+        \left( 
+        \gamma_i^k
+            -
+                \myE (\gamma_I^k)
+        \right)^2
+    }{
+        (n-q+2x^2) \myVar (\gamma_I^k)
+    }
+    +4\frac{
+        x^2
+    }{
+        (n-q)(n-q+x^2)
+    }
+    \\
+    \leq&
+    2
+    \frac{
+        \max_{1\leq i \leq n-q}
+        \left( 
+        \gamma_i^k
+            -
+                \myE (\gamma_I^k)
+        \right)^2
+    }{
+        (n-q) \myVar (\gamma_I^k)
+    }
+    +\frac{
+        4
+    }{
+        (n-q)
+    },
+    \end{split}
+\end{equation*}
+which tends to $0$ by the condition \eqref{eq:toBeCondition}.
+Hence Proposition \ref{Lemma:normal} implies that
+\begin{equation}\label{eq:to3}
+    \Pr\left( 
+            \By^{*\top}
+            \BB
+            \By^*
+            \leq 0
+    \right) 
+=
+    \Phi\left( 
+    - \frac{
+        \bbeta_b^{\top} \BX_b^{*\top} \BB \BX_b^* \bbeta_b
+    }{
+    \sqrt{
+        2\phi^{-2}
+        \mytr(\BB^2)
+        +4\phi^{-1}
+        \bbeta_b^\top
+        \BX_b^{*\top}
+        \BB^2
+        \BX_b^*
+        \bbeta_b
+    }
+    }
+\right)
++o(1)
+.
 \end{equation}
 
-By a standard subsequence argument, we can without loss of generality and assume
-$\sqrt{n-q} \|\bbeta_b\|^2 \to s \in [0,+\infty]$.
-\CG{If $s=+\infty$, the right hand side of \eqref{eq:raA3} tends to infinity and the conclusion follows immediately.}
-In what follows, we assume $s<+\infty$.
-In this case, since $\|\bbeta_b\|^2\to 0$, \eqref{eq:roughCLT3} becomes
-    \begin{equation*}
-        \begin{split}
-    &
-    \frac{
-        \sqrt{n-q}
-    }{\sqrt{
-            2
-            \sigma_b^{4k} p^{2k}
-         \myE (\eta^k - \myE \eta^k)^2
-    }}
-    \frac{
-        A_1+A_2
-    }{\By^{*\top} \By^*}
-    \rightsquigarrow \mathcal N(0,1).
-        \end{split}
-    \end{equation*}
-    And \eqref{eq:raA3} becomes
-\begin{equation*}
-    \begin{split}
-    &\frac{
-        \sqrt{n-q}
-    }{\sqrt{
-            2
-            \sigma_b^{4k} p^{2k}
-            \myE (\eta^k - \myE \eta^k)^2
-    }}
-    \frac{
-        A_3
-    }{\By^{*\top} \By^*}
-    =
-    \frac{
-         \sqrt{n-q} \|\bbeta_b\|^2 \phi \sigma_b^{2}  \left(\myE \eta^{k+1} - \myE \eta^k \myE \eta\right)
-    }{\sqrt{
-                2 \myE (\eta^k - \myE \eta^k)^2
-        }}
-        +o_P(1)
-        .
-    \end{split}
-\end{equation*}
-Thus,
-\begin{equation*}
-    \begin{split}
-    &
-    \frac{
-        \sqrt{n-q}
-    }{\sqrt{
-            2
-            \sigma_b^{4k} p^{2k}
-            \myE (\eta^k - \myE \eta^k)^2
-    }}
-    \left( 
-        R_k
-    -
-          \|\bbeta_b\|^2 \phi \sigma_b^{2k+2} p^k  \left(\myE \eta^{k+1} - \myE \eta^k \myE \eta\right)
-    \right)
-        \rightsquigarrow \mathcal N (0,1).
-    \end{split}
-\end{equation*}
-Then the conclusion folllows.
 
-\end{proof}
 
-\begin{lemma}\label{lemma:uniform}
-    Let $\BA$ be an $p\times p$ symmetric matrix.
-    Let $Z=(z_1,\ldots,z_p)^\top$ be a $p$ dimensional random vector with uniform distribution on the unit sphere $ S^{p-1}$.
-    Then 
-    \begin{equation*}
-        \begin{split}
-            &\myE (Z^\top \BA Z) = \frac{1}{p} \mytr (\BA),
-        \quad
-        \myVar (Z^\top \BA Z) =
-        \frac{2}{p(p+2)}\left( \mytr (\BA^2) - \frac{1}{p} \mytr^2 (\BA) \right)
-        \leq
-        \frac{2}{p^2} \mytr (\BA^2)  
-        .
-        \end{split}
-    \end{equation*}
-\end{lemma}
-\begin{proof}
-    The result follows from direct calculation and the fact that for nonnegative integers $m_1,\ldots, m_{p}$,
-\begin{equation*}
-    \myE \prod_{i=1}^p z_i^{2 m_i} 
-    =
-    \frac{\Gamma(p/2) \prod_{i=1}^p \Gamma(m_i+1/2)}{ \pi^{p/2} \Gamma(\sum_{i=1}^p m_i + p/2)}
+Then the conclusion follows from \eqref{eq:to2}, \eqref{eq:to1}, \eqref{eq:to3} and the following facts
+\begin{align*}
+        \bbeta_b^\top
+        \BX_b^{*\top}
+        \BB
+        \BX_b^*
+        \bbeta_b
+        &= 
+        (n-q)\left( 
+            \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
+            -
+            \sqrt{\frac{2\myVar\left( \gamma_I^k \right)}{n-q}} x
+            \myE (\gamma_I w_I^2)
+        \right),
+    \\
+        \bbeta_b^\top
+        \BX_b^{*\top}
+        \BB^2
+        \BX_b^*
+        \bbeta_b
+    &=
+    (n-q) \myE\left[ 
+        \left( \gamma_I^k -\myE(\gamma_I^k) -\sqrt{\frac{2\myVar (\gamma_I^k)}{n-q}}x \right)^2
+        \gamma_I w_I^2
+    \right]
     .
-\end{equation*}
+\end{align*}
+
+
 \end{proof}
 
-
-        
-Let $\eta$ be a random variable with density function
-    \begin{equation*}
-        p_{c}(x)=\mathbf{1}_{\left[(1-c^{-1/2})^2,(1+c^{-1/2})^2\right]}(x)
-        \frac{c}{2\pi x} \sqrt{4/c - \left(x-(1/c+1)\right)^2}.
-    \end{equation*}
-Define $
-        \nu_{r,c}
-        =
-        \myE \eta^r
-        $.
-
-The following lemma is a direct consequence of MP law and Bai Yin law.
-\begin{lemma}\label{lemma:MP}
-    Under the assumptions of Theorem \ref{generalTheorem}, for every $r\in \mathbb R$,
-    \begin{equation*}
-        \frac{1}{\sigma_b^{2r} p^r (n-q)}\mytr (\BX_b^* \BX_b^{*\top})^{r} 
-        \xrightarrow{a.s.}
-        \nu_{r,c}
-    \end{equation*}
-\end{lemma}
 
 
 

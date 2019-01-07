@@ -16,45 +16,45 @@ Repeated entry---line 1063 of file mybibfile.bib
  :                     ,
 I'm skipping whatever remains of this entry
 Warning--can't use both author and editor fields in book:992991
-You've used 29 entries,
+You've used 31 entries,
             1935 wiz_defined-function locations,
-            680 strings with 8266 characters,
-and the built_in function-call counts, 11304 in all, are:
-= -- 1125
-> -- 392
+            694 strings with 8615 characters,
+and the built_in function-call counts, 12179 in all, are:
+= -- 1212
+> -- 433
 < -- 20
-+ -- 136
-- -- 126
-* -- 1005
-:= -- 1959
-add.period$ -- 89
-call.type$ -- 29
-change.case$ -- 206
-chr.to.int$ -- 29
-cite$ -- 30
-duplicate$ -- 405
-empty$ -- 837
-format.name$ -- 175
-if$ -- 2202
-int.to.chr$ -- 1
++ -- 151
+- -- 140
+* -- 1087
+:= -- 2112
+add.period$ -- 95
+call.type$ -- 31
+change.case$ -- 223
+chr.to.int$ -- 30
+cite$ -- 32
+duplicate$ -- 433
+empty$ -- 895
+format.name$ -- 191
+if$ -- 2368
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 33
-newline$ -- 148
-num.names$ -- 87
-pop$ -- 145
+missing$ -- 35
+newline$ -- 158
+num.names$ -- 93
+pop$ -- 158
 preamble$ -- 1
-purify$ -- 208
+purify$ -- 225
 quote$ -- 0
-skip$ -- 307
+skip$ -- 326
 stack$ -- 0
-substring$ -- 937
-swap$ -- 30
+substring$ -- 1008
+swap$ -- 32
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 166
+type$ -- 178
 warning$ -- 1
-while$ -- 97
+while$ -- 105
 width$ -- 0
-write$ -- 378
+write$ -- 404
 (There were 3 error messages)

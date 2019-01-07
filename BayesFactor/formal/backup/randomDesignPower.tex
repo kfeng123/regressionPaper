@@ -1,0 +1,455 @@
+
+
+
+\begin{proof}[\textbf{Proof of Theorem \ref{generalTheorem}}]
+    Note that $\BX_b^* \BX_b^{*\top} \sim \text{Wishart}(p,\sigma_b^2 \BI_{n-q})$.
+    \begin{equation*}
+        \frac{\By^{*\top} (\BX_b^* \BX_b^{*\top})^{k} \By^*}{\By^{*\top} \By^*} -\frac{\mytr (\BX_b^* \BX_b^{*\top})^{k}}{n-q}
+        =
+        \frac{\By^{*\top}\left( (\BX_b^* \BX_b^{*\top})^{k} 
+                -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
+                \BI_{n-q}
+        \right) \By^*}{\By^{*\top} \By^*}.
+    \end{equation*}
+
+We have
+\begin{align*}
+\By^{*\top}\left( (\BX_b^* \BX_b^{*\top})^{k} 
+    -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
+                \BI_{n-q}
+        \right) \By^*
+        =&
+\bepsilon^{\top} \tilde \BU_a \left( (\BX_b^* \BX_b^{*\top})^{k} 
+    -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
+                \BI_{n-q}
+        \right) \tilde \BU_a^\top \bepsilon
+        \\
+        &+
+        2\bepsilon^{\top} \tilde \BU_a \left( (\BX_b^* \BX_b^{*\top})^{k} 
+            -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
+                \BI_{n-q}
+            \right)  \BX_b^* \bbeta_b
+        \\
+        &+
+ \bbeta_b^\top
+ \BX_b^{*\top}
+ \left( (\BX_b^* \BX_b^{*\top})^{k} 
+     -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
+                \BI_{n-q}
+            \right)  \BX_b^* \bbeta_b
+            \\
+            =:&
+            A_1+ A_2 +A_3
+            .
+\end{align*}
+
+
+To deal with $A_1+A_2$,
+note that $\tilde \BU_a^\top \bepsilon\sim \mathcal N_{n-q} (0, \phi^{-1} \BI_{n-q})$.
+We would like to apply Lemma \ref{Lemma:normal} conditioning on $\BX_b$.
+From lemma \ref{lemma:MP},
+\begin{align}
+    \mytr \left( (\BX_b^* \BX_b^{*\top})^{k} 
+    -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
+                \BI_{n-q}
+        \right)^2
+        =&(1+o_P(1))\sigma_b^{4k} p^{2k} (n-q) \myVar (\eta^k),
+        \label{eq:etavar}
+        \\
+        \notag
+    \mytr \left( (\BX_b^* \BX_b^{*\top})^{k} 
+    -\frac{\mytr (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
+                \BI_{n-q}
+        \right)^4
+        =&
+        (1+o_P(1))\sigma_b^{8k} p^{4k} (n-q) \myE (\eta^k - \myE \eta^k)^4,
+\end{align}
+where $\eta$ is a random variable with density function
+    \begin{equation*}
+        p_{c}(x)=\mathbf{1}_{\left[(1-c^{-1/2})^2,(1+c^{-1/2})^2\right]}(x)
+        \frac{c}{2\pi x} \sqrt{4/c - \left(x-(1/c+1)\right)^2}.
+    \end{equation*}
+    It follows that
+\begin{equation*}
+    \begin{split}
+    \frac{
+        \mytr \left( (\BX_b^* \BX_b^{*\top})^{k} 
+    -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
+                \BI_{n-q}
+        \right)^4
+    }
+    {
+    \mytr^2 \left( (\BX_b^* \BX_b^{*\top})^{k} 
+    -\frac{\mytr (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
+                \BI_{n-q}
+        \right)^2
+    }
+    \to 0.
+    \end{split}
+\end{equation*}
+Then Lemma \ref{Lemma:normal} implies that
+\begin{equation}\label{eq:roughCLT}
+    \frac{
+        A_1+A_2
+    }{\sqrt{
+            \myVar(A_1| \BX_b)
+            +
+            \myVar(A_2| \BX_b)
+    }} \rightsquigarrow \mathcal N(0,1).
+\end{equation}
+We have 
+\begin{equation}\label{eq:varA1}
+    \begin{split}
+        \myVar (A_1|\BX_b)
+        &=
+        2\phi^{-2}
+    \mytr \left( (\BX_b^* \BX_b^{*\top})^{k} 
+    -\frac{\mytr  (\BX_b^* \BX_b^{*\top})^{k}}{n-q} 
+                \BI_{n-q}
+        \right)^2
+        \\
+        &=
+(1+o_P(1))
+2 \phi^{-2} \sigma_b^{4k} p^{2k} (n-q) \myVar(\eta^k)
+                ,
+                \\
+    \end{split}
+\end{equation}
+where the last equality follows from \eqref{eq:etavar}.
+
+Now we deal with $\myVar (A_2 |\BX_b)$.
+We have
+\begin{align*}
+                \myVar (A_2|\BX_b)&= 
+                4 \phi^{-1} \bbeta_b^\top \BX_b^{*\top}
+                \left( (\BX_b^* \BX_b^{*\top})^{k} 
+                    -\frac{\mytr ( (\BX_b^* \BX_b^{*\top})^{k})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \bbeta_b
+            .
+\end{align*}
+Let $\BO$ be a $p\times p$ random matrix  which is generated from Haar distribution and is independent of $\BX_b$.
+The rotation invariance of normal distribution implies that $\BX_b\BO$ has the same distribution as $\BX_b$ and is independent of $\BO$.
+Then
+\begin{equation*}
+    \begin{split}
+    \myVar (A_2 |\BX_b)
+    &=
+    4\phi^{-1} \bbeta_b^\top \BO \BO^\top  \BX_b^{*\top}
+                \left( (\BX_b^* \BO \BO^\top \BX_b^{*\top})^{k} 
+                    -\frac{\mytr ( (\BX_b^* \BO \BO^\top  \BX_b^{*\top})^{k})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \BO \BO^\top  \bbeta_b
+            \\
+            &\overset{d}{=}
+            4\phi^{-1} \bbeta_b^\top \BO  \BX_b^{*\top}
+                \left( (\BX_b^*  \BX_b^{*\top})^{k} 
+                    -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{k})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \BO^\top  \bbeta_b.
+    \end{split}
+\end{equation*}
+Note that $\BO^\top \bbeta_b/\|\BO^\top \bbeta_b\|$ is uniformly distributed on the unit sphere $S^{p-1}$.
+From Lemma \ref{lemma:uniform} and Lemma \ref{lemma:MP}, we have
+\begin{equation*}
+    \begin{split}
+        &
+                \myE\left(
+                    4\phi^{-1} \bbeta_b^\top \BO  \BX_b^{*\top}
+                    \left( (\BX_b^*  \BX_b^{*\top})^{k} 
+                        -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{k})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \BO^\top  \bbeta_b
+            \bigg| \BX_b
+        \right)
+        \\
+        =&
+        4\phi^{-1} p^{-1}\|\bbeta_b\|^2
+        \mytr \left(  \BX_b^{*\top}
+            \left( (\BX_b^*  \BX_b^{*\top})^{k} 
+                -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{k})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* 
+\right)
+\\
+=&
+(1+o_P(1)) 4\phi^{-1} \|\bbeta_b\|^2
+\sigma_b^{4k+2} p^{2k} (n-q) \myE [(\eta^k -\myE \eta^k)^2 \eta]
+,
+    \end{split}
+\end{equation*}
+and
+\begin{equation*}
+    \begin{split}
+        &
+                \myVar\left(
+                    4\phi^{-1} \bbeta_b^\top \BO  \BX_b^{*\top}
+                    \left( (\BX_b^*  \BX_b^{*\top})^{k} 
+                        -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{k})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^* \BO^\top  \bbeta_b
+            \bigg| \BX_b
+        \right)
+        \\
+        \leq&
+        \frac{32}{p^2} \phi^{-2} \|\bbeta_b\|^4
+        \mytr
+        \Bigg(
+\BX_b^{*\top}
+                    \left( (\BX_b^*  \BX_b^{*\top})^{k} 
+                        -\frac{\mytr ( (\BX_b^*  \BX_b^{*\top})^{k})}{n-q} 
+                \BI_{n-q}
+            \right)^2  \BX_b^*
+        \Bigg)^2
+        \\
+        =&
+        (1+o_P(1))
+        32 \phi^{-2} \|\bbeta_b\|^4
+        \sigma_b^{8k + 4} p^{4k} (n-q)
+        \myE [(\eta^k - \myE \eta^k)^4 \eta^2]
+        .
+    \end{split}
+\end{equation*}
+It follows that
+\begin{equation}\label{eq:varA2}
+    \myVar (A_2 | \BX_b)= 
+        (1+o_P(1))4
+        \phi^{-1}
+        \|\bbeta_b\|^2
+        \sigma_b^{4k+2} p^{2k} (n-q)
+        \myE [(\eta^k -\myE \eta^k)^2 \eta]
+        .
+\end{equation}
+Combining \eqref{eq:roughCLT}, \eqref{eq:varA1} and \eqref{eq:varA2} yields
+\begin{equation}\label{eq:roughCLT2}
+    \frac{
+        A_1+A_2
+    }{\sqrt{
+            2\phi^{-1}
+            \sigma_b^{4k} p^{2k}
+            (n-q)
+            \left( 
+                \phi^{-1} \myE (\eta^k - \myE \eta^k)^2
+                +
+                2\|\bbeta_b\|^2 \sigma_b^2 \myE [(\eta^k - \myE \eta^k)^2\eta]
+            \right)
+    }} \rightsquigarrow \mathcal N(0,1).
+\end{equation}
+
+Now we deal with $\By^{*\top} \By^*$.
+Note that
+\begin{equation*}
+    \begin{split}
+        \myE (\By^{*\top} \By^* |\BX_b ) =& \bbeta_b^\top \BX_b^{*\top}  \BX_b^* \bbeta_b
+    + \phi^{-1}(n-q),
+    \\
+    \myVar ( \By^{*\top} \By^* |\BX_b ) 
+    \leq  &
+    2\myVar \left( 2 \bepsilon^\top \tilde{\BU}_a  \BX_b^{*} \bbeta_b \right) + 2\myVar \left( \bepsilon^\top  \tilde{\BU}_a \tilde{\BU}_a^\top \bepsilon \right)
+    \\
+    =&O\left( 
+        \bbeta_b^\top \BX_b^{*\top}  \BX_b^* \bbeta_b 
++ n-q\right)
+\\
+=&o\left( \left( \myE (\By^{*\top} \By^* |\BX_b ) \right)^2 \right).
+    \end{split}
+\end{equation*}
+Consequently,
+\begin{equation*}
+    \By^{*\top} \By^* = (1+o_P(1))
+    \left( 
+        \bbeta_b^\top \BX_b^{*\top} \BX_b^* \bbeta_b
+    + \phi^{-1}(n-q)
+\right).
+\end{equation*}
+By the same techniques as we deal with $\myVar (A_2 |\BX_b)$,
+\begin{equation}\label{eq:den}
+        \By^{*\top} \By^*
+        =
+        (1+o_P(1))(n-q)\left(
+        \sigma_b^2 \|\bbeta_b\|^2  \myE \eta
++\phi^{-1}
+\right)
+    .
+    \end{equation}
+It follows from \eqref{eq:roughCLT2} and \eqref{eq:den} that
+    \begin{equation}\label{eq:roughCLT3}
+        \begin{split}
+    &
+    \frac{
+        (n-q)\left(
+        \sigma_b^2 \|\bbeta_b\|^2  \myE \eta
++\phi^{-1}
+\right)
+    }{\sqrt{
+            2\phi^{-1}
+            \sigma_b^{4k} p^{2k}
+            (n-q)
+            \left( 
+                \phi^{-1} \myE (\eta^k - \myE \eta^k)^2
+                +
+                2\|\bbeta_b\|^2 \sigma_b^2 \myE [(\eta^k - \myE \eta^k)^2\eta]
+            \right)
+    }}
+    \frac{
+        A_1+A_2
+    }{\By^{*\top} \By^*}
+    \rightsquigarrow \mathcal N(0,1).
+        \end{split}
+    \end{equation}
+
+Again by the same techniques as we deal with $\myVar (A_2 | \BX_b)$, 
+\begin{equation*}
+    A_3=
+    (1+o_P(1)) \|\bbeta_b\|^2 \sigma_b^{2k+2} p^{k} (n-q) \left(\myE \eta^{k+1} - \myE \eta^k \myE \eta\right)
+    .
+\end{equation*}
+Thus,
+\begin{equation}\label{eq:raA3}
+    \begin{split}
+    &\frac{
+        (n-q)\left(
+        \sigma_b^2 \|\bbeta_b\|^2  \myE \eta
++\phi^{-1}
+\right)
+    }{\sqrt{
+            2\phi^{-1}
+            \sigma_b^{4k} p^{2k}
+            (n-q)
+            \left( 
+                \phi^{-1} \myE (\eta^k - \myE \eta^k)^2
+                +
+                2\|\bbeta_b\|^2 \sigma_b^2 \myE [(\eta^k - \myE \eta^k)^2\eta]
+            \right)
+    }}
+    \frac{
+        A_3
+    }{\By^{*\top} \By^*}
+    \\
+    =&
+    \frac{
+        (1+o_P(1)) \sqrt{n-q} \|\bbeta_b\|^2 \sigma_b^{2}  \left(\myE \eta^{k+1} - \myE \eta^k \myE \eta\right)
+    }{\sqrt{
+                2\phi^{-2} \myE (\eta^k - \myE \eta^k)^2
+                +
+            4\phi^{-1}
+                \|\bbeta_b\|^2 \sigma_b^2 \myE [(\eta^k - \myE \eta^k)^2\eta]
+        }}.
+    \end{split}
+\end{equation}
+
+By a standard subsequence argument, we can without loss of generality and assume
+$\sqrt{n-q} \|\bbeta_b\|^2 \to s \in [0,+\infty]$.
+\CG{If $s=+\infty$, the right hand side of \eqref{eq:raA3} tends to infinity and the conclusion follows immediately.}
+In what follows, we assume $s<+\infty$.
+In this case, since $\|\bbeta_b\|^2\to 0$, \eqref{eq:roughCLT3} becomes
+    \begin{equation*}
+        \begin{split}
+    &
+    \frac{
+        \sqrt{n-q}
+    }{\sqrt{
+            2
+            \sigma_b^{4k} p^{2k}
+         \myE (\eta^k - \myE \eta^k)^2
+    }}
+    \frac{
+        A_1+A_2
+    }{\By^{*\top} \By^*}
+    \rightsquigarrow \mathcal N(0,1).
+        \end{split}
+    \end{equation*}
+    And \eqref{eq:raA3} becomes
+\begin{equation*}
+    \begin{split}
+    &\frac{
+        \sqrt{n-q}
+    }{\sqrt{
+            2
+            \sigma_b^{4k} p^{2k}
+            \myE (\eta^k - \myE \eta^k)^2
+    }}
+    \frac{
+        A_3
+    }{\By^{*\top} \By^*}
+    =
+    \frac{
+         \sqrt{n-q} \|\bbeta_b\|^2 \phi \sigma_b^{2}  \left(\myE \eta^{k+1} - \myE \eta^k \myE \eta\right)
+    }{\sqrt{
+                2 \myE (\eta^k - \myE \eta^k)^2
+        }}
+        +o_P(1)
+        .
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+    &
+    \frac{
+        \sqrt{n-q}
+    }{\sqrt{
+            2
+            \sigma_b^{4k} p^{2k}
+            \myE (\eta^k - \myE \eta^k)^2
+    }}
+    \left( 
+        R_k
+    -
+          \|\bbeta_b\|^2 \phi \sigma_b^{2k+2} p^k  \left(\myE \eta^{k+1} - \myE \eta^k \myE \eta\right)
+    \right)
+        \rightsquigarrow \mathcal N (0,1).
+    \end{split}
+\end{equation*}
+Then the conclusion folllows.
+
+\end{proof}
+
+\begin{lemma}\label{lemma:uniform}
+    Let $\BA$ be an $p\times p$ symmetric matrix.
+    Let $Z=(z_1,\ldots,z_p)^\top$ be a $p$ dimensional random vector with uniform distribution on the unit sphere $ S^{p-1}$.
+    Then 
+    \begin{equation*}
+        \begin{split}
+            &\myE (Z^\top \BA Z) = \frac{1}{p} \mytr (\BA),
+        \quad
+        \myVar (Z^\top \BA Z) =
+        \frac{2}{p(p+2)}\left( \mytr (\BA^2) - \frac{1}{p} \mytr^2 (\BA) \right)
+        \leq
+        \frac{2}{p^2} \mytr (\BA^2)  
+        .
+        \end{split}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    The result follows from direct calculation and the fact that for nonnegative integers $m_1,\ldots, m_{p}$,
+\begin{equation*}
+    \myE \prod_{i=1}^p z_i^{2 m_i} 
+    =
+    \frac{\Gamma(p/2) \prod_{i=1}^p \Gamma(m_i+1/2)}{ \pi^{p/2} \Gamma(\sum_{i=1}^p m_i + p/2)}
+    .
+\end{equation*}
+\end{proof}
+
+
+        
+Let $\eta$ be a random variable with density function
+    \begin{equation*}
+        p_{c}(x)=\mathbf{1}_{\left[(1-c^{-1/2})^2,(1+c^{-1/2})^2\right]}(x)
+        \frac{c}{2\pi x} \sqrt{4/c - \left(x-(1/c+1)\right)^2}.
+    \end{equation*}
+Define $
+        \nu_{r,c}
+        =
+        \myE \eta^r
+        $.
+
+The following lemma is a direct consequence of MP law and Bai Yin law.
+\begin{lemma}\label{lemma:MP}
+    Under the assumptions of Theorem \ref{generalTheorem}, for every $r\in \mathbb R$,
+    \begin{equation*}
+        \frac{1}{\sigma_b^{2r} p^r (n-q)}\mytr (\BX_b^* \BX_b^{*\top})^{r} 
+        \xrightarrow{a.s.}
+        \nu_{r,c}
+    \end{equation*}
+\end{lemma}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  4 JAN 2019 21:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  7 JAN 2019 22:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -566,27 +566,32 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-Overfull \hbox (23.63147pt too wide) in paragraph at lines 349--349
+Overfull \hbox (23.63147pt too wide) in paragraph at lines 358--358
 [] 
  []
 
 [4] [5] [6] [7]
-Overfull \hbox (1.43092pt too wide) in paragraph at lines 734--734
+Overfull \hbox (4.8968pt too wide) in paragraph at lines 797--797
 [] 
  []
 
 
-Overfull \hbox (103.86044pt too wide) in paragraph at lines 935--935
+Overfull \hbox (95.44945pt too wide) in paragraph at lines 845--845
+[] 
+ []
+
+
+Overfull \hbox (72.8337pt too wide) in paragraph at lines 891--891
 [] 
  []
 
 [8] [9]
-Overfull \hbox (21.94992pt too wide) in paragraph at lines 1037--1037
+Overfull \hbox (21.94992pt too wide) in paragraph at lines 1051--1051
 [] 
  []
 
-[10] [11] [12] [13] [14]
-Overfull \hbox (12.88023pt too wide) in paragraph at lines 1634--1639
+[10] [11] [12] [13] [14] [15]
+Overfull \hbox (12.88023pt too wide) in paragraph at lines 1636--1641
 \OT1/cmr/m/n/10.95 In what fol-lows, we as-sume $\OML/cmm/m/it/10.95 c \OMS/cms
 y/m/n/10.95 2 \OT1/cmr/m/n/10.95 (0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 +\O
 MS/cmsy/m/n/10.95 1\OT1/cmr/m/n/10.95 )$. By Helly se-lec-tion the-o-rem, we ca
@@ -595,55 +600,58 @@ n as-sume $[][] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 b[]\OMS/cmsy/m/n/10.95
 10.95 k \OT1/cmr/m/n/10.95 =
  []
 
-[15]
-Overfull \hbox (9.91473pt too wide) in paragraph at lines 1716--1716
+[16]
+Overfull \hbox (9.91473pt too wide) in paragraph at lines 1718--1718
 [] 
  []
 
 
-Overfull \hbox (5.92715pt too wide) in paragraph at lines 1765--1774
+Overfull \hbox (5.92715pt too wide) in paragraph at lines 1767--1776
 \OT1/cmr/m/n/10.95 Note that $[][] []$ is in-de-pen-dent of $[][] \OML/cmm/m/it
 /10.95 b[]z[]$ \OT1/cmr/m/n/10.95 and $[][] \OML/cmm/m/it/10.95 b[]z[] \OMS/cms
 y/m/n/10.95 ^^X N\OT1/cmr/m/n/10.95 (0\OML/cmm/m/it/10.95 ; [][] b[]\OT1/cmr/m/
 n/10.95 )$.
  []
 
-[16] [17] [18]
-Overfull \hbox (13.27763pt too wide) in paragraph at lines 2134--2139
-[]\OT1/cmr/m/n/10.95 By a stan-dard sub-se-quence ar-gu-ment, we can with-out l
-oss of gen-er-al-ity and as-sume $[]\OMS/cmsy/m/n/10.95 k[][]k[] !
+[17]
+Overfull \hbox (23.99336pt too wide) detected at line 1950
+[] [] \U/msa/m/n/10.95   \OMS/cmsy/m/n/10.95 N\OT1/cmr/m/n/10.95 (0\OML/cmm/m/i
+t/10.95 ; \OT1/cmr/m/n/10.95 1)\OML/cmm/m/it/10.95 :
  []
 
 
-Overfull \hbox (9.74701pt too wide) in paragraph at lines 2218--2219
-[]\OT1/cmr/m/n/10.95 The re-sult fol-lows from di-rect cal-cu-la-tion and the f
-act that for non-neg-a-tive in-te-gers $\OML/cmm/m/it/10.95 m[]; [] ; m[]$\OT1/
-cmr/m/n/10.95 , 
+Overfull \hbox (62.47858pt too wide) in paragraph at lines 2144--2144
+[] 
+ []
+
+[18]
+Overfull \hbox (53.68973pt too wide) detected at line 2250
+[] [] \OT1/cmr/m/n/10.95 = [] [] \OML/cmm/m/it/10.95 :
  []
 
 [19] (./main.bbl
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
  [20] [21])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2266.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2410.
  [22]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2266.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2410.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2266.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2266.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2410.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2410.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B25588DBF5E5F37EE494B7C62A3AAD5D;350.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2266.
+(rerunfilecheck)             Checksum: 71854DED471B8DCB83BEDBC845C722F9;301.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2410.
  ) 
 Here is how much of TeX's memory you used:
- 9061 strings out of 493029
- 127282 string characters out of 6136233
- 247377 words of memory out of 5000000
+ 9057 strings out of 493029
+ 127266 string characters out of 6136233
+ 250283 words of memory out of 5000000
  12343 multiletter control sequences out of 15000+600000
  21061 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,23n,35p,1008b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,20n,35p,1008b,475s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
@@ -653,24 +661,23 @@ ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/rsfs/rsfs10.pfb>
-Output written on main.pdf (22 pages, 346662 bytes).
+sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/rsfs/rsfs10.pfb>
+Output written on main.pdf (22 pages, 335844 bytes).
 PDF statistics:
- 449 PDF objects out of 1000 (max. 8388607)
- 397 compressed objects within 4 object streams
- 93 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 441 PDF objects out of 1000 (max. 8388607)
+ 390 compressed objects within 4 object streams
+ 89 named destinations out of 1000 (max. 500000)
+ 49 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -99,17 +99,29 @@ Jiang, J. (1996).
 \newblock Reml estimation: asymptotic behavior and related topics.
 \newblock {\em Annals of Statistics}, 24(1):255--286.
 
+\bibitem[Lan et~al., 2016a]{Lan2016a}
+Lan, W., Ding, Y., Fang, Z., and Fang, K. (2016a).
+\newblock Testing covariates in high dimension linear regression with latent
+  factors.
+\newblock {\em Journal of Multivariate Analysis}, 144:25--37.
+
 \bibitem[Lan et~al., 2014]{Lan2014Testing}
 Lan, W., Wang, H., and Tsai, C.~L. (2014).
 \newblock Testing covariates in high-dimensional regression.
 \newblock {\em Annals of the Institute of Statistical Mathematics},
   66(2):279--301.
 
-\bibitem[Lan et~al., 2016]{Lan2016}
-Lan, W., Zhong, P.-S., Li, R., Wang, H., and Tsai, C.-L. (2016).
+\bibitem[Lan et~al., 2016b]{Lan2016}
+Lan, W., Zhong, P.-S., Li, R., Wang, H., and Tsai, C.-L. (2016b).
 \newblock Testing a single regression coefficient in high dimensional linear
   models.
 \newblock {\em Journal of Econometrics}, 195(1):154--168.
+
+\bibitem[Lei et~al., 2018]{Lei2018}
+Lei, L., Bickel, P.~J., and Karoui, N.~E. (2018).
+\newblock Asymptotics for high dimensional regression m-estimates: fixed design
+  results.
+\newblock {\em Probability Theory and Related Fields}, 172(3-4):983--1079.
 
 \bibitem[Liang et~al., 2008]{Liang2008Mixtures}
 Liang, F., Paulo, R., Molina, G., Clyde, M.~A., and Berger, J.~O. (2008).
