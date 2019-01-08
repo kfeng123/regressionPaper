@@ -1,0 +1,51 @@
+\begin{proposition}\label{prop:monotone}
+    The dimension $k_{\kappa}$ of $\mathcal S_{\kappa}$ is nonincreasing in $\kappa$ for $\kappa>0$.
+That is, $k_{\kappa_1} \geq k_{\kappa_2}$ for $ \kappa _2 > \kappa_1 > 0$.
+\end{proposition}
+
+\begin{proof}[\textbf{Proof of Proposition \ref{prop:monotone}}]
+    For positive integer $m$, define $[m]=\{1,,\ldots, m\}$.
+    For a set $A$, denote by $| A |$ its cardinality.
+    We have
+    \begin{equation*}
+        \begin{split}
+        k_{\kappa} =& \left|\left\{i\in [n-q]: \frac{\gamma_i^2}{\gamma_i +\kappa} - \frac{1}{n-q} \sum_{j=1}^{n-q}\frac{\gamma_j \gamma_i}{\gamma_j +\kappa}>0 \right\}\right|
+        \\
+        =& \left|\left\{i\in [n-q]: \frac{\gamma_i}{\gamma_i +\kappa} > \frac{1}{n-q} \sum_{j=1}^{n-q}\frac{\gamma_j }{\gamma_j +\kappa} \right\}\right|
+        .
+        \end{split}
+    \end{equation*}
+    Let $X$ be a random variable uniformly distributed on $\{\gamma_1,\ldots,\gamma_{n-q}\}$.
+    That is, $\Pr(X=\gamma_i)=1/(n-q)$, $i=1,\ldots, n-q$.
+    Then it can be seen that
+    \begin{equation*}
+        k_{\kappa}=(n-q) \Pr \left(\frac{X}{X+\kappa}>\myE \left[\frac{X}{X+\kappa}\right]\right).
+    \end{equation*}
+    Hence we only need to verify
+    \begin{equation}\label{eq:toBeJen}
+        \Pr \left(\frac{X}{X+\kappa_1}>\myE \left[\frac{X}{X+\kappa_1}\right]\right) 
+\geq
+\Pr \left(\frac{X}{X+\kappa_2}>\myE \left[\frac{X}{X+\kappa_2}\right]\right) .
+    \end{equation}
+    Let $Y=X/(X+\kappa_2)$.
+    Then
+    \begin{equation*}
+        \frac{X}{(X+\kappa_1)} = \frac{\kappa_2 Y}{ \kappa_1 + (\kappa_2-\kappa_1) Y} =: f(Y).
+    \end{equation*}
+    Note that $f(Y)$ is increasing for $Y\geq 0$.
+    Then the inequality \eqref{eq:toBeJen} is equivalent to
+    \begin{equation*}
+        \Pr \left(Y> f^{-1}\left(\myE f(Y)\right)\right) 
+\geq
+\Pr \left( Y >\myE Y\right) .
+    \end{equation*}
+    Hence we only need to verify
+        $f^{-1}\left(\myE f(Y)\right)
+        \leq
+        \myE Y$, or equivalently, $\myE f(Y)
+        \leq
+        f(\myE Y)$.
+        But the last inequality is a direct consequence of the concavity of $f(Y)$ and Jensen's inequality.
+        This completes the proof.
+
+\end{proof}
