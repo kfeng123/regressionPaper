@@ -17,6 +17,12 @@ Buhlmann, P. (2013).
 \newblock Statistical significance in high-dimensional linear models.
 \newblock {\em Bernoulli}, 19(4):1212--1242.
 
+\bibitem[Bühlmann et~al., 2014]{Buehlmann2014}
+Bühlmann, P., Kalisch, M., and Meier, L. (2014).
+\newblock High-dimensional statistics with a view toward applications in
+  biology.
+\newblock {\em Annual Review of Statistics and Its Application}, 1(1):255--278.
+
 \bibitem[Casella and Moreno, 2006]{Casella2006Obj}
 Casella, G. and Moreno, E. (2006).
 \newblock Objective bayesian variable selection.
