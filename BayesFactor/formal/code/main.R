@@ -1,7 +1,7 @@
 library(xtable)
 set.seed(1)
 
-RepTime <- 5000
+RepTime <- 100
 M <- 1000
 alpha <- 0.05
 
@@ -10,7 +10,7 @@ q <- 10
 p <- 1000
 
 
-XGen <- "real"
+XGen <- "equalCor"
 
 n <- 100
 

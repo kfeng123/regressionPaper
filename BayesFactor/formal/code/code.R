@@ -1,4 +1,5 @@
 library(MASS)
+library(CVXR)
 source("./gt.R")
 
 # RepTime <- 2000
@@ -34,7 +35,6 @@ if(XGen == "Toeplitz"){
 }
 if(XGen == "real"){
     Data <- read.csv("riboflavin.csv")
-    rownames(Data)
     Data<- Data[,-1]
     Data <- t(as.matrix(Data))
     X <- Data[,-1]
@@ -61,6 +61,26 @@ XX <- crossprod(t(tmpX))
 var.num <- 2*sum(XX*XX)
 lam <- eigen(XX, symmetric = TRUE, only.values=TRUE)$values
 varGamma <- var(lam[1:(n-q)])
+
+
+# EigenPrism: inference for high dimensional signal-to-noise ratios
+ohoh <- eigen(Xb%*%t(Xb),symmetric = TRUE)
+eigenXbXbT <- ohoh$values/p
+myUb <- ohoh$vectors
+
+myVariable <- Variable(n)
+obj <- max(sum((myVariable^2) * eigenXbXbT^2), sum(myVariable^2))
+myConstr <- list(sum(myVariable)==0, sum(eigenXbXbT * myVariable)==1)
+myProblem <- Problem(Minimize(obj),myConstr)
+
+ohMyTmp <- solve(myProblem)
+myEPWeight <- ohMyTmp$getValue(myVariable)
+# sometimes it returns "optimal_inaccurate"
+#myValP1 <- ohMyTmp$value
+# here is a little modification of the original method
+#myValP1 <- max(sum(myEPWeight^2 * eigenXbXbT^2), sum(myEPWeight^2))
+myValP1 <-  sum(myEPWeight^2)
+
 
 
 
@@ -106,9 +126,11 @@ for(i in 1:M){
 
 outMy <- NULL
 outGt <- NULL
+outEp <- NULL
 for(SNR in c(0,5,10,15,20,25,30)){
     myResultOld <- NULL
     gtResult <- NULL
+    epResult <- NULL
     for(i in 1:RepTime){
         
         # betaGen
@@ -123,13 +145,24 @@ for(SNR in c(0,5,10,15,20,25,30)){
         meanSig <- Xb%*% betabO
             
         # Generate y
-        tmpSNR <- sqrt((n-q)*varGamma)*sum(betabO^2)/p
         #betab <- betabO/sqrt(tmpSNR)*sqrt(SNR)
-        if(epsilonDis == "t")
+        if(epsilonDis == "t"){
             innov <- rt(n,8)
-        if(epsilonDis == "chi")
+            myPhi <- 6/8
+        }
+        if(epsilonDis == "chi"){
             innov <- (rchisq(n,4)-4)/sqrt(8)
+            myPhi <- 1
+        }
+        tmpSNR <- sqrt((n-q)*varGamma)*myPhi*sum(betabO^2)/p
         y <- innov + meanSig/sqrt(tmpSNR)*sqrt(SNR)
+        
+        
+        # EigenPrism: inference for high dimensional signal-to-noise ratios
+        myZ <- as.numeric( t(myUb) %*% y )
+        ohT <- sum(myEPWeight * myZ^2 )
+        epResult[i] <- ( ohT/ ( sqrt(2*myValP1) * sum(y^2)/n ) > qnorm(1-alpha) )
+        
         
         
         ### GT statistics
@@ -200,8 +233,9 @@ for(SNR in c(0,5,10,15,20,25,30)){
     
     outMy <- c(outMy,mean(myResultOld))
     outGt <- c(outGt,mean(gtResult))
+    outEp <- c(outEp,mean(epResult))
 }
-ohResult <- data.frame('SNR'=c(0,5,10,15,20,25,30),'outMy'=outMy,'outGt'=outGt)
+ohResult <- data.frame('SNR'=c(0,5,10,15,20,25,30),'outMy'=outMy,'outGt'=outGt, 'outEp' = outEp)
 
 
 

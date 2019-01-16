@@ -56,7 +56,7 @@
  \def\bmu{\bfsym {\mu}}                 \def\bMu {\bfsym {\Mu}}
  \def\bnu{\bfsym {\nu}}
  \def\btheta{\bfsym {\theta}}           \def\bTheta {\bfsym {\Theta}}
- \def\beps{\bfsym \varepsilon}          \def\bepsilon{\bfsym \varepsilon}
+ \def\beps{\bfsym \varepsilon}          \def\bepsilon{\bfsym \epsilon}
  \def\bsigma{\bfsym \sigma}             \def\bSigma{\bfsym \Sigma}
  \def\blambda {\bfsym {\lambda}}        \def\bLambda {\bfsym {\Lambda}}
  \def\bomega {\bfsym {\omega}}          \def\bOmega {\bfsym {\Omega}}
@@ -109,9 +109,8 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
     This paper considers testing regression coefficients in high-dimensional linear model with fixed design matrix.
     We prove that there does not exist nontrivial unbiased test for this problem.
     This phenomenon makes it impossible to consider the problem from a minimax perspective.
-    We propose a test statistic which is the limit of Bayes factors under normal distribution.
+    We propose a new test statistic which is the limit of Bayes factors under normal distribution.
     The null distribution of the test statistic is approximated by Lindeberg's replacement trick.
-    We give the explicit error bound of this approximation.
     Under certain conditions, we also give the global asymptotic power function of the proposed test.
     It turns out that the proposed test has good power behavior when the signal is strong.
     The performance of the proposed test is examined by simulation results.
@@ -126,11 +125,11 @@ Consider linear regression model of the form
     \By = 
     \BX_a \bbeta_a + \BX_b \bbeta_b + \bepsilon, %\quad \bepsilon\sim \mathcal N_n(0,\phi^{-1} \BI_n),
 \end{equation}
-where $\By \in \mathbb R^n$ is the response, 
-$\BX_a$, $\BX_b$ are $n\times q$ and $n\times p$ design matrices, respectively,  $\bbeta_a\in \mathbb R^q$, $\bbeta_b\in \mathbb R^p$ are unknown regression coefficients, and $\bepsilon=(\epsilon_1,\ldots,\epsilon_n)^\top$ are the iid errors with mean $0$ and covariance $\sigma^2=\phi^{-1}$.
-Here we break the predictors into two parts $\BX_a$ and $\BX_b$ such that $\BX_a$ contains the predictors that are known to have effect on the response,
-and we would like to test if $\BX_b$ contains any useful predictors.
-That is, we are interested in testing the hypotheses
+where $\By \in \mathbb R^n$ is the response, $\BX_a$, $\BX_b$ are $n\times q$ and $n\times p$ design matrices, respectively,  $\bbeta_a\in \mathbb R^q$, $\bbeta_b\in \mathbb R^p$ are unknown regression coefficients, and 
+$\bepsilon\in \mathbb R^n$ is the vector of random errors.
+Here the design matrix $\BX_a$ contains the predictors that are known to have effects on the response,
+and our interest is to test if $\BX_b$ contains any useful predictors.
+That is, we would like to test the hypotheses
 \begin{align}\label{theHypothesis}
     \mathcal H_0:   \bbeta_b =0,\quad
     \text{v.s.} \quad
@@ -140,53 +139,58 @@ That is, we are interested in testing the hypotheses
 The conventional test for hypotheses \eqref{theHypothesis} is the $F$-test which is also the likelihood ratio test under normal errors.
 However, the $F$-test is not well defined in high dimensional setting.
 In fact, if $\bepsilon$ is normal distributed and $\myRank[\BX_a;\BX_b]=n$, then the likelihood is unbounded under the alternative hypothesis.
-This calls for new test methodologies in high-dimensional setting.
+Thus, new test methodology is required in high-dimensional setting.
 
-Two different high-dimensional settings have been extensively considered in the literature.
+For the problem of testing hypotheses\eqref{theHypothesis}, two different high-dimensional settings have been extensively considered in the literature.
 One is the small $p$, large $q$ setting.
 An important example of this setting is testing individual coefficients of a high-dimensional regression.
 See \cite{buhlmann2013statistical}, \cite{Zhang2013} and \cite{Lan2016} for testing procedures in this setting.
 In this paper, however, we focus on the other setting, namely the large $p$, small $q$ setting.
-In this case, there are just a few covariates, namely $\BX_a$, are known to have effect on the response, while there remain a large number of covariates, namely $\BX_b$, to be tested.
+In this case, there are just a few covariates, namely $\BX_a$, are known to have effects on the response, while there remain a large number of covariates, namely $\BX_b$, to be tested.
 %We assume $\BX_a$ has full column rank and $\BX_b$ has full row rank.
-In practice, which covariates belong to the part $\BX_a$ is determined apriori.
-If no prior knowledge is available, $\BX_a$ can be $\mathbf 1_n$.
+%In practice, which covariates belong to the part $\BX_a$ is determined apriori.
+%If no prior knowledge is available, $\BX_a$ can be $\mathbf 1_n$.
 %In both cases, $q$ is often relatively small.
 %However, there may remain a very large number of variables in $\BX_b$, so $p>n$.
 
 Many test procedures have been proposed in the large $p$, small $q$ setting.
-Based on an empirical Bayes model, \cite{Goeman2006} and \cite{Goeman2011} proposed a score test statistic as well as a method to determine the critical value of their test statistic.
+Based on an empirical Bayes model, \cite{Goeman2006} and \cite{Goeman2011} proposed a score test statistic as well as a method to determine the critical value.
 This score test was further investigated by \cite{Lan2014Testing} and \cite{Lan2016a}.
 Based on $U$-statistics,
 \cite{Zhong2011Tests} proposed a test for the case where $\BX_a=\mathbf 1_n$.
-Later, a generalization of this test to the general design matrix $\BX_a$ is proposed by \cite{Wang2015}.
+Later, \cite{Wang2015} extended the test of \cite{Zhong2011Tests} to the case where $\BX_a$ is a general design matrix.
 To accommodate outlying observations and heavy-tailed distributions, \cite{Feng2013}
 proposed a rank-based test for the entire coefficients.
 \cite{Xu2016a} modified \cite{Feng2013}'s test and proposed a scalar invariant rank-based test.
 Apart from the afore mentioned tests,
-there is another line of research utilizing desparsified Lasso estimator; see \cite{zhang2016simultaneous} and the references therein.
+there is another line of research utilizing desparsified Lasso estimator; see \cite{Dezeure2017} and the references therein.
 
 Except for the test of \cite{Goeman2006}, most existing high dimensional tests adopted the random design assumption, that is, the rows of $\BX_b$ are considered as being generated from a super population.
 As noted by \cite{Lei2018}, assuming a fixed design or a random design could lead to qualitatively different inferential results and the former is preferable from a theoretical point of view.
-Hence in this paper, we focus on the fixed design setting.
+Hence we focus on the fixed design setting in this paper.
 Of course, our results are still valid for random design from a conditional inference perspective.
 
 
 
 
 In Bayesian literature, many Bayesian tests have been proposed for hypothesis \eqref{theHypothesis} in low-dimensional setting; see \cite{javier2006Obj,Goddard2016,zhou2018On} and the references therein.
-Although most existing Bayesian tests are not applicable in large $p$, small $q$ setting,
-Bayes factor based tests are in principle suitable for high-dimensional testing problems for at least two reasons.
+So far, most existing Bayesian tests are not applicable in large $p$, small $q$ setting.
+In principle,
+using Bayes factor as a frequentist test statistic in high-dimensional setting is a good strategy for at least two reasons.
 First, the Bayes factors corresponding to proper priors are always well defined, even if the likelihood is unbounded.
 Second, under mild conditions, tests based on Bayes factors are admissible (See, e.g., \cite{Lehmann}, Theorem 6.7.2).
-In fact, the test procedure in \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist significance test.
+In fact, the test procedure of \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist significance test.
 
 
 In this paper, we propose a new test statistic in large $p$, small $q$ setting which is the limit of Bayes factors under normal linear model.
-We prove that, under mild conditions, the distribution of the proposed test statistic can be accurately approximated using Lindeberg's replacement trick.
-And the critical value is determined by this approximated distribution.
-Under normal error assumption, we also derive the asymptotic power function of the proposed test and the test of \cite{Goeman2006}.
+The proposed test statistic is a ratio of quadratic forms of $\By$.
+We give an approximation of the distribution of quadratic form using Lindeberg's replacement trick.
+Based on this approximated distribution, the critical value of the proposed test statisitc is calculated by a one step iteration.
+We prove that the proposed test procedure is valid under weak conditions.
+In particular, we do not require that the test statistic is asymptotically normally distributed.
+Under certain conditions, we also derive the asymptotic power function of the proposed test and the test of \cite{Goeman2006}.
 A simulation is conducted to examine the performance of the proposed test.
+It turns out that the proposed test is powerful especially when $\|\bbeta_b\|$ is large.
 
 The rest of the paper is organized as follows.
 In Section \ref{sec:methodology}, we propose a Bayesian-motivated test and study the theoretical properties of the proposed test procedure.
@@ -200,22 +204,53 @@ The technical proofs are presented in Appendix.
 
 \section{Test procedure}\label{sec:methodology}
 \subsection{A Bayesian-motivated test}
-Testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a challenging problem.
+In this paper, we consider testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting.
+More specifically, we make the following assumption throughout the paper.
+\begin{assumption}
+    In the linear model \eqref{label:linearModel}, 
+    suppose $\bepsilon=(\epsilon_1,\ldots,\epsilon_n)^\top$ where $\epsilon_1,\ldots, \epsilon_n$ are independent indentically distributed (iid) with mean $0$ and covariance $\sigma^2=\phi^{-1}$.
+    Furthermore, suppose $q<n$, $\myRank(\BX_a)=q$ and $\myRank([\BX_a; \BX_b])=n$.
+    \label{Assumption}
+\end{assumption}
 %Based on an empirical Bayes model,
 %\cite{Goeman2006} and \cite{Goeman2011} proposed a score test which can be used.
-As \cite{Goeman2006} noticed, if $\bbeta_b \neq 0$ but $\BX_b \bbeta_b =0$, no test has any power.
-They also pointed out that their test has negligible power for many alternatives and consequently is not unbiased.
-For low-dimensional testing problems, a biased test is often regarded as problematic.
-However, the following proposition shows that under normal assumption, there is no nontrivial unbiased test in large $p$, small $q$ setting.
+Testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a challenging problem.
+\cite{Goeman2006} noticed that their test has negligible power for many alternatives and consequently is not an unbiased test.
+Biased tests are often regarded as problematic in classical statistics.
+However, the situation is very different for our problem.
+In fact, we shall show that under normal assumption, there is no nontrivial unbiased test in large $p$, small $q$ setting.
+
+Let $\BP_a=\BX_a(\BX_a^\top \BX_a)^{-1} \BX^\top$ be the projection matrix onto the column space of $\BX_a$ and denote $\tilde \BP_a = \BI_n-\BP_a$.
+Define $\btheta =(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top$ and 
+\begin{equation*}
+    \begin{split}
+        &\Theta_0 = \left\{\theta=(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top: \bbeta_a \in \mathbb R^{q}, \bbeta_b=0, \phi>0\right\},
+    \\
+    &\Theta = \left\{\theta=(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top: \bbeta_a \in \mathbb R^{q}, \bbeta_b\in \mathbb R^p, \phi>0\right\}.
+    \end{split}
+\end{equation*}
+A test function $\varphi(\By)$ of level $\alpha$ is a Borel measurable function from $\mathbb R^n$ to $\mathbb R$ such that $0\leq \varphi(\By) \leq 1$ and $\myE_\theta [\varphi(\By)]\leq \alpha$ for $\theta\in \Theta_0$.
+A test function $\varphi(\By)$ is nonrandom if $\varphi(\By)\in\{0,1\}$.
+Let $\lambda(\cdot)$ be the Lebesgue measure on $\mathbb R^n$.
+We have the following proposition.
 \begin{proposition}\label{prop:unbiased}
-    Suppose \eqref{label:linearModel} holds with
-$\bepsilon\sim \mathcal N_n (0, \phi^{-1}\BI_n)$.
-Suppose $\BX_a$ is an $n\times q$ matrix with full column rank, $q<n$ and $\myRank( [\BX_a;\BX_b])=n$.
-Let $\varphi(\By)$ be a test function of level $\alpha$, that is, a Borel measurable function satisfying $0\leq \phi(\By)\leq 1$ and $\myE [\phi(\By)]\leq \alpha$ under the null hypothesis.
-If $\phi(\By)$ is unbiased, that is $\myE [\phi(\By)]\geq \alpha$ under the alternative hypothesis, then $\varphi(\By)\equiv\alpha$, a.s.\ $\lambda$, where $\lambda(\cdot)$ is the Lebesgue measure on $\mathbb R^n$.
+    Suppose Assumption \ref{Assumption} holds.
+    Furthermore, assume $\bepsilon\sim \mathcal N_n (0, \phi^{-1}\BI_n)$.
+    Let $\varphi(\By)$ be a test function of level $\alpha$, $0 <\alpha <1$.
+Then the following results hold.
+\begin{enumerate}[(a)]
+    \item 
+        If $\varphi(\By)$ is unbiased, that is, $\myE_\theta [\varphi(\By)]\geq \alpha$ for $\theta \in \Theta$, then $\varphi(\By)=\alpha$, a.s.\ $\lambda$.
+\item
+    Let $h(\phi)\geq 0$ be a nondecreasing function for $\phi>0$.
+    If $\varphi(\By)$ is nonrandom, then for every $M>0$, there exists a parameter $\theta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $h(\phi)\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_\theta [\varphi(\By)]< \alpha$.
+\end{enumerate}
 \end{proposition}
-The above proposition implies that it is impossible to find a test with reasonable power for all alternatives.
+In low dimensional setting, it is easy to construct a test whose power tends to $1$ as $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ tends to infinity.
+In large $p$, small $q$ setting, however, (b) of Proposition \ref{prop:unbiased} claims that it is impossible to find a test with reasonable power for all alternatives, even if $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ tends to infinity.
+Thus, it is impossible to consider the problem from a minimax perspective.
 This motivates us to adopt Bayesian methods to find a test with good average power behavior.
+
 Within the Bayesian framework, Bayes factor is commonly used for comparing two models.
 In our problem, suppose $\bepsilon \sim \mathcal N_n (0,\phi^{-1} \BI_n)$, the Bayes factor for hypotheses \eqref{theHypothesis} is
 \begin{equation*}
@@ -299,8 +334,7 @@ That is, we put the following priors,
     %\end{split}
 %\end{equation*}
 
-In what follows, we assume $\myRank (\BX_a )=q$ and $\myRank ([\BX_a;\BX_b])=n$.
-Let $\BP_a=\BX_a(\BX_a^\top \BX_a)^{-1} \BX^\top$ be the projection matrix onto the column space of $\BX_a$.
+%In what follows, we assume $\myRank (\BX_a )=q$ and $\myRank ([\BX_a;\BX_b])=n$.
 Let $B_{10,\kappa} $ be the Bayes factor corresponding to the priors \eqref{priors}.
  It is straightforward to show that
 %\begin{equation*}
@@ -314,13 +348,13 @@ Let $B_{10,\kappa} $ be the Bayes factor corresponding to the priors \eqref{prio
     %&
     %\left(
         %\frac{
-            %\By\top (\BI_n-\BP_a) \By
+            %\By\top (\tilde \BP_a) \By
         %}{
-            %\By\top (\BI_n-\BP_a) \By
+            %\By\top (\tilde \BP_a) \By
             %-
-            %\By\top (\BI_n-\BP_a) \BX_b
+            %\By\top (\tilde \BP_a) \BX_b
             %\left(\BX_b^\top  (\BI-\BP_a) \BX_b + \kappa \BI_p\right)^{-1}
-            %\BX_b^\top (\BI_n-\BP_a) \By
+            %\BX_b^\top (\tilde \BP_a) \By
         %}
     %\right)^{(n-q)/2}.
     %\end{split}
@@ -330,23 +364,23 @@ Let $B_{10,\kappa} $ be the Bayes factor corresponding to the priors \eqref{prio
         2\log (B_{10,{\kappa}}) =  &
     p\log \kappa
     -
-        \log |\BX_b^\top (\BI_n -\BP_a) \BX_b + \kappa \BI_p |
+        \log |\BX_b^\top \tilde \BP_a \BX_b + \kappa \BI_p |
     \\
     &
     -(n-q)\log \left(
             1-
         \frac{
-            \By\top (\BI_n-\BP_a) \BX_b
-            \left(\BX_b^\top  (\BI-\BP_a) \BX_b + \kappa \BI_p\right)^{-1}
-            \BX_b^\top (\BI_n-\BP_a) \By
+            \By\top \tilde \BP_a \BX_b
+            \left(\BX_b^\top  \tilde \BP_a \BX_b + \kappa \BI_p\right)^{-1}
+            \BX_b^\top \tilde \BP_a \By
         }{
-            \By\top (\BI_n-\BP_a) \By
+            \By\top \tilde \BP_a \By
         }
     \right).
     \end{split}
 \end{equation*}
 
-Denote by $\BI_n-\BP_a=\tilde{\BU}_a \tilde{\BU}_a^\top$ the rank decomposition of $\BI_n - \BP_a$, where $\tilde{\BU}_a$ is a $n\times (n-q)$ column orthogonal matrix.
+Denote by $\tilde \BP_a=\tilde{\BU}_a \tilde{\BU}_a^\top$ the rank decomposition of $\tilde \BP_a$, where $\tilde{\BU}_a$ is a $n\times (n-q)$ column orthogonal matrix.
 Let $\BX_b^* = \tilde{\BU}_a^\top \BX_b$, $\By^* =\tilde \BU_a^\top \By$.
 Let $\gamma_i$ be the $i$th largest eigenvalue of $\BX^*_b \BX_b^{*\top}$, $i=1,\ldots, n-q$.
 Denote by $\BX_b^* =\BU_{b}^* \BD_{b}^* \BV_b^{*\top}$ the singular value decomposition of $\BX_{b}^*$, where  $\BU_{b}^*$, $\BV_b^*$ are $(n-q)\times (n-q)$ and $p\times (n-q)$ column orthogonal matrices, respectively, and $\BD_{b}^*=\mydiag (\sqrt {\gamma_1},\ldots, \sqrt{\gamma_{n-q}})$.
@@ -367,7 +401,8 @@ Then we have
          %\\
         =&
         (n-q)\log \kappa - \sum_{i=1}^{n-q}\log ( \gamma_i + \kappa )
-         -(n-q)\log\left(1-\frac{\By^{*\top} \BU_b^*  \BD_b^{*} \left(  \BD_b^{*2} + \kappa \BI_{n-q} \right)^{-1} \BD_b^{*}   \BU_b^{*\top} \By^* }{\By^{*\top} \By^*}\right)
+        \\
+         &-(n-q)\log\left(1-\frac{\By^{*\top} \BU_b^*  \BD_b^{*} \left(  \BD_b^{*2} + \kappa \BI_{n-q} \right)^{-1} \BD_b^{*}   \BU_b^{*\top} \By^* }{\By^{*\top} \By^*}\right)
          .
     \end{split}
 \end{equation*}
@@ -388,9 +423,9 @@ In fact, if we let $\kappa$ tends to infinity, the limit
 \end{equation*}
 is exactly the test statistic of \cite{Goeman2006}.
 
-As implied by Proposition \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a difficult problem and there is no nontrivial unbiased test.
+As implied by Proposition \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a difficult problem and no unbiased test can guarantee large power even if the signal is strong.
 %In fact, we shall see that for certain directions of $\bbeta_b$, the test of \cite{Goeman2006} has negligible power for any magnitude of $\|\bbeta_b\|$.
-Hence it may be too ambitious to consider local power behavior provided the test is biased.
+Hence it may be too ambitious to consider local power behavior where signal is weak.
 %In fact, the test of \cite{Goeman2006} may have negligible power even when $\|\bbeta_b\|$ is large.
 %Hence it is questionable if a test with good local power behavior is a good choice in practice.
 Thus, contrary to the strategy of \cite{Goeman2006}, we let $\kappa$ tend to $0$ to obtain a test with good power behavior for large $\|\bbeta_b\|$.
@@ -461,7 +496,7 @@ Define
             }             
         },
     \end{equation*}
-    where $\BA^{\circ 2}=\BA\circ \BA$ and $\circ$ is Hadamard product.
+    where $\BA^{\circ 2}=\BA\circ \BA$ and $\circ$ means Hadamard product.
     Let $z_1,\ldots,z_n$  be iid random variables with distribution $\mathcal N (0, 1) $ and $\check z_1, \ldots, \check z_n$ be iid random variables with distribution $\mathcal N (0,1)$ which are independent of $\xi_1,\ldots, \xi_n$.
     Let $\tau$ be a real number.
     Define
@@ -579,8 +614,6 @@ Define
 
 
 We now apply Theorem \ref{approximation} to approximate the null distribution of the proposed statistic $T$.
-
-
 For $n\times n$ matrix $\BA$ and real number $\tau$, let $F (x;{\BA,\tau})$ be the cumulative distribution function of $
         \tau \sum_{i=1}^n  a_{i,i}\check z_i
     +2\sum_{1\leq i <j \leq n} a_{i,j} z_i z_j
@@ -675,7 +708,7 @@ Ideally, we should find a consistent estimator $\hat \tau$ of $\sqrt{\phi^2 \myE
 =1-\alpha.
 \end{equation*}
 However, solving this equation is not an easy task.
-For ease of implementation, we propose a two step iteration algorithm.
+For ease of implementation, we propose a one step iteration algorithm.
 We set the start point as
 \begin{equation*}
     x^{(0)} =  -\frac{\mytr ( \BX_b^* \BX_b^{*\top} )^{-1}}{n-q},
@@ -698,8 +731,9 @@ Let
         As noted in Remark \ref{remark1}, $\tau^2$ should be a consistent estimator of $\phi^2 \myE (\epsilon_1^4)-1$ under the null hypothesis.
 
 \begin{theorem}
-    Suppose the model \eqref{label:linearModel} holds.
-    Suppose the distribution of $\epsilon_1$ is symmetric about $0$ and has finite eighth moments.
+    Suppose Assumption \ref{Assumption} holds.
+    Furthermore,
+    suppose the distribution of $\epsilon_1$ is symmetric about $0$ and has finite eighth moments.
     Suppose $\myE \epsilon_1^4> \phi^{-2}$.
 Let
     \begin{equation*}
@@ -730,33 +764,33 @@ Let
 \end{theorem}
 
         A consistent estimator of $\sigma^{-4} \myE (\epsilon_1^4)-1$ has already appeared in \cite{Bai2017} based on the standardized residuals.
-        Here we use a slightly different estimator which is based on the ordinary least squares residuals $\tilde \bepsilon=(\tilde \epsilon_1,\ldots, \tilde \epsilon_n)^\top=(\BI_n - \BP_a) \By$.
+        Here we use a slightly different estimator which is based on the ordinary least squares residuals $\tilde \bepsilon=(\tilde \epsilon_1,\ldots, \tilde \epsilon_n)^\top= \tilde \BP_a \By$.
     From \cite{Bai2017}, Theorem 2.1, 
     \begin{align*}
-        &\myE \left( \tilde \bepsilon^\top \left( \BI_n-\BP_a \right) \tilde \bepsilon \right)
+        &\myE \left( \tilde \bepsilon^\top  \tilde \BP_a \tilde \bepsilon \right)
         = (n-q) \sigma^2,
         \\
         &\myE \left( \sum_{i=1}^n \tilde \epsilon_i^4 \right)
         =
-        3\sigma^4 \mytr (\BI_n-\BP_a)^{\circ 2} 
+        3\sigma^4 \mytr (\tilde \BP_a^{\circ 2}) 
         +\left( \myE (\epsilon_1^4)-3 \sigma^{4}\right)
-        \mytr \left( (\BI_n-\BP_a)^{\circ 2}  \right)^2.
+        \mytr \left( \tilde \BP_a^{\circ 2}  \right)^2.
     \end{align*}
     Then a moment estimator of $\sigma^{-4}\myE (\epsilon_1^4)-1$ is 
 \begin{equation*}
     \hat \tau^2 =
     \frac{
-        \displaystyle\frac{(n-q)^2 \sum_{i=1}^n \tilde{\epsilon}_i^4}{\left( \tilde \bepsilon^\top \left( \BI_n - \BP_a \right) \tilde \bepsilon \right)^2}
-        - 3\mytr (\BI_n-\BP_a)^{\circ 2}
+        \displaystyle\frac{(n-q)^2 \sum_{i=1}^n \tilde{\epsilon}_i^4}{\left( \tilde \bepsilon^\top \tilde \BP_a  \tilde \bepsilon \right)^2}
+        - 3\mytr (\tilde \BP_a^{\circ 2})
     }{
-        \mytr\left( \left( \BI_n-\BP_a \right)^{\circ 2} \right)^2
+        \mytr\left(  \tilde \BP_a^{\circ 2} \right)^2
     }
     +2.
 \end{equation*}
 
 \begin{proposition}\label{prop:estimation}
-    Suppose the conditions of Theorem \ref{TheoremLindeberg} hold for $\bxi=\sqrt \phi \bepsilon$.
-    Suppose $q/n\to 0$.
+    Suppose the assumptions of Theorem \ref{thm:criticalValue} hold.
+    Furthermore, suppose $q/n\to 0$.
     Then under the null hypothesis, $\hat \tau^2 \xrightarrow{P} \sigma^{-4} \myE (\epsilon_1^4)-1$.
 \end{proposition}
 We reject the null hypothesis if 
@@ -1026,7 +1060,7 @@ In sparse $\bbeta_b$ setting, we randomly select $5\%$ of the coordinates of $\b
 
 In our first two simulations, the design matrices $\BX_a$ and $\BX_b$ are randomly generated beforehand and are fixed during each simulation.
 In both simulations, the elements of $\BX_a$ are independently generated from $\mathcal N(0,1)$.
-In the first simulation, the rows of $\BX_b$ are independently generated from $\mathcal N(0,\bSigma)$ where $\bSigma$ has Toeplitz structure $(\bSigma)_{i,j}=0.8^{|i-j|}$.
+In the first simulation, the rows of $\BX_b$ are independently generated from $\mathcal N(0,\bSigma)$ where $\bSigma$ has Toeplitz structure $(\bSigma)_{i,j}=0.9^{|i-j|}$.
 In the second simulation, the rows of $\BX_b$ are independently generated from 
 $\mathcal N(0,\bSigma)$ where $\bSigma$ has equal correlation structure $(\bSigma)_{i,j}=0.1$ if $i\neq j$ and $(\bSigma)_{i,j}=1$ otherwise.
 In our third simulation, we use a real design matrix from gene expression data of \emph{Bacillus subtilis} with $71$ observations and $4088$ predictors \citep{Buehlmann2014}.
@@ -1171,87 +1205,154 @@ This work was supported by the National Natural Science Foundation of China unde
 \appendix
 \section*{Appendix}
 
-\begin{proof}[\textbf{Proof of Proposition \ref{prop:unbiased}}]
-    Since $\myRank([\BX_a,\BX_b])=n$, $\phi(\By)$ is unbiased if and only if
+\begin{lemma}\label{Lemma:FF}
+    Under the assumptions of Proposition \ref{prop:unbiased}, if there exists a Borel set $G\subset \mathbb R^n$ and a number $M\geq 0$ such that 
     \begin{equation*}
-        \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n (\mu,\phi^{-1} \BI_n) (\By) \,\mathrm{d} \By\geq \alpha
-        \quad \text{for all } \mu\in \mathbb R^n.
+        \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n(\mu,\phi^{-1} \BI_n)(\By)\, \mathrm{d} \By \geq \alpha\quad \text{for all $\mu \in G$ and $\phi >M$},
     \end{equation*}
-    %where $\mathcal N_n(\mu,\sigma^2 \BI_n)(d\By)$ is the density function of a $\mathcal N_n (\mu, \sigma^2 \BI_n)$ random vector with respect to Lebesgue measure $\lambda(\cdot)$.
-    From \cite{Lehmann}, Theorem 2.7.1, $\myE [\phi(\By)]=\alpha$ under the null hypothesis.
-    In particular,
-    we have
-    \begin{equation}\label{eq:unbiasedproof1}
-        \int_{\mathbb R^n} [\varphi(\By)-\alpha] d\mathcal N_n (0,\phi^{-1} \BI_n)(\By) \,\mathrm{d} \By=0.
-    \end{equation}
-    If $\alpha=0$ or $1$, the conclusion is trivially true.
-    In what follows, we assume $0<\alpha<1$.
-    We claim that the conclusion holds provided $\varphi(\By) \geq \alpha$, a.s.\ $\lambda$.
-    In fact, if $\varphi(\By) \geq \alpha$, a.s.\ $\lambda$,
-    then the integrand of \eqref{eq:unbiasedproof1} is nonnegative, and hence must be $0$ a.s.\ $\lambda$, which implies the conclusion. 
-    Next we prove $\varphi(\By) \geq \alpha$, a.s.\ $\lambda$ by contradiction. Suppose $\lambda(\{\By:\varphi (\By) <\alpha\})>0$.
-    Then there exists a sufficiently small $\eta >0$, such that $\lambda(\{\By:\varphi (\By) <\alpha-\eta\})>0$.
-    We denote $ E:=\{\By\in \mathbb R^n:\varphi (\By) <\alpha-\eta\}$.
-    From Lebesgue density theorem \citep[Corollary 6.2.6]{book:992991}, there exists a point $z\in  E$, such that, for any $\epsilon >0$ there is a $\delta_{\epsilon}>0$ such that
+    then $\lambda(\{\By : \phi(\By)< \alpha, \By \in G\})=0$.
+\end{lemma}
+\begin{proof}
+    %Next we prove $\varphi(\By) \geq \alpha$, a.s.\ $\lambda$ by contradiction.
+    We prove the claim by contradiction.
+    Suppose $\lambda(\{\By:\varphi (\By) <\alpha,\, \By \in G\})>0$.
+    Then there exists a sufficiently small $0< \eta <\alpha$, such that $\lambda(\{\By:\varphi (\By) <\alpha-\eta,\, \By \in G\})>0$.
+    We denote $ E:=\{\By\in \mathbb R^n:\varphi (\By) <\alpha-\eta,\,  \By \in G\}$.
+    From Lebesgue density theorem \citep[Corollary 6.2.6]{book:992991}, there exists a point $z\in  E$, such that, for any $\varepsilon >0$ there is a $\delta_{\varepsilon}>0$ such that for any $0 < \delta' <\delta_\varepsilon$,
     \begin{equation*}
-        \left|\frac{\lambda(E^\complement\cap C_{\epsilon})}{\lambda(C_{\epsilon})}\right|<\epsilon,
+        \left|\frac{\lambda(E^\complement\cap C_{\delta'})}{\lambda(C_{\delta'})}\right|<\varepsilon,
     \end{equation*}
-    where $C_{\epsilon}=\prod_{i=1}^n [z_i-\delta_{\epsilon}, z_i + \delta_{\epsilon}]$.
+    where $C_{\delta'}=\prod_{i=1}^n [z_i-{\delta'}, z_i + {\delta'}]$.
     We put
     \begin{equation*}
-        \epsilon=\left(\frac{\sqrt \pi}{\sqrt 2 \Phi^{-1}\left(1-\frac{\eta}{6n}\right)}\right)^n \frac{\eta}{3},
+        \varepsilon=\left(\frac{\sqrt \pi}{\sqrt 2 \Phi^{-1}\left(1-\frac{\eta}{6n}\right)}\right)^n \frac{\eta}{3},
     \end{equation*}
     where $\Phi(\cdot)$ is the cumulative distribution function of a standard normal random variable.
-    Then for any $\phi>0$,
+    Then for any $\phi>M$ and $0<\delta' <\delta_\varepsilon$,
     \begin{equation*}
         \begin{split}
             \alpha \leq& 
             \int_{\mathbb R^n}\varphi(\By) d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
             \\
             =&
-            \int_{E\cap C_{\epsilon}}\varphi(\By) d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
+            \int_{E\cap C_{\delta'}}\varphi(\By) d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
             +
-            \int_{E^\complement\cap C_{\epsilon}}\varphi(\By) d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
-            +
-            \int_{C_{\epsilon}^\complement}\varphi(\By) d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
+            \int_{E^\complement\cap C_{\delta'}}\varphi(\By) d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
+            \\
+            &+
+            \int_{C_{\delta'}^\complement}\varphi(\By) d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
             \\
             \leq&
             \alpha-\eta
             +
-            \int_{E^\complement\cap C_{\epsilon}} d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
+            \int_{E^\complement\cap C_{\delta'}} d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
             +
-            \int_{C_{\epsilon}^\complement} d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
+            \int_{C_{\delta'}^\complement} d\mathcal N_n (z, \phi^{-1} \BI_n) (\By)\,\mathrm{d} \By
             \\
             \leq&
             \alpha-\eta
             +
-            \left(\frac{\phi}{2\pi}\right)^{n/2}\lambda(E^\complement\cap C_{\epsilon})
+            \left(\frac{\phi}{2\pi}\right)^{n/2}\lambda(E^\complement\cap C_{\delta'})
             +
-            2n\left(1-\Phi(\sqrt \phi \delta_\epsilon)\right)
+            2n\left(1-\Phi(\sqrt \phi \delta')\right)
             \\
             \leq&
             \alpha-\eta
             +
             \left(\frac{\phi}{2\pi}\right)^{n/2}
-            \epsilon
-            (2\delta_\epsilon)^n
+            \varepsilon
+            (2\delta')^n
             +
-            2n\left(1-\Phi(\sqrt \phi \delta_\epsilon)\right)
+            2n\left(1-\Phi(\sqrt \phi \delta')\right)
             \\
             =&
             \alpha-\eta
             +
-            \left(\frac{\sqrt{\phi} \delta_{\epsilon}}{\Phi^{-1}\left(1-\frac{\eta}{6n}\right)}\right)^{n}
+            \left(\frac{\sqrt{\phi} \delta'}{\Phi^{-1}\left(1-\frac{\eta}{6n}\right)}\right)^{n}
             \frac{\eta}{3}
             +
-            2n\left(1-\Phi(\sqrt \phi \delta_\epsilon)\right).
+            2n\left(1-\Phi(\sqrt \phi \delta')\right).
         \end{split}
     \end{equation*}
-    Putting 
+    In the last inequality, we put $\delta'$ small enough such that
+\begin{equation*}
+    \left(\frac{\Phi^{-1}\left(1-\frac{\eta}{6n}\right)}{\delta'}\right)^2>M,
+\end{equation*}
+and put
     \begin{equation*}
-        \phi = \left(\frac{\Phi^{-1}\left(1-\frac{\eta}{6n}\right)}{\delta_\epsilon}\right)^2
+        \phi = \left(\frac{\Phi^{-1}\left(1-\frac{\eta}{6n}\right)}{\delta'}\right)^2.
     \end{equation*}
-    yields the contradiction $\alpha\leq \alpha-(2/3)\eta$.
+    Then we obtain the contradiction $\alpha\leq \alpha-(2/3)\eta$.
+    This completes the proof.
+
+    
+\end{proof}
+
+\begin{proof}[\textbf{Proof of Proposition \ref{prop:unbiased}}]
+    
+    To prove the claim (a), 
+    %Since $\myRank([\BX_a,\BX_b])=n$,
+    note that $\varphi(\By)$ is unbiased if and only if
+    \begin{equation*}
+        \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n (\mu,\phi^{-1} \BI_n) (\By) \,\mathrm{d} \By\geq \alpha
+        \quad \text{for all $\mu\in \mathbb R^n$ and $\phi>0$}.
+    \end{equation*}
+    %where $\mathcal N_n(\mu,\sigma^2 \BI_n)(d\By)$ is the density function of a $\mathcal N_n (\mu, \sigma^2 \BI_n)$ random vector with respect to Lebesgue measure $\lambda(\cdot)$.
+    Then Lemma \ref{Lemma:FF} implies that $\varphi(\By) \geq \alpha$, a.s.\ $\lambda$.
+    %From \cite{Lehmann}, Theorem 2.7.1, $\myE [\varphi(\By)]=\alpha$ under the null hypothesis.
+    %In particular,
+    %we have
+    On the other hand, since $\varphi(\By)$ is a level $\alpha$ test, for every $\phi>0$,
+    \begin{equation}\label{eq:unbiasedproof1}
+        \int_{\mathbb R^n} [\varphi(\By)-\alpha] d\mathcal N_n (0,\phi^{-1} \BI_n)(\By) \,\mathrm{d} \By\leq 0.
+    \end{equation}
+    Note that the integrand of \eqref{eq:unbiasedproof1} is nonnegative. Hence $\varphi(\By)-\alpha=0$ a.s.\ $\lambda$.
+    This proves the claim (a). 
+
+    Now we prove the claim (b) by contradiction.
+    Suppose
+    \begin{equation*}
+        \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n \left(\BX_a \bbeta_a + \BX_b \bbeta_b,\phi^{-1} \BI_n\right) (\By)\, \mathrm{d}\By 
+        \geq \alpha 
+    \end{equation*}
+    for every $\bbeta_a\in \mathbb R^q$, $\bbeta_b \in \mathbb R^p$, $\phi>0$ satisfying $h(\phi) \bbeta_b^\top \BX_b^\top (\BI_n - \BP_a) \BX_b \bbeta_b >M$.
+    Since $h(\phi)$ is nondecreasing, there exists a number $M^* >0$ such that
+    \begin{equation*}
+        \left\{(\bbeta_b^\top, \phi)^\top :  \bbeta_b^\top \BX_b^\top (\BI_n - \BP_a) \BX_b \bbeta_b >M^*,\phi>M^* \right\} 
+        \subset
+        \left\{(\bbeta_b^\top, \phi)^\top :  h(\phi)\bbeta_b^\top \BX_b^\top (\BI_n - \BP_a) \BX_b \bbeta_b > M^*\right\} .
+    \end{equation*}
+    Then Lemma \ref{Lemma:FF} implies that $\varphi(\By) \mathbf 1_{G}(\By)\geq \alpha \mathbf 1_{G}(\By)$ a.e.\ $\lambda$, where 
+    \begin{equation*}
+        G=\left\{ \BX_a \bbeta_a + \BX_b \bbeta_b:  \bbeta_a \in \mathbb R^{q},
+        \bbeta_b^\top \BX_b^\top (\BI_n - \BP_a) \BX_b \bbeta_b >M^*
+    \right\}.
+    \end{equation*}
+    It can be easily seen that
+    \begin{equation*}
+        G=\left\{
+            w+z: w\in \textrm{span}(\BX_a), z \in \textrm{span}(\BX_a)^{\bot},
+            \|z\| > M^*
+        \right\},
+    \end{equation*}
+    where $\textrm{span}(\BX_a)$ is the linear span of the columns of $\BX_a$ and $\textrm{span}(\BX_a)^\bot$ is the orthogonal complement of $\textrm{span}(\BX_a)$.
+    Since $\varphi(\By)$ is nonrandom and $\alpha>0$, we have $\varphi(\By) \mathbf 1_{G}(\By)\geq \mathbf 1_{G}(\By)$ a.e.\ $\lambda$.
+    Also note that $\varphi(\By)$ is a level $\alpha$ test, then for every $\phi>0$, we have
+    \begin{equation*}
+        \begin{split}
+            \alpha \geq&
+        \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n (0,\phi^{-1} \BI_n)(\By) \,\mathrm{d} \By
+        \\
+        \geq& 
+        \int_{G} d\mathcal N_n (0,\phi^{-1} \BI_n)(\By) 
+        \\
+        =&\Pr\left( 
+            R > \phi M^{*2}
+        \right),
+        \end{split}
+    \end{equation*}
+    where $R$ is a random variable with distribution $\chi^2(n-q)$.
+    Thus, we obtain a contradiction by letting $\phi\to 0$ in the above inequality.
     This completes the proof.
 
 \end{proof}
@@ -1268,7 +1369,7 @@ This work was supported by the National Natural Science Foundation of China unde
             \sqrt{
     2\mytr(\BA^2)
     +
-    (\myE(\xi_1^4)-3)\mytr(\BA\circ \BA)
+    (\myE(\xi_1^4)-3)\mytr(\BA^{\circ 2} )
             }             
         }
         .
@@ -1580,7 +1681,7 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
             \sqrt{
     2 \mytr(\BA^2)
     +
-    (\phi^2\myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+    (\phi^2\myE (\epsilon_1^4)-3) \mytr(\BA^{\circ 2})
             }             
         }
     \end{equation*}
@@ -1595,7 +1696,7 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
             \sqrt{
     2 \mytr(\BA^2)
     +
-    (\phi^2\myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+    (\phi^2\myE (\epsilon_1^4)-3) \mytr(\BA^{\circ 2})
             }             
         },
     \end{equation*}
@@ -1616,7 +1717,7 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
             \sqrt{
     2 \mytr(\BA^2)
     +
-    (\phi^2\myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+    (\phi^2\myE (\epsilon_1^4)-3) \mytr(\BA^{\circ 2})
             }             
         }
         +
@@ -1632,7 +1733,7 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
             \sqrt{
     2 \mytr(\BA^2)
     +
-    (\phi^2\myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+    (\phi^2\myE (\epsilon_1^4)-3) \mytr(\BA^{\circ 2})
             }             
         }
         \\
@@ -1674,7 +1775,7 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
             \sqrt{
     2 \mytr(\BA^2)
     +
-    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+    ( \phi^2 \myE (\epsilon_1^4)-3) \mytr(\BA^{\circ 2})
             }             
     }
 \Bigg | \hat{\tau} \right)=\alpha
@@ -1685,7 +1786,7 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
             \sqrt{
     2 \mytr(\BA^2)
     +
-    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+    ( \phi^2 \myE (\epsilon_1^4)-3) \mytr(\BA^{\circ 2})
             }             
     }
     \to F^{\dagger -1}(1-\alpha).
@@ -1740,7 +1841,7 @@ The fact $S\rightsquigarrow S^\dagger$, the equations \eqref{eq:slt1}, \eqref{eq
             \sqrt{
     2 \mytr(\BA^2)
     +
-    ( \phi^2 \myE (\epsilon_1^4)-3) \sum_{i=1}^n a_{i,i}^2
+    ( \phi^2 \myE (\epsilon_1^4)-3) \mytr(\BA^{\circ 2})
             }             
     }
              \right) 
@@ -1761,24 +1862,24 @@ This proves the theorem.
 
 
 \begin{proof}[\textbf{Proof of Proposition \ref{prop:estimation}}]
-    From \cite{Bai2017}, Theorem 2.1, one can obtain the explicit forms of $\myVar \left( \tilde \bepsilon^\top \left( \BI_n-\BP_a \right) \tilde \bepsilon  \right)$ and $\myVar \left( \sum_{i=1}^n \tilde \epsilon_i^4 \right)$ which involves the traces of certain matrices.
+    From \cite{Bai2017}, Theorem 2.1, one can obtain the explicit forms of $\myVar \left( \tilde \bepsilon^\top \left( \tilde \BP_a \right) \tilde \bepsilon  \right)$ and $\myVar \left( \sum_{i=1}^n \tilde \epsilon_i^4 \right)$ which involves the traces of certain matrices.
     Using \cite{book:1244195}, Theorem 5.5.1, one can see that the eigenvalues of these matrices are all bounded.
-    Hence it can be deduced that $\myVar \left( \tilde \bepsilon^\top \left( \BI_n-\BP_a \right) \tilde \bepsilon  \right)=O(n)$ and $\myVar \left( \sum_{i=1}^n \tilde \epsilon_i^4 \right)=O(n)$.
+    Hence it can be deduced that $\myVar ( \tilde \bepsilon^\top  \tilde \BP_a \tilde \bepsilon  )=O(n)$ and $\myVar \left( \sum_{i=1}^n \tilde \epsilon_i^4 \right)=O(n)$.
     Thus,
     \begin{align*}
-        & \tilde \bepsilon^\top \left( \BI_n-\BP_a \right) \tilde \bepsilon
+        & \tilde \bepsilon^\top  \tilde \BP_a  \tilde \bepsilon
         = (n-q) \sigma^2+O_P(\sqrt n),
         \\
         & \sum_{i=1}^n \tilde \epsilon_i^4 
         =
-        3\sigma^4 \mytr (\BI_n-\BP_a)^{\circ 2} 
+        3\sigma^4 \mytr (\tilde \BP_a^{\circ 2}) 
         +\left( \myE (\epsilon_1^4)-3 \sigma^{4}\right)
-        \mytr \left( (\BI_n-\BP_a)^{\circ 2}  \right)^2 + O_P(\sqrt n).
+        \mytr \left( \tilde \BP_a^{\circ 2}  \right)^2 + O_P(\sqrt n).
     \end{align*}
     It follows that
     \begin{equation*}
         \hat \tau ^2 = \sigma^{-4}\myE (\epsilon_1^4)-1
-        +O_P\left( \frac{\sqrt n}{\mytr \left( \left(  \BI_n - \BP_a \right)^{\circ 2} \right)^2} \right).
+        +O_P\left( \frac{\sqrt n}{\mytr \left( \tilde \BP_a ^{\circ 2} \right)^2} \right).
     \end{equation*}
     Let $\delta_{i,j}=1$ if $i=j$ and $0$ if $i\neq j$.
     We have
@@ -1788,24 +1889,24 @@ This proves the theorem.
         \sum_{i=1}^n \sum_{j=1}^n \delta_{i,j}^4 
         \\
         =&
-        \sum_{i=1}^n \sum_{j=1}^n \left( \delta_{i,j}-(\BP_{a})_{i,j}+(\BP_{a})_{i,j} \right)^4 
+        \sum_{i=1}^n \sum_{j=1}^n \left( (\tilde \BP_{a})_{i,j}+(\BP_{a})_{i,j} \right)^4 
         \\
         \leq&
-    8\sum_{i=1}^n \sum_{j=1}^n \left( \delta_{i,j}-(\BP_{a})_{i,j}\right)^4+
+    8\sum_{i=1}^n \sum_{j=1}^n \left( (\tilde \BP_{a})_{i,j}\right)^4+
     8\sum_{i=1}^n \sum_{j=1}^n(\BP_{a})_{i,j}^4
         \\
         \leq&
-    8\sum_{i=1}^n \sum_{j=1}^n \left( \delta_{i,j}-(\BP_{a})_{i,j}\right)^4+
+    8\sum_{i=1}^n \sum_{j=1}^n \left( (\tilde \BP_{a})_{i,j}\right)^4+
     8\sum_{i=1}^n \sum_{j=1}^n(\BP_{a})_{i,j}^2
     \\
     =&
-        8\mytr \left( \left(  \BI_n - \BP_a \right)^{\circ 2} \right)^2
+        8\mytr \left(   \tilde \BP_a^{\circ 2} \right)^2
         +8q.
         \end{split}
     \end{equation*}
     Then
     \begin{equation*}
-        \frac{\sqrt n}{\mytr \left( \left(  \BI_n - \BP_a \right)^{\circ 2} \right)^2} 
+        \frac{\sqrt n}{\mytr \left( \tilde \BP_a^{\circ 2} \right)^2} 
         =
         O\left( \frac{1}{\sqrt n} \right).
     \end{equation*}
