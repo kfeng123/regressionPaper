@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  16 JAN 2019 22:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  17 JAN 2019 22:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -430,46 +430,65 @@ LaTeX Info: Redefining \today on input line 736.
 \dt@a=\toks31
 \dt@b=\toks32
 )
-\c@theorem=\count160
-\c@proposition=\count161
-\c@corollary=\count162
-\c@lemma=\count163
-\c@example=\count164
-\c@assumption=\count165
-\c@condition=\count166
-\c@definition=\count167
-\c@remark=\count168
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip66
+\subfigcapskip=\skip67
+\subfigcaptopadj=\dimen144
+\subfigbottomskip=\skip68
+\subfigcapmargin=\dimen145
+\subfiglabelskip=\skip69
+\c@subfigure=\count160
+\c@lofdepth=\count161
+\c@subtable=\count162
+\c@lotdepth=\count163
 
-(./main.aux)
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip70
+\subfig@bottom=\skip71
+)
+\c@theorem=\count164
+\c@proposition=\count165
+\c@corollary=\count166
+\c@lemma=\count167
+\c@example=\count168
+\c@assumption=\count169
+\c@condition=\count170
+\c@definition=\count171
+\c@remark=\count172
+ (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 90.
- (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package hyperref Info: Link coloring OFF on input line 91.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count169
+\c@section@level=\count173
 )
-LaTeX Info: Redefining \ref on input line 90.
-LaTeX Info: Redefining \pageref on input line 90.
-LaTeX Info: Redefining \nameref on input line 90.
+LaTeX Info: Redefining \ref on input line 91.
+LaTeX Info: Redefining \pageref on input line 91.
+LaTeX Info: Redefining \nameref on input line 91.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
@@ -512,16 +531,16 @@ LaTeX Info: Redefining \nameref on input line 90.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count170
-\scratchdimen=\dimen144
+\scratchcounter=\count174
+\scratchdimen=\dimen146
 \scratchbox=\box30
-\nofMPsegments=\count171
-\nofMParguments=\count172
+\nofMPsegments=\count175
+\nofMParguments=\count176
 \everyMPshowfont=\toks33
-\MPscratchCnt=\count173
-\MPscratchDim=\dimen145
-\MPnumerator=\count174
-\makeMPintoPDFobject=\count175
+\MPscratchCnt=\count177
+\MPscratchDim=\dimen147
+\MPnumerator=\count178
+\makeMPintoPDFobject=\count179
 \everyMPtoPDFconversion=\toks34
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -538,55 +557,723 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 107.
+LaTeX Font Info:    Try loading font information for U+msa on input line 108.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 107.
+LaTeX Font Info:    Try loading font information for U+msb on input line 108.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 107.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 108.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 107.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 108.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 107.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 108.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 107.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 108.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-Overfull \hbox (3.96439pt too wide) in paragraph at lines 249--253
+Overfull \hbox (3.96439pt too wide) in paragraph at lines 250--254
 []\OT1/cmr/m/n/10.95 In low di-men-sional set-ting, it is easy to con-struct a 
 test whose power tends to $1$ as $\OML/cmm/m/it/10.95 ^^^[][]\OT1/cmr/bx/n/10.9
 5 X[][]X[][][]$
  []
 
 [4] [5] [6] [7] [8] [9] [10]
-Overfull \hbox (10.77121pt too wide) in paragraph at lines 1014--1017
+Overfull \hbox (10.77121pt too wide) in paragraph at lines 1015--1018
 []\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^@\OML/cmm/m/it/10.95 ^^M[]; ^^M[]w[
 ]\OT1/cmr/m/n/10.95 )$ while the power of the test of []Goe-man et al.[] ([]200
 6[]) mainly de-pends on $[](\OML/cmm/m/it/10.95 ^^M[]; ^^M[]w[]\OT1/cmr/m/n/10.
 95 )$.
  []
 
-[11] [12] [13] [14]
-Overfull \hbox (12.22441pt too wide) detected at line 1324
+[11]
+
+LaTeX Warning: Reference `table1' on page 12 undefined on input line 1071.
+
+
+LaTeX Warning: Reference `table2' on page 12 undefined on input line 1071.
+
+Package epstopdf Info: Source file: <code/tmp/50_iidnormal_t_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:15:57
+(epstopdf)                    size: 13778 bytes
+(epstopdf)             Output file: <code/tmp/50_iidnormal_t_dense-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2019-01-17 21:52:59
+(epstopdf)                    size: 12752 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_iidnormal_t_de
+nse-eps-converted-to.pdf code/tmp/50_iidnormal_t_dense.eps>
+(epstopdf)             \includegraphics on input line 1081.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_iidnormal_t_dense-eps-converted-to
+.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
+d
+
+<code/tmp/50_iidnormal_t_dense-eps-converted-to.pdf, id=277, 574.145pt x 351.31
+25pt>
+File: code/tmp/50_iidnormal_t_dense-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use code/tmp/50_iidnormal_t_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_iidnormal_t_dense-eps-converted-to.pdf use
+d on input line 1081.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/50_iidnormal_t_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:15:58
+(epstopdf)                    size: 12824 bytes
+(epstopdf)             Output file: <code/tmp/50_iidnormal_t_sparse-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2019-01-17 21:54:54
+(epstopdf)                    size: 11660 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_iidnormal_t_sp
+arse-eps-converted-to.pdf code/tmp/50_iidnormal_t_sparse.eps>
+(epstopdf)             \includegraphics on input line 1084.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_iidnormal_t_sparse-eps-converted-t
+o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
+ed
+
+<code/tmp/50_iidnormal_t_sparse-eps-converted-to.pdf, id=278, 574.145pt x 351.3
+125pt>
+File: code/tmp/50_iidnormal_t_sparse-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use code/tmp/50_iidnormal_t_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_iidnormal_t_sparse-eps-converted-to.pdf us
+ed on input line 1084.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/50_iidnormal_chi_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:15:58
+(epstopdf)                    size: 12420 bytes
+(epstopdf)             Output file: <code/tmp/50_iidnormal_chi_dense-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-17 21:57:22
+(epstopdf)                    size: 11245 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_iidnormal_chi_
+dense-eps-converted-to.pdf code/tmp/50_iidnormal_chi_dense.eps>
+(epstopdf)             \includegraphics on input line 1088.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_iidnormal_chi_dense-eps-converted-
+to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
+wed
+
+<code/tmp/50_iidnormal_chi_dense-eps-converted-to.pdf, id=279, 574.145pt x 351.
+3125pt>
+File: code/tmp/50_iidnormal_chi_dense-eps-converted-to.pdf Graphic file (type p
+df)
+ <use code/tmp/50_iidnormal_chi_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_iidnormal_chi_dense-eps-converted-to.pdf u
+sed on input line 1088.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/50_iidnormal_chi_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:15:58
+(epstopdf)                    size: 13652 bytes
+(epstopdf)             Output file: <code/tmp/50_iidnormal_chi_sparse-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2019-01-17 21:57:22
+(epstopdf)                    size: 12696 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_iidnormal_chi_
+sparse-eps-converted-to.pdf code/tmp/50_iidnormal_chi_sparse.eps>
+(epstopdf)             \includegraphics on input line 1091.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_iidnormal_chi_sparse-eps-converted
+-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
+owed
+
+<code/tmp/50_iidnormal_chi_sparse-eps-converted-to.pdf, id=280, 574.145pt x 351
+.3125pt>
+File: code/tmp/50_iidnormal_chi_sparse-eps-converted-to.pdf Graphic file (type 
+pdf)
+ <use code/tmp/50_iidnormal_chi_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_iidnormal_chi_sparse-eps-converted-to.pdf 
+used on input line 1091.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_iidnormal_t_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:15:59
+(epstopdf)                    size: 12277 bytes
+(epstopdf)             Output file: <code/tmp/100_iidnormal_t_dense-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2019-01-17 21:58:47
+(epstopdf)                    size: 11136 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_iidnormal_t_d
+ense-eps-converted-to.pdf code/tmp/100_iidnormal_t_dense.eps>
+(epstopdf)             \includegraphics on input line 1095.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_iidnormal_t_dense-eps-converted-t
+o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
+ed
+
+<code/tmp/100_iidnormal_t_dense-eps-converted-to.pdf, id=281, 574.145pt x 351.3
+125pt>
+File: code/tmp/100_iidnormal_t_dense-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use code/tmp/100_iidnormal_t_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_iidnormal_t_dense-eps-converted-to.pdf us
+ed on input line 1095.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_iidnormal_t_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:15:59
+(epstopdf)                    size: 12243 bytes
+(epstopdf)             Output file: <code/tmp/100_iidnormal_t_sparse-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-17 21:58:48
+(epstopdf)                    size: 10968 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_iidnormal_t_s
+parse-eps-converted-to.pdf code/tmp/100_iidnormal_t_sparse.eps>
+(epstopdf)             \includegraphics on input line 1098.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_iidnormal_t_sparse-eps-converted-
+to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
+wed
+
+<code/tmp/100_iidnormal_t_sparse-eps-converted-to.pdf, id=282, 574.145pt x 351.
+3125pt>
+File: code/tmp/100_iidnormal_t_sparse-eps-converted-to.pdf Graphic file (type p
+df)
+ <use code/tmp/100_iidnormal_t_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_iidnormal_t_sparse-eps-converted-to.pdf u
+sed on input line 1098.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_iidnormal_chi_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:15:59
+(epstopdf)                    size: 12377 bytes
+(epstopdf)             Output file: <code/tmp/100_iidnormal_chi_dense-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2019-01-17 21:58:48
+(epstopdf)                    size: 11029 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_iidnormal_chi
+_dense-eps-converted-to.pdf code/tmp/100_iidnormal_chi_dense.eps>
+(epstopdf)             \includegraphics on input line 1102.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_iidnormal_chi_dense-eps-converted
+-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
+owed
+
+<code/tmp/100_iidnormal_chi_dense-eps-converted-to.pdf, id=283, 574.145pt x 351
+.3125pt>
+File: code/tmp/100_iidnormal_chi_dense-eps-converted-to.pdf Graphic file (type 
+pdf)
+ <use code/tmp/100_iidnormal_chi_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_iidnormal_chi_dense-eps-converted-to.pdf 
+used on input line 1102.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_iidnormal_chi_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:16:00
+(epstopdf)                    size: 12071 bytes
+(epstopdf)             Output file: <code/tmp/100_iidnormal_chi_sparse-eps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2019-01-17 21:58:48
+(epstopdf)                    size: 10868 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_iidnormal_chi
+_sparse-eps-converted-to.pdf code/tmp/100_iidnormal_chi_sparse.eps>
+(epstopdf)             \includegraphics on input line 1105.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_iidnormal_chi_sparse-eps-converte
+d-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> al
+lowed
+
+<code/tmp/100_iidnormal_chi_sparse-eps-converted-to.pdf, id=284, 574.145pt x 35
+1.3125pt>
+File: code/tmp/100_iidnormal_chi_sparse-eps-converted-to.pdf Graphic file (type
+ pdf)
+ <use code/tmp/100_iidnormal_chi_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_iidnormal_chi_sparse-eps-converted-to.pdf
+ used on input line 1105.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+
+
+LaTeX Warning: Float too large for page by 2.60101pt on input line 1110.
+
+Package epstopdf Info: Source file: <code/tmp/50_Toeplitz_t_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:16:03
+(epstopdf)                    size: 12870 bytes
+(epstopdf)             Output file: <code/tmp/50_Toeplitz_t_dense-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:01:01
+(epstopdf)                    size: 11547 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_Toeplitz_t_den
+se-eps-converted-to.pdf code/tmp/50_Toeplitz_t_dense.eps>
+(epstopdf)             \includegraphics on input line 1116.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_Toeplitz_t_dense-eps-converted-to.
+pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+<code/tmp/50_Toeplitz_t_dense-eps-converted-to.pdf, id=285, 574.145pt x 351.312
+5pt>
+File: code/tmp/50_Toeplitz_t_dense-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use code/tmp/50_Toeplitz_t_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_Toeplitz_t_dense-eps-converted-to.pdf used
+ on input line 1116.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/50_Toeplitz_t_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:16:03
+(epstopdf)                    size: 12923 bytes
+(epstopdf)             Output file: <code/tmp/50_Toeplitz_t_sparse-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:01:01
+(epstopdf)                    size: 11682 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_Toeplitz_t_spa
+rse-eps-converted-to.pdf code/tmp/50_Toeplitz_t_sparse.eps>
+(epstopdf)             \includegraphics on input line 1119.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_Toeplitz_t_sparse-eps-converted-to
+.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
+d
+
+<code/tmp/50_Toeplitz_t_sparse-eps-converted-to.pdf, id=286, 574.145pt x 351.31
+25pt>
+File: code/tmp/50_Toeplitz_t_sparse-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use code/tmp/50_Toeplitz_t_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_Toeplitz_t_sparse-eps-converted-to.pdf use
+d on input line 1119.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/50_Toeplitz_chi_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:16:03
+(epstopdf)                    size: 12610 bytes
+(epstopdf)             Output file: <code/tmp/50_Toeplitz_chi_dense-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:01:02
+(epstopdf)                    size: 11337 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_Toeplitz_chi_d
+ense-eps-converted-to.pdf code/tmp/50_Toeplitz_chi_dense.eps>
+(epstopdf)             \includegraphics on input line 1123.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_Toeplitz_chi_dense-eps-converted-t
+o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
+ed
+
+<code/tmp/50_Toeplitz_chi_dense-eps-converted-to.pdf, id=287, 574.145pt x 351.3
+125pt>
+File: code/tmp/50_Toeplitz_chi_dense-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use code/tmp/50_Toeplitz_chi_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_Toeplitz_chi_dense-eps-converted-to.pdf us
+ed on input line 1123.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/50_Toeplitz_chi_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:16:04
+(epstopdf)                    size: 12889 bytes
+(epstopdf)             Output file: <code/tmp/50_Toeplitz_chi_sparse-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:01:02
+(epstopdf)                    size: 11618 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_Toeplitz_chi_s
+parse-eps-converted-to.pdf code/tmp/50_Toeplitz_chi_sparse.eps>
+(epstopdf)             \includegraphics on input line 1126.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_Toeplitz_chi_sparse-eps-converted-
+to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
+wed
+
+<code/tmp/50_Toeplitz_chi_sparse-eps-converted-to.pdf, id=288, 574.145pt x 351.
+3125pt>
+File: code/tmp/50_Toeplitz_chi_sparse-eps-converted-to.pdf Graphic file (type p
+df)
+ <use code/tmp/50_Toeplitz_chi_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_Toeplitz_chi_sparse-eps-converted-to.pdf u
+sed on input line 1126.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_Toeplitz_t_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:16:04
+(epstopdf)                    size: 14009 bytes
+(epstopdf)             Output file: <code/tmp/100_Toeplitz_t_dense-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:01:02
+(epstopdf)                    size: 12981 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_Toeplitz_t_de
+nse-eps-converted-to.pdf code/tmp/100_Toeplitz_t_dense.eps>
+(epstopdf)             \includegraphics on input line 1130.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_Toeplitz_t_dense-eps-converted-to
+.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
+d
+
+<code/tmp/100_Toeplitz_t_dense-eps-converted-to.pdf, id=289, 574.145pt x 351.31
+25pt>
+File: code/tmp/100_Toeplitz_t_dense-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use code/tmp/100_Toeplitz_t_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_Toeplitz_t_dense-eps-converted-to.pdf use
+d on input line 1130.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_Toeplitz_t_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:16:04
+(epstopdf)                    size: 13489 bytes
+(epstopdf)             Output file: <code/tmp/100_Toeplitz_t_sparse-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:01:03
+(epstopdf)                    size: 12219 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_Toeplitz_t_sp
+arse-eps-converted-to.pdf code/tmp/100_Toeplitz_t_sparse.eps>
+(epstopdf)             \includegraphics on input line 1133.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_Toeplitz_t_sparse-eps-converted-t
+o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
+ed
+
+<code/tmp/100_Toeplitz_t_sparse-eps-converted-to.pdf, id=290, 574.145pt x 351.3
+125pt>
+File: code/tmp/100_Toeplitz_t_sparse-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use code/tmp/100_Toeplitz_t_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_Toeplitz_t_sparse-eps-converted-to.pdf us
+ed on input line 1133.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_Toeplitz_chi_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:16:05
+(epstopdf)                    size: 13479 bytes
+(epstopdf)             Output file: <code/tmp/100_Toeplitz_chi_dense-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:01:03
+(epstopdf)                    size: 12247 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_Toeplitz_chi_
+dense-eps-converted-to.pdf code/tmp/100_Toeplitz_chi_dense.eps>
+(epstopdf)             \includegraphics on input line 1137.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_Toeplitz_chi_dense-eps-converted-
+to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
+wed
+
+<code/tmp/100_Toeplitz_chi_dense-eps-converted-to.pdf, id=291, 574.145pt x 351.
+3125pt>
+File: code/tmp/100_Toeplitz_chi_dense-eps-converted-to.pdf Graphic file (type p
+df)
+ <use code/tmp/100_Toeplitz_chi_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_Toeplitz_chi_dense-eps-converted-to.pdf u
+sed on input line 1137.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_Toeplitz_chi_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:16:05
+(epstopdf)                    size: 13539 bytes
+(epstopdf)             Output file: <code/tmp/100_Toeplitz_chi_sparse-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:01:03
+(epstopdf)                    size: 12390 bytes
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_Toeplitz_chi_
+sparse-eps-converted-to.pdf code/tmp/100_Toeplitz_chi_sparse.eps>
+(epstopdf)             \includegraphics on input line 1140.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_Toeplitz_chi_sparse-eps-converted
+-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
+owed
+
+<code/tmp/100_Toeplitz_chi_sparse-eps-converted-to.pdf, id=292, 574.145pt x 351
+.3125pt>
+File: code/tmp/100_Toeplitz_chi_sparse-eps-converted-to.pdf Graphic file (type 
+pdf)
+ <use code/tmp/100_Toeplitz_chi_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_Toeplitz_chi_sparse-eps-converted-to.pdf 
+used on input line 1140.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+
+
+LaTeX Warning: Float too large for page by 2.60101pt on input line 1145.
+
+Package epstopdf Info: Source file: <code/tmp/50_equalCor_t_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:16:00
+(epstopdf)                    size: 12701 bytes
+(epstopdf)             Output file: <code/tmp/50_equalCor_t_dense-eps-converted
+-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_equalCor_t_den
+se-eps-converted-to.pdf code/tmp/50_equalCor_t_dense.eps>
+(epstopdf)             \includegraphics on input line 1151.
+runsystem(repstopdf --outfile=code/tmp/50_equalCor_t_dense-eps-converted-to.pdf
+ code/tmp/50_equalCor_t_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/tmp/50_equalCor_t_dense-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:03:22
+(epstopdf)                    size: 11354 bytes.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_equalCor_t_dense-eps-converted-to.
+pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+<code/tmp/50_equalCor_t_dense-eps-converted-to.pdf, id=293, 574.145pt x 351.312
+5pt>
+File: code/tmp/50_equalCor_t_dense-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use code/tmp/50_equalCor_t_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_equalCor_t_dense-eps-converted-to.pdf used
+ on input line 1151.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/50_equalCor_t_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:16:00
+(epstopdf)                    size: 12259 bytes
+(epstopdf)             Output file: <code/tmp/50_equalCor_t_sparse-eps-converte
+d-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_equalCor_t_spa
+rse-eps-converted-to.pdf code/tmp/50_equalCor_t_sparse.eps>
+(epstopdf)             \includegraphics on input line 1154.
+runsystem(repstopdf --outfile=code/tmp/50_equalCor_t_sparse-eps-converted-to.pd
+f code/tmp/50_equalCor_t_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/tmp/50_equalCor_t_sparse-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:03:23
+(epstopdf)                    size: 11121 bytes.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_equalCor_t_sparse-eps-converted-to
+.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
+d
+
+<code/tmp/50_equalCor_t_sparse-eps-converted-to.pdf, id=294, 574.145pt x 351.31
+25pt>
+File: code/tmp/50_equalCor_t_sparse-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use code/tmp/50_equalCor_t_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_equalCor_t_sparse-eps-converted-to.pdf use
+d on input line 1154.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/50_equalCor_chi_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:16:01
+(epstopdf)                    size: 12193 bytes
+(epstopdf)             Output file: <code/tmp/50_equalCor_chi_dense-eps-convert
+ed-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_equalCor_chi_d
+ense-eps-converted-to.pdf code/tmp/50_equalCor_chi_dense.eps>
+(epstopdf)             \includegraphics on input line 1158.
+runsystem(repstopdf --outfile=code/tmp/50_equalCor_chi_dense-eps-converted-to.p
+df code/tmp/50_equalCor_chi_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/tmp/50_equalCor_chi_dense-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:03:23
+(epstopdf)                    size: 10951 bytes.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_equalCor_chi_dense-eps-converted-t
+o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
+ed
+
+<code/tmp/50_equalCor_chi_dense-eps-converted-to.pdf, id=295, 574.145pt x 351.3
+125pt>
+File: code/tmp/50_equalCor_chi_dense-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use code/tmp/50_equalCor_chi_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_equalCor_chi_dense-eps-converted-to.pdf us
+ed on input line 1158.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/50_equalCor_chi_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:16:01
+(epstopdf)                    size: 12288 bytes
+(epstopdf)             Output file: <code/tmp/50_equalCor_chi_sparse-eps-conver
+ted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_equalCor_chi_s
+parse-eps-converted-to.pdf code/tmp/50_equalCor_chi_sparse.eps>
+(epstopdf)             \includegraphics on input line 1161.
+runsystem(repstopdf --outfile=code/tmp/50_equalCor_chi_sparse-eps-converted-to.
+pdf code/tmp/50_equalCor_chi_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/tmp/50_equalCor_chi_sparse-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:03:23
+(epstopdf)                    size: 11176 bytes.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/50_equalCor_chi_sparse-eps-converted-
+to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
+wed
+
+<code/tmp/50_equalCor_chi_sparse-eps-converted-to.pdf, id=296, 574.145pt x 351.
+3125pt>
+File: code/tmp/50_equalCor_chi_sparse-eps-converted-to.pdf Graphic file (type p
+df)
+ <use code/tmp/50_equalCor_chi_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/50_equalCor_chi_sparse-eps-converted-to.pdf u
+sed on input line 1161.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_equalCor_t_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:16:01
+(epstopdf)                    size: 12261 bytes
+(epstopdf)             Output file: <code/tmp/100_equalCor_t_dense-eps-converte
+d-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_equalCor_t_de
+nse-eps-converted-to.pdf code/tmp/100_equalCor_t_dense.eps>
+(epstopdf)             \includegraphics on input line 1165.
+runsystem(repstopdf --outfile=code/tmp/100_equalCor_t_dense-eps-converted-to.pd
+f code/tmp/100_equalCor_t_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/tmp/100_equalCor_t_dense-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:03:24
+(epstopdf)                    size: 11012 bytes.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_equalCor_t_dense-eps-converted-to
+.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
+d
+
+<code/tmp/100_equalCor_t_dense-eps-converted-to.pdf, id=297, 574.145pt x 351.31
+25pt>
+File: code/tmp/100_equalCor_t_dense-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use code/tmp/100_equalCor_t_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_equalCor_t_dense-eps-converted-to.pdf use
+d on input line 1165.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_equalCor_t_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:16:01
+(epstopdf)                    size: 12204 bytes
+(epstopdf)             Output file: <code/tmp/100_equalCor_t_sparse-eps-convert
+ed-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_equalCor_t_sp
+arse-eps-converted-to.pdf code/tmp/100_equalCor_t_sparse.eps>
+(epstopdf)             \includegraphics on input line 1168.
+runsystem(repstopdf --outfile=code/tmp/100_equalCor_t_sparse-eps-converted-to.p
+df code/tmp/100_equalCor_t_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/tmp/100_equalCor_t_sparse-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:03:24
+(epstopdf)                    size: 10963 bytes.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_equalCor_t_sparse-eps-converted-t
+o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
+ed
+
+<code/tmp/100_equalCor_t_sparse-eps-converted-to.pdf, id=298, 574.145pt x 351.3
+125pt>
+File: code/tmp/100_equalCor_t_sparse-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use code/tmp/100_equalCor_t_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_equalCor_t_sparse-eps-converted-to.pdf us
+ed on input line 1168.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_equalCor_chi_dense.eps>
+(epstopdf)                    date: 2019-01-17 20:16:02
+(epstopdf)                    size: 12241 bytes
+(epstopdf)             Output file: <code/tmp/100_equalCor_chi_dense-eps-conver
+ted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_equalCor_chi_
+dense-eps-converted-to.pdf code/tmp/100_equalCor_chi_dense.eps>
+(epstopdf)             \includegraphics on input line 1172.
+runsystem(repstopdf --outfile=code/tmp/100_equalCor_chi_dense-eps-converted-to.
+pdf code/tmp/100_equalCor_chi_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/tmp/100_equalCor_chi_dense-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:03:24
+(epstopdf)                    size: 10949 bytes.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_equalCor_chi_dense-eps-converted-
+to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
+wed
+
+<code/tmp/100_equalCor_chi_dense-eps-converted-to.pdf, id=299, 574.145pt x 351.
+3125pt>
+File: code/tmp/100_equalCor_chi_dense-eps-converted-to.pdf Graphic file (type p
+df)
+ <use code/tmp/100_equalCor_chi_dense-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_equalCor_chi_dense-eps-converted-to.pdf u
+sed on input line 1172.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+Package epstopdf Info: Source file: <code/tmp/100_equalCor_chi_sparse.eps>
+(epstopdf)                    date: 2019-01-17 20:16:02
+(epstopdf)                    size: 12232 bytes
+(epstopdf)             Output file: <code/tmp/100_equalCor_chi_sparse-eps-conve
+rted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_equalCor_chi_
+sparse-eps-converted-to.pdf code/tmp/100_equalCor_chi_sparse.eps>
+(epstopdf)             \includegraphics on input line 1175.
+runsystem(repstopdf --outfile=code/tmp/100_equalCor_chi_sparse-eps-converted-to
+.pdf code/tmp/100_equalCor_chi_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/tmp/100_equalCor_chi_sparse-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2019-01-17 22:03:25
+(epstopdf)                    size: 10995 bytes.
+
+
+pdfTeX warning: pdflatex (file ./code/tmp/100_equalCor_chi_sparse-eps-converted
+-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
+owed
+
+<code/tmp/100_equalCor_chi_sparse-eps-converted-to.pdf, id=300, 574.145pt x 351
+.3125pt>
+File: code/tmp/100_equalCor_chi_sparse-eps-converted-to.pdf Graphic file (type 
+pdf)
+ <use code/tmp/100_equalCor_chi_sparse-eps-converted-to.pdf>
+Package pdftex.def Info: code/tmp/100_equalCor_chi_sparse-eps-converted-to.pdf 
+used on input line 1175.
+(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
+
+
+LaTeX Warning: Float too large for page by 2.60101pt on input line 1180.
+
+[12] [13 <./code/tmp/50_iidnormal_t_dense-eps-converted-to.pdf> <./code/tmp/50_
+iidnormal_t_sparse-eps-converted-to.pdf> <./code/tmp/50_iidnormal_chi_dense-eps
+-converted-to.pdf> <./code/tmp/50_iidnormal_chi_sparse-eps-converted-to.pdf> <.
+/code/tmp/100_iidnormal_t_dense-eps-converted-to.pdf> <./code/tmp/100_iidnormal
+_t_sparse-eps-converted-to.pdf> <./code/tmp/100_iidnormal_chi_dense-eps-convert
+ed-to.pdf> <./code/tmp/100_iidnormal_chi_sparse-eps-converted-to.pdf>] [14 <./c
+ode/tmp/50_Toeplitz_t_dense-eps-converted-to.pdf> <./code/tmp/50_Toeplitz_t_spa
+rse-eps-converted-to.pdf> <./code/tmp/50_Toeplitz_chi_dense-eps-converted-to.pd
+f> <./code/tmp/50_Toeplitz_chi_sparse-eps-converted-to.pdf> <./code/tmp/100_Toe
+plitz_t_dense-eps-converted-to.pdf> <./code/tmp/100_Toeplitz_t_sparse-eps-conve
+rted-to.pdf> <./code/tmp/100_Toeplitz_chi_dense-eps-converted-to.pdf> <./code/t
+mp/100_Toeplitz_chi_sparse-eps-converted-to.pdf>] [15 <./code/tmp/50_equalCor_t
+_dense-eps-converted-to.pdf> <./code/tmp/50_equalCor_t_sparse-eps-converted-to.
+pdf> <./code/tmp/50_equalCor_chi_dense-eps-converted-to.pdf> <./code/tmp/50_equ
+alCor_chi_sparse-eps-converted-to.pdf> <./code/tmp/100_equalCor_t_dense-eps-con
+verted-to.pdf> <./code/tmp/100_equalCor_t_sparse-eps-converted-to.pdf> <./code/
+tmp/100_equalCor_chi_dense-eps-converted-to.pdf> <./code/tmp/100_equalCor_chi_s
+parse-eps-converted-to.pdf>] [16]
+Overfull \hbox (12.22441pt too wide) detected at line 1427
 [] \OMS/cmsy/m/n/10.95 ^^Z [] \OML/cmm/m/it/10.95 :
  []
 
-[15] [16] [17] [18] [19]
-Overfull \hbox (12.88023pt too wide) in paragraph at lines 1938--1943
+[17] [18] [19] [20] [21]
+Overfull \hbox (12.88023pt too wide) in paragraph at lines 2041--2046
 \OT1/cmr/m/n/10.95 In what fol-lows, we as-sume $\OML/cmm/m/it/10.95 c \OMS/cms
 y/m/n/10.95 2 \OT1/cmr/m/n/10.95 (0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 +\O
 MS/cmsy/m/n/10.95 1\OT1/cmr/m/n/10.95 )$. By Helly se-lec-tion the-o-rem, we ca
@@ -595,44 +1282,48 @@ n as-sume $[][] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 b[]\OMS/cmsy/m/n/10.95
 10.95 k \OT1/cmr/m/n/10.95 =
  []
 
-[20]
-Overfull \hbox (9.91473pt too wide) in paragraph at lines 2020--2020
+[22]
+Overfull \hbox (9.91473pt too wide) in paragraph at lines 2123--2123
 [] 
  []
 
 
-Overfull \hbox (5.92715pt too wide) in paragraph at lines 2069--2078
+Overfull \hbox (5.92715pt too wide) in paragraph at lines 2172--2181
 \OT1/cmr/m/n/10.95 Note that $[][] []$ is in-de-pen-dent of $[][] \OML/cmm/m/it
 /10.95 b[]z[]$ \OT1/cmr/m/n/10.95 and $[][] \OML/cmm/m/it/10.95 b[]z[] \OMS/cms
 y/m/n/10.95 ^^X N\OT1/cmr/m/n/10.95 (0\OML/cmm/m/it/10.95 ; [][] b[]\OT1/cmr/m/
 n/10.95 )$.
  []
 
-[21] [22] (./main.bbl
+[23] (./main.bbl [24]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
- [23] [24])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2376.
- [25]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2376.
+ [25])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2479.
+ [26]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2479.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2376.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2376.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2479.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2479.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 48E02D1B466318B0F7EAAA3160DAB830;394.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2376.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2479.
  ) 
 Here is how much of TeX's memory you used:
- 9084 strings out of 493029
- 127517 string characters out of 6136233
- 260706 words of memory out of 5000000
- 12355 multiletter control sequences out of 15000+600000
+ 9398 strings out of 493029
+ 136033 string characters out of 6136233
+ 251911 words of memory out of 5000000
+ 12600 multiletter control sequences out of 15000+600000
  21156 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,22n,35p,1008b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,22n,36p,1015b,466s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/te
@@ -640,24 +1331,27 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (25 pages, 345177 bytes).
+e1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cmextra/cmmib9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/r
+sfs10.pfb>
+Output written on main.pdf (26 pages, 579764 bytes).
 PDF statistics:
- 496 PDF objects out of 1000 (max. 8388607)
- 442 compressed objects within 5 object streams
- 102 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 734 PDF objects out of 1000 (max. 8388607)
+ 602 compressed objects within 7 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 

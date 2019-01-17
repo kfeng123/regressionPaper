@@ -1,7 +1,7 @@
 library(xtable)
 set.seed(1)
 
-RepTime <- 100
+RepTime <- 5000
 M <- 1000
 alpha <- 0.05
 

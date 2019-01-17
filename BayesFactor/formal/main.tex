@@ -25,6 +25,7 @@
 \usepackage{enumerate}
 \usepackage{changepage}
 \usepackage{datetime}
+\usepackage[FIGTOPCAP]{subfigure}
 \newdate{date}{9}{1}{2017}
 
 %%%%%%%%%%%%%%  Notations %%%%%%%%%%
@@ -1073,105 +1074,207 @@ Compared with the GT test, the proposed test has higher limit power, but at the 
 This phenomenon is particularly clear in the second simulation.
 
 
-
-
-
-
-\begin{table*}[ht]
-    \caption{
-        Empirical size and power under Toeplitz structure; $q=10$, $p=1000$, $\alpha=0.05$.
+\begin{figure}
+    \centering 
+    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_iidnormal_t_dense}
     }
-\label{table1}
-    \centering
-    \begin{tabular}{clcccccccc}
-          \toprule
-          & & \multicolumn{4}{c}{$\epsilon_1\sim t_8$} &\multicolumn{4}{c}{$\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$}\\
-          \cmidrule(r){3-6}\cmidrule(r){7-10}
-          & & \multicolumn{2}{c}{Dense $\bbeta_b$} & \multicolumn{2}{c}{Sparse $\bbeta_b$} & \multicolumn{2}{c}{Dense $\bbeta_b$}& \multicolumn{2}{c}{Sparse $\bbeta_b$}\\
-          \cmidrule(r){3-4}  \cmidrule(r){5-6} \cmidrule(r){7-8}  \cmidrule(r){9-10}
-           $n$&SNR & NEW & GT & NEW & GT & NEW & GT & NEW & GT \\ 
-            \midrule
-        $50$ &0 (size)
- & 0.0590 & 0.0546 & 0.0348 & 0.0542 & 0.0346 & 0.0486 & 0.0334 & 0.0498 \\ 
-  &5 & 0.3650 & 0.3438 & 0.2818 & 0.3500 & 0.3474 & 0.3954 & 0.3304 & 0.3786 \\ 
-  &10 & 0.5266 & 0.4850 & 0.4584 & 0.4896 & 0.5036 & 0.5314 & 0.5034 & 0.5396 \\ 
-  &15 & 0.6282 & 0.5654 & 0.5638 & 0.5822 & 0.5812 & 0.5892 & 0.5800 & 0.5884 \\ 
-  &20 & 0.6980 & 0.6114 & 0.6222 & 0.6298 & 0.6390 & 0.6370 & 0.6204 & 0.6192 \\ 
-  &25 & 0.7228 & 0.6412 & 0.6466 & 0.6398 & 0.6610 & 0.6504 & 0.6550 & 0.6374 \\ 
-  &30 & 0.7362 & 0.6418 & 0.6920 & 0.6878 & 0.6932 & 0.6700 & 0.6706 & 0.6518 \\ 
-        \midrule
-$100$&0 (size) 
-& 0.0620 & 0.0510 & 0.0380 & 0.0504 & 0.0530 & 0.0478 & 0.0482 & 0.0514 \\ 
-  &5 & 0.4572 & 0.5056 & 0.3630 & 0.4962 & 0.5534 & 0.6048 & 0.4908 & 0.5988 \\ 
-  &10 & 0.7496 & 0.7664 & 0.6562 & 0.7478 & 0.8404 & 0.8468 & 0.7950 & 0.8198 \\ 
-  &15 & 0.8830 & 0.8658 & 0.8330 & 0.8666 & 0.9296 & 0.9134 & 0.9110 & 0.9066 \\ 
-  &20 & 0.9500 & 0.9176 & 0.9100 & 0.9224 & 0.9660 & 0.9504 & 0.9586 & 0.9506 \\ 
-  &25 & 0.9682 & 0.9460 & 0.9532 & 0.9470 & 0.9832 & 0.9682 & 0.9782 & 0.9656 \\ 
-  &30 & 0.9836 & 0.9604 & 0.9676 & 0.9664 & 0.9924 & 0.9770 & 0.9874 & 0.9730 \\ 
-        \bottomrule
-    \end{tabular}
-\end{table*}
-
-\begin{table*}[ht]
-    \caption{
-        Empirical size and power under equal correlation structure; $q=10$, $p=1000$, $\alpha=0.05$.
+    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_iidnormal_t_sparse}
     }
-\label{table2}
-    \centering
-    \begin{tabular}{clcccccccc}
-          \toprule
-          & & \multicolumn{4}{c}{$\epsilon_1\sim t_8$} &\multicolumn{4}{c}{$\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$}\\
-          \cmidrule(r){3-6}\cmidrule(r){7-10}
-          & & \multicolumn{2}{c}{Dense $\bbeta_b$} & \multicolumn{2}{c}{Sparse $\bbeta_b$} & \multicolumn{2}{c}{Dense $\bbeta_b$}& \multicolumn{2}{c}{Sparse $\bbeta_b$}\\
-          \cmidrule(r){3-4}  \cmidrule(r){5-6} \cmidrule(r){7-8}  \cmidrule(r){9-10}
-           $n$&SNR & NEW & GT & NEW & GT & NEW & GT & NEW & GT \\ 
-            \midrule
-        $50$ &0 (size)
-& 0.0458 & 0.0492 & 0.0464 & 0.0502 & 0.0524 & 0.0530 & 0.0520 & 0.0516 \\ 
-  &5 & 0.2524 & 0.2594 & 0.2640 & 0.2674 & 0.2634 & 0.2630 & 0.2914 & 0.2836 \\ 
-  &10 & 0.3228 & 0.3102 & 0.3396 & 0.3278 & 0.3316 & 0.3070 & 0.3758 & 0.3432 \\ 
-  &15 & 0.3530 & 0.3382 & 0.3732 & 0.3520 & 0.3598 & 0.3332 & 0.3960 & 0.3654 \\ 
-  &20 & 0.3754 & 0.3498 & 0.3862 & 0.3644 & 0.3628 & 0.3320 & 0.4146 & 0.3728 \\ 
-  &25 & 0.3872 & 0.3566 & 0.4022 & 0.3694 & 0.3810 & 0.3394 & 0.4228 & 0.3822 \\ 
-  &30 & 0.4130 & 0.3736 & 0.4006 & 0.3684 & 0.3830 & 0.3478 & 0.4352 & 0.3930 \\ 
-        \midrule
-$100$&0 (size) 
- & 0.0458 & 0.0540 & 0.0482 & 0.0462 & 0.0406 & 0.0526 & 0.0464 & 0.0480 \\ 
-  &5 & 0.2472 & 0.3176 & 0.2570 & 0.3158 & 0.2914 & 0.3584 & 0.3142 & 0.3496 \\ 
-  &10 & 0.3818 & 0.4078 & 0.3950 & 0.4108 & 0.4298 & 0.4482 & 0.4582 & 0.4402 \\ 
-  &15 & 0.4820 & 0.4720 & 0.4788 & 0.4594 & 0.5172 & 0.5008 & 0.5542 & 0.4820 \\ 
-  &20 & 0.5292 & 0.4900 & 0.5414 & 0.4928 & 0.5742 & 0.5212 & 0.5988 & 0.5090 \\ 
-  &25 & 0.5700 & 0.5040 & 0.5984 & 0.5200 & 0.6018 & 0.5338 & 0.6262 & 0.5164 \\ 
-  &30 & 0.5972 & 0.5202 & 0.6172 & 0.5296 & 0.6392 & 0.5508 & 0.6582 & 0.5336 \\ 
-        \bottomrule
-    \end{tabular}
-\end{table*}
-
-\begin{table*}[ht]
-    \caption{
-        Empirical size and power under the design matrix of Bacillus subtilis gene expression data; $n=71$, $q=10$, $p=4078$, $\alpha=0.05$.
+    \\
+    \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_iidnormal_chi_dense}
     }
-\label{table3}
-    \centering
-    \begin{tabular}{lcccccccc}
-          \toprule
-           & \multicolumn{4}{c}{$\epsilon_1\sim t_8$} &\multicolumn{4}{c}{$\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$}\\
-          \cmidrule(r){2-5}\cmidrule(r){6-9}
-           & \multicolumn{2}{c}{Dense $\bbeta_b$} & \multicolumn{2}{c}{Sparse $\bbeta_b$} & \multicolumn{2}{c}{Dense $\bbeta_b$}& \multicolumn{2}{c}{Sparse $\bbeta_b$}\\
-          \cmidrule(r){2-3}  \cmidrule(r){4-5} \cmidrule(r){6-7}  \cmidrule(r){8-9}
-           SNR & NEW & GT & NEW & GT & NEW & GT & NEW & GT \\ 
-            \midrule
-         0 (size) &0.0368 & 0.0524 & 0.0362 & 0.0450 & 0.0378 & 0.0538 & 0.0412 & 0.0534 \\ 
-  5 & 0.1720 & 0.3516 & 0.1804 & 0.3710 & 0.2322 & 0.4134 & 0.2380 & 0.4108 \\ 
-  10 & 0.3268 & 0.4884 & 0.3542 & 0.5128 & 0.4108 & 0.5428 & 0.4206 & 0.5496 \\ 
-  15 & 0.4588 & 0.5624 & 0.4746 & 0.5742 & 0.5512 & 0.6224 & 0.5618 & 0.6168 \\ 
-  20 & 0.5716 & 0.6366 & 0.5636 & 0.6154 & 0.6586 & 0.6690 & 0.6516 & 0.6606 \\ 
-  25 & 0.6398 & 0.6546 & 0.6370 & 0.6578 & 0.7258 & 0.6984 & 0.7318 & 0.6968 \\ 
-  30 & 0.7052 & 0.6802 & 0.7132 & 0.6864 & 0.7872 & 0.7242 & 0.7932 & 0.7248 \\ 
-        \bottomrule
-    \end{tabular}
-\end{table*}
+    \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_iidnormal_chi_sparse}
+    }
+    \\
+    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_iidnormal_t_dense}
+    }
+    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_iidnormal_t_sparse}
+    }
+    \\
+    \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_iidnormal_chi_dense}
+    }
+    \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_iidnormal_chi_sparse}
+    }
+    \caption{Box plots of the empirical powers based on $25$ independently generated $\bbeta_b$ and $5$,$000$ independent replications.
+        Identity covariance matrix.
+        $q=10$, $p=1000$, $\alpha=0.05$.
+    }\label{fig:1}
+\end{figure}
 
+\begin{figure}
+    \centering 
+    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_Toeplitz_t_dense}
+    }
+    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_Toeplitz_t_sparse}
+    }
+    \\
+    \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_Toeplitz_chi_dense}
+    }
+    \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_Toeplitz_chi_sparse}
+    }
+    \\
+    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_Toeplitz_t_dense}
+    }
+    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_Toeplitz_t_sparse}
+    }
+    \\
+    \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_Toeplitz_chi_dense}
+    }
+    \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_Toeplitz_chi_sparse}
+    }
+    \caption{Box plots of the empirical powers based on $25$ independently generated $\bbeta_b$ and $5$,$000$ independent replications.
+Toeplitz covariance matrix.
+        $q=10$, $p=1000$, $\alpha=0.05$.
+    }\label{fig:2}
+\end{figure}
+
+\begin{figure}
+    \centering 
+    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_equalCor_t_dense}
+    }
+    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_equalCor_t_sparse}
+    }
+    \\
+    \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_equalCor_chi_dense}
+    }
+    \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/50_equalCor_chi_sparse}
+    }
+    \\
+    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_equalCor_t_dense}
+    }
+    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_equalCor_t_sparse}
+    }
+    \\
+    \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_equalCor_chi_dense}
+    }
+    \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/tmp/100_equalCor_chi_sparse}
+    }
+    \caption{Box plots of the empirical powers based on $25$ independently generated $\bbeta_b$ and $5$,$000$ independent replications.
+        Equal correlation covariance matrix.
+        $q=10$, $p=1000$, $\alpha=0.05$.
+    }\label{fig:3}
+\end{figure}
+
+%
+%\begin{table*}[ht]
+%    \caption{
+%        Empirical size and power under Toeplitz structure; $q=10$, $p=1000$, $\alpha=0.05$.
+%    }
+%\label{table1}
+%    \centering
+%    \begin{tabular}{clcccccccc}
+%          \toprule
+%          & & \multicolumn{4}{c}{$\epsilon_1\sim t_8$} &\multicolumn{4}{c}{$\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$}\\
+%          \cmidrule(r){3-6}\cmidrule(r){7-10}
+%          & & \multicolumn{2}{c}{Dense $\bbeta_b$} & \multicolumn{2}{c}{Sparse $\bbeta_b$} & \multicolumn{2}{c}{Dense $\bbeta_b$}& \multicolumn{2}{c}{Sparse $\bbeta_b$}\\
+%          \cmidrule(r){3-4}  \cmidrule(r){5-6} \cmidrule(r){7-8}  \cmidrule(r){9-10}
+%           $n$&SNR & NEW & GT & NEW & GT & NEW & GT & NEW & GT \\ 
+%            \midrule
+%        $50$ &0 (size)
+% & 0.0590 & 0.0546 & 0.0348 & 0.0542 & 0.0346 & 0.0486 & 0.0334 & 0.0498 \\ 
+%  &5 & 0.3650 & 0.3438 & 0.2818 & 0.3500 & 0.3474 & 0.3954 & 0.3304 & 0.3786 \\ 
+%  &10 & 0.5266 & 0.4850 & 0.4584 & 0.4896 & 0.5036 & 0.5314 & 0.5034 & 0.5396 \\ 
+%  &15 & 0.6282 & 0.5654 & 0.5638 & 0.5822 & 0.5812 & 0.5892 & 0.5800 & 0.5884 \\ 
+%  &20 & 0.6980 & 0.6114 & 0.6222 & 0.6298 & 0.6390 & 0.6370 & 0.6204 & 0.6192 \\ 
+%  &25 & 0.7228 & 0.6412 & 0.6466 & 0.6398 & 0.6610 & 0.6504 & 0.6550 & 0.6374 \\ 
+%  &30 & 0.7362 & 0.6418 & 0.6920 & 0.6878 & 0.6932 & 0.6700 & 0.6706 & 0.6518 \\ 
+%        \midrule
+%$100$&0 (size) 
+%& 0.0620 & 0.0510 & 0.0380 & 0.0504 & 0.0530 & 0.0478 & 0.0482 & 0.0514 \\ 
+%  &5 & 0.4572 & 0.5056 & 0.3630 & 0.4962 & 0.5534 & 0.6048 & 0.4908 & 0.5988 \\ 
+%  &10 & 0.7496 & 0.7664 & 0.6562 & 0.7478 & 0.8404 & 0.8468 & 0.7950 & 0.8198 \\ 
+%  &15 & 0.8830 & 0.8658 & 0.8330 & 0.8666 & 0.9296 & 0.9134 & 0.9110 & 0.9066 \\ 
+%  &20 & 0.9500 & 0.9176 & 0.9100 & 0.9224 & 0.9660 & 0.9504 & 0.9586 & 0.9506 \\ 
+%  &25 & 0.9682 & 0.9460 & 0.9532 & 0.9470 & 0.9832 & 0.9682 & 0.9782 & 0.9656 \\ 
+%  &30 & 0.9836 & 0.9604 & 0.9676 & 0.9664 & 0.9924 & 0.9770 & 0.9874 & 0.9730 \\ 
+%        \bottomrule
+%    \end{tabular}
+%\end{table*}
+%
+%\begin{table*}[ht]
+%    \caption{
+%        Empirical size and power under equal correlation structure; $q=10$, $p=1000$, $\alpha=0.05$.
+%    }
+%\label{table2}
+%    \centering
+%    \begin{tabular}{clcccccccc}
+%          \toprule
+%          & & \multicolumn{4}{c}{$\epsilon_1\sim t_8$} &\multicolumn{4}{c}{$\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$}\\
+%          \cmidrule(r){3-6}\cmidrule(r){7-10}
+%          & & \multicolumn{2}{c}{Dense $\bbeta_b$} & \multicolumn{2}{c}{Sparse $\bbeta_b$} & \multicolumn{2}{c}{Dense $\bbeta_b$}& \multicolumn{2}{c}{Sparse $\bbeta_b$}\\
+%          \cmidrule(r){3-4}  \cmidrule(r){5-6} \cmidrule(r){7-8}  \cmidrule(r){9-10}
+%           $n$&SNR & NEW & GT & NEW & GT & NEW & GT & NEW & GT \\ 
+%            \midrule
+%        $50$ &0 (size)
+%& 0.0458 & 0.0492 & 0.0464 & 0.0502 & 0.0524 & 0.0530 & 0.0520 & 0.0516 \\ 
+%  &5 & 0.2524 & 0.2594 & 0.2640 & 0.2674 & 0.2634 & 0.2630 & 0.2914 & 0.2836 \\ 
+%  &10 & 0.3228 & 0.3102 & 0.3396 & 0.3278 & 0.3316 & 0.3070 & 0.3758 & 0.3432 \\ 
+%  &15 & 0.3530 & 0.3382 & 0.3732 & 0.3520 & 0.3598 & 0.3332 & 0.3960 & 0.3654 \\ 
+%  &20 & 0.3754 & 0.3498 & 0.3862 & 0.3644 & 0.3628 & 0.3320 & 0.4146 & 0.3728 \\ 
+%  &25 & 0.3872 & 0.3566 & 0.4022 & 0.3694 & 0.3810 & 0.3394 & 0.4228 & 0.3822 \\ 
+%  &30 & 0.4130 & 0.3736 & 0.4006 & 0.3684 & 0.3830 & 0.3478 & 0.4352 & 0.3930 \\ 
+%        \midrule
+%$100$&0 (size) 
+% & 0.0458 & 0.0540 & 0.0482 & 0.0462 & 0.0406 & 0.0526 & 0.0464 & 0.0480 \\ 
+%  &5 & 0.2472 & 0.3176 & 0.2570 & 0.3158 & 0.2914 & 0.3584 & 0.3142 & 0.3496 \\ 
+%  &10 & 0.3818 & 0.4078 & 0.3950 & 0.4108 & 0.4298 & 0.4482 & 0.4582 & 0.4402 \\ 
+%  &15 & 0.4820 & 0.4720 & 0.4788 & 0.4594 & 0.5172 & 0.5008 & 0.5542 & 0.4820 \\ 
+%  &20 & 0.5292 & 0.4900 & 0.5414 & 0.4928 & 0.5742 & 0.5212 & 0.5988 & 0.5090 \\ 
+%  &25 & 0.5700 & 0.5040 & 0.5984 & 0.5200 & 0.6018 & 0.5338 & 0.6262 & 0.5164 \\ 
+%  &30 & 0.5972 & 0.5202 & 0.6172 & 0.5296 & 0.6392 & 0.5508 & 0.6582 & 0.5336 \\ 
+%        \bottomrule
+%    \end{tabular}
+%\end{table*}
+%
+%\begin{table*}[ht]
+%    \caption{
+%        Empirical size and power under the design matrix of Bacillus subtilis gene expression data; $n=71$, $q=10$, $p=4078$, $\alpha=0.05$.
+%    }
+%\label{table3}
+%    \centering
+%    \begin{tabular}{lcccccccc}
+%          \toprule
+%           & \multicolumn{4}{c}{$\epsilon_1\sim t_8$} &\multicolumn{4}{c}{$\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$}\\
+%          \cmidrule(r){2-5}\cmidrule(r){6-9}
+%           & \multicolumn{2}{c}{Dense $\bbeta_b$} & \multicolumn{2}{c}{Sparse $\bbeta_b$} & \multicolumn{2}{c}{Dense $\bbeta_b$}& \multicolumn{2}{c}{Sparse $\bbeta_b$}\\
+%          \cmidrule(r){2-3}  \cmidrule(r){4-5} \cmidrule(r){6-7}  \cmidrule(r){8-9}
+%           SNR & NEW & GT & NEW & GT & NEW & GT & NEW & GT \\ 
+%            \midrule
+%         0 (size) &0.0368 & 0.0524 & 0.0362 & 0.0450 & 0.0378 & 0.0538 & 0.0412 & 0.0534 \\ 
+%  5 & 0.1720 & 0.3516 & 0.1804 & 0.3710 & 0.2322 & 0.4134 & 0.2380 & 0.4108 \\ 
+%  10 & 0.3268 & 0.4884 & 0.3542 & 0.5128 & 0.4108 & 0.5428 & 0.4206 & 0.5496 \\ 
+%  15 & 0.4588 & 0.5624 & 0.4746 & 0.5742 & 0.5512 & 0.6224 & 0.5618 & 0.6168 \\ 
+%  20 & 0.5716 & 0.6366 & 0.5636 & 0.6154 & 0.6586 & 0.6690 & 0.6516 & 0.6606 \\ 
+%  25 & 0.6398 & 0.6546 & 0.6370 & 0.6578 & 0.7258 & 0.6984 & 0.7318 & 0.6968 \\ 
+%  30 & 0.7052 & 0.6802 & 0.7132 & 0.6864 & 0.7872 & 0.7242 & 0.7932 & 0.7248 \\ 
+%        \bottomrule
+%    \end{tabular}
+%\end{table*}
+%
 
 
 
