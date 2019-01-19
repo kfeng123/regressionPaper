@@ -99,6 +99,12 @@ Horn, R.~A. and Johnson, C.~R. (1991).
 \newblock {\em Topics in Matrix Analysis}.
 \newblock Cambridge University Press.
 
+\bibitem[Janson et~al., 2016]{Janson2016}
+Janson, L., Barber, R.~F., and Cand{\`{e}}s, E. (2016).
+\newblock {EigenPrism}: inference for high dimensional signal-to-noise ratios.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 79(4):1037--1065.
+
 \bibitem[Javier~Gir\'on et~al., 2006]{javier2006Obj}
 Javier~Gir\'on, F., Lina~Mart\'inez, M., Moreno, E., and Torres, F. (2006).
 \newblock Objective testing procedures in linear models: Calibration of the

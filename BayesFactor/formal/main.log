@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  17 JAN 2019 22:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  18 JAN 2019 11:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -606,668 +606,1147 @@ LaTeX Warning: Reference `table1' on page 12 undefined on input line 1071.
 
 LaTeX Warning: Reference `table2' on page 12 undefined on input line 1071.
 
-Package epstopdf Info: Source file: <code/tmp/50_iidnormal_t_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:15:57
-(epstopdf)                    size: 13778 bytes
-(epstopdf)             Output file: <code/tmp/50_iidnormal_t_dense-eps-converte
-d-to.pdf>
-(epstopdf)                    date: 2019-01-17 21:52:59
-(epstopdf)                    size: 12752 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_iidnormal_t_de
-nse-eps-converted-to.pdf code/tmp/50_iidnormal_t_dense.eps>
-(epstopdf)             \includegraphics on input line 1081.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_iidnormal_t_dense-eps-converted-to
-.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
-d
-
-<code/tmp/50_iidnormal_t_dense-eps-converted-to.pdf, id=277, 574.145pt x 351.31
-25pt>
-File: code/tmp/50_iidnormal_t_dense-eps-converted-to.pdf Graphic file (type pdf
-)
- <use code/tmp/50_iidnormal_t_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_iidnormal_t_dense-eps-converted-to.pdf use
-d on input line 1081.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/50_iidnormal_t_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:15:58
-(epstopdf)                    size: 12824 bytes
-(epstopdf)             Output file: <code/tmp/50_iidnormal_t_sparse-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2019-01-17 21:54:54
-(epstopdf)                    size: 11660 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_iidnormal_t_sp
-arse-eps-converted-to.pdf code/tmp/50_iidnormal_t_sparse.eps>
-(epstopdf)             \includegraphics on input line 1084.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_iidnormal_t_sparse-eps-converted-t
-o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
-ed
-
-<code/tmp/50_iidnormal_t_sparse-eps-converted-to.pdf, id=278, 574.145pt x 351.3
-125pt>
-File: code/tmp/50_iidnormal_t_sparse-eps-converted-to.pdf Graphic file (type pd
-f)
- <use code/tmp/50_iidnormal_t_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_iidnormal_t_sparse-eps-converted-to.pdf us
-ed on input line 1084.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/50_iidnormal_chi_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:15:58
-(epstopdf)                    size: 12420 bytes
-(epstopdf)             Output file: <code/tmp/50_iidnormal_chi_dense-eps-conver
-ted-to.pdf>
-(epstopdf)                    date: 2019-01-17 21:57:22
-(epstopdf)                    size: 11245 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_iidnormal_chi_
-dense-eps-converted-to.pdf code/tmp/50_iidnormal_chi_dense.eps>
-(epstopdf)             \includegraphics on input line 1088.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_iidnormal_chi_dense-eps-converted-
-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
-wed
-
-<code/tmp/50_iidnormal_chi_dense-eps-converted-to.pdf, id=279, 574.145pt x 351.
-3125pt>
-File: code/tmp/50_iidnormal_chi_dense-eps-converted-to.pdf Graphic file (type p
-df)
- <use code/tmp/50_iidnormal_chi_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_iidnormal_chi_dense-eps-converted-to.pdf u
-sed on input line 1088.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/50_iidnormal_chi_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:15:58
-(epstopdf)                    size: 13652 bytes
-(epstopdf)             Output file: <code/tmp/50_iidnormal_chi_sparse-eps-conve
-rted-to.pdf>
-(epstopdf)                    date: 2019-01-17 21:57:22
-(epstopdf)                    size: 12696 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_iidnormal_chi_
-sparse-eps-converted-to.pdf code/tmp/50_iidnormal_chi_sparse.eps>
-(epstopdf)             \includegraphics on input line 1091.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_iidnormal_chi_sparse-eps-converted
--to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
-owed
-
-<code/tmp/50_iidnormal_chi_sparse-eps-converted-to.pdf, id=280, 574.145pt x 351
-.3125pt>
-File: code/tmp/50_iidnormal_chi_sparse-eps-converted-to.pdf Graphic file (type 
-pdf)
- <use code/tmp/50_iidnormal_chi_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_iidnormal_chi_sparse-eps-converted-to.pdf 
-used on input line 1091.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_iidnormal_t_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:15:59
-(epstopdf)                    size: 12277 bytes
-(epstopdf)             Output file: <code/tmp/100_iidnormal_t_dense-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2019-01-17 21:58:47
-(epstopdf)                    size: 11136 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_iidnormal_t_d
-ense-eps-converted-to.pdf code/tmp/100_iidnormal_t_dense.eps>
-(epstopdf)             \includegraphics on input line 1095.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_iidnormal_t_dense-eps-converted-t
-o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
-ed
-
-<code/tmp/100_iidnormal_t_dense-eps-converted-to.pdf, id=281, 574.145pt x 351.3
-125pt>
-File: code/tmp/100_iidnormal_t_dense-eps-converted-to.pdf Graphic file (type pd
-f)
- <use code/tmp/100_iidnormal_t_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_iidnormal_t_dense-eps-converted-to.pdf us
-ed on input line 1095.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_iidnormal_t_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:15:59
-(epstopdf)                    size: 12243 bytes
-(epstopdf)             Output file: <code/tmp/100_iidnormal_t_sparse-eps-conver
-ted-to.pdf>
-(epstopdf)                    date: 2019-01-17 21:58:48
-(epstopdf)                    size: 10968 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_iidnormal_t_s
-parse-eps-converted-to.pdf code/tmp/100_iidnormal_t_sparse.eps>
-(epstopdf)             \includegraphics on input line 1098.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_iidnormal_t_sparse-eps-converted-
-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
-wed
-
-<code/tmp/100_iidnormal_t_sparse-eps-converted-to.pdf, id=282, 574.145pt x 351.
-3125pt>
-File: code/tmp/100_iidnormal_t_sparse-eps-converted-to.pdf Graphic file (type p
-df)
- <use code/tmp/100_iidnormal_t_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_iidnormal_t_sparse-eps-converted-to.pdf u
-sed on input line 1098.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_iidnormal_chi_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:15:59
-(epstopdf)                    size: 12377 bytes
-(epstopdf)             Output file: <code/tmp/100_iidnormal_chi_dense-eps-conve
-rted-to.pdf>
-(epstopdf)                    date: 2019-01-17 21:58:48
-(epstopdf)                    size: 11029 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_iidnormal_chi
-_dense-eps-converted-to.pdf code/tmp/100_iidnormal_chi_dense.eps>
-(epstopdf)             \includegraphics on input line 1102.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_iidnormal_chi_dense-eps-converted
--to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
-owed
-
-<code/tmp/100_iidnormal_chi_dense-eps-converted-to.pdf, id=283, 574.145pt x 351
-.3125pt>
-File: code/tmp/100_iidnormal_chi_dense-eps-converted-to.pdf Graphic file (type 
-pdf)
- <use code/tmp/100_iidnormal_chi_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_iidnormal_chi_dense-eps-converted-to.pdf 
-used on input line 1102.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_iidnormal_chi_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:16:00
-(epstopdf)                    size: 12071 bytes
-(epstopdf)             Output file: <code/tmp/100_iidnormal_chi_sparse-eps-conv
-erted-to.pdf>
-(epstopdf)                    date: 2019-01-17 21:58:48
-(epstopdf)                    size: 10868 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_iidnormal_chi
-_sparse-eps-converted-to.pdf code/tmp/100_iidnormal_chi_sparse.eps>
-(epstopdf)             \includegraphics on input line 1105.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_iidnormal_chi_sparse-eps-converte
-d-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> al
-lowed
-
-<code/tmp/100_iidnormal_chi_sparse-eps-converted-to.pdf, id=284, 574.145pt x 35
-1.3125pt>
-File: code/tmp/100_iidnormal_chi_sparse-eps-converted-to.pdf Graphic file (type
- pdf)
- <use code/tmp/100_iidnormal_chi_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_iidnormal_chi_sparse-eps-converted-to.pdf
- used on input line 1105.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-
-
-LaTeX Warning: Float too large for page by 2.60101pt on input line 1110.
-
-Package epstopdf Info: Source file: <code/tmp/50_Toeplitz_t_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:16:03
-(epstopdf)                    size: 12870 bytes
-(epstopdf)             Output file: <code/tmp/50_Toeplitz_t_dense-eps-converted
--to.pdf>
-(epstopdf)                    date: 2019-01-17 22:01:01
-(epstopdf)                    size: 11547 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_Toeplitz_t_den
-se-eps-converted-to.pdf code/tmp/50_Toeplitz_t_dense.eps>
-(epstopdf)             \includegraphics on input line 1116.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_Toeplitz_t_dense-eps-converted-to.
-pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-
-
-<code/tmp/50_Toeplitz_t_dense-eps-converted-to.pdf, id=285, 574.145pt x 351.312
-5pt>
-File: code/tmp/50_Toeplitz_t_dense-eps-converted-to.pdf Graphic file (type pdf)
-
- <use code/tmp/50_Toeplitz_t_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_Toeplitz_t_dense-eps-converted-to.pdf used
- on input line 1116.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/50_Toeplitz_t_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:16:03
-(epstopdf)                    size: 12923 bytes
-(epstopdf)             Output file: <code/tmp/50_Toeplitz_t_sparse-eps-converte
-d-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:01:01
-(epstopdf)                    size: 11682 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_Toeplitz_t_spa
-rse-eps-converted-to.pdf code/tmp/50_Toeplitz_t_sparse.eps>
-(epstopdf)             \includegraphics on input line 1119.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_Toeplitz_t_sparse-eps-converted-to
-.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
-d
-
-<code/tmp/50_Toeplitz_t_sparse-eps-converted-to.pdf, id=286, 574.145pt x 351.31
-25pt>
-File: code/tmp/50_Toeplitz_t_sparse-eps-converted-to.pdf Graphic file (type pdf
-)
- <use code/tmp/50_Toeplitz_t_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_Toeplitz_t_sparse-eps-converted-to.pdf use
-d on input line 1119.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/50_Toeplitz_chi_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:16:03
-(epstopdf)                    size: 12610 bytes
-(epstopdf)             Output file: <code/tmp/50_Toeplitz_chi_dense-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:01:02
-(epstopdf)                    size: 11337 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_Toeplitz_chi_d
-ense-eps-converted-to.pdf code/tmp/50_Toeplitz_chi_dense.eps>
-(epstopdf)             \includegraphics on input line 1123.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_Toeplitz_chi_dense-eps-converted-t
-o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
-ed
-
-<code/tmp/50_Toeplitz_chi_dense-eps-converted-to.pdf, id=287, 574.145pt x 351.3
-125pt>
-File: code/tmp/50_Toeplitz_chi_dense-eps-converted-to.pdf Graphic file (type pd
-f)
- <use code/tmp/50_Toeplitz_chi_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_Toeplitz_chi_dense-eps-converted-to.pdf us
-ed on input line 1123.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/50_Toeplitz_chi_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:16:04
-(epstopdf)                    size: 12889 bytes
-(epstopdf)             Output file: <code/tmp/50_Toeplitz_chi_sparse-eps-conver
-ted-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:01:02
-(epstopdf)                    size: 11618 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_Toeplitz_chi_s
-parse-eps-converted-to.pdf code/tmp/50_Toeplitz_chi_sparse.eps>
-(epstopdf)             \includegraphics on input line 1126.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_Toeplitz_chi_sparse-eps-converted-
-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
-wed
-
-<code/tmp/50_Toeplitz_chi_sparse-eps-converted-to.pdf, id=288, 574.145pt x 351.
-3125pt>
-File: code/tmp/50_Toeplitz_chi_sparse-eps-converted-to.pdf Graphic file (type p
-df)
- <use code/tmp/50_Toeplitz_chi_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_Toeplitz_chi_sparse-eps-converted-to.pdf u
-sed on input line 1126.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_Toeplitz_t_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:16:04
-(epstopdf)                    size: 14009 bytes
-(epstopdf)             Output file: <code/tmp/100_Toeplitz_t_dense-eps-converte
-d-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:01:02
-(epstopdf)                    size: 12981 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_Toeplitz_t_de
-nse-eps-converted-to.pdf code/tmp/100_Toeplitz_t_dense.eps>
-(epstopdf)             \includegraphics on input line 1130.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_Toeplitz_t_dense-eps-converted-to
-.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
-d
-
-<code/tmp/100_Toeplitz_t_dense-eps-converted-to.pdf, id=289, 574.145pt x 351.31
-25pt>
-File: code/tmp/100_Toeplitz_t_dense-eps-converted-to.pdf Graphic file (type pdf
-)
- <use code/tmp/100_Toeplitz_t_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_Toeplitz_t_dense-eps-converted-to.pdf use
-d on input line 1130.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_Toeplitz_t_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:16:04
-(epstopdf)                    size: 13489 bytes
-(epstopdf)             Output file: <code/tmp/100_Toeplitz_t_sparse-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:01:03
-(epstopdf)                    size: 12219 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_Toeplitz_t_sp
-arse-eps-converted-to.pdf code/tmp/100_Toeplitz_t_sparse.eps>
-(epstopdf)             \includegraphics on input line 1133.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_Toeplitz_t_sparse-eps-converted-t
-o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
-ed
-
-<code/tmp/100_Toeplitz_t_sparse-eps-converted-to.pdf, id=290, 574.145pt x 351.3
-125pt>
-File: code/tmp/100_Toeplitz_t_sparse-eps-converted-to.pdf Graphic file (type pd
-f)
- <use code/tmp/100_Toeplitz_t_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_Toeplitz_t_sparse-eps-converted-to.pdf us
-ed on input line 1133.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_Toeplitz_chi_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:16:05
-(epstopdf)                    size: 13479 bytes
-(epstopdf)             Output file: <code/tmp/100_Toeplitz_chi_dense-eps-conver
-ted-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:01:03
-(epstopdf)                    size: 12247 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_Toeplitz_chi_
-dense-eps-converted-to.pdf code/tmp/100_Toeplitz_chi_dense.eps>
-(epstopdf)             \includegraphics on input line 1137.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_Toeplitz_chi_dense-eps-converted-
-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
-wed
-
-<code/tmp/100_Toeplitz_chi_dense-eps-converted-to.pdf, id=291, 574.145pt x 351.
-3125pt>
-File: code/tmp/100_Toeplitz_chi_dense-eps-converted-to.pdf Graphic file (type p
-df)
- <use code/tmp/100_Toeplitz_chi_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_Toeplitz_chi_dense-eps-converted-to.pdf u
-sed on input line 1137.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_Toeplitz_chi_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:16:05
-(epstopdf)                    size: 13539 bytes
-(epstopdf)             Output file: <code/tmp/100_Toeplitz_chi_sparse-eps-conve
-rted-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:01:03
-(epstopdf)                    size: 12390 bytes
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_Toeplitz_chi_
-sparse-eps-converted-to.pdf code/tmp/100_Toeplitz_chi_sparse.eps>
-(epstopdf)             \includegraphics on input line 1140.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_Toeplitz_chi_sparse-eps-converted
--to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
-owed
-
-<code/tmp/100_Toeplitz_chi_sparse-eps-converted-to.pdf, id=292, 574.145pt x 351
-.3125pt>
-File: code/tmp/100_Toeplitz_chi_sparse-eps-converted-to.pdf Graphic file (type 
-pdf)
- <use code/tmp/100_Toeplitz_chi_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_Toeplitz_chi_sparse-eps-converted-to.pdf 
-used on input line 1140.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-
-
-LaTeX Warning: Float too large for page by 2.60101pt on input line 1145.
-
-Package epstopdf Info: Source file: <code/tmp/50_equalCor_t_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:16:00
-(epstopdf)                    size: 12701 bytes
-(epstopdf)             Output file: <code/tmp/50_equalCor_t_dense-eps-converted
--to.pdf>
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_equalCor_t_den
-se-eps-converted-to.pdf code/tmp/50_equalCor_t_dense.eps>
-(epstopdf)             \includegraphics on input line 1151.
-runsystem(repstopdf --outfile=code/tmp/50_equalCor_t_dense-eps-converted-to.pdf
- code/tmp/50_equalCor_t_dense.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <code/tmp/50_equalCor_t_dense-eps-converted
--to.pdf>
-(epstopdf)                    date: 2019-01-17 22:03:22
-(epstopdf)                    size: 11354 bytes.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_equalCor_t_dense-eps-converted-to.
-pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-
-
-<code/tmp/50_equalCor_t_dense-eps-converted-to.pdf, id=293, 574.145pt x 351.312
-5pt>
-File: code/tmp/50_equalCor_t_dense-eps-converted-to.pdf Graphic file (type pdf)
-
- <use code/tmp/50_equalCor_t_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_equalCor_t_dense-eps-converted-to.pdf used
- on input line 1151.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/50_equalCor_t_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:16:00
-(epstopdf)                    size: 12259 bytes
-(epstopdf)             Output file: <code/tmp/50_equalCor_t_sparse-eps-converte
-d-to.pdf>
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_equalCor_t_spa
-rse-eps-converted-to.pdf code/tmp/50_equalCor_t_sparse.eps>
-(epstopdf)             \includegraphics on input line 1154.
-runsystem(repstopdf --outfile=code/tmp/50_equalCor_t_sparse-eps-converted-to.pd
-f code/tmp/50_equalCor_t_sparse.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <code/tmp/50_equalCor_t_sparse-eps-converte
-d-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:03:23
-(epstopdf)                    size: 11121 bytes.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_equalCor_t_sparse-eps-converted-to
-.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
-d
-
-<code/tmp/50_equalCor_t_sparse-eps-converted-to.pdf, id=294, 574.145pt x 351.31
-25pt>
-File: code/tmp/50_equalCor_t_sparse-eps-converted-to.pdf Graphic file (type pdf
-)
- <use code/tmp/50_equalCor_t_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_equalCor_t_sparse-eps-converted-to.pdf use
-d on input line 1154.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/50_equalCor_chi_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:16:01
-(epstopdf)                    size: 12193 bytes
-(epstopdf)             Output file: <code/tmp/50_equalCor_chi_dense-eps-convert
-ed-to.pdf>
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_equalCor_chi_d
-ense-eps-converted-to.pdf code/tmp/50_equalCor_chi_dense.eps>
-(epstopdf)             \includegraphics on input line 1158.
-runsystem(repstopdf --outfile=code/tmp/50_equalCor_chi_dense-eps-converted-to.p
-df code/tmp/50_equalCor_chi_dense.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <code/tmp/50_equalCor_chi_dense-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:03:23
-(epstopdf)                    size: 10951 bytes.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_equalCor_chi_dense-eps-converted-t
-o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
-ed
-
-<code/tmp/50_equalCor_chi_dense-eps-converted-to.pdf, id=295, 574.145pt x 351.3
-125pt>
-File: code/tmp/50_equalCor_chi_dense-eps-converted-to.pdf Graphic file (type pd
-f)
- <use code/tmp/50_equalCor_chi_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_equalCor_chi_dense-eps-converted-to.pdf us
-ed on input line 1158.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/50_equalCor_chi_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:16:01
-(epstopdf)                    size: 12288 bytes
-(epstopdf)             Output file: <code/tmp/50_equalCor_chi_sparse-eps-conver
-ted-to.pdf>
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/50_equalCor_chi_s
-parse-eps-converted-to.pdf code/tmp/50_equalCor_chi_sparse.eps>
-(epstopdf)             \includegraphics on input line 1161.
-runsystem(repstopdf --outfile=code/tmp/50_equalCor_chi_sparse-eps-converted-to.
-pdf code/tmp/50_equalCor_chi_sparse.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <code/tmp/50_equalCor_chi_sparse-eps-conver
-ted-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:03:23
-(epstopdf)                    size: 11176 bytes.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/50_equalCor_chi_sparse-eps-converted-
-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
-wed
-
-<code/tmp/50_equalCor_chi_sparse-eps-converted-to.pdf, id=296, 574.145pt x 351.
-3125pt>
-File: code/tmp/50_equalCor_chi_sparse-eps-converted-to.pdf Graphic file (type p
-df)
- <use code/tmp/50_equalCor_chi_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/50_equalCor_chi_sparse-eps-converted-to.pdf u
-sed on input line 1161.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_equalCor_t_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:16:01
-(epstopdf)                    size: 12261 bytes
-(epstopdf)             Output file: <code/tmp/100_equalCor_t_dense-eps-converte
-d-to.pdf>
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_equalCor_t_de
-nse-eps-converted-to.pdf code/tmp/100_equalCor_t_dense.eps>
-(epstopdf)             \includegraphics on input line 1165.
-runsystem(repstopdf --outfile=code/tmp/100_equalCor_t_dense-eps-converted-to.pd
-f code/tmp/100_equalCor_t_dense.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <code/tmp/100_equalCor_t_dense-eps-converte
-d-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:03:24
-(epstopdf)                    size: 11012 bytes.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_equalCor_t_dense-eps-converted-to
-.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
-d
-
-<code/tmp/100_equalCor_t_dense-eps-converted-to.pdf, id=297, 574.145pt x 351.31
-25pt>
-File: code/tmp/100_equalCor_t_dense-eps-converted-to.pdf Graphic file (type pdf
-)
- <use code/tmp/100_equalCor_t_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_equalCor_t_dense-eps-converted-to.pdf use
-d on input line 1165.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_equalCor_t_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:16:01
-(epstopdf)                    size: 12204 bytes
-(epstopdf)             Output file: <code/tmp/100_equalCor_t_sparse-eps-convert
-ed-to.pdf>
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_equalCor_t_sp
-arse-eps-converted-to.pdf code/tmp/100_equalCor_t_sparse.eps>
-(epstopdf)             \includegraphics on input line 1168.
-runsystem(repstopdf --outfile=code/tmp/100_equalCor_t_sparse-eps-converted-to.p
-df code/tmp/100_equalCor_t_sparse.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <code/tmp/100_equalCor_t_sparse-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:03:24
-(epstopdf)                    size: 10963 bytes.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_equalCor_t_sparse-eps-converted-t
-o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
-ed
-
-<code/tmp/100_equalCor_t_sparse-eps-converted-to.pdf, id=298, 574.145pt x 351.3
-125pt>
-File: code/tmp/100_equalCor_t_sparse-eps-converted-to.pdf Graphic file (type pd
-f)
- <use code/tmp/100_equalCor_t_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_equalCor_t_sparse-eps-converted-to.pdf us
-ed on input line 1168.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_equalCor_chi_dense.eps>
-(epstopdf)                    date: 2019-01-17 20:16:02
-(epstopdf)                    size: 12241 bytes
-(epstopdf)             Output file: <code/tmp/100_equalCor_chi_dense-eps-conver
-ted-to.pdf>
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_equalCor_chi_
-dense-eps-converted-to.pdf code/tmp/100_equalCor_chi_dense.eps>
-(epstopdf)             \includegraphics on input line 1172.
-runsystem(repstopdf --outfile=code/tmp/100_equalCor_chi_dense-eps-converted-to.
-pdf code/tmp/100_equalCor_chi_dense.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <code/tmp/100_equalCor_chi_dense-eps-conver
-ted-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:03:24
-(epstopdf)                    size: 10949 bytes.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_equalCor_chi_dense-eps-converted-
-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
-wed
-
-<code/tmp/100_equalCor_chi_dense-eps-converted-to.pdf, id=299, 574.145pt x 351.
-3125pt>
-File: code/tmp/100_equalCor_chi_dense-eps-converted-to.pdf Graphic file (type p
-df)
- <use code/tmp/100_equalCor_chi_dense-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_equalCor_chi_dense-eps-converted-to.pdf u
-sed on input line 1172.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-Package epstopdf Info: Source file: <code/tmp/100_equalCor_chi_sparse.eps>
-(epstopdf)                    date: 2019-01-17 20:16:02
-(epstopdf)                    size: 12232 bytes
-(epstopdf)             Output file: <code/tmp/100_equalCor_chi_sparse-eps-conve
-rted-to.pdf>
-(epstopdf)             Command: <repstopdf --outfile=code/tmp/100_equalCor_chi_
-sparse-eps-converted-to.pdf code/tmp/100_equalCor_chi_sparse.eps>
-(epstopdf)             \includegraphics on input line 1175.
-runsystem(repstopdf --outfile=code/tmp/100_equalCor_chi_sparse-eps-converted-to
-.pdf code/tmp/100_equalCor_chi_sparse.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <code/tmp/100_equalCor_chi_sparse-eps-conve
-rted-to.pdf>
-(epstopdf)                    date: 2019-01-17 22:03:25
-(epstopdf)                    size: 10995 bytes.
-
-
-pdfTeX warning: pdflatex (file ./code/tmp/100_equalCor_chi_sparse-eps-converted
--to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
-owed
-
-<code/tmp/100_equalCor_chi_sparse-eps-converted-to.pdf, id=300, 574.145pt x 351
-.3125pt>
-File: code/tmp/100_equalCor_chi_sparse-eps-converted-to.pdf Graphic file (type 
-pdf)
- <use code/tmp/100_equalCor_chi_sparse-eps-converted-to.pdf>
-Package pdftex.def Info: code/tmp/100_equalCor_chi_sparse-eps-converted-to.pdf 
-used on input line 1175.
-(pdftex.def)             Requested size: 211.38832pt x 129.34567pt.
-
-
-LaTeX Warning: Float too large for page by 2.60101pt on input line 1180.
-
-[12] [13 <./code/tmp/50_iidnormal_t_dense-eps-converted-to.pdf> <./code/tmp/50_
-iidnormal_t_sparse-eps-converted-to.pdf> <./code/tmp/50_iidnormal_chi_dense-eps
--converted-to.pdf> <./code/tmp/50_iidnormal_chi_sparse-eps-converted-to.pdf> <.
-/code/tmp/100_iidnormal_t_dense-eps-converted-to.pdf> <./code/tmp/100_iidnormal
-_t_sparse-eps-converted-to.pdf> <./code/tmp/100_iidnormal_chi_dense-eps-convert
-ed-to.pdf> <./code/tmp/100_iidnormal_chi_sparse-eps-converted-to.pdf>] [14 <./c
-ode/tmp/50_Toeplitz_t_dense-eps-converted-to.pdf> <./code/tmp/50_Toeplitz_t_spa
-rse-eps-converted-to.pdf> <./code/tmp/50_Toeplitz_chi_dense-eps-converted-to.pd
-f> <./code/tmp/50_Toeplitz_chi_sparse-eps-converted-to.pdf> <./code/tmp/100_Toe
-plitz_t_dense-eps-converted-to.pdf> <./code/tmp/100_Toeplitz_t_sparse-eps-conve
-rted-to.pdf> <./code/tmp/100_Toeplitz_chi_dense-eps-converted-to.pdf> <./code/t
-mp/100_Toeplitz_chi_sparse-eps-converted-to.pdf>] [15 <./code/tmp/50_equalCor_t
-_dense-eps-converted-to.pdf> <./code/tmp/50_equalCor_t_sparse-eps-converted-to.
-pdf> <./code/tmp/50_equalCor_chi_dense-eps-converted-to.pdf> <./code/tmp/50_equ
-alCor_chi_sparse-eps-converted-to.pdf> <./code/tmp/100_equalCor_t_dense-eps-con
-verted-to.pdf> <./code/tmp/100_equalCor_t_sparse-eps-converted-to.pdf> <./code/
-tmp/100_equalCor_chi_dense-eps-converted-to.pdf> <./code/tmp/100_equalCor_chi_s
-parse-eps-converted-to.pdf>] [16]
+
+! LaTeX Error: File `code/tmp/50_iidnormal_t_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1081     }
+            
+? 
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1081--1081
+[]\OT1/cmr/m/n/9 (a)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1081--1081
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1081--1081
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1081--1081
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1081--1081
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1081--1081
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1081--1081
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_iidnormal_t_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1084     }
+            
+? 
+
+Overfull \hbox (5.03326pt too wide) in paragraph at lines 1084--1084
+[]\OT1/cmr/m/n/9 (b)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1084--1084
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1084--1084
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1084--1084
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1084--1084
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1084--1084
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1084--1084
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_iidnormal_chi_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1088     }
+            
+? 
+
+Overfull \hbox (4.0055pt too wide) in paragraph at lines 1088--1088
+[]\OT1/cmr/m/n/9 (c)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1088--1088
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1088--1088
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1088--1088
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1088--1088
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1088--1088
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1088--1088
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1088--1088
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_iidnormal_chi_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1091     }
+            
+? 
+
+Overfull \hbox (5.03326pt too wide) in paragraph at lines 1091--1091
+[]\OT1/cmr/m/n/9 (d)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1091--1091
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1091--1091
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1091--1091
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1091--1091
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1091--1091
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1091--1091
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1091--1091
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_iidnormal_t_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1095     }
+            
+? 
+
+Overfull \hbox (4.00896pt too wide) in paragraph at lines 1095--1095
+[]\OT1/cmr/m/n/9 (e)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1095--1095
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1095--1095
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1095--1095
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1095--1095
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1095--1095
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1095--1095
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_iidnormal_t_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1098     }
+            
+? 
+
+Overfull \hbox (3.42563pt too wide) in paragraph at lines 1098--1098
+[]\OT1/cmr/m/n/9 (f)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1098--1098
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1098--1098
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1098--1098
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1098--1098
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1098--1098
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1098--1098
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_iidnormal_chi_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1102     }
+            
+? 
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1102--1102
+[]\OT1/cmr/m/n/9 (g)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1102--1102
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1102--1102
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1102--1102
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1102--1102
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1102--1102
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1102--1102
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1102--1102
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_iidnormal_chi_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1105     }
+            
+? 
+
+Overfull \hbox (5.03326pt too wide) in paragraph at lines 1105--1105
+[]\OT1/cmr/m/n/9 (h)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1105--1105
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1105--1105
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1105--1105
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1105--1105
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1105--1105
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1105--1105
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1105--1105
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_Toeplitz_t_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1116     }
+            
+? 
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1116--1116
+[]\OT1/cmr/m/n/9 (a)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1116--1116
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1116--1116
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1116--1116
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1116--1116
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1116--1116
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1116--1116
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_Toeplitz_t_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1119     }
+            
+? 
+
+Overfull \hbox (5.03326pt too wide) in paragraph at lines 1119--1119
+[]\OT1/cmr/m/n/9 (b)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1119--1119
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1119--1119
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1119--1119
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1119--1119
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1119--1119
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1119--1119
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_Toeplitz_chi_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1123     }
+            
+? 
+
+Overfull \hbox (4.0055pt too wide) in paragraph at lines 1123--1123
+[]\OT1/cmr/m/n/9 (c)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1123--1123
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1123--1123
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1123--1123
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1123--1123
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1123--1123
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1123--1123
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1123--1123
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_Toeplitz_chi_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1126     }
+            
+? 
+
+Overfull \hbox (5.03326pt too wide) in paragraph at lines 1126--1126
+[]\OT1/cmr/m/n/9 (d)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1126--1126
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1126--1126
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1126--1126
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1126--1126
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1126--1126
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1126--1126
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1126--1126
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_Toeplitz_t_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1130     }
+            
+? 
+
+Overfull \hbox (4.00896pt too wide) in paragraph at lines 1130--1130
+[]\OT1/cmr/m/n/9 (e)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1130--1130
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1130--1130
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1130--1130
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1130--1130
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1130--1130
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1130--1130
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_Toeplitz_t_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1133     }
+            
+? 
+
+Overfull \hbox (3.42563pt too wide) in paragraph at lines 1133--1133
+[]\OT1/cmr/m/n/9 (f)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1133--1133
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1133--1133
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1133--1133
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1133--1133
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1133--1133
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1133--1133
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_Toeplitz_chi_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1137     }
+            
+? 
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1137--1137
+[]\OT1/cmr/m/n/9 (g)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1137--1137
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1137--1137
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1137--1137
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1137--1137
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1137--1137
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1137--1137
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1137--1137
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_Toeplitz_chi_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1140     }
+            
+? 
+
+Overfull \hbox (5.03326pt too wide) in paragraph at lines 1140--1140
+[]\OT1/cmr/m/n/9 (h)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1140--1140
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1140--1140
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1140--1140
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1140--1140
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1140--1140
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1140--1140
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1140--1140
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_equalCor_t_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1151     }
+            
+? 
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1151--1151
+[]\OT1/cmr/m/n/9 (a)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1151--1151
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1151--1151
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1151--1151
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1151--1151
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1151--1151
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1151--1151
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_equalCor_t_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1154     }
+            
+? 
+
+Overfull \hbox (5.03326pt too wide) in paragraph at lines 1154--1154
+[]\OT1/cmr/m/n/9 (b)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1154--1154
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1154--1154
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1154--1154
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1154--1154
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1154--1154
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1154--1154
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_equalCor_chi_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1158     }
+            
+? 
+
+Overfull \hbox (4.0055pt too wide) in paragraph at lines 1158--1158
+[]\OT1/cmr/m/n/9 (c)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1158--1158
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1158--1158
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1158--1158
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1158--1158
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1158--1158
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1158--1158
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1158--1158
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/50_equalCor_chi_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1161     }
+            
+? 
+
+Overfull \hbox (5.03326pt too wide) in paragraph at lines 1161--1161
+[]\OT1/cmr/m/n/9 (d)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1161--1161
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1161--1161
+\OT1/cmr/m/n/9 50$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1161--1161
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1161--1161
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1161--1161
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1161--1161
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1161--1161
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_equalCor_t_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1165     }
+            
+? 
+
+Overfull \hbox (4.00896pt too wide) in paragraph at lines 1165--1165
+[]\OT1/cmr/m/n/9 (e)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1165--1165
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1165--1165
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1165--1165
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1165--1165
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1165--1165
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1165--1165
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_equalCor_t_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1168     }
+            
+? 
+
+Overfull \hbox (3.42563pt too wide) in paragraph at lines 1168--1168
+[]\OT1/cmr/m/n/9 (f)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1168--1168
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1168--1168
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1168--1168
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (2.7763pt too wide) in paragraph at lines 1168--1168
+\OML/cmm/m/it/9 t[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1168--1168
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1168--1168
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_equalCor_chi_dense' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1172     }
+            
+? 
+
+Overfull \hbox (4.51938pt too wide) in paragraph at lines 1172--1172
+[]\OT1/cmr/m/n/9 (g)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1172--1172
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1172--1172
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1172--1172
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1172--1172
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1172--1172
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (16.78177pt too wide) in paragraph at lines 1172--1172
+\OT1/cmr/m/n/9 Dense
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1172--1172
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+
+! LaTeX Error: File `code/tmp/100_equalCor_chi_sparse' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1175     }
+            
+? 
+
+Overfull \hbox (5.03326pt too wide) in paragraph at lines 1175--1175
+[]\OT1/cmr/m/n/9 (h)
+ []
+
+
+Overfull \hbox (8.04367pt too wide) in paragraph at lines 1175--1175
+\OML/cmm/m/it/9 n \OT1/cmr/m/n/9 =
+ []
+
+
+Overfull \hbox (9.14435pt too wide) in paragraph at lines 1175--1175
+\OT1/cmr/m/n/9 100$,
+ []
+
+
+Overfull \hbox (10.37798pt too wide) in paragraph at lines 1175--1175
+\OML/cmm/m/it/9 ^^O[] \OMS/cmsy/m/n/9 ^^X
+ []
+
+
+Overfull \hbox (25.2449pt too wide) in paragraph at lines 1175--1175
+\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 ^^_[]\OT1/cmr/m/n/9 (4) \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (20.44983pt too wide) in paragraph at lines 1175--1175
+\OT1/cmr/m/n/9 4)\OML/cmm/m/it/9 =[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (18.98386pt too wide) in paragraph at lines 1175--1175
+\OT1/cmr/m/n/9 Sparse
+ []
+
+
+Overfull \hbox (5.44232pt too wide) in paragraph at lines 1175--1175
+[][]$\OT1/cmr/m/n/9 . 
+ []
+
+[12] [13] [14] [15] [16]
 Overfull \hbox (12.22441pt too wide) detected at line 1427
 [] \OMS/cmsy/m/n/10.95 ^^Z [] \OML/cmm/m/it/10.95 :
  []
@@ -1300,9 +1779,9 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
- [25])
+ [25] [26])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2479.
- [26]
+ [27]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 2479.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2479.
@@ -1317,13 +1796,13 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2479.
  ) 
 Here is how much of TeX's memory you used:
- 9398 strings out of 493029
- 136033 string characters out of 6136233
- 251911 words of memory out of 5000000
- 12600 multiletter control sequences out of 15000+600000
+ 9308 strings out of 493029
+ 130637 string characters out of 6136233
+ 253944 words of memory out of 5000000
+ 12508 multiletter control sequences out of 15000+600000
  21156 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,22n,36p,1015b,466s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,22n,36p,1015b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/te
@@ -1348,10 +1827,10 @@ sfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/r
 sfs10.pfb>
-Output written on main.pdf (26 pages, 579764 bytes).
+Output written on main.pdf (27 pages, 370970 bytes).
 PDF statistics:
- 734 PDF objects out of 1000 (max. 8388607)
- 602 compressed objects within 7 object streams
- 127 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 550 PDF objects out of 1000 (max. 8388607)
+ 491 compressed objects within 5 object streams
+ 129 named destinations out of 1000 (max. 500000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
 
