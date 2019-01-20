@@ -1,6 +1,7 @@
 library(xtable)
 set.seed(1)
 
+
 RepTime <- 5000
 M <- 1000
 alpha <- 0.05
@@ -11,6 +12,7 @@ q <- 10
 p <- 1000
 
 
+betaDistribution <- "unif"
 XGen <- "equalCor"
 n <- 100
 epsilonDis <- "t"

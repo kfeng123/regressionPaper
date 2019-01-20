@@ -26,5 +26,5 @@ for(XGen in c("iidnormal","equalCor","Toeplitz"))
                     theme(legend.position=c(0.1,0.85))
                     #facet_wrap(~z,nrow=2)+
                 
-                ggsave(paste0("tmp/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".eps"),myPlot)
+                ggsave(paste0("tmp/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".eps"),myPlot,scale=0.8)
             }

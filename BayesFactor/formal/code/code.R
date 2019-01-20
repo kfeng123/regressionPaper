@@ -139,10 +139,16 @@ for(SNR in SNRsequence){
             
         # betaGen
         if(betabGen == "dense") {
-            betabO <- runif(p,-1,1)
+            if(betaDistribution == "unif")
+                betabO <- runif(p,-1,1)
+            if(betaDistribution == "normal")
+                betabO <- rnorm(p)
         }
         if(betabGen == "sparse") {
-            betabO <- runif(p,-1,1)
+            if(betaDistribution == "unif")
+                betabO <- runif(p,-1,1)
+            if(betaDistribution == "normal")
+                betabO <- rnorm(p)
             betabO[sample(p,p/20*19)] <- 0
         }
             
