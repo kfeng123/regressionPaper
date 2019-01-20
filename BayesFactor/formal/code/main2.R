@@ -1,4 +1,3 @@
-library(xtable)
 set.seed(1)
 
 

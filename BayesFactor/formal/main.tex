@@ -112,9 +112,9 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
     This phenomenon makes it impossible to consider the problem from a minimax perspective.
     We propose a new test statistic which is the limit of Bayes factors under normal distribution.
     The null distribution of the test statistic is approximated by Lindeberg's replacement trick.
-    Under certain conditions, we also give the global asymptotic power function of the proposed test.
-    It turns out that the proposed test has good power behavior when the signal is strong.
+    Under certain conditions, the global asymptotic power function of the proposed test is also given.
     The performance of the proposed test is examined by simulation results.
+    It turns out that the proposed test has good power behavior especially when the signal is strong.
 
 \end{abstract}
 
@@ -1043,35 +1043,26 @@ This implies that compared with the test of \cite{Goeman2006}, the proposed test
 
 In this section, we conduct simulations to examine the empirical size and power of the proposed test
 (abbreviated as NEW) 
-and compare it with the test of \cite{Goeman2006}
-(abbreviated as GT).
-We use the R package \emph{globaltest} to compute GT test.
-All empirical results are obtained form $5000$ replications.
+and compare it with the global test proposed by \cite{Goeman2006} (abbreviated as GT) and the EigenPrism test prospoed by \cite{Janson2016} (abbreviated as EP).
+%In our simulations, the GT test procedure We use the R package \emph{globaltest} to compute.
+Throughout our simulations, we take $q=10$, $p=1000$, $\alpha=0.05$ and the empirical results are obtained from $5000$ replications.
 
 
 
-Throughout our simulations, two distributions of $\epsilon_1$ are considered, namely
-        Chi-squared distribution $\epsilon_1 \sim (\chi^2(4)-4)/\sqrt 8$ and
-        Student's $t$ distribution $\epsilon_1 \sim t_8$.
+In our simulations, two distributions of $\epsilon_1$ are considered, namely the chi-squared distribution \mbox{$\epsilon_1 \sim (\chi^2(4)-4)/\sqrt 8$} and the Student's $t$ distribution $\epsilon_1 \sim t_8$.
 Define the signal to noise ratio (SNR) as $\text{SNR}=\sqrt{(n-q)\myVar (\gamma_I)} \phi \|\bbeta_b\|^2/p$.
 We consider two structures of $\bbeta_b$: dense $\bbeta_b$ and sparse $\bbeta_b$.
 In dense $\bbeta_b$ setting, the coordinates of $\bbeta_b$ are independently generated from the uniform distribution $U(-c, c)$ where $c$ is selected to reach certain SNR.
 In sparse $\bbeta_b$ setting, we randomly select $5\%$ of the coordinates of $\bbeta_b$ to be non-zero and the non-zero coordinates are independently generated from $U(-c,c)$ where $c$ is selected to reach certain SNR.
+The design matrices $\BX_a$ and $\BX_b$ are randomly generated beforehand and are fixed during each simulation.
+In all simulations, the elements of $\BX_a$ are iid from standard normal distribution.
+On the other hand, the rows of $\BX_b$ are iid from $\mathcal N(0,\bSigma_b)$ and three structures of $\bSigma_b$ are considered, namely, Identity covariance matrix: $\bSigma_b=\BI_p$; Toeplitz structure: $(\bSigma_b)_{i,j}=0.9^{|i-j|}$; equal correlation structure: $(\bSigma_b)_{i,j}=0.1$ if $i\neq j$ and $(\bSigma_b)_{i,j}=1$ otherwise.
 
 
-In our first two simulations, the design matrices $\BX_a$ and $\BX_b$ are randomly generated beforehand and are fixed during each simulation.
-In both simulations, the elements of $\BX_a$ are independently generated from $\mathcal N(0,1)$.
-In the first simulation, the rows of $\BX_b$ are independently generated from $\mathcal N(0,\bSigma)$ where $\bSigma$ has Toeplitz structure $(\bSigma)_{i,j}=0.9^{|i-j|}$.
-In the second simulation, the rows of $\BX_b$ are independently generated from 
-$\mathcal N(0,\bSigma)$ where $\bSigma$ has equal correlation structure $(\bSigma)_{i,j}=0.1$ if $i\neq j$ and $(\bSigma)_{i,j}=1$ otherwise.
-In our third simulation, we use a real design matrix from gene expression data of \emph{Bacillus subtilis} with $71$ observations and $4088$ predictors \citep{Buehlmann2014}.
-We take the first $10$ predictors as $\BX_a$ and the rest $4078$ predictors as $\BX_b$.
-
-
-The simulation results are listed in Table \ref{table1} and Table \ref{table2}, respectively.
+The simulation results are illustrated in Figures \ref{fig:1}-\ref{fig:3}.
 It can be seen that as SNR increases, the empirical powers typically converge to certain limit powers which are strictly less than $1$.
 Compared with the GT test, the proposed test has higher limit power, but at the cost of lower local power.
-This phenomenon is particularly clear in the second simulation.
+This phenomenon is particularly clear for the equal correlation structure setting.
 
 
 \begin{figure}
@@ -1103,9 +1094,8 @@ This phenomenon is particularly clear in the second simulation.
     \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/100_iidnormal_chi_sparse}
     }
-    \caption{Box plots of the empirical powers based on $25$ independently generated $\bbeta_b$ and $5$,$000$ independent replications.
-        Identity covariance matrix.
-        $q=10$, $p=1000$, $\alpha=0.05$.
+    \caption{Box plots of the empirical powers based on $100$ independently generated $\bbeta_b$.
+        $\bSigma_b =\BI_p$.
     }\label{fig:1}
 \end{figure}
 
@@ -1138,9 +1128,8 @@ This phenomenon is particularly clear in the second simulation.
     \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/100_Toeplitz_chi_sparse}
     }
-    \caption{Box plots of the empirical powers based on $25$ independently generated $\bbeta_b$ and $5$,$000$ independent replications.
-Toeplitz covariance matrix.
-        $q=10$, $p=1000$, $\alpha=0.05$.
+    \caption{Box plots of the empirical powers based on $100$ independently generated $\bbeta_b$.
+$\bSigma_b$ has Toeplitz structure.
     }\label{fig:2}
 \end{figure}
 
@@ -1173,9 +1162,8 @@ Toeplitz covariance matrix.
     \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/100_equalCor_chi_sparse}
     }
-    \caption{Box plots of the empirical powers based on $25$ independently generated $\bbeta_b$ and $5$,$000$ independent replications.
-        Equal correlation covariance matrix.
-        $q=10$, $p=1000$, $\alpha=0.05$.
+    \caption{Box plots of the empirical powers based on $100$ independently generated $\bbeta_b$.
+    $\bSigma_b$ has equal correlation structure.
     }\label{fig:3}
 \end{figure}
 
