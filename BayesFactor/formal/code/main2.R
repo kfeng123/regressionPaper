@@ -1,8 +1,8 @@
 set.seed(1)
 
 
-RepTime <- 5000
-M <- 1000
+RepTime <- 1000
+M <- 200
 alpha <- 0.05
 plotPointSize <- 100
 
@@ -13,11 +13,10 @@ p <- 1000
 
 betaDistribution <- "unif"
 XGen <- "equalCor"
-n <- 100
 epsilonDis <- "t"
 betabGen <- "dense"
 
-for(XGen in c("iidnormal","equalCor","Toeplitz"))
+for(XGen in c("Toeplitz","uniform"))
     for(n in c(50,100))
         for(epsilonDis in c("t","chi"))
             for(betabGen in c("dense","sparse"))

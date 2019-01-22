@@ -110,11 +110,11 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
     This paper considers testing regression coefficients in high-dimensional linear model with fixed design matrix.
     We prove that there does not exist nontrivial unbiased test for this problem.
     This phenomenon makes it impossible to consider the problem from a minimax perspective.
+    Nevertheless, Bayesian methods can still produce tests with good average power behavior.
     We propose a new test statistic which is the limit of Bayes factors under normal distribution.
-    The null distribution of the test statistic is approximated by Lindeberg's replacement trick.
+    The null distribution of the proposed test statistic is approximated by Lindeberg's replacement trick.
     Under certain conditions, the global asymptotic power function of the proposed test is also given.
-    The performance of the proposed test is examined by simulation results.
-    It turns out that the proposed test has good power behavior especially when the signal is strong.
+    The finite sample performance of the proposed test is demonstrated via simulation studies.
 
 \end{abstract}
 
@@ -190,8 +190,8 @@ Based on this approximated distribution, the critical value of the proposed test
 We prove that the proposed test procedure is valid under weak conditions.
 In particular, we do not require that the test statistic is asymptotically normally distributed.
 Under certain conditions, we also derive the asymptotic power function of the proposed test and the test of \cite{Goeman2006}.
-A simulation is conducted to examine the performance of the proposed test.
-It turns out that the proposed test is powerful especially when $\|\bbeta_b\|$ is large.
+Simulations are conducted to examine the performance of the proposed test.
+
 
 The rest of the paper is organized as follows.
 In Section \ref{sec:methodology}, we propose a Bayesian-motivated test and study the theoretical properties of the proposed test procedure.
@@ -243,16 +243,19 @@ Then the following results hold.
     \item 
         If $\varphi(\By)$ is unbiased, that is, $\myE_\theta [\varphi(\By)]\geq \alpha$ for $\theta \in \Theta$, then $\varphi(\By)=\alpha$, a.s.\ $\lambda$.
 \item
-    Let $h(\phi)\geq 0$ be a nondecreasing function for $\phi>0$.
-    If $\varphi(\By)$ is nonrandom, then for every $M>0$, there exists a parameter $\theta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $h(\phi)\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_\theta [\varphi(\By)]< \alpha$.
+    If $\varphi(\By)$ is nonrandom, then for every $M>0$, there exists a parameter $\theta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $\phi\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_\theta [\varphi(\By)]< \alpha$.
 \end{enumerate}
 \end{proposition}
-In low dimensional setting, it is easy to construct a test whose power tends to $1$ as $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ tends to infinity.
-In large $p$, small $q$ setting, however, (b) of Proposition \ref{prop:unbiased} claims that it is impossible to find a test with reasonable power for all alternatives, even if $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ tends to infinity.
+In (b) of Proposition \ref{prop:unbiased}, the quantity $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ can be regarded as a signal to noise ratio.
+In any conventional sense, it is expected that the power of a reasonable test should tend to $1$ as $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b \to \infty$.
+Indeed, such a test can be easily constructed in low dimensional setting.
+However, (b) of Proposition \ref{prop:unbiased} claims that it is impossible to find such a test in large $p$, small $q$ setting.
 Thus, it is impossible to consider the problem from a minimax perspective.
-This motivates us to adopt Bayesian methods to find a test with good average power behavior.
+This motivates us 
+to adopt Bayesian methods
+to find a test with good average power behavior.
 
-Within the Bayesian framework, Bayes factor is commonly used for comparing two models.
+Bayes factor \citep{Robert1995Bayes} is a commonly used tool for model comparison within the Bayesian framework.
 In our problem, suppose $\bepsilon \sim \mathcal N_n (0,\phi^{-1} \BI_n)$, the Bayes factor for hypotheses \eqref{theHypothesis} is
 \begin{equation*}
     B_{10}= \frac {
@@ -261,15 +264,19 @@ In our problem, suppose $\bepsilon \sim \mathcal N_n (0,\phi^{-1} \BI_n)$, the B
     \int d\mathcal N_n(\BX_a\bbeta_a, \phi^{-1} \BI_n)(\By) \pi_0(\bbeta_a,\phi) \, \mathrm d\bbeta_a \mathrm d\phi
     },
 \end{equation*}
-where $d\mathcal N_n(\mu, \bSigma)(\By)$ is the density function of a $\mathcal N_n(\mu,\bSigma) $ random vector with respect to the Lebesgue measure on $\mathbb R^n$,  $\pi_0(\bbeta_a,\phi)$ and $\pi_1(\bbeta_b,\bbeta_a,\phi)$ are the prior densities under the null and alternative hypotheses, respectively.
+where $d\mathcal N_n(\mu, \bSigma)(\By)$ is the density function of a $\mathcal N_n(\mu,\bSigma) $ random vector evaluated at $\By$,  $\pi_0(\bbeta_a,\phi)$ and $\pi_1(\bbeta_b,\bbeta_a,\phi)$ are the prior densities under the null and alternative hypotheses, respectively.
 If $B_{10}$ is large, the alternative hypothesis is preferred.
 %There have been several extensions of $g$-priors to $p>n$ case: \cite{maruyama2011}, \cite{Shang2011}.
+It is known that if the true parameters indeed come from the specified prior distribution, then the Bayes factor is the likelihood ratio statistic and consequently, the test based on the Bayes factor is the most powerful test.
+We notice that in the frequentist framework, the Bayes factor can be treated as a test statisitc, provided the critical value can be determined to preserve the test level.
+%It is known that the test based on Bayes factor is admissible, namely, its the power can not be uniformly dominated by any other test.
+
+
 The behavior of a Bayes factor largely depends on the choice of priors.
 In Bayesian literature, many priors have been considered for testing the coefficients of linear model.
 Popular priors include $g$-priors \citep{Liang2008Mixtures} and intrinsic priors \citep{Casella2006Obj}.
 Unfortunately, these priors are not well defined in large $p$, small $q$ setting.
 %To obtain valid Bayes factor, we use simple priors.
-
 Note that under the null hypothesis $\mathcal H_0$, the model is low-dimensional.
 This allows us to impose the reference prior $\pi_0 (\bbeta_a,\phi)=c/\phi$, where $c$ is a constant.
 Under $\mathcal H_1$,
@@ -424,19 +431,20 @@ In fact, if we let $\kappa$ tends to infinity, the limit
 \end{equation*}
 is exactly the test statistic of \cite{Goeman2006}.
 
-As implied by Proposition \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a difficult problem and no unbiased test can guarantee large power even if the signal is strong.
+As implied by Proposition \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a difficult problem and no unbiased test can guarantee large power, even if the signal is strong.
 %In fact, we shall see that for certain directions of $\bbeta_b$, the test of \cite{Goeman2006} has negligible power for any magnitude of $\|\bbeta_b\|$.
 Hence it may be too ambitious to consider local power behavior where signal is weak.
 %In fact, the test of \cite{Goeman2006} may have negligible power even when $\|\bbeta_b\|$ is large.
 %Hence it is questionable if a test with good local power behavior is a good choice in practice.
-Thus, contrary to the strategy of \cite{Goeman2006}, we let $\kappa$ tend to $0$ to obtain a test with good power behavior for large $\|\bbeta_b\|$.
-While the statistic $ T_{\kappa}$ itself degenerates to $1$ as $\kappa\to 0$,
-the right derivative of $T_{\kappa}$ at $\kappa=0$ is well defined.
+Thus, contrary to the strategy of \cite{Goeman2006}, we let $\kappa$ tend to $0$ to obtain a test with good average power behavior for large $\|\bbeta_b\|$.
+Note that the statistic $ T_{\kappa}$ degenerates to $1$ as $\kappa\to 0$.
+Nevertheless, the scaled statistic $(T_{\kappa}-1)/\kappa$ has a proper limit as $\kappa\to 0$.
 Thus, we proposed the following test statistic
 %This motivates us to consider $B_{10}^0=\lim_{\kappa\to 0} B_{10}^\kappa$.
 \begin{equation*}
-    T=
-    \left.\frac{\mathrm d T_{n,\kappa}}{\mathrm d \kappa}\right|_{\kappa=0}
+    T
+    =
+    \lim_{\kappa\to 0} \frac{T_{\kappa}-1}{\kappa}
     =
     -
      \frac{\By^{*\top} ( \BX_b^* \BX_b^{*\top} )^{-1} \By^* }{\By^{*\top} \By^*} .
@@ -1013,10 +1021,10 @@ and the asymptotic power function of their test is
 \end{equation}
 
 It can be seen from \eqref{eq:powerProposed} and \eqref{eq:powerTheirs} that the power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ while the power of the test of \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2)$.  
-Unfortunately, neither of these two quantities is positive definite no matter how strong the signal $\myE (w_I^2)$ is.
+Unfortunately, neither of these two quantities is positive definite.
 This fact is not surprising in view of Proposition \ref{prop:unbiased}.
+Nevertheless, $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I w_I^2)$ are positive definite if $\bbeta_b$ is restricted  in certain subspaces of $\mathbb R^p$.
 
-On the other hand, $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I w_I^2)$ are positive definite if the parameter $\bbeta_b$ is restricted  in certain subspaces of $\mathbb R^p$.
 Let $d_1$ be the maximum $i$ such that $ \gamma_i^{-1} < \myE (\gamma_I^{-1})$.
 Let $d_2$ be the maximum $i$ such that $\gamma_i > \myE (\gamma_I) $.
 Then it can be seen that
@@ -1025,17 +1033,25 @@ Then it can be seen that
 &=
 \frac{1}{n-q} \sum_{i=1}^{n-q} \left(\myE (\gamma_I^{-1})-\gamma_i^{-1} \right) \gamma_i w_i^2
 \end{align*}
-is positive if $w_{d_1+1}=\cdots =w_{n-q}=0$, while
+is positive definite if $w_{d_1+1}=\cdots =w_{n-q}=0$, while
 \begin{align*}
     \myCov(\gamma_I, \gamma_I w_I^2)
 &=
 \frac{1}{n-q} \sum_{i=1}^{n-q} \left(\gamma_i - \myE \gamma_I \right) \gamma_i w_i^2
 \end{align*}
-is positive if $w_{d_2 + 1}=\cdots = w_{n-q}=0$.
+is positive definite if $w_{d_2 + 1}=\cdots = w_{n-q}=0$.
 In other words, $\myCov(-\gamma_I^{-1}, \gamma_I w_I^2)$ is positive definite if $\bbeta_b$ belongs to the rank $d_1$ principal component subspace of $\BX_{b}^{*\top}\BX_b^{*}$, and $\myCov(\gamma_I, \gamma_I w_I^2)$ is positive definite if $\bbeta_b$ belongs to the rank $d_2$ principal component subspace of $\BX_{b}^{*\top}\BX_b^{*}$.
-Note that if $\gamma_i > \myE (\gamma_I)$, then $\gamma_i^{-1} < (\myE (\gamma_I))^{-1}\leq \myE (\gamma_I^{-1})$, where the last inequality follows from Jensen's inequality.
-Consequently, $ d_1 \geq d_2 $.
-This implies that compared with the test of \cite{Goeman2006}, the proposed test can detect the signals from more directions.
+
+Note that $\gamma_i > \myE (\gamma_I)$ implies that $\gamma_i^{-1} < (\myE (\gamma_I))^{-1}\leq \myE (\gamma_I^{-1})$, where the last inequality follows from Jensen's inequality.
+It follows that $ d_1 \geq d_2 $.
+Consequently, compared with the test of \cite{Goeman2006}, the proposed test can always detect the signals from more directions.
+In some important situations, the difference $d_1-d_2$ can be very large.
+For example, suppose all predictors in $\BX_b$ are affected by a latent factor.
+In this case, $\gamma_1$ is much larger than $\gamma_2,\ldots,\gamma_{n-q}$; see, e.g., \cite{Fan2013Large}.
+For simplicity, we assume $n-q$ is odd and $\gamma_2=\cdots =\gamma_{(n-q+1)/2}=2$, $\gamma_{(n-q+3)/2}=\cdots =\gamma_{n-q}=1$.
+Then it can be seen that as $\gamma_1\to \infty$, $d_1$ tends to $(n-q-1)/2$ while $d_2$ tends to $1$.
+In this case, $d_1$ is much larger than $d_2$.
+
 
 
 
@@ -1060,9 +1076,13 @@ On the other hand, the rows of $\BX_b$ are iid from $\mathcal N(0,\bSigma_b)$ an
 
 
 The simulation results are illustrated in Figures \ref{fig:1}-\ref{fig:3}.
-It can be seen that as SNR increases, the empirical powers typically converge to certain limit powers which are strictly less than $1$.
-Compared with the GT test, the proposed test has higher limit power, but at the cost of lower local power.
-This phenomenon is particularly clear for the equal correlation structure setting.
+%It can be seen that as SNR increases, the empirical powers typically converge to certain limit powers which are strictly less than $1$.
+From Figure \ref{fig:1}, we can see that in the cases where $\bSigma_b =\BI_p$ and $n=50$, the powers of all three tests tend to $0$ as SNR increases.
+This phenomenon, which is not surprising in view of Proposition \ref{prop:unbiased}, disappears when the sample size rises to $100$.
+In the cases where $\bSigma_b = \BI_p$ and $n=100$, the EP test performs the best among the three tests while the proposed test and the GT test have similar performance.
+Figure \ref{fig:2} shows that in the cases where $\bSigma_b$ has Toeplitz structure, all three tests have good performance.
+As illustrated in Figure \ref{fig:3},  when $\bSigma_b$ has equal correlation structure, the proposed test is more powerful than its two compititors.
+
 
 
 \begin{figure}
@@ -1277,12 +1297,17 @@ We have proposed a Bayesian-motivated test statistic for high-dimensional linear
 We proposed an approximation of the null distribution of the proposed test statistic which is then used to determine the critical value of the test statistic.
 Under weak conditions, we proved the proposed test procedure is asymptotically level $\alpha$.
 Under certain conditions, we also derived the asymptotic power function of the proposed test.
-The proposed test is powerful especially when the signal is strong.
+
+The methodology of \cite{Goeman2006} can also be applied in generalized linear models.
+However, it is not obvious how to generalize the proposed test and the test of \cite{Janson2016} to generalized linear models.
+More fundamentally, it is unclear if results like Proposition \ref{prop:unbiased} hold for generalized linear model.
 
 In Theorem \ref{TheoremLindeberg}, we assumed that the distribution of $\epsilon_1$ is symmetric about $0$. 
 This condition is also assumed by \cite{Bai2017} in the study of central limit theorem of quadratic form.
 Without this condition, our proof of Theorem \ref{TheoremLindeberg} is not valid.
 We think it will be an interesting and useful work to relax the symmetric condition in Theorem \ref{TheoremLindeberg}.
+
+
 
 
 
@@ -1406,24 +1431,24 @@ and put
         \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n \left(\BX_a \bbeta_a + \BX_b \bbeta_b,\phi^{-1} \BI_n\right) (\By)\, \mathrm{d}\By 
         \geq \alpha 
     \end{equation*}
-    for every $\bbeta_a\in \mathbb R^q$, $\bbeta_b \in \mathbb R^p$, $\phi>0$ satisfying $h(\phi) \bbeta_b^\top \BX_b^\top (\BI_n - \BP_a) \BX_b \bbeta_b >M$.
-    Since $h(\phi)$ is nondecreasing, there exists a number $M^* >0$ such that
+    for every $\bbeta_a\in \mathbb R^q$, $\bbeta_b \in \mathbb R^p$, $\phi>0$ satisfying $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b >M$.
+    Note that
     \begin{equation*}
-        \left\{(\bbeta_b^\top, \phi)^\top :  \bbeta_b^\top \BX_b^\top (\BI_n - \BP_a) \BX_b \bbeta_b >M^*,\phi>M^* \right\} 
+        \left\{(\bbeta_b^\top, \phi)^\top :  \bbeta_b^\top \BX_b^\top \tilde\BP_a \BX_b \bbeta_b >\sqrt M,\phi>\sqrt M \right\} 
         \subset
-        \left\{(\bbeta_b^\top, \phi)^\top :  h(\phi)\bbeta_b^\top \BX_b^\top (\BI_n - \BP_a) \BX_b \bbeta_b > M^*\right\} .
+        \left\{(\bbeta_b^\top, \phi)^\top :  \phi\bbeta_b^\top \BX_b^\top \tilde\BP_a \BX_b \bbeta_b > M\right\} .
     \end{equation*}
     Then Lemma \ref{Lemma:FF} implies that $\varphi(\By) \mathbf 1_{G}(\By)\geq \alpha \mathbf 1_{G}(\By)$ a.e.\ $\lambda$, where 
     \begin{equation*}
         G=\left\{ \BX_a \bbeta_a + \BX_b \bbeta_b:  \bbeta_a \in \mathbb R^{q},
-        \bbeta_b^\top \BX_b^\top (\BI_n - \BP_a) \BX_b \bbeta_b >M^*
+        \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b >\sqrt M
     \right\}.
     \end{equation*}
     It can be easily seen that
     \begin{equation*}
         G=\left\{
             w+z: w\in \textrm{span}(\BX_a), z \in \textrm{span}(\BX_a)^{\bot},
-            \|z\| > M^*
+            \|z\|^2 > \sqrt{M}
         \right\},
     \end{equation*}
     where $\textrm{span}(\BX_a)$ is the linear span of the columns of $\BX_a$ and $\textrm{span}(\BX_a)^\bot$ is the orthogonal complement of $\textrm{span}(\BX_a)$.

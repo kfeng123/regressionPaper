@@ -29,7 +29,7 @@ Chatterjee, S. (2008).
 \newblock {\em The Annals of Probability}, 36(4):1584--1610.
 
 \bibitem[Chen et~al., 2010]{chen2010tests}
-Chen, S.~X., Zhang, L., and Zhong, P. (2010).
+Chen, S.~X., Zhang, L.-X., and Zhong, P.-S. (2010).
 \newblock Tests for high-dimensional covariance matrices.
 \newblock {\em Journal of the American Statistical Association},
   105(490):810--819.
@@ -37,13 +37,12 @@ Chen, S.~X., Zhang, L., and Zhong, P. (2010).
 \bibitem[Cohn, 2013]{book:992991}
 Cohn, D.~L. (2013).
 \newblock {\em Measure Theory}.
-\newblock Birkhauser Advanced Texts Basler Lehrbucher. Birkhäuser Basel, 2
-  edition.
+\newblock Birkh\"auser, New York, 2nd edition.
 
 \bibitem[DasGupta, 2008]{book:336898}
 DasGupta, A. (2008).
 \newblock {\em Asymptotic Theory of Statistics and Probability}.
-\newblock Springer Texts in Statistics. Springer-Verlag New York, 1 edition.
+\newblock Springer, New York, 1st edition.
 
 \bibitem[Dezeure et~al., 2017]{Dezeure2017}
 Dezeure, R., B\"uhlmann, P., and Zhang, C.-H. (2017).
@@ -59,7 +58,14 @@ Dicker, L.~H. and Erdogdu, M.~A. (2017).
 \bibitem[E.~L.~Lehmann, 2005]{Lehmann}
 E.~L.~Lehmann, J. P.~R. (2005).
 \newblock {\em Testing Statistical Hypotheses}.
-\newblock Springer New York.
+\newblock Springer, New York, 3rd edition.
+
+\bibitem[Fan et~al., 2013]{Fan2013Large}
+Fan, J., Yuan, L., and Mincheva, M. (2013).
+\newblock Large covariance estimation by thresholding principal orthogonal
+  complements.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 75(4):603--680.
 
 \bibitem[Feng et~al., 2013]{Feng2013}
 Feng, L., Zou, C., Wang, Z., and Chen, B. (2013).
@@ -91,7 +97,7 @@ G\"otze, F. and Tikhomirov, A. (2002).
 \bibitem[Horn and Johnson, 1991]{book:1244195}
 Horn, R.~A. and Johnson, C.~R. (1991).
 \newblock {\em Topics in Matrix Analysis}.
-\newblock Cambridge University Press.
+\newblock Cambridge University Press, New York, 1st edition.
 
 \bibitem[Janson et~al., 2016]{Janson2016}
 Janson, L., Barber, R.~F., and Cand{\`{e}}s, E. (2016).
@@ -109,6 +115,12 @@ Javier~Gir\'on, F., Lina~Mart\'inez, M., Moreno, E., and Torres, F. (2006).
 Jiang, J. (1996).
 \newblock Reml estimation: asymptotic behavior and related topics.
 \newblock {\em Annals of Statistics}, 24(1):255--286.
+
+\bibitem[Kass and Raftery, 1995]{Robert1995Bayes}
+Kass, R.~E. and Raftery, A.~E. (1995).
+\newblock Bayes factors.
+\newblock {\em Journal of the American Statistical Association},
+  90(430):773--795.
 
 \bibitem[Lan et~al., 2016a]{Lan2016a}
 Lan, W., Ding, Y., Fang, Z., and Fang, K. (2016a).
@@ -143,7 +155,7 @@ Liang, F., Paulo, R., Molina, G., Clyde, M.~A., and Berger, J.~O. (2008).
 \bibitem[Pollard, 1984]{pollard1984convergence}
 Pollard, D. (1984).
 \newblock {\em Convergence of stochastic processes}.
-\newblock Springer New York, New York, 1st edition.
+\newblock Springer, New York, 1st edition.
 
 \bibitem[Sevast'yanov, 1961]{Sevast1961A}
 Sevast'yanov, B.~A. (1961).
@@ -171,7 +183,7 @@ Zhang, C.-H. and Zhang, S.~S. (2014).
   Methodology)}, 76(1):217--242.
 
 \bibitem[Zhong and Chen, 2011]{Zhong2011Tests}
-Zhong, P.~S. and Chen, S.~X. (2011).
+Zhong, P.-S. and Chen, S.~X. (2011).
 \newblock Tests for high-dimensional regression coefficients with factorial
   designs.
 \newblock {\em Journal of the American Statistical Association},
@@ -180,6 +192,7 @@ Zhong, P.~S. and Chen, S.~X. (2011).
 \bibitem[Zhou and Guan, 2018]{zhou2018On}
 Zhou, Q. and Guan, Y. (2018).
 \newblock On the null distribution of bayes factors in linear regression.
-\newblock {\em Journal of the American Statistical Association}, 0(0):1--10.
+\newblock {\em Journal of the American Statistical Association},
+  113(523):1362--1371.
 
 \end{thebibliography}

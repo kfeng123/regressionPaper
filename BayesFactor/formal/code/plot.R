@@ -1,6 +1,6 @@
 library(ggplot2)
 
-for(XGen in c("iidnormal","equalCor","Toeplitz"))
+for(XGen in c("Toeplitz"))
     for(n in c(50,100))
         for(epsilonDis in c("t","chi"))
             for(betabGen in c("dense","sparse")){

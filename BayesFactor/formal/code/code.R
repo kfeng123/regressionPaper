@@ -1,7 +1,7 @@
 library(MASS)
 library(CVXR)
 source("./gt.R")
-
+set.seed(1)
 # RepTime <- 2000
 # M <- 2000
 # alpha <- 0.05
@@ -19,10 +19,17 @@ SNRsequence <- c(0,10,20,30)
 # data generation
 Xa <- rnorm(n*q)
 dim(Xa) <- c(n,q)
+
 if(XGen == "iidnormal"){
     Xb <- rnorm(n*p)
     dim(Xb) <- c(n,p)
 }
+if(XGen == "expnontial"){
+    Xb <- rnorm(n*p)
+    dim(Xb) <- c(n,p)
+    Xb <- Xb %*% diag(sqrt(rexp(p,1)))
+}
+
 if(XGen == "equalCor" ){
     Xb <- sqrt(0.9)*rnorm(n*p)
     dim(Xb) <- c(n,p)
@@ -30,12 +37,26 @@ if(XGen == "equalCor" ){
         Xb[i,] <- Xb[i,] + sqrt(0.1)*rnorm(1)
     }
 }
+
+if(XGen == "uniform"){
+    tmp <- rnorm(p*p)
+    dim(tmp) <- c(p,p)
+    tmpp <- tmp%*% t(tmp)
+    Xb <- mvrnorm(n,rep(0,p), tmpp)
+}
+
 if(XGen == "Toeplitz"){
     tmp <- matrix(rep(0,p*p),p)
     for(i in 1:p) for (j in 1:p)
         tmp[i,j] <- 0.9^(abs(i-j))
     Xb <- mvrnorm(n,rep(0,p),tmp)
+    Xb <- Xb %*% diag(sqrt(rchisq(p,1)))
 }
+if(XGen == "Bernoulli"){
+    Xb <- rbinom(n*p,2,0.3)
+    dim(Xb) <- c(n,p)
+}
+
 if(XGen == "real"){
     Data <- read.csv("riboflavin.csv")
     Data<- Data[,-1]
