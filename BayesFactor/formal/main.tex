@@ -190,6 +190,7 @@ Based on this approximated distribution, the critical value of the proposed test
 We prove that the proposed test procedure is valid under weak conditions.
 In particular, we do not require that the test statistic is asymptotically normally distributed.
 Under certain conditions, we also derive the asymptotic power function of the proposed test and the test of \cite{Goeman2006}.
+It is shown that the proposed test can detect the signals from more directions than the test of \cite{Goeman2006}.
 Simulations are conducted to examine the performance of the proposed test.
 
 
@@ -221,7 +222,7 @@ Biased tests are often regarded as problematic in classical statistics.
 However, the situation is very different for our problem.
 In fact, we shall show that under normal assumption, there is no nontrivial unbiased test in large $p$, small $q$ setting.
 
-Let $\BP_a=\BX_a(\BX_a^\top \BX_a)^{-1} \BX^\top$ be the projection matrix onto the column space of $\BX_a$ and denote $\tilde \BP_a = \BI_n-\BP_a$.
+Let $\BP_a=\BX_a(\BX_a^\top \BX_a)^{-1} \BX_a^\top$ be the projection matrix onto the column space of $\BX_a$ and denote $\tilde \BP_a = \BI_n-\BP_a$.
 Define $\btheta =(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top$ and 
 \begin{equation*}
     \begin{split}
@@ -420,11 +421,11 @@ The main part of the above expression is
 \end{equation*}
 A large value of $T_{\kappa}$ supports the alternative hypothesis.
 Hence $T_{\kappa}$ can be regarded as a frequentist test statistic.
-The remaining problem is to choose an appropriate hyperparameter $\kappa$.
+It remains to choose an appropriate hyperparameter $\kappa$.
 %Note that $\kappa$ controls the prior magnitude of $\bbeta_b$.
-As $\kappa$ increases, the prior magnitude of $\bbeta_b$ decreases.
 As \cite{Goeman2006} noted, the priors should place most probability on the alternatives which are perceived as more interesting to detect.
 Their strategy is to let the prior magnitude tend to zero to obtain a test with good power behavior under local alternatives, that is, $\|\bbeta_b\|$ is small.
+Note that the prior magnitude of $\bbeta_b$ decreases with the increase of $\kappa$.
 In fact, if we let $\kappa$ tends to infinity, the limit
 \begin{equation*}
     \lim_{\kappa\to \infty} \kappa T_{\kappa} = \frac{\By^{*\top} \BX_b^* \BX_b^{*\top} \By^* }{\By^{*\top} \By^*}
@@ -478,7 +479,7 @@ See \cite{Sevast1961A} for a full characterization of the limit distributions of
 Our approximation strategy is to replace the random variables in quadratic form by suitable normal random variables.
 The error bound of this approximation will be derived by Lindeberg's replacement trick (see, e.g., \cite{pollard1984convergence}, Section III.4).
 
-Let $\mathscr C^4(\mathbb R)$ denote the class of all bounded real functions on $\mathbb R$ having bounded, continuous $k$th derivatives, $1\leq k\leq 4$.
+Let $\mathscr C^4(\mathbb R)$ denote the class of all bounded real functions on $\mathbb R$ having bounded, continuous $k$th derivatives, $0\leq k\leq 4$.
 It is known that if $\myE f(Z_n)\to \myE f(Z)$ for every $f\in \mathscr C^4 (\mathbb R)$ then $Z_n \rightsquigarrow Z$; see, e.g., \cite{pollard1984convergence}, Theorem 12 of Chapter III.
 
 
@@ -809,7 +810,7 @@ We reject the null hypothesis if
 This test procedure is asymptotically exact of size $\alpha$ under the conditions of Theorem \ref{thm:criticalValue} and Proposition \ref{prop:estimation}.
 
 
-\subsection{Power analysis}
+\subsection{Power analysis}\label{sec:Power}
 In this section, we investigate the asymptotic power of the proposed test procedure as well as the test of \cite{Goeman2006}.
 To make the expression of the asymptotic power functions tractable, we shall assume further conditions so that the test statistics are asymptotically normally distributed.
 Also, $\bepsilon$ is assumed to be normally distributed so that we can can obtain the global power function rather than only local power function.
@@ -1041,16 +1042,27 @@ is positive definite if $w_{d_1+1}=\cdots =w_{n-q}=0$, while
 \end{align*}
 is positive definite if $w_{d_2 + 1}=\cdots = w_{n-q}=0$.
 In other words, $\myCov(-\gamma_I^{-1}, \gamma_I w_I^2)$ is positive definite if $\bbeta_b$ belongs to the rank $d_1$ principal component subspace of $\BX_{b}^{*\top}\BX_b^{*}$, and $\myCov(\gamma_I, \gamma_I w_I^2)$ is positive definite if $\bbeta_b$ belongs to the rank $d_2$ principal component subspace of $\BX_{b}^{*\top}\BX_b^{*}$.
-
 Note that $\gamma_i > \myE (\gamma_I)$ implies that $\gamma_i^{-1} < (\myE (\gamma_I))^{-1}\leq \myE (\gamma_I^{-1})$, where the last inequality follows from Jensen's inequality.
 It follows that $ d_1 \geq d_2 $.
-Consequently, compared with the test of \cite{Goeman2006}, the proposed test can always detect the signals from more directions.
-In some important situations, the difference $d_1-d_2$ can be very large.
-For example, suppose all predictors in $\BX_b$ are affected by a latent factor.
-In this case, $\gamma_1$ is much larger than $\gamma_2,\ldots,\gamma_{n-q}$; see, e.g., \cite{Fan2013Large}.
-For simplicity, we assume $n-q$ is odd and $\gamma_2=\cdots =\gamma_{(n-q+1)/2}=2$, $\gamma_{(n-q+3)/2}=\cdots =\gamma_{n-q}=1$.
-Then it can be seen that as $\gamma_1\to \infty$, $d_1$ tends to $(n-q-1)/2$ while $d_2$ tends to $1$.
-In this case, $d_1$ is much larger than $d_2$.
+Hence the proposed test can always detect the signals from more directions than the test of \cite{Goeman2006}.
+
+Now we consider a practical scenario where the proposed test is more favorable.
+Suppose $\BX_b$ is a random design matrix and the rows of $\BX_b$ are iid random vectors.
+Let $X_{b,i}\in \mathbb R^p$ be the transpose of the $i$th row of $\BX_b$, $i=1,\ldots n$.
+Often in practice, the predictors are affected by a few common factors.
+Specifically, we assume $X_{b,i}$ has structre $X_{b,i}= \BB \Bf_i + u_i$, $\Bf_i \in \mathbb R^K$ is the vector of common factors, $K$ is factor number, $\BB$ is a $p\times K$ loading matrix, and $u_i\in \mathbb R^p$ is the vector of idiosyncratic components, $i=1,\ldots,n $.
+In this case, $\gamma_1,\ldots, \gamma_K$ are typically much larger than $\gamma_{K+1},\ldots, \gamma_{n-q}$ (See, e.g., \cite{Fan2013Large}).
+Note that $d_2=K$ for large $\gamma_1,\ldots, \gamma_K$.
+In this case, the test of \cite{Goeman2006} can only detect the signals from the rank $K$ principal component subspace of $\BX_b^{*\top} \BX_b^*$.
+In some situations, however, the effect of $\BX_b$ on $\By$ is mainly made by the idiosyncratic components.
+In this case, $\bbeta_b$ is almost orthogonal to the rank $K$ principal component subspace of $\BX_b^{*\top} \BX_b^*$, and consequently, the test of \cite{Goeman2006} will have poor behavior.
+On the other hand, the large eigenvalues $\gamma_1,\ldots, \gamma_K$ has little effect on $d_1$.
+Hence the proposed test is expected to have good performance.
+
+
+%For simplicity, we assume $n-q$ is odd and $\gamma_2=\cdots =\gamma_{(n-q+1)/2}=2$, $\gamma_{(n-q+3)/2}=\cdots =\gamma_{n-q}=1$.
+%Then it can be seen that as $\gamma_1\to \infty$, $d_1$ tends to $(n-q-1)/2$ while $d_2$ tends to $1$.
+%In this case, $d_1$ is much larger than $d_2$.
 
 
 
@@ -1072,85 +1084,57 @@ In dense $\bbeta_b$ setting, the coordinates of $\bbeta_b$ are independently gen
 In sparse $\bbeta_b$ setting, we randomly select $5\%$ of the coordinates of $\bbeta_b$ to be non-zero and the non-zero coordinates are independently generated from $U(-c,c)$ where $c$ is selected to reach certain SNR.
 The design matrices $\BX_a$ and $\BX_b$ are randomly generated beforehand and are fixed during each simulation.
 In all simulations, the elements of $\BX_a$ are iid from standard normal distribution.
-On the other hand, the rows of $\BX_b$ are iid from $\mathcal N(0,\bSigma_b)$ and three structures of $\bSigma_b$ are considered, namely, Identity covariance matrix: $\bSigma_b=\BI_p$; Toeplitz structure: $(\bSigma_b)_{i,j}=0.9^{|i-j|}$; equal correlation structure: $(\bSigma_b)_{i,j}=0.1$ if $i\neq j$ and $(\bSigma_b)_{i,j}=1$ otherwise.
-
-
+We consider three models of $\BX_b$, as follows.
+\begin{itemize}
+    \item Model I: the rows of $\BX_b$ are iid from $\mathcal N(0,\bSigma_b)$, where $\bSigma_b =\Gamma \Gamma^\top$ and $\Gamma$ is a $p\times p$ matrix whose elements are iid generated from $\mathcal N(0,1)$.
+        \item
+            Model II: the rows of $\BX_b$ are iid from $\mathcal N(0,\bSigma_b)$, where $(\bSigma_b)_{i,j}=0.1$ if $i\neq j$ and $(\bSigma_b)_{i,j}=1$ otherwise.
+        \item
+            Model III: $\BX_b$ is generated as Model II but the observed design matrix is $\BF\BB^\top+\BX_b$, where $\BF$ is an $n \times 2$ random matrix with iid $\mathcal N(0,1)$ entries and $\BB$ is a $p \times 2$ loading matrix with iid $\mathcal N(0,1)$ entries.
+\end{itemize}
 The simulation results are illustrated in Figures \ref{fig:1}-\ref{fig:3}.
 %It can be seen that as SNR increases, the empirical powers typically converge to certain limit powers which are strictly less than $1$.
-From Figure \ref{fig:1}, we can see that in the cases where $\bSigma_b =\BI_p$ and $n=50$, the powers of all three tests tend to $0$ as SNR increases.
-This phenomenon, which is not surprising in view of Proposition \ref{prop:unbiased}, disappears when the sample size rises to $100$.
-In the cases where $\bSigma_b = \BI_p$ and $n=100$, the EP test performs the best among the three tests while the proposed test and the GT test have similar performance.
-Figure \ref{fig:2} shows that in the cases where $\bSigma_b$ has Toeplitz structure, all three tests have good performance.
-As illustrated in Figure \ref{fig:3},  when $\bSigma_b$ has equal correlation structure, the proposed test is more powerful than its two compititors.
+From the results, it can be seen that all three tests can well maintain the significant level, although the EP test is a little conservative in some cases.
+Note that for $n =50$, the powers of tests typically do not converge to $1$ as SNR increases.
+This phenomenon, which is not surprising in view of Proposition \ref{prop:unbiased}, is eased when the sample size rises to $100$.
+In all three simulations, the proposed test shows relatively good power behavior compared with its two competitors.
+Figure \ref{fig:3} shows that under Model III, the GT test has negligible power while the proposed test has reasonable power.
+This verifies the argument made at the end of Section \ref{sec:Power}.
 
 
 
 \begin{figure}
     \centering 
     \subfigure[$n=50$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/50_iidnormal_t_dense}
+        \includegraphics[width=0.45\textwidth]{code/figure/50_uniform_t_dense}
     }
     \subfigure[$n=50$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/50_iidnormal_t_sparse}
+        \includegraphics[width=0.45\textwidth]{code/figure/50_uniform_t_sparse}
     }
     \\
     \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/50_iidnormal_chi_dense}
+        \includegraphics[width=0.45\textwidth]{code/figure/50_uniform_chi_dense}
     }
     \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/50_iidnormal_chi_sparse}
+        \includegraphics[width=0.45\textwidth]{code/figure/50_uniform_chi_sparse}
     }
     \\
     \subfigure[$n=100$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/100_iidnormal_t_dense}
+        \includegraphics[width=0.45\textwidth]{code/figure/100_uniform_t_dense}
     }
     \subfigure[$n=100$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/100_iidnormal_t_sparse}
+        \includegraphics[width=0.45\textwidth]{code/figure/100_uniform_t_sparse}
     }
     \\
     \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/100_iidnormal_chi_dense}
+        \includegraphics[width=0.45\textwidth]{code/figure/100_uniform_chi_dense}
     }
     \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/100_iidnormal_chi_sparse}
+        \includegraphics[width=0.45\textwidth]{code/figure/100_uniform_chi_sparse}
     }
     \caption{Box plots of the empirical powers based on $100$ independently generated $\bbeta_b$.
-        $\bSigma_b =\BI_p$.
+        $\BX_b$ is generated by Model I.
     }\label{fig:1}
-\end{figure}
-
-\begin{figure}
-    \centering 
-    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/50_Toeplitz_t_dense}
-    }
-    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/50_Toeplitz_t_sparse}
-    }
-    \\
-    \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/50_Toeplitz_chi_dense}
-    }
-    \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/50_Toeplitz_chi_sparse}
-    }
-    \\
-    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/100_Toeplitz_t_dense}
-    }
-    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/100_Toeplitz_t_sparse}
-    }
-    \\
-    \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/100_Toeplitz_chi_dense}
-    }
-    \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
-        \includegraphics[width=0.45\textwidth]{code/figure/100_Toeplitz_chi_sparse}
-    }
-    \caption{Box plots of the empirical powers based on $100$ independently generated $\bbeta_b$.
-$\bSigma_b$ has Toeplitz structure.
-    }\label{fig:2}
 \end{figure}
 
 \begin{figure}
@@ -1183,9 +1167,44 @@ $\bSigma_b$ has Toeplitz structure.
         \includegraphics[width=0.45\textwidth]{code/figure/100_equalCor_chi_sparse}
     }
     \caption{Box plots of the empirical powers based on $100$ independently generated $\bbeta_b$.
-    $\bSigma_b$ has equal correlation structure.
+$\BX_b$ is generated by Model II.
+    }\label{fig:2}
+\end{figure}
+
+\begin{figure}
+    \centering 
+    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/figure/50_factor_t_dense}
+    }
+    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/figure/50_factor_t_sparse}
+    }
+    \\
+    \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/figure/50_factor_chi_dense}
+    }
+    \subfigure[$n=50$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/figure/50_factor_chi_sparse}
+    }
+    \\
+    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/figure/100_factor_t_dense}
+    }
+    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/figure/100_factor_t_sparse}
+    }
+    \\
+    \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Dense $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/figure/100_factor_chi_dense}
+    }
+    \subfigure[$n=100$, $\epsilon_1\sim (\chi^2(4)-4)/\sqrt{8}$. Sparse $\bbeta_b$.]{
+        \includegraphics[width=0.45\textwidth]{code/figure/100_factor_chi_sparse}
+    }
+    \caption{Box plots of the empirical powers based on $100$ independently generated $\bbeta_b$.
+$\BX_b$ is generated by Model III.
     }\label{fig:3}
 \end{figure}
+
 
 %
 %\begin{table*}[ht]

@@ -24,11 +24,6 @@ if(XGen == "iidnormal"){
     Xb <- rnorm(n*p)
     dim(Xb) <- c(n,p)
 }
-if(XGen == "expnontial"){
-    Xb <- rnorm(n*p)
-    dim(Xb) <- c(n,p)
-    Xb <- Xb %*% diag(sqrt(rexp(p,1)))
-}
 
 if(XGen == "equalCor" ){
     Xb <- sqrt(0.9)*rnorm(n*p)
@@ -50,11 +45,33 @@ if(XGen == "Toeplitz"){
     for(i in 1:p) for (j in 1:p)
         tmp[i,j] <- 0.9^(abs(i-j))
     Xb <- mvrnorm(n,rep(0,p),tmp)
-    Xb <- Xb %*% diag(sqrt(rchisq(p,1)))
 }
-if(XGen == "Bernoulli"){
-    Xb <- rbinom(n*p,2,0.3)
-    dim(Xb) <- c(n,p)
+
+if(XGen == "factor"){
+    K <- 2
+    factorB <- rnorm(p*K)
+    dim(factorB) <- c(p,K)
+    factorF <- rnorm(n*K)
+    dim(factorF) <- c(n,K)
+    factorU <- rnorm(n*p)
+    dim(factorU) <- c(n,p)
+    
+    
+    factorU <- sqrt(0.9)*rnorm(n*p)
+    dim(factorU) <- c(n,p)
+    for(i in 1:n){
+        factorU[i,] <- factorU[i,] + sqrt(0.1)*rnorm(1)
+    }
+    
+    
+    Xb <- factorF%*%t(factorB) + factorU
+    
+    tmpX <- factorU
+    tmpX <- tmpX - Xa %*% solve(crossprod(Xa), crossprod(Xa, tmpX))
+    XX <- crossprod(t(tmpX))
+    var.num <- 2*sum(XX*XX)
+    lam <- eigen(XX, symmetric = TRUE, only.values=TRUE)$values
+    factorVarU <- var(lam[1:(n-q)])
 }
 
 if(XGen == "real"){
@@ -174,6 +191,9 @@ for(SNR in SNRsequence){
         }
             
         meanSig <- Xb%*% betabO
+        if(XGen == "factor"){
+            meanSig <- factorU %*% betabO
+        }
         
         for(i in 1:RepTime){
                 
@@ -188,6 +208,9 @@ for(SNR in SNRsequence){
                 myPhi <- 1
             }
             tmpSNR <- sqrt((n-q)*varGamma)*myPhi*sum(betabO^2)/p
+            if(XGen == "factor"){
+                tmpSNR <- sqrt((n-q)*factorVarU)*myPhi*sum(betabO^2)/p
+            }
             y <- innov + meanSig/sqrt(tmpSNR)*sqrt(SNR)
             
             
