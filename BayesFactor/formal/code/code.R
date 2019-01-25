@@ -1,7 +1,6 @@
 library(MASS)
 library(CVXR)
 source("./gt.R")
-set.seed(1)
 # RepTime <- 2000
 # M <- 2000
 # alpha <- 0.05

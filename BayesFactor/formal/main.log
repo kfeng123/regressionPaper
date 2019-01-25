@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  24 JAN 2019 15:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  25 JAN 2019 09:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -602,12 +602,16 @@ Package epstopdf Info: Source file: <code/figure/50_uniform_t_dense.eps>
 (epstopdf)                    size: 12806 bytes
 (epstopdf)             Output file: <code/figure/50_uniform_t_dense-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:00
-(epstopdf)                    size: 11519 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_uniform_t_d
 ense-eps-converted-to.pdf code/figure/50_uniform_t_dense.eps>
 (epstopdf)             \includegraphics on input line 1110.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_uniform_t_dense-eps-converted-to.p
+df code/figure/50_uniform_t_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_uniform_t_dense-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:25
+(epstopdf)                    size: 11519 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_uniform_t_dense-eps-converted-t
@@ -627,12 +631,16 @@ Package epstopdf Info: Source file: <code/figure/50_uniform_t_sparse.eps>
 (epstopdf)                    size: 12801 bytes
 (epstopdf)             Output file: <code/figure/50_uniform_t_sparse-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:00
-(epstopdf)                    size: 11516 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_uniform_t_s
 parse-eps-converted-to.pdf code/figure/50_uniform_t_sparse.eps>
 (epstopdf)             \includegraphics on input line 1113.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_uniform_t_sparse-eps-converted-to.
+pdf code/figure/50_uniform_t_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_uniform_t_sparse-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:25
+(epstopdf)                    size: 11516 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_uniform_t_sparse-eps-converted-
@@ -652,12 +660,16 @@ Package epstopdf Info: Source file: <code/figure/50_uniform_chi_dense.eps>
 (epstopdf)                    size: 12671 bytes
 (epstopdf)             Output file: <code/figure/50_uniform_chi_dense-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:00
-(epstopdf)                    size: 11576 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_uniform_chi
 _dense-eps-converted-to.pdf code/figure/50_uniform_chi_dense.eps>
 (epstopdf)             \includegraphics on input line 1117.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_uniform_chi_dense-eps-converted-to
+.pdf code/figure/50_uniform_chi_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_uniform_chi_dense-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:26
+(epstopdf)                    size: 11576 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_uniform_chi_dense-eps-converted
@@ -677,12 +689,16 @@ Package epstopdf Info: Source file: <code/figure/50_uniform_chi_sparse.eps>
 (epstopdf)                    size: 12196 bytes
 (epstopdf)             Output file: <code/figure/50_uniform_chi_sparse-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:01
-(epstopdf)                    size: 10962 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_uniform_chi
 _sparse-eps-converted-to.pdf code/figure/50_uniform_chi_sparse.eps>
 (epstopdf)             \includegraphics on input line 1120.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_uniform_chi_sparse-eps-converted-t
+o.pdf code/figure/50_uniform_chi_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_uniform_chi_sparse-eps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:26
+(epstopdf)                    size: 10962 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_uniform_chi_sparse-eps-converte
@@ -702,12 +718,16 @@ Package epstopdf Info: Source file: <code/figure/100_uniform_t_dense.eps>
 (epstopdf)                    size: 13581 bytes
 (epstopdf)             Output file: <code/figure/100_uniform_t_dense-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:01
-(epstopdf)                    size: 12683 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_uniform_t_
 dense-eps-converted-to.pdf code/figure/100_uniform_t_dense.eps>
 (epstopdf)             \includegraphics on input line 1124.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_uniform_t_dense-eps-converted-to.
+pdf code/figure/100_uniform_t_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_uniform_t_dense-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:26
+(epstopdf)                    size: 12683 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_uniform_t_dense-eps-converted-
@@ -727,12 +747,16 @@ Package epstopdf Info: Source file: <code/figure/100_uniform_t_sparse.eps>
 (epstopdf)                    size: 12704 bytes
 (epstopdf)             Output file: <code/figure/100_uniform_t_sparse-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:02
-(epstopdf)                    size: 11628 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_uniform_t_
 sparse-eps-converted-to.pdf code/figure/100_uniform_t_sparse.eps>
 (epstopdf)             \includegraphics on input line 1127.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_uniform_t_sparse-eps-converted-to
+.pdf code/figure/100_uniform_t_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_uniform_t_sparse-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:27
+(epstopdf)                    size: 11628 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_uniform_t_sparse-eps-converted
@@ -752,12 +776,16 @@ Package epstopdf Info: Source file: <code/figure/100_uniform_chi_dense.eps>
 (epstopdf)                    size: 13580 bytes
 (epstopdf)             Output file: <code/figure/100_uniform_chi_dense-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:02
-(epstopdf)                    size: 12678 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_uniform_ch
 i_dense-eps-converted-to.pdf code/figure/100_uniform_chi_dense.eps>
 (epstopdf)             \includegraphics on input line 1131.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_uniform_chi_dense-eps-converted-t
+o.pdf code/figure/100_uniform_chi_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_uniform_chi_dense-eps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:27
+(epstopdf)                    size: 12686 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_uniform_chi_dense-eps-converte
@@ -777,12 +805,16 @@ Package epstopdf Info: Source file: <code/figure/100_uniform_chi_sparse.eps>
 (epstopdf)                    size: 12358 bytes
 (epstopdf)             Output file: <code/figure/100_uniform_chi_sparse-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:02
-(epstopdf)                    size: 10998 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_uniform_ch
 i_sparse-eps-converted-to.pdf code/figure/100_uniform_chi_sparse.eps>
 (epstopdf)             \includegraphics on input line 1134.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_uniform_chi_sparse-eps-converted-
+to.pdf code/figure/100_uniform_chi_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_uniform_chi_sparse-eps-con
+verted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:27
+(epstopdf)                    size: 10998 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_uniform_chi_sparse-eps-convert
@@ -803,16 +835,20 @@ LaTeX Warning: Float too large for page by 3.28284pt on input line 1138.
 
 [12]
 Package epstopdf Info: Source file: <code/figure/50_equalCor_t_dense.eps>
-(epstopdf)                    date: 2019-01-24 13:39:23
-(epstopdf)                    size: 12927 bytes
+(epstopdf)                    date: 2019-01-25 09:29:53
+(epstopdf)                    size: 12880 bytes
 (epstopdf)             Output file: <code/figure/50_equalCor_t_dense-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:03
-(epstopdf)                    size: 11846 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_equalCor_t_
 dense-eps-converted-to.pdf code/figure/50_equalCor_t_dense.eps>
 (epstopdf)             \includegraphics on input line 1144.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_equalCor_t_dense-eps-converted-to.
+pdf code/figure/50_equalCor_t_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_equalCor_t_dense-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:27
+(epstopdf)                    size: 11745 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_equalCor_t_dense-eps-converted-
@@ -828,16 +864,20 @@ Package pdftex.def Info: code/figure/50_equalCor_t_dense-eps-converted-to.pdf u
 sed on input line 1144.
 (pdftex.def)             Requested size: 211.38832pt x 129.51613pt.
 Package epstopdf Info: Source file: <code/figure/50_equalCor_t_sparse.eps>
-(epstopdf)                    date: 2019-01-24 13:39:23
-(epstopdf)                    size: 13094 bytes
+(epstopdf)                    date: 2019-01-25 09:29:53
+(epstopdf)                    size: 12601 bytes
 (epstopdf)             Output file: <code/figure/50_equalCor_t_sparse-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:03
-(epstopdf)                    size: 12196 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_equalCor_t_
 sparse-eps-converted-to.pdf code/figure/50_equalCor_t_sparse.eps>
 (epstopdf)             \includegraphics on input line 1147.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_equalCor_t_sparse-eps-converted-to
+.pdf code/figure/50_equalCor_t_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_equalCor_t_sparse-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:28
+(epstopdf)                    size: 11309 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_equalCor_t_sparse-eps-converted
@@ -853,16 +893,20 @@ Package pdftex.def Info: code/figure/50_equalCor_t_sparse-eps-converted-to.pdf
 used on input line 1147.
 (pdftex.def)             Requested size: 211.38832pt x 129.51613pt.
 Package epstopdf Info: Source file: <code/figure/50_equalCor_chi_dense.eps>
-(epstopdf)                    date: 2019-01-24 13:39:24
-(epstopdf)                    size: 12518 bytes
+(epstopdf)                    date: 2019-01-25 09:29:53
+(epstopdf)                    size: 12996 bytes
 (epstopdf)             Output file: <code/figure/50_equalCor_chi_dense-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:04
-(epstopdf)                    size: 11454 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_equalCor_ch
 i_dense-eps-converted-to.pdf code/figure/50_equalCor_chi_dense.eps>
 (epstopdf)             \includegraphics on input line 1151.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_equalCor_chi_dense-eps-converted-t
+o.pdf code/figure/50_equalCor_chi_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_equalCor_chi_dense-eps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:28
+(epstopdf)                    size: 11982 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_equalCor_chi_dense-eps-converte
@@ -878,16 +922,20 @@ Package pdftex.def Info: code/figure/50_equalCor_chi_dense-eps-converted-to.pdf
  used on input line 1151.
 (pdftex.def)             Requested size: 211.38832pt x 129.51613pt.
 Package epstopdf Info: Source file: <code/figure/50_equalCor_chi_sparse.eps>
-(epstopdf)                    date: 2019-01-24 13:39:24
-(epstopdf)                    size: 12505 bytes
+(epstopdf)                    date: 2019-01-25 09:29:54
+(epstopdf)                    size: 12639 bytes
 (epstopdf)             Output file: <code/figure/50_equalCor_chi_sparse-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:04
-(epstopdf)                    size: 11448 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_equalCor_ch
 i_sparse-eps-converted-to.pdf code/figure/50_equalCor_chi_sparse.eps>
 (epstopdf)             \includegraphics on input line 1154.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_equalCor_chi_sparse-eps-converted-
+to.pdf code/figure/50_equalCor_chi_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_equalCor_chi_sparse-eps-con
+verted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:28
+(epstopdf)                    size: 11508 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_equalCor_chi_sparse-eps-convert
@@ -903,16 +951,20 @@ Package pdftex.def Info: code/figure/50_equalCor_chi_sparse-eps-converted-to.pd
 f used on input line 1154.
 (pdftex.def)             Requested size: 211.38832pt x 129.51613pt.
 Package epstopdf Info: Source file: <code/figure/100_equalCor_t_dense.eps>
-(epstopdf)                    date: 2019-01-24 13:39:25
-(epstopdf)                    size: 12540 bytes
+(epstopdf)                    date: 2019-01-25 09:29:54
+(epstopdf)                    size: 12343 bytes
 (epstopdf)             Output file: <code/figure/100_equalCor_t_dense-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:04
-(epstopdf)                    size: 11193 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_equalCor_t
 _dense-eps-converted-to.pdf code/figure/100_equalCor_t_dense.eps>
 (epstopdf)             \includegraphics on input line 1158.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_equalCor_t_dense-eps-converted-to
+.pdf code/figure/100_equalCor_t_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_equalCor_t_dense-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:29
+(epstopdf)                    size: 11055 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_equalCor_t_dense-eps-converted
@@ -928,16 +980,20 @@ Package pdftex.def Info: code/figure/100_equalCor_t_dense-eps-converted-to.pdf
 used on input line 1158.
 (pdftex.def)             Requested size: 211.38832pt x 129.51613pt.
 Package epstopdf Info: Source file: <code/figure/100_equalCor_t_sparse.eps>
-(epstopdf)                    date: 2019-01-24 13:39:25
-(epstopdf)                    size: 12769 bytes
+(epstopdf)                    date: 2019-01-25 09:29:54
+(epstopdf)                    size: 12431 bytes
 (epstopdf)             Output file: <code/figure/100_equalCor_t_sparse-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:05
-(epstopdf)                    size: 11438 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_equalCor_t
 _sparse-eps-converted-to.pdf code/figure/100_equalCor_t_sparse.eps>
 (epstopdf)             \includegraphics on input line 1161.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_equalCor_t_sparse-eps-converted-t
+o.pdf code/figure/100_equalCor_t_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_equalCor_t_sparse-eps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:29
+(epstopdf)                    size: 11179 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_equalCor_t_sparse-eps-converte
@@ -953,16 +1009,20 @@ Package pdftex.def Info: code/figure/100_equalCor_t_sparse-eps-converted-to.pdf
  used on input line 1161.
 (pdftex.def)             Requested size: 211.38832pt x 129.51613pt.
 Package epstopdf Info: Source file: <code/figure/100_equalCor_chi_dense.eps>
-(epstopdf)                    date: 2019-01-24 13:39:26
-(epstopdf)                    size: 12325 bytes
+(epstopdf)                    date: 2019-01-25 09:29:55
+(epstopdf)                    size: 12623 bytes
 (epstopdf)             Output file: <code/figure/100_equalCor_chi_dense-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:05
-(epstopdf)                    size: 10995 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_equalCor_c
 hi_dense-eps-converted-to.pdf code/figure/100_equalCor_chi_dense.eps>
 (epstopdf)             \includegraphics on input line 1165.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_equalCor_chi_dense-eps-converted-
+to.pdf code/figure/100_equalCor_chi_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_equalCor_chi_dense-eps-con
+verted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:29
+(epstopdf)                    size: 11417 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_equalCor_chi_dense-eps-convert
@@ -978,16 +1038,20 @@ Package pdftex.def Info: code/figure/100_equalCor_chi_dense-eps-converted-to.pd
 f used on input line 1165.
 (pdftex.def)             Requested size: 211.38832pt x 129.51613pt.
 Package epstopdf Info: Source file: <code/figure/100_equalCor_chi_sparse.eps>
-(epstopdf)                    date: 2019-01-24 13:39:26
-(epstopdf)                    size: 12584 bytes
+(epstopdf)                    date: 2019-01-25 09:29:55
+(epstopdf)                    size: 12760 bytes
 (epstopdf)             Output file: <code/figure/100_equalCor_chi_sparse-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:06
-(epstopdf)                    size: 11254 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_equalCor_c
 hi_sparse-eps-converted-to.pdf code/figure/100_equalCor_chi_sparse.eps>
 (epstopdf)             \includegraphics on input line 1168.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_equalCor_chi_sparse-eps-converted
+-to.pdf code/figure/100_equalCor_chi_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_equalCor_chi_sparse-eps-co
+nverted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:29
+(epstopdf)                    size: 11504 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_equalCor_chi_sparse-eps-conver
@@ -1011,12 +1075,16 @@ Package epstopdf Info: Source file: <code/figure/50_factor_t_dense.eps>
 (epstopdf)                    size: 15023 bytes
 (epstopdf)             Output file: <code/figure/50_factor_t_dense-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:06
-(epstopdf)                    size: 15851 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_factor_t_de
 nse-eps-converted-to.pdf code/figure/50_factor_t_dense.eps>
 (epstopdf)             \includegraphics on input line 1178.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_factor_t_dense-eps-converted-to.pd
+f code/figure/50_factor_t_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_factor_t_dense-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:30
+(epstopdf)                    size: 15851 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_factor_t_dense-eps-converted-to
@@ -1036,12 +1104,16 @@ Package epstopdf Info: Source file: <code/figure/50_factor_t_sparse.eps>
 (epstopdf)                    size: 14251 bytes
 (epstopdf)             Output file: <code/figure/50_factor_t_sparse-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:06
-(epstopdf)                    size: 14539 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_factor_t_sp
 arse-eps-converted-to.pdf code/figure/50_factor_t_sparse.eps>
 (epstopdf)             \includegraphics on input line 1181.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_factor_t_sparse-eps-converted-to.p
+df code/figure/50_factor_t_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_factor_t_sparse-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:30
+(epstopdf)                    size: 14539 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_factor_t_sparse-eps-converted-t
@@ -1061,12 +1133,16 @@ Package epstopdf Info: Source file: <code/figure/50_factor_chi_dense.eps>
 (epstopdf)                    size: 14680 bytes
 (epstopdf)             Output file: <code/figure/50_factor_chi_dense-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:07
-(epstopdf)                    size: 15170 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_factor_chi_
 dense-eps-converted-to.pdf code/figure/50_factor_chi_dense.eps>
 (epstopdf)             \includegraphics on input line 1185.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_factor_chi_dense-eps-converted-to.
+pdf code/figure/50_factor_chi_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_factor_chi_dense-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:30
+(epstopdf)                    size: 15170 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_factor_chi_dense-eps-converted-
@@ -1086,12 +1162,16 @@ Package epstopdf Info: Source file: <code/figure/50_factor_chi_sparse.eps>
 (epstopdf)                    size: 15004 bytes
 (epstopdf)             Output file: <code/figure/50_factor_chi_sparse-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:07
-(epstopdf)                    size: 15795 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_factor_chi_
 sparse-eps-converted-to.pdf code/figure/50_factor_chi_sparse.eps>
 (epstopdf)             \includegraphics on input line 1188.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/50_factor_chi_sparse-eps-converted-to
+.pdf code/figure/50_factor_chi_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/50_factor_chi_sparse-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:31
+(epstopdf)                    size: 15793 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/50_factor_chi_sparse-eps-converted
@@ -1111,12 +1191,16 @@ Package epstopdf Info: Source file: <code/figure/100_factor_t_dense.eps>
 (epstopdf)                    size: 13685 bytes
 (epstopdf)             Output file: <code/figure/100_factor_t_dense-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:07
-(epstopdf)                    size: 12962 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_factor_t_d
 ense-eps-converted-to.pdf code/figure/100_factor_t_dense.eps>
 (epstopdf)             \includegraphics on input line 1192.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_factor_t_dense-eps-converted-to.p
+df code/figure/100_factor_t_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_factor_t_dense-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:31
+(epstopdf)                    size: 12962 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_factor_t_dense-eps-converted-t
@@ -1136,12 +1220,16 @@ Package epstopdf Info: Source file: <code/figure/100_factor_t_sparse.eps>
 (epstopdf)                    size: 13669 bytes
 (epstopdf)             Output file: <code/figure/100_factor_t_sparse-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:08
-(epstopdf)                    size: 13405 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_factor_t_s
 parse-eps-converted-to.pdf code/figure/100_factor_t_sparse.eps>
 (epstopdf)             \includegraphics on input line 1195.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_factor_t_sparse-eps-converted-to.
+pdf code/figure/100_factor_t_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_factor_t_sparse-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:31
+(epstopdf)                    size: 13405 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_factor_t_sparse-eps-converted-
@@ -1161,12 +1249,16 @@ Package epstopdf Info: Source file: <code/figure/100_factor_chi_dense.eps>
 (epstopdf)                    size: 13306 bytes
 (epstopdf)             Output file: <code/figure/100_factor_chi_dense-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:08
-(epstopdf)                    size: 12629 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_factor_chi
 _dense-eps-converted-to.pdf code/figure/100_factor_chi_dense.eps>
 (epstopdf)             \includegraphics on input line 1199.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_factor_chi_dense-eps-converted-to
+.pdf code/figure/100_factor_chi_dense.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_factor_chi_dense-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:31
+(epstopdf)                    size: 12629 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_factor_chi_dense-eps-converted
@@ -1186,12 +1278,16 @@ Package epstopdf Info: Source file: <code/figure/100_factor_chi_sparse.eps>
 (epstopdf)                    size: 13884 bytes
 (epstopdf)             Output file: <code/figure/100_factor_chi_sparse-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-01-24 13:43:08
-(epstopdf)                    size: 13680 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_factor_chi
 _sparse-eps-converted-to.pdf code/figure/100_factor_chi_sparse.eps>
 (epstopdf)             \includegraphics on input line 1202.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=code/figure/100_factor_chi_sparse-eps-converted-t
+o.pdf code/figure/100_factor_chi_sparse.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <code/figure/100_factor_chi_sparse-eps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2019-01-25 09:32:32
+(epstopdf)                    size: 13680 bytes.
 
 
 pdfTeX warning: pdflatex (file ./code/figure/100_factor_chi_sparse-eps-converte
@@ -1295,7 +1391,7 @@ sfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/r
 sfs10.pfb>
-Output written on main.pdf (27 pages, 608559 bytes).
+Output written on main.pdf (27 pages, 608680 bytes).
 PDF statistics:
  766 PDF objects out of 1000 (max. 8388607)
  633 compressed objects within 7 object streams

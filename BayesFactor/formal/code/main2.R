@@ -15,7 +15,7 @@ XGen <- "equalCor"
 epsilonDis <- "t"
 betabGen <- "dense"
 
-for(XGen in c("equalCor"))
+for(XGen in c("factor"))
     for(n in c(50,100))
         for(epsilonDis in c("t","chi"))
             for(betabGen in c("dense","sparse"))
