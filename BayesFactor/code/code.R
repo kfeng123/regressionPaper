@@ -169,6 +169,7 @@ outGt <- NULL
 outEp <- NULL
 outSNR <- NULL
 for(SNR in SNRsequence){
+    myPb <- txtProgressBar(style = 3)
     for( j in 1:plotPointSize ){
         myResultOld <- NULL
         gtResult <- NULL
@@ -199,8 +200,9 @@ for(SNR in SNRsequence){
             # Generate y
             #betab <- betabO/sqrt(tmpSNR)*sqrt(SNR)
             if(epsilonDis == "t"){
-                innov <- rt(n,8)
-                myPhi <- 6/8
+                myTdf <- 9
+                innov <- rt(n,myTdf)
+                myPhi <- (myTdf-2)/myTdf
             }
             if(epsilonDis == "chi"){
                 innov <- (rchisq(n,4)-4)/sqrt(8)
@@ -290,7 +292,9 @@ for(SNR in SNRsequence){
         outGt <- c(outGt,mean(gtResult))
         outEp <- c(outEp,mean(epResult))
         outSNR <- c(outSNR, SNR)
+        setTxtProgressBar(myPb,j/plotPointSize)
     }
+    close(myPb)
 }
 ohResult <- data.frame('SNR'=outSNR,'outMy'=outMy,'outGt'=outGt, 'outEp' = outEp)
 

@@ -107,7 +107,7 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
 
 \maketitle
 \begin{abstract}
-    This paper considers testing regression coefficients in high-dimensional linear model with fixed design matrix.
+This paper considers testing regression coefficients in high-dimensional linear model with fixed design matrix.
     We prove that there does not exist nontrivial unbiased test for this problem.
     This phenomenon makes it impossible to consider the problem from a minimax perspective.
     Nevertheless, Bayesian methods can still produce tests with good average power behavior.
@@ -120,6 +120,7 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
 
 \noindent {\it Key words}: High-dimensional test, Lindeberg method, Linear model, Unbiasedness.
 
+ 
 \section{Introduction} 
 Consider linear regression model of the form
 \begin{equation}\label{label:linearModel}
@@ -145,7 +146,7 @@ Thus, new test methodology is required in high-dimensional setting.
 For the problem of testing hypotheses \eqref{theHypothesis}, two different high-dimensional settings have been extensively considered in the literature.
 One is the small $p$, large $q$ setting.
 An important example of this setting is testing individual coefficients of a high-dimensional regression.
-See \cite{buhlmann2013statistical}, \cite{Zhang2013} and \cite{Lan2016} for testing procedures in this setting.
+See \citep{buhlmann2013statistical,Zhang2013,Lan2016} for testing procedures in this setting.
 In this paper, however, we focus on the other setting, namely the large $p$, small $q$ setting.
 In this case, there are just a few covariates, namely $\BX_a$, are known to have effects on the response, while there remain a large number of covariates, namely $\BX_b$, to be tested.
 %We assume $\BX_a$ has full column rank and $\BX_b$ has full row rank.
@@ -155,19 +156,19 @@ In this case, there are just a few covariates, namely $\BX_a$, are known to have
 %However, there may remain a very large number of variables in $\BX_b$, so $p>n$.
 
 Many test procedures have been proposed in the large $p$, small $q$ setting.
-Based on an empirical Bayes model, \cite{Goeman2006} and \cite{Goeman2011} proposed a score test statistic as well as a method to determine the critical value.
-This score test was further investigated by \cite{Lan2014Testing} and \cite{Lan2016a}.
-Based on $U$-statistics, \cite{Zhong2011Tests} proposed a test for the case where $\BX_a=\mathbf 1_n$.
-Later, \cite{Wang2015} extended the test of \cite{Zhong2011Tests} to the case where $\BX_a$ is a general design matrix.
-To accommodate outlying observations and heavy-tailed distributions, \cite{Feng2013}
+Based on an empirical Bayes model, Goeman {\rm et al.} \cite{Goeman2006} and Goeman {\rm et al.} \cite{Goeman2011} proposed a score test statistic as well as a method to determine the critical value.
+This score test was further investigated by Lan {\rm et al.} \cite{Lan2014Testing} and Lan {\rm et al.} \cite{Lan2016a}.
+Based on $U$-statistics, Zhong and Chen \cite{Zhong2011Tests} proposed a test for the case where $\BX_a=\mathbf 1_n$.
+Later, Wang and Cui \cite{Wang2015} extended the test of Zhong and Chen \cite{Zhong2011Tests} to the case where $\BX_a$ is a general design matrix.
+To accommodate outlying observations and heavy-tailed distributions, Feng {et al.} \cite{Feng2013}
 proposed a rank-based test for the entire coefficients.
-\cite{Xu2016a} modified \cite{Feng2013}'s test and proposed a scalar invariant rank-based test.
-\cite{Janson2016} utilized a convex optimization program to obtain an unbiased estimator of a signal to noise ratio with small variance, based on which a test is constructed.
+Xu \cite{Xu2016a} modified the test of Feng {\rm et al.} \cite{Feng2013} and proposed a scalar invariant rank-based test.
+Janson {et al.} \cite{Janson2016} utilized a convex optimization program to obtain an unbiased estimator of a signal to noise ratio with small variance, based on which a test is constructed.
 Apart from the afore mentioned tests,
 there is another line of research utilizing desparsified Lasso estimator; see \cite{Dezeure2017} and the references therein.
 
-Except for the test of \cite{Goeman2006}, most existing high dimensional tests adopted the random design assumption, that is, the rows of $\BX_b$ are considered as being generated from a super population.
-As noted by \cite{Lei2018}, assuming a fixed design or a random design could lead to qualitatively different inferential results and the former is preferable from a theoretical point of view.
+Except for the test of Goeman {\rm et al.} \cite{Goeman2006}, most existing high dimensional tests adopted the random design assumption, that is, the rows of $\BX_b$ are considered as being generated from a super population.
+As noted by Lei {\rm et al.} \cite{Lei2018}, assuming a fixed design or a random design could lead to qualitatively different inferential results and the former is preferable from a theoretical point of view.
 Hence we focus on the fixed design setting in this paper.
 Of course, our results are still valid for random design from a conditional inference perspective.
 
@@ -180,7 +181,7 @@ In principle,
 using Bayes factor as a frequentist test statistic in high-dimensional setting is a good strategy for at least two reasons.
 First, the Bayes factors corresponding to proper priors are always well defined, even if the likelihood is unbounded.
 Second, under mild conditions, tests based on Bayes factors are admissible (See, e.g., \cite{Lehmann}, Theorem 6.7.2).
-In fact, the test procedure of \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist significance test.
+In fact, the test procedure of Goeman {\rm et al.} \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist significance test.
 
 
 In this paper, we propose a new test statistic in large $p$, small $q$ setting which is the limit of Bayes factors under normal linear model.
@@ -189,8 +190,8 @@ We give an approximation of the distribution of quadratic form using Lindeberg's
 Based on this approximated distribution, the critical value of the proposed test statisitc is calculated by a one step iteration.
 We prove that the proposed test procedure is valid under weak conditions.
 In particular, we do not require that the test statistic is asymptotically normally distributed.
-Under certain conditions, we also derive the asymptotic power function of the proposed test and the test of \cite{Goeman2006}.
-It is shown that the proposed test can detect the signals from more directions than the test of \cite{Goeman2006}.
+Under certain conditions, we also derive the asymptotic power function of the proposed test and the test of Goeman {\rm et al.} \cite{Goeman2006}.
+It is shown that the proposed test can detect the signals from more directions than the test of Goeman {\rm et al.} \cite{Goeman2006}.
 Simulations are conducted to examine the performance of the proposed test.
 
 
@@ -217,7 +218,7 @@ More specifically, we make the following assumption throughout the paper.
 %Based on an empirical Bayes model,
 %\cite{Goeman2006} and \cite{Goeman2011} proposed a score test which can be used.
 Testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a challenging problem.
-\cite{Goeman2006} noticed that their test has negligible power for many alternatives and consequently is not an unbiased test.
+Goeman {\rm et al.} \cite{Goeman2006} noticed that their test has negligible power for many alternatives and consequently is not an unbiased test.
 Biased tests are often regarded as problematic in classical statistics.
 However, the situation is very different for our problem.
 In fact, we shall show that under normal assumption, there is no nontrivial unbiased test in large $p$, small $q$ setting.
@@ -256,7 +257,7 @@ This motivates us
 to adopt Bayesian methods
 to find a test with good average power behavior.
 
-Bayes factor \citep{Robert1995Bayes} is a commonly used tool for model comparison within the Bayesian framework.
+Bayes factor (see, e.g., \citep{Robert1995Bayes}) is a commonly used tool for model comparison within the Bayesian framework.
 In our problem, suppose $\bepsilon \sim \mathcal N_n (0,\phi^{-1} \BI_n)$, the Bayes factor for hypotheses \eqref{theHypothesis} is
 \begin{equation*}
     B_{10}= \frac {
@@ -275,7 +276,7 @@ We notice that in the frequentist framework, the Bayes factor can be treated as 
 
 The behavior of a Bayes factor largely depends on the choice of priors.
 In Bayesian literature, many priors have been considered for testing the coefficients of linear model.
-Popular priors include $g$-priors \citep{Liang2008Mixtures} and intrinsic priors \citep{Casella2006Obj}.
+Popular priors include $g$-priors (\citep{Liang2008Mixtures}) and intrinsic priors (\citep{Casella2006Obj}).
 Unfortunately, these priors are not well defined in large $p$, small $q$ setting.
 %To obtain valid Bayes factor, we use simple priors.
 Note that under the null hypothesis $\mathcal H_0$, the model is low-dimensional.
@@ -423,21 +424,21 @@ A large value of $T_{\kappa}$ supports the alternative hypothesis.
 Hence $T_{\kappa}$ can be regarded as a frequentist test statistic.
 It remains to choose an appropriate hyperparameter $\kappa$.
 %Note that $\kappa$ controls the prior magnitude of $\bbeta_b$.
-As \cite{Goeman2006} noted, the priors should place most probability on the alternatives which are perceived as more interesting to detect.
+As Goeman {\rm et al.} \cite{Goeman2006} noted, the priors should place most probability on the alternatives which are perceived as more interesting to detect.
 Their strategy is to let the prior magnitude tend to zero to obtain a test with good power behavior under local alternatives, that is, $\|\bbeta_b\|$ is small.
 Note that the prior magnitude of $\bbeta_b$ decreases with the increase of $\kappa$.
 In fact, if we let $\kappa$ tends to infinity, the limit
 \begin{equation*}
     \lim_{\kappa\to \infty} \kappa T_{\kappa} = \frac{\By^{*\top} \BX_b^* \BX_b^{*\top} \By^* }{\By^{*\top} \By^*}
 \end{equation*}
-is exactly the test statistic of \cite{Goeman2006}.
+is exactly the test statistic of Goeman {\rm et al.} \cite{Goeman2006}.
 
 As implied by Proposition \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a difficult problem and no unbiased test can guarantee large power, even if the signal is strong.
 %In fact, we shall see that for certain directions of $\bbeta_b$, the test of \cite{Goeman2006} has negligible power for any magnitude of $\|\bbeta_b\|$.
 Hence it may be too ambitious to consider local power behavior where signal is weak.
 %In fact, the test of \cite{Goeman2006} may have negligible power even when $\|\bbeta_b\|$ is large.
 %Hence it is questionable if a test with good local power behavior is a good choice in practice.
-Thus, contrary to the strategy of \cite{Goeman2006}, we let $\kappa$ tend to $0$ to obtain a test with good average power behavior for large $\|\bbeta_b\|$.
+Thus, contrary to the strategy of Goeman {\rm et al.} \cite{Goeman2006}, we let $\kappa$ tend to $0$ to obtain a test with good average power behavior for large $\|\bbeta_b\|$.
 Note that the statistic $ T_{\kappa}$ degenerates to $1$ as $\kappa\to 0$.
 Nevertheless, the scaled statistic $(T_{\kappa}-1)/\kappa$ has a proper limit as $\kappa\to 0$.
 Thus, we proposed the following test statistic
@@ -475,7 +476,7 @@ Hence the key step towards the goal is to approximate the distribution of the qu
 The asymptotics of quadratic form have been extensively studied; see, e.g., \cite{jiang1996reml,Bentkus1996Optimal,Goetze2002,Dicker2015Flexible,Bai2017}.
 Most existing work use normal distribution to approximate the distribution of the quadratic form.
 However, normal distribution is just one of the possible limit distributions of quadratic form.
-See \cite{Sevast1961A} for a full characterization of the limit distributions of quadratic form of normal random variables.
+See Sevast'yanov \cite{Sevast1961A} for a full characterization of the limit distributions of quadratic form of normal random variables.
 Our approximation strategy is to replace the random variables in quadratic form by suitable normal random variables.
 The error bound of this approximation will be derived by Lindeberg's replacement trick (see, e.g., \cite{pollard1984convergence}, Section III.4).
 
@@ -595,7 +596,7 @@ Define
 
 \begin{remark}
 %Let $\rho$ denote any metric on the set of probability measures $\mathcal M (\mathbb R)$ on $\mathbb R$ such that convergence in $(\mathcal M (\mathbb R), \rho)$ is equivalent to weak convergence.
-    As noted in \cite{Chatterjee2008}, Section 3.1, an almost necessary condition for the asymptotic normality of $S$ is
+    As noted in Chatterjee \cite{Chatterjee2008}, Section 3.1, an almost necessary condition for the asymptotic normality of $S$ is
     \begin{equation}\label{eq:normalC}
         \frac{\mytr (\BA^4)}{
             \left( 
@@ -646,55 +647,6 @@ Under the null hypothesis, Theorem \ref{approximation} implies that
         \right)
         (\sqrt \phi \bepsilon)
         > 0
-    \right) 
-    \\
-    =&
-    \Pr\left( 
-        \frac{
-        (\sqrt \phi \bepsilon)^\top 
-        \left( 
-        -\tilde{\BU}_a ( \BX_b^* \BX_b^{*\top} )^{-1} \tilde{\BU}_a^\top 
-   -x\tilde{\BU}_a \tilde{\BU}_a^\top
-        \right)
-        (\sqrt \phi \bepsilon)
-   +
-   \left( 
-   \mytr\left( (\BX_b^* \BX_b^{*\top})^{-1} \right)
-   +(n-q)x
-   \right)
-   }{
-       \sqrt{
-           2\mytr\left( 
-        \tilde{\BU}_a ( \BX_b^* \BX_b^{*\top} )^{-1} \tilde{\BU}_a^\top 
-   +x\tilde{\BU}_a \tilde{\BU}_a^\top
-   \right)^2
-   +\left( \myE (\xi_a^4) -3 \right)
-\mytr\left( 
-        \tilde{\BU}_a ( \BX_b^* \BX_b^{*\top} )^{-1} \tilde{\BU}_a^\top 
-   +x\tilde{\BU}_a \tilde{\BU}_a^\top
-   \right)^{\circ 2}
-   }
-   }
-   \right.
-   \\
-        &> 
-        \left.
-        \frac{
-   \mytr\left( (\BX_b^* \BX_b^{*\top})^{-1} \right)
-   +(n-q)x
-   }{
-       \sqrt{
-           2\mytr\left( 
-        \tilde{\BU}_a ( \BX_b^* \BX_b^{*\top} )^{-1} \tilde{\BU}_a^\top 
-   +x\tilde{\BU}_a \tilde{\BU}_a^\top
-   \right)^2
-   +\left( \myE (\xi_a^4) -3 \right)
-\mytr\left( 
-        \tilde{\BU}_a ( \BX_b^* \BX_b^{*\top} )^{-1} \tilde{\BU}_a^\top 
-   +x\tilde{\BU}_a \tilde{\BU}_a^\top
-   \right)^{\circ 2}
-   }
-   }
     \right) 
     \\
     \approx& 
@@ -773,7 +725,7 @@ Let
     \label{thm:criticalValue}
 \end{theorem}
 
-        A consistent estimator of $\sigma^{-4} \myE (\epsilon_1^4)-1$ has already appeared in \cite{Bai2017} based on the standardized residuals.
+Bai {\rm et al.} \cite{Bai2017} gave a consistent estimator of $\sigma^{-4} \myE (\epsilon_1^4)-1$  based on the standardized residuals.
         Here we use a slightly different estimator which is based on the ordinary least squares residuals $\tilde \bepsilon=(\tilde \epsilon_1,\ldots, \tilde \epsilon_n)^\top= \tilde \BP_a \By$.
     From \cite{Bai2017}, Theorem 2.1, 
     \begin{align*}
@@ -811,17 +763,17 @@ This test procedure is asymptotically exact of size $\alpha$ under the condition
 
 
 \subsection{Power analysis}\label{sec:Power}
-In this section, we investigate the asymptotic power of the proposed test procedure as well as the test of \cite{Goeman2006}.
+In this section, we investigate the asymptotic power of the proposed test procedure as well as the test of Goeman {\rm et al.} \cite{Goeman2006}.
 To make the expression of the asymptotic power functions tractable, we shall assume further conditions so that the test statistics are asymptotically normally distributed.
 Also, $\bepsilon$ is assumed to be normally distributed so that we can can obtain the global power function rather than only local power function.
 
-To derive the asymptotic power of the proposed test and the test of \cite{Goeman2006} simultaneously, we consider the general statistic
+To derive the asymptotic power of the proposed test and the test of Goeman {\rm et al.} \cite{Goeman2006} simultaneously, we consider the general statistic
     ${
 \By^{*\top}
     (\BX_b^* \BX_b^{*\top})^{k} 
         \By^*
     }/{\By^{*\top} \By^*}$.
-    In fact, the proposed test statistic corresponds to $k=-1$ while the test statistic in \cite{Goeman2006} corresponds to $k=1$.
+    In fact, the proposed test statistic corresponds to $k=-1$ while the test statistic of Goeman {\rm et al.} \cite{Goeman2006} corresponds to $k=1$.
     Note that for any $x\in \mathbb R$,
     \begin{equation*}
         \Pr\left( 
@@ -981,7 +933,7 @@ and the asymptotic power function of the proposed test is
     \right).
     \end{split}
 \end{equation}
-On the other hand, the test of \cite{Goeman2006} should reject the null hypothesis when
+On the other hand, the test of Goeman {\rm et al.} \cite{Goeman2006} should reject the null hypothesis when
 \begin{equation*}
         \frac{
             \By^{*\top} \BX_b^* \BX_b^{*\top} \By^*
@@ -1021,7 +973,7 @@ and the asymptotic power function of their test is
     \end{split}
 \end{equation}
 
-It can be seen from \eqref{eq:powerProposed} and \eqref{eq:powerTheirs} that the power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ while the power of the test of \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2)$.  
+It can be seen from \eqref{eq:powerProposed} and \eqref{eq:powerTheirs} that the power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ while the power of the test of Goeman {\rm et al.} \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2)$.  
 Unfortunately, neither of these two quantities is positive definite.
 This fact is not surprising in view of Proposition \ref{prop:unbiased}.
 Nevertheless, $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I w_I^2)$ are positive definite if $\bbeta_b$ is restricted  in certain subspaces of $\mathbb R^p$.
@@ -1044,7 +996,7 @@ is positive definite if $w_{d_2 + 1}=\cdots = w_{n-q}=0$.
 In other words, $\myCov(-\gamma_I^{-1}, \gamma_I w_I^2)$ is positive definite if $\bbeta_b$ belongs to the rank $d_1$ principal component subspace of $\BX_{b}^{*\top}\BX_b^{*}$, and $\myCov(\gamma_I, \gamma_I w_I^2)$ is positive definite if $\bbeta_b$ belongs to the rank $d_2$ principal component subspace of $\BX_{b}^{*\top}\BX_b^{*}$.
 Note that $\gamma_i > \myE (\gamma_I)$ implies that $\gamma_i^{-1} < (\myE (\gamma_I))^{-1}\leq \myE (\gamma_I^{-1})$, where the last inequality follows from Jensen's inequality.
 It follows that $ d_1 \geq d_2 $.
-Hence the proposed test can always detect the signals from more directions than the test of \cite{Goeman2006}.
+Hence the proposed test can always detect the signals from more directions than the test of Goeman {\rm et al.} \cite{Goeman2006}.
 
 Now we consider a practical scenario where the proposed test is more favorable.
 Suppose $\BX_b$ is a random design matrix and the rows of $\BX_b$ are iid random vectors.
@@ -1053,9 +1005,9 @@ Often in practice, the predictors are affected by a few common factors.
 Specifically, we assume $X_{b,i}$ has structre $X_{b,i}= \BB \Bf_i + u_i$, $\Bf_i \in \mathbb R^K$ is the vector of common factors, $K$ is factor number, $\BB$ is a $p\times K$ loading matrix, and $u_i\in \mathbb R^p$ is the vector of idiosyncratic components, $i=1,\ldots,n $.
 In this case, $\gamma_1,\ldots, \gamma_K$ are typically much larger than $\gamma_{K+1},\ldots, \gamma_{n-q}$ (See, e.g., \cite{Fan2013Large}).
 Note that $d_2=K$ for large $\gamma_1,\ldots, \gamma_K$.
-In this case, the test of \cite{Goeman2006} can only detect the signals from the rank $K$ principal component subspace of $\BX_b^{*\top} \BX_b^*$.
+In this case, the test of Goeman {\rm et al.} \cite{Goeman2006} can only detect the signals from the rank $K$ principal component subspace of $\BX_b^{*\top} \BX_b^*$.
 In some situations, however, the effect of $\BX_b$ on $\By$ is mainly made by the idiosyncratic components.
-In this case, $\bbeta_b$ is almost orthogonal to the rank $K$ principal component subspace of $\BX_b^{*\top} \BX_b^*$, and consequently, the test of \cite{Goeman2006} will have poor behavior.
+In this case, $\bbeta_b$ is almost orthogonal to the rank $K$ principal component subspace of $\BX_b^{*\top} \BX_b^*$, and consequently, the test of Goeman {\rm et al.} \cite{Goeman2006} will have poor behavior.
 On the other hand, the large eigenvalues $\gamma_1,\ldots, \gamma_K$ has little effect on $d_1$.
 Hence the proposed test is expected to have good performance.
 
@@ -1071,13 +1023,13 @@ Hence the proposed test is expected to have good performance.
 
 In this section, we conduct simulations to examine the empirical size and power of the proposed test
 (abbreviated as NEW) 
-and compare it with the global test proposed by \cite{Goeman2006} (abbreviated as GT) and the EigenPrism test prospoed by \cite{Janson2016} (abbreviated as EP).
+and compare it with the global test proposed by Goeman {\rm et al.} \cite{Goeman2006} (abbreviated as GT) and the EigenPrism test prospoed by  Janson {\rm et al.} \cite{Janson2016} (abbreviated as EP).
 %In our simulations, the GT test procedure We use the R package \emph{globaltest} to compute.
-Throughout our simulations, we take $q=10$, $p=1000$, $\alpha=0.05$ and the empirical results are obtained from $2500$ replications.
+Throughout our simulations, we take $q=10$, $p=1000$, $\alpha=0.05$ and the empirical results are obtained from $5000$ replications.
 
 
 
-In our simulations, two distributions of $\epsilon_1$ are considered, namely the chi-squared distribution \mbox{$\epsilon_1 \sim (\chi^2(4)-4)/\sqrt 8$} and the Student's $t$ distribution $\epsilon_1 \sim t_8$.
+In our simulations, two distributions of $\epsilon_1$ are considered, namely the chi-squared distribution \mbox{$\epsilon_1 \sim (\chi^2(4)-4)/\sqrt 8$} and the Student's $t$ distribution $\epsilon_1 \sim t_9$.
 Define the signal to noise ratio (SNR) as $\text{SNR}=\sqrt{(n-q)\myVar (\gamma_I)} \phi \|\bbeta_b\|^2/p$.
 We consider two structures of $\bbeta_b$: dense $\bbeta_b$ and sparse $\bbeta_b$.
 In dense $\bbeta_b$ setting, the coordinates of $\bbeta_b$ are independently generated from the uniform distribution $U(-c, c)$ where $c$ is selected to reach certain SNR.
@@ -1105,10 +1057,10 @@ This verifies the argument made at the end of Section \ref{sec:Power}.
 
 \begin{figure}
     \centering 
-    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+    \subfigure[$n=50$, $\epsilon_1\sim t_9$. Dense $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/50_uniform_t_dense}
     }
-    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+    \subfigure[$n=50$, $\epsilon_1\sim t_9$. Sparse $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/50_uniform_t_sparse}
     }
     \\
@@ -1119,10 +1071,10 @@ This verifies the argument made at the end of Section \ref{sec:Power}.
         \includegraphics[width=0.45\textwidth]{code/figure/50_uniform_chi_sparse}
     }
     \\
-    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+    \subfigure[$n=100$, $\epsilon_1\sim t_9$. Dense $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/100_uniform_t_dense}
     }
-    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+    \subfigure[$n=100$, $\epsilon_1\sim t_9$. Sparse $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/100_uniform_t_sparse}
     }
     \\
@@ -1139,10 +1091,10 @@ This verifies the argument made at the end of Section \ref{sec:Power}.
 
 \begin{figure}
     \centering 
-    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+    \subfigure[$n=50$, $\epsilon_1\sim t_9$. Dense $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/50_equalCor_t_dense}
     }
-    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+    \subfigure[$n=50$, $\epsilon_1\sim t_9$. Sparse $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/50_equalCor_t_sparse}
     }
     \\
@@ -1153,10 +1105,10 @@ This verifies the argument made at the end of Section \ref{sec:Power}.
         \includegraphics[width=0.45\textwidth]{code/figure/50_equalCor_chi_sparse}
     }
     \\
-    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+    \subfigure[$n=100$, $\epsilon_1\sim t_9$. Dense $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/100_equalCor_t_dense}
     }
-    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+    \subfigure[$n=100$, $\epsilon_1\sim t_9$. Sparse $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/100_equalCor_t_sparse}
     }
     \\
@@ -1173,10 +1125,10 @@ $\BX_b$ is generated by Model II.
 
 \begin{figure}
     \centering 
-    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+    \subfigure[$n=50$, $\epsilon_1\sim t_9$. Dense $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/50_factor_t_dense}
     }
-    \subfigure[$n=50$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+    \subfigure[$n=50$, $\epsilon_1\sim t_9$. Sparse $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/50_factor_t_sparse}
     }
     \\
@@ -1187,10 +1139,10 @@ $\BX_b$ is generated by Model II.
         \includegraphics[width=0.45\textwidth]{code/figure/50_factor_chi_sparse}
     }
     \\
-    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Dense $\bbeta_b$.]{
+    \subfigure[$n=100$, $\epsilon_1\sim t_9$. Dense $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/100_factor_t_dense}
     }
-    \subfigure[$n=100$, $\epsilon_1\sim t_8$. Sparse $\bbeta_b$.]{
+    \subfigure[$n=100$, $\epsilon_1\sim t_9$. Sparse $\bbeta_b$.]{
         \includegraphics[width=0.45\textwidth]{code/figure/100_factor_t_sparse}
     }
     \\
@@ -1317,12 +1269,12 @@ We proposed an approximation of the null distribution of the proposed test stati
 Under weak conditions, we proved the proposed test procedure is asymptotically level $\alpha$.
 Under certain conditions, we also derived the asymptotic power function of the proposed test.
 
-The methodology of \cite{Goeman2006} can also be applied in generalized linear models.
-However, it is not obvious how to generalize the proposed test and the test of \cite{Janson2016} to generalized linear models.
+The methodology of Goeman {\rm et al.} \cite{Goeman2006} can also be applied in generalized linear models.
+However, it is not obvious how to generalize the proposed test and the test of Janson {\rm et al.} \cite{Janson2016} to generalized linear models.
 More fundamentally, it is unclear if results like Proposition \ref{prop:unbiased} hold for generalized linear model.
 
 In Theorem \ref{TheoremLindeberg}, we assumed that the distribution of $\epsilon_1$ is symmetric about $0$. 
-This condition is also assumed by \cite{Bai2017} in the study of central limit theorem of quadratic form.
+This condition is also assumed by Bai {\rm et al.} \cite{Bai2017} in the study of central limit theorem of quadratic form.
 Without this condition, our proof of Theorem \ref{TheoremLindeberg} is not valid.
 We think it will be an interesting and useful work to relax the symmetric condition in Theorem \ref{TheoremLindeberg}.
 
@@ -1523,7 +1475,8 @@ Then
         \sum_{i=1}^{l-1} \tilde a_{i,i}(\xi_i^2-1)
         +
         \tau\sum_{i=l+1}^{n} \tilde a_{i,i}  \check  z_i
-        +2\sum_{1\leq i <j \leq l-1}  \tilde a_{i,j} \xi_i \xi_j
+        \\
+        &+2\sum_{1\leq i <j \leq l-1}  \tilde a_{i,j} \xi_i \xi_j
         +2\sum_{i=1}^{l-1} \sum_{j=l+1}^n \tilde a_{i,j} \xi_i z_j
         +2\sum_{l+1 \leq i < j \leq n}  \tilde a_{i,j} z_i z_j
         ,
@@ -1554,9 +1507,10 @@ Then
     Thus, for any $f \in \mathscr C^4 (\mathbb R)$,
     \begin{equation*}
         \begin{split}
-        \left|\myE f\left(S\right)
+        &\left|\myE f\left(S\right)
         -
         \myE f\left(S_\tau^*\right)\right| 
+        \\
         =&
         \left| \myE f(S_n+h_n)-\myE f(S_1+g_1)\right|
         \\
@@ -1593,7 +1547,8 @@ Then
     \begin{equation*}
         \begin{split}
              &\left| \myE f(S_{l}+h_{l})-\myE f(S_{l}+g_{l})\right|
-\leq
+             \\
+\leq&
 \left|
             \sum_{k=1}^3
             \frac{1}{k!} \myE f^{(k)} (S_{l})
@@ -1781,7 +1736,8 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
 }{2}
 \|f^{(2)}\|_\infty
 \sum_{l=1}^n \tilde a_{l,l}^2
-            +
+\\
+            &+
             \frac{
             \max\left(
     \left|\myE (\xi_1^2-1)^3\right|
@@ -1843,7 +1799,8 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
     Write
     \begin{equation*}
         \begin{split}
-        S_{\hat \tau}^* =&
+        S_{\hat \tau}^*
+        =&
         \frac{
             \sqrt{\phi^2\myE (\epsilon_1^4)-1} \sum_{i=1}^n  a_{i,i}\check z_i
         +2\sum_{1\leq i <j \leq n} a_{i,j} z_i z_j
@@ -1855,7 +1812,8 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
     (\phi^2\myE (\epsilon_1^4)-3) \mytr(\BA^{\circ 2})
             }             
         }
-        +
+        \\
+        &+
         \frac{
                 (\hat \tau -
             \sqrt{
@@ -1880,11 +1838,11 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
     Since $\myE ( S_{\hat \tau,1}^{*2} )=1$,  the distributions $\mathcal L(S_{\hat \tau,1}^{*}) $ are tight as $n\to \infty$.
     Hence, without loss of generality, we assume $\mathcal L (S_{\hat \tau,1}^*)$ weakly converges to a limit distribution with distribution function $F^\dagger(x)$.
     Let $S^\dagger$ be a random variable with distribution function $F^\dagger(x)$.
-    By some algebra (See, e.g., \cite{chen2010tests}, Proposition A.1.(iii)),
+    By some algebra (See, e.g., \cite[Proposition A.1.(iii)]{chen2010tests} ),
     it can be shown that $\myE (S^{*4}_{\hat \tau,1})$ is uniformly bounded.
     Then $\mathcal L ( S_{\hat \tau,1}^{*2} )$ is  uniformly integrable.
     Hence $\myE(S^{\dagger 2})=1$ and $F^\dagger(x)$ can not concentrate on a single point.
-    Consequently, $F^\dagger(x)$ is continuous and is strict increasing for $x\in\{x:0<F(x)<1\}$; see \cite{Sevast1961A} as well as the remark made by A. N. Kolmogorov.
+    Consequently, $F^\dagger(x)$ is continuous and is strict increasing for $x\in\{x:0<F(x)<1\}$; see \cite{Sevast1961A} as well the remark made by A. N. Kolmogorov on that paper.
 
     The condition \eqref{eq:jianchiCondition} implies that $\myE[S_{\hat \tau,2}^{*2}|\hat \tau]\to 0$ almost surely.
     Then almost surely, $\mathcal L (S^*_{\hat \tau}|\hat \tau) \rightsquigarrow \mathcal L(S^\dagger)$.
@@ -1997,8 +1955,8 @@ This proves the theorem.
 
 
 \begin{proof}[\textbf{Proof of Proposition \ref{prop:estimation}}]
-    From \cite{Bai2017}, Theorem 2.1, one can obtain the explicit forms of $\myVar \left( \tilde \bepsilon^\top \left( \tilde \BP_a \right) \tilde \bepsilon  \right)$ and $\myVar \left( \sum_{i=1}^n \tilde \epsilon_i^4 \right)$ which involves the traces of certain matrices.
-    Using \cite{book:1244195}, Theorem 5.5.1, one can see that the eigenvalues of these matrices are all bounded.
+    From \cite[Theorem 2.1]{Bai2017}, one can obtain the explicit forms of $\myVar \left( \tilde \bepsilon^\top \left( \tilde \BP_a \right) \tilde \bepsilon  \right)$ and $\myVar \left( \sum_{i=1}^n \tilde \epsilon_i^4 \right)$ which involves the traces of certain matrices.
+    Using \cite[Theorem 5.5.1]{book:1244195}, one can see that the eigenvalues of these matrices are all bounded.
     Hence it can be deduced that $\myVar ( \tilde \bepsilon^\top  \tilde \BP_a \tilde \bepsilon  )=O(n)$ and $\myVar \left( \sum_{i=1}^n \tilde \epsilon_i^4 \right)=O(n)$.
     Thus,
     \begin{align*}
@@ -2103,7 +2061,7 @@ Then there exists a sequence of positive integers $r(n)\to \infty$ such that
         \sum_{i=1}^n a_{i,i}^2 
         \right)
     }
-    \to 0$ and $r(n)/n\to 0$.
+\to 0$ and $r(n)/n\to 0$.
     Write
     \begin{equation*}
         Z^\top \BA Z + b^\top Z - \mytr(\BA)
@@ -2122,7 +2080,7 @@ Then there exists a sequence of positive integers $r(n)\to \infty$ such that
         \sum_{i=1}^{r(n)} a_{i,i}(z_i^2-1)
     )=o(\sum_{i=1}^n a_{i,i}^2)$.
     Now we deal with the third term.
-    From Berry-Esseen inequality (See, e.g., \cite{book:336898}, Theorem 11.2), there exists an absolute constant $C^*>0$, such that
+    From Berry-Esseen inequality (See, e.g., \cite[Theorem 11.2]{book:336898}), there exists an absolute constant $C^*>0$, such that
     \begin{equation*}
         \begin{split}
         &\sup_{x\in \mathbb R}\left|
@@ -2139,7 +2097,8 @@ Then there exists a sequence of positive integers $r(n)\to \infty$ such that
     \right)
     -\Phi(x)
     \right|
-    \leq
+    \\
+    \leq&
     C^*
     \frac{
         \sum_{i=r(n)+1}^n
@@ -2171,7 +2130,8 @@ Then there exists a sequence of positive integers $r(n)\to \infty$ such that
     \right)
     -\Phi(x)
     \right|
-    \leq
+    \\
+    \leq &
     C_1^*
     \frac{
         \max_{1\leq i \leq n}
@@ -2319,7 +2279,14 @@ Since $\By^{*\top} \BB \By^*= \bepsilon^\top \tilde{\BU}_a \BB \tilde{\BU}_a^\to
         \bbeta_b
     }
 }
+\right.
+\\
+    &
+    \quad
+    \quad
+    \quad
     \leq
+    \left.
     \frac{
         -\bbeta_b^{\top} \BX_b^{*\top} \BB \BX_b^* \bbeta_b
         -\phi^{-1}\mytr(\BB)
@@ -2343,8 +2310,9 @@ It is straightforward to show that
     $\mytr(\BB^2) =  ( n-q +2x^2 ) \myVar ( \gamma_I^k )$.
     On the other hand,
 \begin{equation*}
+    \begin{split}
     \lambda_1\left( \BB^2 \right) 
-    =\max_{1\leq i \leq n-q}
+    =&\max_{1\leq i \leq n-q}
     \left( 
     \gamma_i^k
         -
@@ -2355,7 +2323,8 @@ It is straightforward to show that
         }
         x
     \right)^2
-    \leq
+    \\
+    \leq&
     2
     \max_{1\leq i \leq n-q}
     \left( 
@@ -2368,6 +2337,7 @@ It is straightforward to show that
             \frac{\myVar\left( \gamma_I^k \right)}{n-q} 
         x^2
         .
+    \end{split}
 \end{equation*}
 Thus,
 \begin{equation*}
@@ -2491,7 +2461,6 @@ Then the conclusion follows from \eqref{eq:to2}, \eqref{eq:to3} and the followin
 
 
 \end{proof}
-
 
 
 

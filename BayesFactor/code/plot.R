@@ -1,7 +1,7 @@
 library(ggplot2)
 
-for(XGen in c("factor"))
-    for(n in c(50,100))
+for(XGen in c("uniform","equalCor","factor"))
+    for(n in c(100))
         for(epsilonDis in c("t","chi"))
             for(betabGen in c("dense","sparse")){
                 theD <- read.csv(paste0("tmp/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".csv"))
@@ -23,7 +23,10 @@ for(XGen in c("factor"))
                     scale_y_continuous(breaks=c(0.05,0.25,0.5,0.75,1))+
                     guides(colour=guide_legend(title=NULL),linetype=guide_legend(title=NULL))+
                     theme_bw()+
-                    theme(legend.position=c(0.1,0.85))
+                    theme(legend.position=c(0.1,0.85),
+                          legend.text= element_text(size=rel(1.6)),
+                          legend.title = element_text(size=rel(1.8))
+                          )
                     #facet_wrap(~z,nrow=2)+
                 
                 ggsave(paste0("tmp/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".eps"),myPlot,scale=0.8)

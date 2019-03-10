@@ -5,12 +5,12 @@ Bai, Z., Pan, G., and Yin, Y. (2018).
 \newblock A central limit theorem for sums of functions of residuals in a
   high-dimensional regression model with an application to variance
   homoscedasticity test.
-\newblock {\em {Test}}, 27(4):896--920.
+\newblock {\em {TEST}}, 27(4):896--920.
 
-\bibitem[Bentkus and Gotze, 1996]{Bentkus1996Optimal}
-Bentkus, V. and Gotze, F. (1996).
-\newblock Optimal rates of convergence in the clt for quadratic forms.
-\newblock {\em Annals of Probability}, 24(1):466--490.
+\bibitem[Bentkus and G\"otze, 1996]{Bentkus1996Optimal}
+Bentkus, V. and G\"otze, F. (1996).
+\newblock Optimal rates of convergence in the {CLT} for quadratic forms.
+\newblock {\em The Annals of Probability}, 24(1):466--490.
 
 \bibitem[B\"uhlmann, 2013]{buhlmann2013statistical}
 B\"uhlmann, P. (2013).
@@ -47,7 +47,7 @@ DasGupta, A. (2008).
 \bibitem[Dezeure et~al., 2017]{Dezeure2017}
 Dezeure, R., B\"uhlmann, P., and Zhang, C.-H. (2017).
 \newblock High-dimensional simultaneous inference with the bootstrap.
-\newblock {\em {Test}}, 26(4):685--719.
+\newblock {\em {TEST}}, 26(4):685--719.
 
 \bibitem[Dicker and Erdogdu, 2017]{Dicker2015Flexible}
 Dicker, L.~H. and Erdogdu, M.~A. (2017).
