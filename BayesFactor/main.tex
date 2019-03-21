@@ -16,7 +16,7 @@
 \usepackage{amssymb}
 \usepackage{mathrsfs}
 \usepackage{amsthm}
-\usepackage{natbib}
+\usepackage[numbers]{natbib}
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{booktabs}
@@ -183,8 +183,13 @@ First, the Bayes factors corresponding to proper priors are always well defined,
 Second, under mild conditions, tests based on Bayes factors are admissible (See, e.g., \cite{Lehmann}, Theorem 6.7.2).
 In fact, the test procedure of Goeman {\rm et al.} \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist significance test.
 
-
-In this paper, we propose a new test statistic in large $p$, small $q$ setting which is the limit of Bayes factors under normal linear model.
+The test statistic of Goeman {\rm et al.} \cite{Goeman2006} is obtained by letting the prior magnitude tend to zero.
+Their goal is to achieve the highest average power under local alternative.
+In classical statistics, any reasonable test can detect large deviations from the null hypothesis and it is natural to consider only the local alternative.
+However, the situation is different for our problem.
+In fact, Proposition \ref{prop:unbiased} shall show that no test can detect all large deviations from the null hypothesis in large $p$, small $q$ setting.
+Consequently, it is not enough to consider only the local alternative.
+In this paper, we propose a new test statistic in large $p$, small $q$ setting which is the limit of Bayes factors as the prior magnitude tend to infinity.
 The proposed test statistic is a ratio of quadratic forms of $\By$.
 We give an approximation of the distribution of quadratic form using Lindeberg's replacement trick.
 Based on this approximated distribution, the critical value of the proposed test statisitc is calculated by a one step iteration.
@@ -276,7 +281,7 @@ We notice that in the frequentist framework, the Bayes factor can be treated as 
 
 The behavior of a Bayes factor largely depends on the choice of priors.
 In Bayesian literature, many priors have been considered for testing the coefficients of linear model.
-Popular priors include $g$-priors (\citep{Liang2008Mixtures}) and intrinsic priors (\citep{Casella2006Obj}).
+Popular priors include $g$-priors \citep{Liang2008Mixtures} and intrinsic priors \citep{Casella2006Obj}.
 Unfortunately, these priors are not well defined in large $p$, small $q$ setting.
 %To obtain valid Bayes factor, we use simple priors.
 Note that under the null hypothesis $\mathcal H_0$, the model is low-dimensional.
@@ -433,9 +438,10 @@ In fact, if we let $\kappa$ tends to infinity, the limit
 \end{equation*}
 is exactly the test statistic of Goeman {\rm et al.} \cite{Goeman2006}.
 
-As implied by Proposition \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a difficult problem and no unbiased test can guarantee large power, even if the signal is strong.
+As implied by Proposition \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is such a difficult problem that no test can guarantee reasonable power, even if the true model is largely deviate from the null hypothesis.
 %In fact, we shall see that for certain directions of $\bbeta_b$, the test of \cite{Goeman2006} has negligible power for any magnitude of $\|\bbeta_b\|$.
-Hence it may be too ambitious to consider local power behavior where signal is weak.
+%Hence it may be too ambitious to consider local power behavior.
+In this case, the global power behavior may worth more consideration than the local power behavior.
 %In fact, the test of \cite{Goeman2006} may have negligible power even when $\|\bbeta_b\|$ is large.
 %Hence it is questionable if a test with good local power behavior is a good choice in practice.
 Thus, contrary to the strategy of Goeman {\rm et al.} \cite{Goeman2006}, we let $\kappa$ tend to $0$ to obtain a test with good average power behavior for large $\|\bbeta_b\|$.
@@ -1025,7 +1031,7 @@ In this section, we conduct simulations to examine the empirical size and power 
 (abbreviated as NEW) 
 and compare it with the global test proposed by Goeman {\rm et al.} \cite{Goeman2006} (abbreviated as GT) and the EigenPrism test prospoed by  Janson {\rm et al.} \cite{Janson2016} (abbreviated as EP).
 %In our simulations, the GT test procedure We use the R package \emph{globaltest} to compute.
-Throughout our simulations, we take $q=10$, $p=1000$, $\alpha=0.05$ and the empirical results are obtained from $5000$ replications.
+Throughout our simulations, we take $q=10$, $p=1000$, $\alpha=0.05$ and the empirical results are obtained from $3000$ replications.
 
 
 

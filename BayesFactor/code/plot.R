@@ -1,7 +1,7 @@
 library(ggplot2)
 
 for(XGen in c("uniform","equalCor","factor"))
-    for(n in c(100))
+    for(n in c(50,100))
         for(epsilonDis in c("t","chi"))
             for(betabGen in c("dense","sparse")){
                 theD <- read.csv(paste0("tmp/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".csv"))
@@ -23,9 +23,16 @@ for(XGen in c("uniform","equalCor","factor"))
                     scale_y_continuous(breaks=c(0.05,0.25,0.5,0.75,1))+
                     guides(colour=guide_legend(title=NULL),linetype=guide_legend(title=NULL))+
                     theme_bw()+
-                    theme(legend.position=c(0.1,0.85),
-                          legend.text= element_text(size=rel(1.6)),
-                          legend.title = element_text(size=rel(1.8))
+                    theme(
+                          axis.text.y = element_text(size=rel(1.7)),
+                          axis.text.x = element_text(size=rel(1.7)),
+                          axis.title.y = element_text(size=rel(1.8)),
+                          axis.title.x = element_text(size=rel(1.8)),
+                          legend.position=c(0.15,0.8),
+                          legend.text= element_text(size=rel(1.55)),
+                          legend.title = element_text(size=rel(1.8)),
+                          aspect.ratio =0.6,
+                          #plot.margin=unit(c(0,0,0,0),"cm")
                           )
                     #facet_wrap(~z,nrow=2)+
                 
