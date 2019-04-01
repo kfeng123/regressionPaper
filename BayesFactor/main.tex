@@ -90,7 +90,7 @@
 
 \begin{document}
 \title{
-A Bayesian-motivated test for high-dimensional linear model with fixed design
+Nonexistence of unbiased test for high-dimensional linear model with fixed design and a Bayesian-motivated test 
 }
 
 
@@ -121,6 +121,9 @@ This paper considers testing regression coefficients in high-dimensional linear 
 \noindent {\it Key words}: High-dimensional test, Lindeberg method, Linear model, Unbiasedness.
 
  
+
+
+
 \section{Introduction} 
 Consider linear regression model of the form
 \begin{equation}\label{label:linearModel}
@@ -187,7 +190,7 @@ The test statistic of Goeman {\rm et al.} \cite{Goeman2006} is obtained by letti
 Their goal is to achieve the highest average power under local alternative.
 In classical statistics, any reasonable test can detect large deviations from the null hypothesis and it is natural to consider only the local alternative.
 However, the situation is different for our problem.
-In fact, Proposition \ref{prop:unbiased} shall show that no test can detect all large deviations from the null hypothesis in large $p$, small $q$ setting.
+In fact, Theorem \ref{prop:unbiased} shall show that no test can detect all large deviations from the null hypothesis in large $p$, small $q$ setting.
 Consequently, it is not enough to consider only the local alternative.
 In this paper, we propose a new test statistic in large $p$, small $q$ setting which is the limit of Bayes factors as the prior magnitude tend to infinity.
 The proposed test statistic is a ratio of quadratic forms of $\By$.
@@ -208,10 +211,8 @@ Section \ref{sec:conclusions} concludes the paper.
 The technical proofs are presented in Appendix.
 
 
+\section{Nonexistence of unbiased test}
 
-
-\section{Test procedure}\label{sec:methodology}
-\subsection{A Bayesian-motivated test}
 In this paper, we consider testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting.
 More specifically, we make the following assumption throughout the paper.
 \begin{assumption}
@@ -238,29 +239,30 @@ Define $\btheta =(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top$ and
     \end{split}
 \end{equation*}
 A test function $\varphi(\By)$ of level $\alpha$ is a Borel measurable function from $\mathbb R^n$ to $\mathbb R$ such that $0\leq \varphi(\By) \leq 1$ and $\myE_\theta [\varphi(\By)]\leq \alpha$ for $\theta\in \Theta_0$.
-A test function $\varphi(\By)$ is nonrandom if $\varphi(\By)\in\{0,1\}$.
+A test function $\varphi(\By)$ is nonrandom if $\varphi(\By)$ takes on only the values $0$ and $1$.
 Let $\lambda(\cdot)$ be the Lebesgue measure on $\mathbb R^n$.
-We have the following proposition.
-\begin{proposition}\label{prop:unbiased}
+We have the following theorem.
+\begin{theorem}\label{prop:unbiased}
     Suppose Assumption \ref{Assumption} holds.
     Furthermore, assume $\bepsilon\sim \mathcal N_n (0, \phi^{-1}\BI_n)$.
     Let $\varphi(\By)$ be a test function of level $\alpha$, $0 <\alpha <1$.
-Then the following results hold.
-\begin{enumerate}[(a)]
-    \item 
-        If $\varphi(\By)$ is unbiased, that is, $\myE_\theta [\varphi(\By)]\geq \alpha$ for $\theta \in \Theta$, then $\varphi(\By)=\alpha$, a.s.\ $\lambda$.
-\item
-    If $\varphi(\By)$ is nonrandom, then for every $M>0$, there exists a parameter $\theta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $\phi\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_\theta [\varphi(\By)]< \alpha$.
-\end{enumerate}
-\end{proposition}
-In (b) of Proposition \ref{prop:unbiased}, the quantity $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ can be regarded as a signal to noise ratio.
+%Then the following results hold.
+        %If $\varphi(\By)$ is unbiased, that is, $\myE_\theta [\varphi(\By)]\geq \alpha$ for $\theta \in \Theta$, then $\varphi(\By)=\alpha$, a.s.\ $\lambda$.
+    If $\lambda(\{\By:\varphi(\By)=\alpha\})>0$, then for every $M\geq 0$, there exists a parameter $\theta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $\phi\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_\theta [\varphi(\By)]< \alpha$.
+\end{theorem}
+In Theorem \ref{prop:unbiased}, the quantity $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ can be regarded as a signal to noise ratio.
 In any conventional sense, it is expected that the power of a reasonable test should tend to $1$ as $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b \to \infty$.
 Indeed, such a test can be easily constructed in low dimensional setting.
-However, (b) of Proposition \ref{prop:unbiased} claims that it is impossible to find such a test in large $p$, small $q$ setting.
+However, (b) of Theorem \ref{prop:unbiased} claims that it is impossible to find such a test in large $p$, small $q$ setting.
 Thus, it is impossible to consider the problem from a minimax perspective.
 This motivates us 
 to adopt Bayesian methods
 to find a test with good average power behavior.
+
+
+
+\section{A Bayesian-motivated test}\label{sec:methodology}
+\subsection{Test statistic}
 
 Bayes factor (see, e.g., \citep{Robert1995Bayes}) is a commonly used tool for model comparison within the Bayesian framework.
 In our problem, suppose $\bepsilon \sim \mathcal N_n (0,\phi^{-1} \BI_n)$, the Bayes factor for hypotheses \eqref{theHypothesis} is
@@ -385,11 +387,11 @@ Let $B_{10,\kappa} $ be the Bayes factor corresponding to the priors \eqref{prio
     -(n-q)\log \left(
             1-
         \frac{
-            \By\top \tilde \BP_a \BX_b
+            \By^\top \tilde \BP_a \BX_b
             \left(\BX_b^\top  \tilde \BP_a \BX_b + \kappa \BI_p\right)^{-1}
             \BX_b^\top \tilde \BP_a \By
         }{
-            \By\top \tilde \BP_a \By
+            \By^\top \tilde \BP_a \By
         }
     \right).
     \end{split}
@@ -438,7 +440,7 @@ In fact, if we let $\kappa$ tends to infinity, the limit
 \end{equation*}
 is exactly the test statistic of Goeman {\rm et al.} \cite{Goeman2006}.
 
-As implied by Proposition \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is such a difficult problem that no test can guarantee reasonable power, even if the true model is largely deviate from the null hypothesis.
+As implied by Theorem \ref{prop:unbiased}, however, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is such a difficult problem that no test can guarantee reasonable power, even if the true model is largely deviate from the null hypothesis.
 %In fact, we shall see that for certain directions of $\bbeta_b$, the test of \cite{Goeman2006} has negligible power for any magnitude of $\|\bbeta_b\|$.
 %Hence it may be too ambitious to consider local power behavior.
 In this case, the global power behavior may worth more consideration than the local power behavior.
@@ -895,9 +897,10 @@ Then for any $x\in \mathbb R$,
         } 
     \right)
     +o(1)
-    .
+    ,
     \end{split}
 \end{equation*}
+where $\Phi(\cdot)$ is the cumulative distribution function of a standard normal random variable.
 
 \end{theorem}
 Under the conditions of Theorem \ref{generalTheorem}, the proposed test should reject the null hypothesis when
@@ -981,7 +984,7 @@ and the asymptotic power function of their test is
 
 It can be seen from \eqref{eq:powerProposed} and \eqref{eq:powerTheirs} that the power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ while the power of the test of Goeman {\rm et al.} \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2)$.  
 Unfortunately, neither of these two quantities is positive definite.
-This fact is not surprising in view of Proposition \ref{prop:unbiased}.
+This fact is not surprising in view of Theorem \ref{prop:unbiased}.
 Nevertheless, $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I w_I^2)$ are positive definite if $\bbeta_b$ is restricted  in certain subspaces of $\mathbb R^p$.
 
 Let $d_1$ be the maximum $i$ such that $ \gamma_i^{-1} < \myE (\gamma_I^{-1})$.
@@ -1054,7 +1057,7 @@ The simulation results are illustrated in Figures \ref{fig:1}-\ref{fig:3}.
 %It can be seen that as SNR increases, the empirical powers typically converge to certain limit powers which are strictly less than $1$.
 From the results, it can be seen that all three tests can well maintain the significant level, although the EP test is a little conservative in some cases.
 Note that for $n =50$, the powers of tests typically do not converge to $1$ as SNR increases.
-This phenomenon, which is not surprising in view of Proposition \ref{prop:unbiased}, is eased when the sample size rises to $100$.
+This phenomenon, which is not surprising in view of Theorem \ref{prop:unbiased}, is eased when the sample size rises to $100$.
 In all three simulations, the proposed test shows relatively good power behavior compared with its two competitors.
 Figure \ref{fig:3} shows that under Model III, the GT test has negligible power while the proposed test has reasonable power.
 This verifies the argument made at the end of Section \ref{sec:Power}.
@@ -1277,7 +1280,7 @@ Under certain conditions, we also derived the asymptotic power function of the p
 
 The methodology of Goeman {\rm et al.} \cite{Goeman2006} can also be applied in generalized linear models.
 However, it is not obvious how to generalize the proposed test and the test of Janson {\rm et al.} \cite{Janson2016} to generalized linear models.
-More fundamentally, it is unclear if results like Proposition \ref{prop:unbiased} hold for generalized linear model.
+More fundamentally, it is unclear if results like Theorem \ref{prop:unbiased} hold for generalized linear model.
 
 In Theorem \ref{TheoremLindeberg}, we assumed that the distribution of $\epsilon_1$ is symmetric about $0$. 
 This condition is also assumed by Bai {\rm et al.} \cite{Bai2017} in the study of central limit theorem of quadratic form.
@@ -1299,18 +1302,19 @@ This work was supported by the National Natural Science Foundation of China unde
 \section*{Appendix}
 
 \begin{lemma}\label{Lemma:FF}
-    Under the assumptions of Proposition \ref{prop:unbiased}, if there exists a Borel set $G\subset \mathbb R^n$ and a number $M\geq 0$ such that 
+    Under the assumptions of Theorem \ref{prop:unbiased}, if there exists a Borel set $G\subset \mathbb R^n$ and a number $M\geq 0$ such that 
     \begin{equation*}
         \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n(\mu,\phi^{-1} \BI_n)(\By)\, \mathrm{d} \By \geq \alpha\quad \text{for all $\mu \in G$ and $\phi >M$},
     \end{equation*}
-    then $\lambda(\{\By : \phi(\By)< \alpha, \By \in G\})=0$.
+    %then $\lambda(\{\By : \phi(\By)< \alpha, \By \in G\})=0$.
+    then $\varphi(\By)\mathbf 1_{G}(\By)\geq \alpha \mathbf 1_{G}(\By)$ a.e.\ $\lambda$.
 \end{lemma}
 \begin{proof}
     %Next we prove $\varphi(\By) \geq \alpha$, a.s.\ $\lambda$ by contradiction.
     We prove the claim by contradiction.
-    Suppose $\lambda(\{\By:\varphi (\By) <\alpha,\, \By \in G\})>0$.
-    Then there exists a sufficiently small $0< \eta <\alpha$, such that $\lambda(\{\By:\varphi (\By) <\alpha-\eta,\, \By \in G\})>0$.
-    We denote $ E:=\{\By\in \mathbb R^n:\varphi (\By) <\alpha-\eta,\,  \By \in G\}$.
+    Suppose $\lambda(\{\By:\varphi (\By) <\alpha\} \cap G )>0$.
+    Then there exists a sufficiently small $0< \eta <\alpha$, such that $\lambda(\{\By:\varphi (\By) <\alpha-\eta\} \cap G)>0$.
+    We denote $ E:=\{\By:\varphi (\By) <\alpha-\eta\} \cap G$.
     From Lebesgue density theorem \citep[Corollary 6.2.6]{book:992991}, there exists a point $z\in  E$, such that, for any $\varepsilon >0$ there is a $\delta_{\varepsilon}>0$ such that for any $0 < \delta' <\delta_\varepsilon$,
     \begin{equation*}
         \left|\frac{\lambda(E^\complement\cap C_{\delta'})}{\lambda(C_{\delta'})}\right|<\varepsilon,
@@ -1318,9 +1322,8 @@ This work was supported by the National Natural Science Foundation of China unde
     where $C_{\delta'}=\prod_{i=1}^n [z_i-{\delta'}, z_i + {\delta'}]$.
     We put
     \begin{equation*}
-        \varepsilon=\left(\frac{\sqrt \pi}{\sqrt 2 \Phi^{-1}\left(1-\frac{\eta}{6n}\right)}\right)^n \frac{\eta}{3},
+        \varepsilon=\left(\frac{\sqrt \pi}{\sqrt 2 \Phi^{-1}\left(1-\frac{\eta}{6n}\right)}\right)^n \frac{\eta}{3}.
     \end{equation*}
-    where $\Phi(\cdot)$ is the cumulative distribution function of a standard normal random variable.
     Then for any $\phi>M$ and $0<\delta' <\delta_\varepsilon$,
     \begin{equation*}
         \begin{split}
@@ -1381,71 +1384,73 @@ and put
     
 \end{proof}
 
-\begin{proof}[\textbf{Proof of Proposition \ref{prop:unbiased}}]
+\begin{proof}[\textbf{Proof of Theorem \ref{prop:unbiased}}]
     
-    To prove the claim (a), 
-    %Since $\myRank([\BX_a,\BX_b])=n$,
-    note that $\varphi(\By)$ is unbiased if and only if
-    \begin{equation*}
-        \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n (\mu,\phi^{-1} \BI_n) (\By) \,\mathrm{d} \By\geq \alpha
-        \quad \text{for all $\mu\in \mathbb R^n$ and $\phi>0$}.
-    \end{equation*}
-    %where $\mathcal N_n(\mu,\sigma^2 \BI_n)(d\By)$ is the density function of a $\mathcal N_n (\mu, \sigma^2 \BI_n)$ random vector with respect to Lebesgue measure $\lambda(\cdot)$.
-    Then Lemma \ref{Lemma:FF} implies that $\varphi(\By) \geq \alpha$, a.s.\ $\lambda$.
-    %From \cite{Lehmann}, Theorem 2.7.1, $\myE [\varphi(\By)]=\alpha$ under the null hypothesis.
-    %In particular,
-    %we have
-    On the other hand, since $\varphi(\By)$ is a level $\alpha$ test, for every $\phi>0$,
-    \begin{equation}\label{eq:unbiasedproof1}
-        \int_{\mathbb R^n} [\varphi(\By)-\alpha] d\mathcal N_n (0,\phi^{-1} \BI_n)(\By) \,\mathrm{d} \By\leq 0.
-    \end{equation}
-    Note that the integrand of \eqref{eq:unbiasedproof1} is nonnegative. Hence $\varphi(\By)-\alpha=0$ a.s.\ $\lambda$.
-    This proves the claim (a). 
+%    To prove the claim (a), 
+%    %Since $\myRank([\BX_a,\BX_b])=n$,
+%    note that $\varphi(\By)$ is unbiased if and only if
+%    \begin{equation*}
+%        \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n (\mu,\phi^{-1} \BI_n) (\By) \,\mathrm{d} \By\geq \alpha
+%        \quad \text{for all $\mu\in \mathbb R^n$ and $\phi>0$}.
+%    \end{equation*}
+%    %where $\mathcal N_n(\mu,\sigma^2 \BI_n)(d\By)$ is the density function of a $\mathcal N_n (\mu, \sigma^2 \BI_n)$ random vector with respect to Lebesgue measure $\lambda(\cdot)$.
+%    Then Lemma \ref{Lemma:FF} implies that $\varphi(\By) \geq \alpha$, a.s.\ $\lambda$.
+%    %From \cite{Lehmann}, Theorem 2.7.1, $\myE [\varphi(\By)]=\alpha$ under the null hypothesis.
+%    %In particular,
+%    %we have
 
-    Now we prove the claim (b) by contradiction.
-    Suppose
+    We prove the claim by contradiction.
+    Suppose there exists an $M\geq 0$ such that
     \begin{equation*}
         \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n \left(\BX_a \bbeta_a + \BX_b \bbeta_b,\phi^{-1} \BI_n\right) (\By)\, \mathrm{d}\By 
         \geq \alpha 
     \end{equation*}
     for every $\bbeta_a\in \mathbb R^q$, $\bbeta_b \in \mathbb R^p$, $\phi>0$ satisfying $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b >M$.
-    Note that
+    Note that for any $h>0$
     \begin{equation*}
-        \left\{(\bbeta_b^\top, \phi)^\top :  \bbeta_b^\top \BX_b^\top \tilde\BP_a \BX_b \bbeta_b >\sqrt M,\phi>\sqrt M \right\} 
+        \left\{(\bbeta_b^\top, \phi)^\top :  \bbeta_b^\top \BX_b^\top \tilde\BP_a \BX_b \bbeta_b > h \sqrt M,\phi> h^{-1} \sqrt M \right\} 
         \subset
         \left\{(\bbeta_b^\top, \phi)^\top :  \phi\bbeta_b^\top \BX_b^\top \tilde\BP_a \BX_b \bbeta_b > M\right\} .
     \end{equation*}
-    Then Lemma \ref{Lemma:FF} implies that $\varphi(\By) \mathbf 1_{G}(\By)\geq \alpha \mathbf 1_{G}(\By)$ a.e.\ $\lambda$, where 
+    Then Lemma \ref{Lemma:FF} implies that for any $h>0$, $\varphi(\By) \mathbf 1_{G_h}(\By)\geq \alpha \mathbf 1_{G_h}(\By)$ a.e.\ $\lambda$, where 
     \begin{equation*}
-        G=\left\{ \BX_a \bbeta_a + \BX_b \bbeta_b:  \bbeta_a \in \mathbb R^{q},
-        \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b >\sqrt M
+        G_h=\left\{ \BX_a \bbeta_a + \BX_b \bbeta_b:  \bbeta_a \in \mathbb R^{q},
+        \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > h \sqrt M
     \right\}.
     \end{equation*}
-    It can be easily seen that
-    \begin{equation*}
-        G=\left\{
-            w+z: w\in \textrm{span}(\BX_a), z \in \textrm{span}(\BX_a)^{\bot},
-            \|z\|^2 > \sqrt{M}
-        \right\},
-    \end{equation*}
-    where $\textrm{span}(\BX_a)$ is the linear span of the columns of $\BX_a$ and $\textrm{span}(\BX_a)^\bot$ is the orthogonal complement of $\textrm{span}(\BX_a)$.
-    Since $\varphi(\By)$ is nonrandom and $\alpha>0$, we have $\varphi(\By) \mathbf 1_{G}(\By)\geq \mathbf 1_{G}(\By)$ a.e.\ $\lambda$.
-    Also note that $\varphi(\By)$ is a level $\alpha$ test, then for every $\phi>0$, we have
-    \begin{equation*}
-        \begin{split}
-            \alpha \geq&
-        \int_{\mathbb R^n} \varphi(\By) d\mathcal N_n (0,\phi^{-1} \BI_n)(\By) \,\mathrm{d} \By
-        \\
-        \geq& 
-        \int_{G} d\mathcal N_n (0,\phi^{-1} \BI_n)(\By) 
-        \\
-        =&\Pr\left( 
-            R > \phi M^{*2}
-        \right),
-        \end{split}
-    \end{equation*}
-    where $R$ is a random variable with distribution $\chi^2(n-q)$.
-    Thus, we obtain a contradiction by letting $\phi\to 0$ in the above inequality.
+    %It can be easily seen that
+    %\begin{equation*}
+        %G=\left\{
+            %w+z: w\in \textrm{span}(\BX_a), z \in \textrm{span}(\BX_a)^{\bot},
+            %\|z\|^2 > \sqrt{M}
+        %\right\},
+    %\end{equation*}
+    %where $\textrm{span}(\BX_a)$ is the linear span of the columns of $\BX_a$ and $\textrm{span}(\BX_a)^\bot$ is the orthogonal complement of $\textrm{span}(\BX_a)$.
+    %Since $\varphi(\By)$ is nonrandom and $\alpha>0$, we have $\varphi(\By) \mathbf 1_{G}(\By)\geq \mathbf 1_{G}(\By)$ a.e.\ $\lambda$.
+    %Also note that $\varphi(\By)$ is a level $\alpha$ test, then for every $\phi>0$, we have
+    %\begin{equation*}
+        %\begin{split}
+            %\alpha \geq&
+        %\int_{\mathbb R^n} \varphi(\By) d\mathcal N_n (0,\phi^{-1} \BI_n)(\By) \,\mathrm{d} \By
+        %\\
+        %\geq& 
+        %\int_{G} d\mathcal N_n (0,\phi^{-1} \BI_n)(\By) 
+        %\\
+        %=&\Pr\left( 
+            %R > \phi M^{*2}
+        %\right),
+        %\end{split}
+    %\end{equation*}
+    %where $R$ is a random variable with distribution $\chi^2(n-q)$.
+    %Thus, we obtain a contradiction by letting $\phi\to 0$ in the above inequality.
+    It can be seen that $\lambda(\{ \cup_{n=1}^\infty G_{1/n}\}^\complement)= 0$.
+    Hence $\varphi (\By) \geq \alpha$ a.e.\ $\lambda$.
+    On the other hand, since $\varphi(\By)$ is a level $\alpha$ test, for every $\phi>0$,
+    \begin{equation}\label{eq:unbiasedproof1}
+        \int_{\mathbb R^n} [\varphi(\By)-\alpha] d\mathcal N_n (0,\phi^{-1} \BI_n)(\By) \,\mathrm{d} \By\leq 0.
+    \end{equation}
+    Note that the integrand of \eqref{eq:unbiasedproof1} is nonnegative.
+    It follows that $\varphi(\By)=\alpha$ a.s.\ $\lambda$, a contradiction.
     This completes the proof.
 
 \end{proof}
