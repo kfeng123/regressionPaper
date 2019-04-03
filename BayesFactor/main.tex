@@ -109,7 +109,8 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
 \begin{abstract}
 This paper considers testing regression coefficients in high-dimensional linear model with fixed design matrix.
     We prove that there does not exist nontrivial unbiased test for this problem.
-    This phenomenon makes it impossible to consider the problem from a minimax perspective.
+    %This phenomenon makes it impossible to consider the problem from a minimax perspective.
+    Moreover, no test can guarantee nontrivial power even when the true model is largely deviate from the null hypothesis.
     Nevertheless, Bayesian methods can still produce tests with good average power behavior.
     We propose a new test statistic which is the limit of Bayes factors under normal distribution.
     The null distribution of the proposed test statistic is approximated by Lindeberg's replacement trick.
@@ -204,6 +205,7 @@ Simulations are conducted to examine the performance of the proposed test.
 
 
 The rest of the paper is organized as follows.
+In Section \ref{sec:unbiased}, we prove the nonexistence of unbiased test for hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting.
 In Section \ref{sec:methodology}, we propose a Bayesian-motivated test and study the theoretical properties of the proposed test procedure.
 The asymptotic power function is also derived.
 Section \ref{sec:Numerical} contains the simulation results. 
@@ -211,7 +213,7 @@ Section \ref{sec:conclusions} concludes the paper.
 The technical proofs are presented in Appendix.
 
 
-\section{Nonexistence of unbiased test}
+\section{Nonexistence of unbiased test}\label{sec:unbiased}
 
 In this paper, we consider testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting.
 More specifically, we make the following assumption throughout the paper.
@@ -239,7 +241,7 @@ Define $\btheta =(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top$ and
     \end{split}
 \end{equation*}
 A test function $\varphi(\By)$ of level $\alpha$ is a Borel measurable function from $\mathbb R^n$ to $\mathbb R$ such that $0\leq \varphi(\By) \leq 1$ and $\myE_\theta [\varphi(\By)]\leq \alpha$ for $\theta\in \Theta_0$.
-A test function $\varphi(\By)$ is nonrandom if $\varphi(\By)$ takes on only the values $0$ and $1$.
+%A test function $\varphi(\By)$ is nonrandom if $\varphi(\By)$ takes on only the values $0$ and $1$.
 Let $\lambda(\cdot)$ be the Lebesgue measure on $\mathbb R^n$.
 We have the following theorem.
 \begin{theorem}\label{prop:unbiased}
@@ -248,16 +250,20 @@ We have the following theorem.
     Let $\varphi(\By)$ be a test function of level $\alpha$, $0 <\alpha <1$.
 %Then the following results hold.
         %If $\varphi(\By)$ is unbiased, that is, $\myE_\theta [\varphi(\By)]\geq \alpha$ for $\theta \in \Theta$, then $\varphi(\By)=\alpha$, a.s.\ $\lambda$.
-    If $\lambda(\{\By:\varphi(\By)=\alpha\})>0$, then for every $M\geq 0$, there exists a parameter $\theta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $\phi\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_\theta [\varphi(\By)]< \alpha$.
+    If $\lambda(\{\By:\varphi(\By)\neq \alpha\})>0$, then for every $M\geq 0$, there exists a parameter $\theta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $\phi\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_\theta [\varphi(\By)]< \alpha$.
 \end{theorem}
+It follows from Theorem \ref{prop:unbiased} that there is no nontrivial unbiased test in large $p$, small $q$ setting.
+But Theorem \ref{prop:unbiased} provides more information.
 In Theorem \ref{prop:unbiased}, the quantity $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ can be regarded as a signal to noise ratio.
 In any conventional sense, it is expected that the power of a reasonable test should tend to $1$ as $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b \to \infty$.
 Indeed, such a test can be easily constructed in low dimensional setting.
-However, (b) of Theorem \ref{prop:unbiased} claims that it is impossible to find such a test in large $p$, small $q$ setting.
-Thus, it is impossible to consider the problem from a minimax perspective.
-This motivates us 
-to adopt Bayesian methods
-to find a test with good average power behavior.
+However, Theorem \ref{prop:unbiased} claims that it is impossible to find such a test in large $p$, small $q$ setting.
+
+
+Thus, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a difficult problem.
+Classical strategies for constructing tests may not be suitable since there is no nontrivial unbiased test nor test with guaranteed power.
+This motivates us to consider tests with good average power behavior.
+Then Bayesian methods are natural choices.
 
 
 
@@ -397,7 +403,7 @@ Let $B_{10,\kappa} $ be the Bayes factor corresponding to the priors \eqref{prio
     \end{split}
 \end{equation*}
 
-Denote by $\tilde \BP_a=\tilde{\BU}_a \tilde{\BU}_a^\top$ the rank decomposition of $\tilde \BP_a$, where $\tilde{\BU}_a$ is a $n\times (n-q)$ column orthogonal matrix.
+Denote by $\tilde \BP_a=\tilde{\BU}_a \tilde{\BU}_a^\top$ the rank decomposition of $\tilde \BP_a$, where $\tilde{\BU}_a$ is an $n\times (n-q)$ column orthogonal matrix.
 Let $\BX_b^* = \tilde{\BU}_a^\top \BX_b$, $\By^* =\tilde \BU_a^\top \By$.
 Let $\gamma_i$ be the $i$th largest eigenvalue of $\BX^*_b \BX_b^{*\top}$, $i=1,\ldots, n-q$.
 Denote by $\BX_b^* =\BU_{b}^* \BD_{b}^* \BV_b^{*\top}$ the singular value decomposition of $\BX_{b}^*$, where  $\BU_{b}^*$, $\BV_b^*$ are $(n-q)\times (n-q)$ and $p\times (n-q)$ column orthogonal matrices, respectively, and $\BD_{b}^*=\mydiag (\sqrt {\gamma_1},\ldots, \sqrt{\gamma_{n-q}})$.
@@ -472,28 +478,29 @@ If $\bepsilon$ were indeed normally distributed, then under the null hypothesis,
     {(\sum_{i=1}^{n-q} \gamma_i^{-1} z_i^2)}/{(\sum_{i=1}^{n-q} z_i^2)}$,
 where $z_1,\ldots, z_{n-q}$ are iid $\mathcal N(0,1)$ random variables.
 In this case, the exact critical value can be easily obtained.
-However, normal distribution rarely appears in practice.
+In practice, however, normal distribution often serves as an approximation rather than the true distribution of data.
 We would like to derive an asymptotic valid critical value for $T_{n}$ for general distributions of $\bepsilon$.
 
 Under the null hypothesis,
 \begin{equation*}
     T=-\frac{ (\sqrt \phi \bepsilon)^\top \tilde \BU_a (\BX_b^* \BX_b^{*\top})^{-1} \tilde \BU_a^\top (\sqrt \phi \bepsilon)}{ (\sqrt \phi \bepsilon)^\top \tilde \BU_a  \tilde \BU_a^\top (\sqrt \phi \bepsilon)}.
 \end{equation*}
-The numerator and the denominator of the above expression are both quadratic forms of iid random variables with mean $0$ and variance $1$.
-Hence the key step towards the goal is to approximate the distribution of the quadratic form of iid standardized random variables.
-The asymptotics of quadratic form have been extensively studied; see, e.g., \cite{jiang1996reml,Bentkus1996Optimal,Goetze2002,Dicker2015Flexible,Bai2017}.
-Most existing work use normal distribution to approximate the distribution of the quadratic form.
-However, normal distribution is just one of the possible limit distributions of quadratic form.
-See Sevast'yanov \cite{Sevast1961A} for a full characterization of the limit distributions of quadratic form of normal random variables.
-Our approximation strategy is to replace the random variables in quadratic form by suitable normal random variables.
-The error bound of this approximation will be derived by Lindeberg's replacement trick (see, e.g., \cite{pollard1984convergence}, Section III.4).
+The numerator and the denominator of the above expression are both quadratic forms of iid standardized random variables.
+Hence the key step towards the goal is to approximate the distribution of quadratic forms.
+The asymptotics of quadratic forms have been extensively studied; see, e.g., \cite{Bai2017,Bentkus1996Optimal,Dicker2015Flexible,Goetze2002,jiang1996reml,Jong1987A}.
+Most existing work focused on the asymptotic normality of quadratic forms under certain conditions.
+However, normal distribution is just one of the possible limit distributions of quadratic forms.
+See Sevast'yanov \cite{Sevast1961A} for a full characterization of the limit distributions of quadratic forms of normal random variables.
+We would like to approximate the distribution of quadratic forms under general conditions, not confined to the asymptotic normality case.
+%In particular, our approximation is valid even if the quadratic form is not asymptotic normally distributed.
 
+A general method for distribution approximation is Lindeberg's replacement trick, the technique used in the Lindeberg's original proof of central limit theorem.
+The idea of Lindeberg's replacement trick is to subsequently replace the random variables by suitable normal random variables; see, e.g., \cite{pollard1984convergence}, Section III.4.
+Recently, this technique shows great power for many difficult problems; see \cite{Chatterjee2006} and the references therein.
+To approximate the distribution of quadratic forms, we shall apply Lindeberg's replacement trick to the squared terms and the cross-products terms, respectivey.
+%The error bound of this approximation will be derived by Lindeberg's replacement trick.
 Let $\mathscr C^4(\mathbb R)$ denote the class of all bounded real functions on $\mathbb R$ having bounded, continuous $k$th derivatives, $0\leq k\leq 4$.
 It is known that if $\myE f(Z_n)\to \myE f(Z)$ for every $f\in \mathscr C^4 (\mathbb R)$ then $Z_n \rightsquigarrow Z$; see, e.g., \cite{pollard1984convergence}, Theorem 12 of Chapter III.
-
-
-
-
 We have the following approximation theorem.
 
 
@@ -667,7 +674,7 @@ Under the null hypothesis, Theorem \ref{approximation} implies that
 .
     \end{split}
 \end{equation*}
-Ideally, we should find a consistent estimator $\hat \tau$ of $\sqrt{\phi^2 \myE (\epsilon_1^4) -1}$ and solve $x$ from the equation
+Thus, in order to obtain a test with level $\alpha$ asymptotically, the ideal strategy is to find a consistent estimator $\hat \tau$ of $\sqrt{\phi^2 \myE (\epsilon_1^4) -1}$ and solve the critical value $x$ from the equation
 \begin{equation*}
      F\left(
    \mytr (\BX_b^* \BX_b^{*\top})^{-1} 
@@ -685,7 +692,7 @@ We set the start point as
 \end{equation*}
 which is chosen such that $\mytr( -\tilde{\BU}_a ( \BX_b^* \BX_b^{*\top} )^{-1} \tilde{\BU}_a^\top 
 -x^{(0)}\tilde{\BU}_a \tilde{\BU}_a^\top )=0$.
-Let
+Then the critical value obtained from the one step iteration is
 \begin{equation*}
     x^{(1)}= 
         \frac{
@@ -697,8 +704,7 @@ Let
    }{n-q}
 .
 \end{equation*}
-
-        As noted in Remark \ref{remark1}, $\tau^2$ should be a consistent estimator of $\phi^2 \myE (\epsilon_1^4)-1$ under the null hypothesis.
+As noted in Remark \ref{remark1}, here $\hat \tau^2$ should be a consistent estimator of $\phi^2 \myE (\epsilon_1^4)-1$ under the null hypothesis.
 
 \begin{theorem}
     Suppose Assumption \ref{Assumption} holds.
@@ -733,20 +739,21 @@ Let
     \label{thm:criticalValue}
 \end{theorem}
 
-Bai {\rm et al.} \cite{Bai2017} gave a consistent estimator of $\sigma^{-4} \myE (\epsilon_1^4)-1$  based on the standardized residuals.
+It remains to consistently estimate $\phi^2 \myE (\epsilon_1^4)-1$.
+Bai {\rm et al.} \cite{Bai2017} gave a consistent estimator of $\phi^2 \myE (\epsilon_1^4)-1$  based on the standardized residuals.
         Here we use a slightly different estimator which is based on the ordinary least squares residuals $\tilde \bepsilon=(\tilde \epsilon_1,\ldots, \tilde \epsilon_n)^\top= \tilde \BP_a \By$.
     From \cite{Bai2017}, Theorem 2.1, 
     \begin{align*}
         &\myE \left( \tilde \bepsilon^\top  \tilde \BP_a \tilde \bepsilon \right)
-        = (n-q) \sigma^2,
+        = (n-q) \phi^{-1},
         \\
         &\myE \left( \sum_{i=1}^n \tilde \epsilon_i^4 \right)
         =
-        3\sigma^4 \mytr (\tilde \BP_a^{\circ 2}) 
-        +\left( \myE (\epsilon_1^4)-3 \sigma^{4}\right)
+        3\phi^{-2} \mytr (\tilde \BP_a^{\circ 2}) 
+        +\left( \myE (\epsilon_1^4)-3 \phi^{-2}\right)
         \mytr \left( \tilde \BP_a^{\circ 2}  \right)^2.
     \end{align*}
-    Then a moment estimator of $\sigma^{-4}\myE (\epsilon_1^4)-1$ is 
+    Then a moment estimator of $\phi^{2}\myE (\epsilon_1^4)-1$ is 
 \begin{equation*}
     \hat \tau^2 =
     \frac{
@@ -761,7 +768,7 @@ Bai {\rm et al.} \cite{Bai2017} gave a consistent estimator of $\sigma^{-4} \myE
 \begin{proposition}\label{prop:estimation}
     Suppose the assumptions of Theorem \ref{thm:criticalValue} hold.
     Furthermore, suppose $q/n\to 0$.
-    Then under the null hypothesis, $\hat \tau^2 \xrightarrow{P} \sigma^{-4} \myE (\epsilon_1^4)-1$.
+    Then under the null hypothesis, $\hat \tau^2 \xrightarrow{P} \phi^{2} \myE (\epsilon_1^4)-1$.
 \end{proposition}
 We reject the null hypothesis if 
 \begin{equation*}
@@ -773,7 +780,7 @@ This test procedure is asymptotically exact of size $\alpha$ under the condition
 \subsection{Power analysis}\label{sec:Power}
 In this section, we investigate the asymptotic power of the proposed test procedure as well as the test of Goeman {\rm et al.} \cite{Goeman2006}.
 To make the expression of the asymptotic power functions tractable, we shall assume further conditions so that the test statistics are asymptotically normally distributed.
-Also, $\bepsilon$ is assumed to be normally distributed so that we can can obtain the global power function rather than only local power function.
+Also, $\bepsilon$ is assumed to be normally distributed so that we can obtain the global power function rather than only local power function.
 
 To derive the asymptotic power of the proposed test and the test of Goeman {\rm et al.} \cite{Goeman2006} simultaneously, we consider the general statistic
     ${
@@ -832,12 +839,15 @@ Now we investigate the asymptotic behavior of
         \By^*
     }/{\By^{*\top} \By^*}$.
 Let $w_i=(\BV_b^{*\top} \bbeta_b)_i$ be the coordinate of $\beta_b$ along the $i$th principal component direction of $\BX_b^{*\top} \BX_b^*$, $i=1,\ldots, n-q$.
-It turns out that many quantities involved can be conveniently represented as the expectations with respect to $I$, a random variable uniformly distributed on $\{1,\ldots, n-q\}$.
+Let $I$ be a random variable with uniform distribution on $\{1,\ldots, n-q\}$, that is, $\Pr \left( I=i \right)=i/(n-q)$, $i=1,\ldots, n-q$.
+It turns out that many quantities involved can be conveniently represented as the expectations with respect to $I$.
 For example, $
         {
             \mytr(\BX_b^* \BX_b^{*\top})^k
         }/
         (n-q )
+        =
+        \sum_{i=1}^{n-q} \gamma_i^k /(n-q)
         =\myE (\gamma_I^k)
 $.
 
@@ -1273,6 +1283,8 @@ $\BX_b$ is generated by Model III.
 
 
 \section{Conclusions}\label{sec:conclusions}
+This paper is concerned with testing regression coefficients in large $p$, small $q$ setting.
+It was proved that nontrivial unbiased test does not exists in this setting.
 We have proposed a Bayesian-motivated test statistic for high-dimensional linear model with fixed design.
 We proposed an approximation of the null distribution of the proposed test statistic which is then used to determine the critical value of the test statistic.
 Under weak conditions, we proved the proposed test procedure is asymptotically level $\alpha$.
@@ -1972,17 +1984,17 @@ This proves the theorem.
     Thus,
     \begin{align*}
         & \tilde \bepsilon^\top  \tilde \BP_a  \tilde \bepsilon
-        = (n-q) \sigma^2+O_P(\sqrt n),
+        = (n-q) \phi^{-1}+O_P(\sqrt n),
         \\
         & \sum_{i=1}^n \tilde \epsilon_i^4 
         =
-        3\sigma^4 \mytr (\tilde \BP_a^{\circ 2}) 
-        +\left( \myE (\epsilon_1^4)-3 \sigma^{4}\right)
+        3\phi^{-2} \mytr (\tilde \BP_a^{\circ 2}) 
+        +\left( \myE (\epsilon_1^4)-3 \phi^{-2}\right)
         \mytr \left( \tilde \BP_a^{\circ 2}  \right)^2 + O_P(\sqrt n).
     \end{align*}
     It follows that
     \begin{equation*}
-        \hat \tau ^2 = \sigma^{-4}\myE (\epsilon_1^4)-1
+        \hat \tau ^2 = \phi^{2}\myE (\epsilon_1^4)-1
         +O_P\left( \frac{\sqrt n}{\mytr \left( \tilde \BP_a ^{\circ 2} \right)^2} \right).
     \end{equation*}
     Let $\delta_{i,j}=1$ if $i=j$ and $0$ if $i\neq j$.

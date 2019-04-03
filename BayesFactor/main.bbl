@@ -23,6 +23,11 @@ Casella, G. and Moreno, E. (2006).
 \newblock {\em Journal of the American Statistical Association},
   101(473):157--167.
 
+\bibitem[Chatterjee, 2006]{Chatterjee2006}
+Chatterjee, S. (2006).
+\newblock A generalization of the lindeberg principle.
+\newblock {\em The Annals of Probability}, 34(6):2061--2076.
+
 \bibitem[Chatterjee, 2008]{Chatterjee2008}
 Chatterjee, S. (2008).
 \newblock A new method of normal approximation.
@@ -110,6 +115,11 @@ Javier~Gir\'on, F., Lina~Mart\'inez, M., Moreno, E., and Torres, F. (2006).
 Jiang, J. (1996).
 \newblock Reml estimation: asymptotic behavior and related topics.
 \newblock {\em Annals of Statistics}, 24(1):255--286.
+
+\bibitem[Jong, 1987]{Jong1987A}
+Jong, P.~D. (1987).
+\newblock A central limit theorem for generalized quadratic forms.
+\newblock {\em Probability Theory \& Related Fields}, 75(2):261--277.
 
 \bibitem[Kass and Raftery, 1995]{Robert1995Bayes}
 Kass, R.~E. and Raftery, A.~E. (1995).
