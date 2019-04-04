@@ -163,7 +163,8 @@ Many test procedures have been proposed in the large $p$, small $q$ setting.
 Based on an empirical Bayes model, Goeman {\rm et al.} \cite{Goeman2006} and Goeman {\rm et al.} \cite{Goeman2011} proposed a score test statistic as well as a method to determine the critical value.
 This score test was further investigated by Lan {\rm et al.} \cite{Lan2014Testing} and Lan {\rm et al.} \cite{Lan2016a}.
 Based on $U$-statistics, Zhong and Chen \cite{Zhong2011Tests} proposed a test for the case where $\BX_a=\mathbf 1_n$.
-Later, Wang and Cui \cite{Wang2015} extended the test of Zhong and Chen \cite{Zhong2011Tests} to the case where $\BX_a$ is a general design matrix.
+Their method was then extended and improved by Wang and Cui \cite{Wang2015} and Cui {\rm et al.} \cite{Cui2018}, respectively.
+%Wang and Cui \cite{Wang2015} extended the test of Zhong and Chen \cite{Zhong2011Tests} to the case where $\BX_a$ is a general design matrix.
 To accommodate outlying observations and heavy-tailed distributions, Feng {et al.} \cite{Feng2013}
 proposed a rank-based test for the entire coefficients.
 Xu \cite{Xu2016a} modified the test of Feng {\rm et al.} \cite{Feng2013} and proposed a scalar invariant rank-based test.
@@ -219,7 +220,7 @@ In this paper, we consider testing hypotheses \eqref{theHypothesis} in large $p$
 More specifically, we make the following assumption throughout the paper.
 \begin{assumption}
     In the linear model \eqref{label:linearModel}, 
-    suppose $\bepsilon=(\epsilon_1,\ldots,\epsilon_n)^\top$ where $\epsilon_1,\ldots, \epsilon_n$ are independent indentically distributed (iid) with mean $0$ and covariance $\sigma^2=\phi^{-1}$.
+    suppose $\bepsilon=(\epsilon_1,\ldots,\epsilon_n)^\top$ where $\epsilon_1,\ldots, \epsilon_n$ are independent indentically distributed (iid) with $\myE (\epsilon_1) = 0$ and $\myVar (\epsilon_1) = \phi^{-1}$.
     Furthermore, suppose $q<n$, $\myRank(\BX_a)=q$ and $\myRank([\BX_a; \BX_b])=n$.
     \label{Assumption}
 \end{assumption}
@@ -235,12 +236,12 @@ Let $\BP_a=\BX_a(\BX_a^\top \BX_a)^{-1} \BX_a^\top$ be the projection matrix ont
 Define $\btheta =(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top$ and 
 \begin{equation*}
     \begin{split}
-        &\Theta_0 = \left\{\theta=(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top: \bbeta_a \in \mathbb R^{q}, \bbeta_b=0, \phi>0\right\},
+        &\Theta_0 = \left\{\btheta=(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top: \bbeta_a \in \mathbb R^{q}, \bbeta_b=0, \phi>0\right\},
     \\
-    &\Theta = \left\{\theta=(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top: \bbeta_a \in \mathbb R^{q}, \bbeta_b\in \mathbb R^p, \phi>0\right\}.
+    &\Theta = \left\{\btheta=(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top: \bbeta_a \in \mathbb R^{q}, \bbeta_b\in \mathbb R^p, \phi>0\right\}.
     \end{split}
 \end{equation*}
-A test function $\varphi(\By)$ of level $\alpha$ is a Borel measurable function from $\mathbb R^n$ to $\mathbb R$ such that $0\leq \varphi(\By) \leq 1$ and $\myE_\theta [\varphi(\By)]\leq \alpha$ for $\theta\in \Theta_0$.
+A test function $\varphi(\By)$ of level $\alpha$ is a Borel measurable function from $\mathbb R^n$ to $\mathbb R$ such that $0\leq \varphi(\By) \leq 1$ and $\myE_{\btheta} [\varphi(\By)]\leq \alpha$ for $\btheta\in \Theta_0$.
 %A test function $\varphi(\By)$ is nonrandom if $\varphi(\By)$ takes on only the values $0$ and $1$.
 Let $\lambda(\cdot)$ be the Lebesgue measure on $\mathbb R^n$.
 We have the following theorem.
@@ -250,7 +251,7 @@ We have the following theorem.
     Let $\varphi(\By)$ be a test function of level $\alpha$, $0 <\alpha <1$.
 %Then the following results hold.
         %If $\varphi(\By)$ is unbiased, that is, $\myE_\theta [\varphi(\By)]\geq \alpha$ for $\theta \in \Theta$, then $\varphi(\By)=\alpha$, a.s.\ $\lambda$.
-    If $\lambda(\{\By:\varphi(\By)\neq \alpha\})>0$, then for every $M\geq 0$, there exists a parameter $\theta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $\phi\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_\theta [\varphi(\By)]< \alpha$.
+    If $\lambda(\{\By:\varphi(\By)\neq \alpha\})>0$, then for every $M\geq 0$, there exists a parameter $\btheta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $\phi\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_{\btheta} [\varphi(\By)]< \alpha$.
 \end{theorem}
 It follows from Theorem \ref{prop:unbiased} that there is no nontrivial unbiased test in large $p$, small $q$ setting.
 But Theorem \ref{prop:unbiased} provides more information.

@@ -44,6 +44,12 @@ Cohn, D.~L. (2013).
 \newblock {\em Measure Theory}.
 \newblock Birkh\"auser, New York, 2nd edition.
 
+\bibitem[Cui et~al., 2018]{Cui2018}
+Cui, H., Guo, W., and Zhong, W. (2018).
+\newblock Test for high-dimensional regression coefficients using refitted
+  cross-validation variance estimation.
+\newblock {\em The Annals of Statistics}, 46(3):958--988.
+
 \bibitem[DasGupta, 2008]{book:336898}
 DasGupta, A. (2008).
 \newblock {\em Asymptotic Theory of Statistics and Probability}.
