@@ -90,7 +90,7 @@
 
 \begin{document}
 \title{
-Nonexistence of unbiased test for high-dimensional linear model with fixed design and a Bayesian-motivated test 
+Nonexistence of unbiased test for high-dimensional linear model and a Bayesian-motivated test 
 }
 
 
@@ -119,7 +119,9 @@ This paper considers testing regression coefficients in high-dimensional linear 
 
 \end{abstract}
 
-\noindent {\it Key words}: High-dimensional test, Lindeberg method, Linear model, Unbiasedness.
+\noindent {\it Key words}:
+Fixed design matrix,
+High-dimensional test, Lindeberg method, Linear model, Unbiasedness.
 
  
 
@@ -169,7 +171,7 @@ To accommodate outlying observations and heavy-tailed distributions, Feng {et al
 proposed a rank-based test for the entire coefficients.
 Xu \cite{Xu2016a} modified the test of Feng {\rm et al.} \cite{Feng2013} and proposed a scalar invariant rank-based test.
 Janson {et al.} \cite{Janson2016} utilized a convex optimization program to obtain an unbiased estimator of a signal to noise ratio with small variance, based on which a test is constructed.
-Apart from the afore mentioned tests,
+Apart from the aforementioned tests,
 there is another line of research utilizing desparsified Lasso estimator; see \cite{Dezeure2017} and the references therein.
 
 Except for the test of Goeman {\rm et al.} \cite{Goeman2006}, most existing high dimensional tests adopted the random design assumption, that is, the rows of $\BX_b$ are considered as being generated from a super population.
@@ -188,13 +190,13 @@ First, the Bayes factors corresponding to proper priors are always well defined,
 Second, under mild conditions, tests based on Bayes factors are admissible (See, e.g., \cite{Lehmann}, Theorem 6.7.2).
 In fact, the test procedure of Goeman {\rm et al.} \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist significance test.
 
-The test statistic of Goeman {\rm et al.} \cite{Goeman2006} is obtained by letting the prior magnitude tend to zero.
+In Goeman {\rm et al.} \cite{Goeman2006}, the prior distribution of $\bbeta_b$ satisfies $\myE (\bbeta_b)= 0$, $\myVar (\bbeta_b)=c \BI_p$ and their statistic is obtained by letting $c$, the prior magnitude of $\bbeta_b$, tend to zero.
 Their goal is to achieve the highest average power under local alternative.
 In classical statistics, any reasonable test can detect large deviations from the null hypothesis and it is natural to consider only the local alternative.
-However, the situation is different for our problem.
-In fact, Theorem \ref{prop:unbiased} shall show that no test can detect all large deviations from the null hypothesis in large $p$, small $q$ setting.
+Surprisingly, though, the situation is different for our problem.
+In fact, Theorem \ref{prop:unbiased} will show that no test can detect all large deviations from the null hypothesis in large $p$, small $q$ setting.
 Consequently, it is not enough to consider only the local alternative.
-In this paper, we propose a new test statistic in large $p$, small $q$ setting which is the limit of Bayes factors as the prior magnitude tend to infinity.
+In this paper, we propose a new test statistic in large $p$, small $q$ setting which is the limit of Bayes factors as the prior magnitude of $\bbeta_b$ tend to infinity.
 The proposed test statistic is a ratio of quadratic forms of $\By$.
 We give an approximation of the distribution of quadratic form using Lindeberg's replacement trick.
 Based on this approximated distribution, the critical value of the proposed test statisitc is calculated by a one step iteration.
@@ -202,7 +204,7 @@ We prove that the proposed test procedure is valid under weak conditions.
 In particular, we do not require that the test statistic is asymptotically normally distributed.
 Under certain conditions, we also derive the asymptotic power function of the proposed test and the test of Goeman {\rm et al.} \cite{Goeman2006}.
 It is shown that the proposed test can detect the signals from more directions than the test of Goeman {\rm et al.} \cite{Goeman2006}.
-Simulations are conducted to examine the performance of the proposed test.
+Simulations are conducted to examine the good performance of the proposed test.
 
 
 The rest of the paper is organized as follows.
@@ -253,9 +255,8 @@ We have the following theorem.
         %If $\varphi(\By)$ is unbiased, that is, $\myE_\theta [\varphi(\By)]\geq \alpha$ for $\theta \in \Theta$, then $\varphi(\By)=\alpha$, a.s.\ $\lambda$.
     If $\lambda(\{\By:\varphi(\By)\neq \alpha\})>0$, then for every $M\geq 0$, there exists a parameter $\btheta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $\phi\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_{\btheta} [\varphi(\By)]< \alpha$.
 \end{theorem}
-It follows from Theorem \ref{prop:unbiased} that there is no nontrivial unbiased test in large $p$, small $q$ setting.
-But Theorem \ref{prop:unbiased} provides more information.
-In Theorem \ref{prop:unbiased}, the quantity $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ can be regarded as a signal to noise ratio.
+It follows from Theorem \ref{prop:unbiased} that the only unbiased test in large $p$, small $q$ setting is $\varphi(\By) \equiv \alpha$ a.e.\ $\lambda$.
+Furthermore, in Theorem \ref{prop:unbiased}, the quantity $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ can be regarded as a signal to noise ratio.
 In any conventional sense, it is expected that the power of a reasonable test should tend to $1$ as $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b \to \infty$.
 Indeed, such a test can be easily constructed in low dimensional setting.
 However, Theorem \ref{prop:unbiased} claims that it is impossible to find such a test in large $p$, small $q$ setting.
@@ -439,7 +440,7 @@ Hence $T_{\kappa}$ can be regarded as a frequentist test statistic.
 It remains to choose an appropriate hyperparameter $\kappa$.
 %Note that $\kappa$ controls the prior magnitude of $\bbeta_b$.
 As Goeman {\rm et al.} \cite{Goeman2006} noted, the priors should place most probability on the alternatives which are perceived as more interesting to detect.
-Their strategy is to let the prior magnitude tend to zero to obtain a test with good power behavior under local alternatives, that is, $\|\bbeta_b\|$ is small.
+Their strategy is to let the prior magnitude of $\bbeta_b$ tend to zero to obtain a test with good power behavior under local alternatives, that is, $\|\bbeta_b\|$ is small.
 Note that the prior magnitude of $\bbeta_b$ decreases with the increase of $\kappa$.
 In fact, if we let $\kappa$ tends to infinity, the limit
 \begin{equation*}
@@ -1290,15 +1291,16 @@ We have proposed a Bayesian-motivated test statistic for high-dimensional linear
 We proposed an approximation of the null distribution of the proposed test statistic which is then used to determine the critical value of the test statistic.
 Under weak conditions, we proved the proposed test procedure is asymptotically level $\alpha$.
 Under certain conditions, we also derived the asymptotic power function of the proposed test.
+It was shown that the proposed test can detect the signals from a wide range of directions.
 
-The methodology of Goeman {\rm et al.} \cite{Goeman2006} can also be applied in generalized linear models.
-However, it is not obvious how to generalize the proposed test and the test of Janson {\rm et al.} \cite{Janson2016} to generalized linear models.
-More fundamentally, it is unclear if results like Theorem \ref{prop:unbiased} hold for generalized linear model.
-
-In Theorem \ref{TheoremLindeberg}, we assumed that the distribution of $\epsilon_1$ is symmetric about $0$. 
-This condition is also assumed by Bai {\rm et al.} \cite{Bai2017} in the study of central limit theorem of quadratic form.
-Without this condition, our proof of Theorem \ref{TheoremLindeberg} is not valid.
-We think it will be an interesting and useful work to relax the symmetric condition in Theorem \ref{TheoremLindeberg}.
+%The methodology of Goeman {\rm et al.} \cite{Goeman2006} can also be applied in generalized linear models.
+%However, it is not obvious how to generalize the proposed test and the test of Janson {\rm et al.} \cite{Janson2016} to generalized linear models.
+%More fundamentally, it is unclear if results like Theorem \ref{prop:unbiased} hold for generalized linear model.
+%
+%In Theorem \ref{TheoremLindeberg}, we assumed that the distribution of $\epsilon_1$ is symmetric about $0$. 
+%This condition is also assumed by Bai {\rm et al.} \cite{Bai2017} in the study of central limit theorem of quadratic form.
+%Without this condition, our proof of Theorem \ref{TheoremLindeberg} is not valid.
+%We think it will be an interesting and useful work to relax the symmetric condition in Theorem \ref{TheoremLindeberg}.
 
 
 
