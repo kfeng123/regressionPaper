@@ -204,6 +204,8 @@ Apart from the aforementioned tests,
 there is another line of research utilizing desparsified Lasso estimator; see \cite{Dezeure2017} and the references therein.
 
 Except for the test of \cite{Goeman2006}, most existing high dimensional tests adopted the random design assumption, that is, the rows of $\BX_b$ are considered as being generated from a super population.
+Often in practice, at least a part of the design matrix is designed by the experimenter; see \cite{Draper1996} and the references therein.
+In this case, assuming a random design is not appropriate.
 As noted by \cite{Lei2018}, assuming a fixed design or a random design could lead to qualitatively different inferential results and the former is preferable from a theoretical point of view.
 Hence we focus on the fixed design setting in this paper.
 Of course, our results are still valid for random design from a conditional inference perspective.
@@ -415,7 +417,9 @@ Let $B_{10,\kappa} $ be the Bayes factor corresponding to the priors \eqref{prio
 %\end{equation*}
 \begin{equation*}
     \begin{split}
-        2\log (B_{10,{\kappa}}) =  &
+        &2\log (B_{10,{\kappa}})
+        \\
+        =  &
     p\log \kappa
     -
         \log |\BX_b^\top \tilde \BP_a \BX_b + \kappa \BI_p |
@@ -441,7 +445,8 @@ Denote by $\BX_b^* =\BU_{b}^* \BD_{b}^* \BV_b^{*\top}$ the singular value decomp
 Then we have
 \begin{equation*}
     \begin{split}
-        2\log (B_{10,\kappa})
+        &2\log (B_{10,\kappa})
+        \\
         %=&
          %p\log \kappa
          %- \sum_{i=1}^{n-q}\log ( \gamma_i + \kappa )
@@ -510,7 +515,9 @@ If $\bepsilon$ were indeed normally distributed, then under the null hypothesis,
 where $z_1,\ldots, z_{n-q}$ are iid $\mathcal N(0,1)$ random variables.
 In this case, the exact critical value can be easily obtained.
 In practice, however, normal distribution often serves as an approximation rather than the true distribution of data.
-We would like to derive an asymptotic valid critical value for $T_{n}$ for general distributions of $\bepsilon$.
+Hence it would be better to give a critical value of $T_{n}$ which can preserve the test level under general distributions of $\bepsilon$.
+If the design matrix admits certain structures, the critical value can be well determined by permutation methods and bootstrap methods; see \cite{Arboretti,Baltagi} and the references therein.
+To deal with general design matrix, we shall employ a direct approach which approximates the distribution of the test statistic under the null hypothesis.
 
 Under the null hypothesis,
 \begin{equation*}
@@ -542,18 +549,21 @@ We have the following approximation theorem.
     Furthermore, suppose the distribution of  $\xi_1$ is symmetric about $0$ and has finite eighth moments.
     Let $\BA$ be an $n\times n$ symmetric matrix with elements $a_{i,j}$.
 Define
+%$
+    %2 \mytr(\BA^2)
+    %+
+    %(\myE (\xi_1^4)-3) \mytr(\BA^{\circ 2})
+    %$
     \begin{equation*}
         S=\frac{
             \bxi^\top \BA \bxi-\mytr (\BA)
         }{
             \sqrt{
-    2 \mytr(\BA^2)
-    +
-    (\myE (\xi_1^4)-3) \mytr(\BA^{\circ 2})
+                \myVar(\bxi^\top \BA \bxi)
             }             
-        },
+        }.
     \end{equation*}
-    where $\BA^{\circ 2}=\BA\circ \BA$ and $\circ$ means Hadamard product.
+    %where $\BA^{\circ 2}=\BA\circ \BA$ and $\circ$ means Hadamard product.
     Let $z_1,\ldots,z_n$  be iid random variables with distribution $\mathcal N (0, 1) $ and $\check z_1, \ldots, \check z_n$ be iid random variables with distribution $\mathcal N (0,1)$ which are independent of $\xi_1,\ldots, \xi_n$.
     Let $\tau$ be a real number.
     Define
@@ -565,9 +575,7 @@ Define
     }
     {
             \sqrt{
-    2 \mytr(\BA^2)
-    +
-    (\myE (\xi_1^4)-3) \mytr(\BA^{\circ 2})
+                \myVar(\bxi^\top \BA \bxi)
             }             
         }.
     \end{equation*}
@@ -587,11 +595,10 @@ Define
 }{2}
 \|f^{(2)}\|_\infty
 \frac{
-    \mytr(\BA^{\circ 2})
+    %\mytr(\BA^{\circ 2})
+    \sum_{i=1}^n a_{i,i}^2
 }{
-    2 \mytr(\BA^2)
-    +
-    (\myE (\xi_1^4)-3) \mytr(\BA^{\circ 2})
+                \myVar(\bxi^\top \BA \bxi)
 }
 \\
 &
@@ -610,9 +617,7 @@ Define
      \right)
  }{
     \left(
-        2 \mytr(\BA^2)
-    +
-    (\myE (\xi_1^4)-3) \mytr(\BA^{\circ 2})
+                \myVar(\bxi^\top \BA \bxi)
 \right)^{3/2}
  }
          \\
@@ -624,9 +629,7 @@ Define
                 \sum_{l=1}^n \left( \sum_{i=1}^n a_{i,l}^2 \right)^2
             }{
             \left(
-        2 \mytr(\BA^2)
-    +
-    (\myE (\xi_1^4)-3)\mytr(\BA^{\circ 2})
+                \myVar(\bxi^\top \BA \bxi)
 \right)^{2}
             }
             .
@@ -646,9 +649,7 @@ Define
     \begin{equation}\label{eq:normalC}
         \frac{\mytr (\BA^4)}{
             \left( 
-        2 \mytr(\BA^2)
-    +
-    (\myE (\xi_1^4)-3)\mytr(\BA^{\circ 2})
+                \myVar(\bxi^\top \BA \bxi)
             \right)^2
         }\to 0. 
     \end{equation}
@@ -658,9 +659,7 @@ Define
                 \sum_{l=1}^n \left( \sum_{i=1}^n a_{i,l}^2 \right)^2
             }{
             \left(
-        2 \mytr(\BA^2)
-    +
-    (\myE (\xi_1^4)-3)\mytr(\BA^{\circ 2})
+                \myVar(\bxi^\top \BA \bxi)
 \right)^{2}
             }
             \to 0.
@@ -696,12 +695,15 @@ Under the null hypothesis, Theorem \ref{approximation} implies that
     \right) 
     \\
     \approx& 
-    1- F\left(
+    1- F\Bigg(
    \mytr\left( (\BX_b^* \BX_b^{*\top})^{-1} \right)
    +(n-q)x
-        ;-\tilde{\BU}_a ( \BX_b^* \BX_b^{*\top} )^{-1} \tilde{\BU}_a^\top 
+        ;
+        \\
+        &\quad\quad\quad
+        -\tilde{\BU}_a ( \BX_b^* \BX_b^{*\top} )^{-1} \tilde{\BU}_a^\top 
    -x\tilde{\BU}_a \tilde{\BU}_a^\top
-,\sqrt{\phi^2 \myE (\epsilon_1^4) -1}\right)
+,\sqrt{\phi^2 \myE (\epsilon_1^4) -1}\Bigg)
 .
     \end{split}
 \end{equation*}
@@ -719,7 +721,7 @@ However, solving this equation is not an easy task.
 For ease of implementation, we propose a one step iteration algorithm.
 We set the start point as
 \begin{equation*}
-    x^{(0)} =  -\frac{\mytr ( \BX_b^* \BX_b^{*\top} )^{-1}}{n-q},
+    x^{(0)} =  -\frac{\mytr \left( ( \BX_b^* \BX_b^{*\top} )^{-1} \right)}{n-q},
 \end{equation*}
 which is chosen such that $\mytr( -\tilde{\BU}_a ( \BX_b^* \BX_b^{*\top} )^{-1} \tilde{\BU}_a^\top 
 -x^{(0)}\tilde{\BU}_a \tilde{\BU}_a^\top )=0$.
@@ -747,9 +749,9 @@ Let
         \BA=
  -\tilde{\BU}_a ( \BX_b^* \BX_b^{*\top} )^{-1} \tilde{\BU}_a^\top 
 -x^{(0)}\tilde{\BU}_a \tilde{\BU}_a^\top
-        =
-        -\tilde{\BU}_a (\BX_{b}^* \BX_b^{*\top})^{-1} \tilde{\BU}_a^\top 
-        + \frac{\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1} \right)}{n-q}\tilde{\BU}_a \tilde{\BU}_a^\top
+        %=
+        %-\tilde{\BU}_a (\BX_{b}^* \BX_b^{*\top})^{-1} \tilde{\BU}_a^\top 
+        %+ \frac{\mytr\left( (\BX_b^* \BX_b^{*\top})^{-1} \right)}{n-q}\tilde{\BU}_a \tilde{\BU}_a^\top
         .
     \end{equation*}
     Suppose as $n\to \infty$,
@@ -782,8 +784,9 @@ It remains to consistently estimate $\phi^2 \myE (\epsilon_1^4)-1$.
         =
         3\phi^{-2} \mytr (\tilde \BP_a^{\circ 2}) 
         +\left( \myE (\epsilon_1^4)-3 \phi^{-2}\right)
-        \mytr \left( \tilde \BP_a^{\circ 2}  \right)^2.
+        \mytr \left( \tilde \BP_a^{\circ 2}  \right)^2,
     \end{align*}
+    where $\tilde \BP_a^{\circ 2}=\tilde \BP_a \circ \tilde \BP_a$ and $\circ$ means Hadamard product.
     Then a moment estimator of $\phi^{2}\myE (\epsilon_1^4)-1$ is 
 \begin{equation*}
     \hat \tau^2 =
@@ -927,11 +930,11 @@ Then for any $x\in \mathbb R$,
             \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
         }{
             \sqrt{
-                2\phi^{-2} \myVar ( \gamma_I^k ) 
+                \frac{2}{\phi^{2}} \myVar ( \gamma_I^k ) 
                 +
-                4\phi^{-1}
+                \frac{4}{\phi}
      \myE\left[ 
-        \left( \gamma_I^k -\myE(\gamma_I^k) -\sqrt{\frac{2\myVar (\gamma_I^k)}{n-q}}x \right)^2
+        \Big( \gamma_I^k -\myE(\gamma_I^k) -\sqrt{\frac{2\myVar (\gamma_I^k)}{n-q}}x \Big)^2
         \gamma_I w_I^2
     \right]
             }
@@ -959,7 +962,7 @@ Under the conditions of Theorem \ref{generalTheorem}, the proposed test should r
         \Phi^{-1}(\alpha),
 \end{equation*}
 and the asymptotic power function of the proposed test is
-\begin{equation}\label{eq:powerProposed}
+\begin{equation*}\label{eq:powerProposed}
     \begin{split}
     \Phi\left( 
         \frac{
@@ -971,18 +974,19 @@ and the asymptotic power function of the proposed test is
             \myCov\left( - \gamma_I^{-1}, \gamma_I w_I^2 \right)
         }{
             \sqrt{
-                2\phi^{-2} \myVar ( \gamma_I^{-1} ) 
+                \frac{2}{\phi^{2}}
+                \myVar ( \gamma_I^{-1} ) 
                 +
-                4\phi^{-1}
+                \frac{4}{\phi}
         \myE\left[ 
-            \left( \gamma_I^{-1} -\myE(\gamma_I^{-1}) -\sqrt{\frac{2\myVar (\gamma_I^{-1})}{n-q}} \Phi^{-1}(\alpha) \right)^2
+            \Big( \gamma_I^{-1} -\myE(\gamma_I^{-1}) -\sqrt{\frac{2\myVar (\gamma_I^{-1})}{n-q}} \Phi^{-1}(\alpha) \Big)^2
         \gamma_I w_I^2
     \right]
             }
         } 
     \right).
     \end{split}
-\end{equation}
+\end{equation*}
 On the other hand, the test of \cite{Goeman2006} should reject the null hypothesis when
 \begin{equation*}
         \frac{
@@ -998,7 +1002,7 @@ On the other hand, the test of \cite{Goeman2006} should reject the null hypothes
         \Phi^{-1}(1-\alpha),
 \end{equation*}
 and the asymptotic power function of their test is
-\begin{equation}\label{eq:powerTheirs}
+\begin{equation*}\label{eq:powerTheirs}
     \begin{split}
     &\Phi\left( 
         \frac{
@@ -1010,20 +1014,21 @@ and the asymptotic power function of their test is
             \myCov\left( \gamma_I, \gamma_I w_I^2 \right)
         }{
             \sqrt{
-                2\phi^{-2} \myVar ( \gamma_I ) 
+                \frac{2}{\phi^{2}} \myVar ( \gamma_I ) 
                 +
-                4\phi^{-1}
+                \frac{4}{\phi}
     \myE\left[ 
-        \left( \gamma_I -\myE(\gamma_I) +\sqrt{\frac{2\myVar (\gamma_I)}{n-q}} \Phi^{-1}(\alpha) \right)^2
+        \Big( \gamma_I -\myE(\gamma_I) +\sqrt{\frac{2\myVar (\gamma_I)}{n-q}} \Phi^{-1}(\alpha) \Big)^2
         \gamma_I w_I^2
     \right]
             }
         } 
     \right).
     \end{split}
-\end{equation}
+\end{equation*}
 
-It can be seen from \eqref{eq:powerProposed} and \eqref{eq:powerTheirs} that the power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ while the power of the test of \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2)$.  
+It can be seen %from \eqref{eq:powerProposed} and \eqref{eq:powerTheirs}
+that the power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ while the power of the test of \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2)$.  
 Unfortunately, neither of these two quantities is positive definite.
 This fact is not surprising in view of Theorem \ref{prop:unbiased}.
 Nevertheless, $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I w_I^2)$ are positive definite if $\bbeta_b$ is restricted  in certain subspaces of $\mathbb R^p$.
@@ -1453,10 +1458,13 @@ and put
         \geq \alpha 
     \end{equation*}
     for every $\bbeta_a\in \mathbb R^q$, $\bbeta_b \in \mathbb R^p$, $\phi>0$ satisfying $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b >M$.
-    Note that for any $h>0$
+    Note that for any $h>0$,
     \begin{equation*}
         \left\{(\bbeta_b^\top, \phi)^\top :  \bbeta_b^\top \BX_b^\top \tilde\BP_a \BX_b \bbeta_b > h \sqrt M,\phi> h^{-1} \sqrt M \right\} 
-        \subset
+    \end{equation*}
+    is a subset of
+    \begin{equation*}
+        %\subset
         \left\{(\bbeta_b^\top, \phi)^\top :  \phi\bbeta_b^\top \BX_b^\top \tilde\BP_a \BX_b \bbeta_b > M\right\} .
     \end{equation*}
     Then Lemma \ref{Lemma:FF} implies that for any $h>0$, $\varphi(\By) \mathbf 1_{G_h}(\By)\geq \alpha \mathbf 1_{G_h}(\By)$ a.e.\ $\lambda$, where 
@@ -1507,6 +1515,11 @@ and put
 
 
 \begin{proof}[\textbf{Proof of Theorem \ref{TheoremLindeberg}}]
+    We note that $\myVar(\bxi^\top \BA \bxi)=
+    2\mytr(\BA^2)
+    +
+    (\myE(\xi_1^4)-3)\mytr(\BA^{\circ 2} )
+    $.
     Let
     \begin{equation*}
         \tilde a_{i,j}:=
@@ -1613,7 +1626,7 @@ Then
             \myE_l (h_l^k - g_l^k)
             \right|
             +
-            \frac{1}{24} \|f'''' \|_{\infty} \left(\myE (h_{l}^4)+\myE (g_{l}^4)\right),
+            \frac{1}{24} \|f^{(4)} \|_{\infty} \left(\myE (h_{l}^4)+\myE (g_{l}^4)\right),
         \end{split}
     \end{equation*}
 where $\myE_l$ denotes taking expectation with respect to $\xi_l, z_l ,\check z_l$.
@@ -1655,14 +1668,15 @@ Thus,
         \\
             &+
             \frac{1}{6} \|f^{(3)}\|_{\infty}
-\left(
+\Bigg(
     \left|\myE (\xi_1^2-1)^3\right|
         |\tilde a_{l,l}^3 |
-        +
+        \\
+        &\quad\quad\quad\quad\quad\quad\quad+
         12 (\myE (\xi_1^4)-1) |\tilde a_{l,l}|
             \myE 
-            \left( \sum_{i=1}^{l-1} \tilde a_{i,l} \xi_i + \sum_{i=l+1}^n \tilde a_{i,l} z_i    \right)^2 
-    \right)
+            \bigg( \sum_{i=1}^{l-1} \tilde a_{i,l} \xi_i + \sum_{i=l+1}^n \tilde a_{i,l} z_i    \bigg)^2 
+    \Bigg)
     \\
             &+
             \frac{1}{24} \|f^{(4)} \|_{\infty} \left(\myE (h_{l}^4)+\myE (g_{l}^4)\right)
@@ -1677,7 +1691,8 @@ Thus,
 }{2}
 \|f^{(2)}\|_\infty
         \tilde a_{l,l}^2
-            +
+        \\
+            &+
             \frac{
             \max\left(
     \left|\myE (\xi_1^2-1)^3\right|
@@ -2553,11 +2568,18 @@ Then the conclusion follows from \eqref{eq:to2}, \eqref{eq:to3} and the followin
   \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 \providecommand{\eprint}[2][]{\url{#2}}
+\bibitem[Arboretti et~al.(2018)]{Arboretti}
+    Arboretti R, Ceccato R, Corain L, Ronchi F, Salmaso L (2018) Multivariate small sample tests for two-way designs with applications to industrial statistics. Stat Pap 59(4):1483–-1503
 
-\bibitem[{Bai et~al.(2018)Bai, Pan, and Yin}]{Bai2017}
+\bibitem[{Bai et~al.(2018)}]{Bai2017}
 Bai Z, Pan G, Yin Y (2018) A central limit theorem for sums of functions of
   residuals in a high-dimensional regression model with an application to
   variance homoscedasticity test. {TEST} 27(4):896--920
+
+\bibitem[Baltagi et~al.(2013)]{Baltagi}
+    Baltagi BH, Kao C, Na S (2013) Testing for cross-sectional dependence in a panel factor model using the wild bootstrap $F$ test. Stat Pap 54(4):1067--1094
+
+
 
 \bibitem[{Bentkus and G\"otze(1996)}]{Bentkus1996Optimal}
 Bentkus V, G\"otze F (1996) Optimal rates of convergence in the {CLT} for
@@ -2598,6 +2620,9 @@ Dezeure R, B\"uhlmann P, Zhang CH (2017) High-dimensional simultaneous
 Dicker LH, Erdogdu MA (2017) Flexible results for quadratic forms with
   applications to variance components estimation. Ann Statist
   45(1):386--414
+
+\bibitem[Draper and Pukelsheim(1996)]{Draper1996}
+    Draper NR, Pukelsheim F (1996) An overview of design of experiments. Stat Pap 37(1):1--32
 
 \bibitem[{Fan et~al.(2013)Fan, Yuan, and Mincheva}]{Fan2013Large}
 Fan J, Yuan L, Mincheva M (2013) Large covariance estimation by thresholding
