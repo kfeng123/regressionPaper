@@ -1,0 +1,150 @@
+\documentclass[11pt]{article}
+ 
+\newcommand\CG[1]{\textcolor{red}{#1}}
+
+\usepackage{lineno,hyperref}
+
+\usepackage[margin=1 in]{geometry}
+\renewcommand{\baselinestretch}{1.25}
+
+
+%\usepackage{refcheck}
+\usepackage{authblk}
+\usepackage{galois} % composition function \comp
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage[authoryear]{natbib}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage[page,title]{appendix}
+%\renewcommand\appendixname{haha}
+\usepackage{enumerate}
+\usepackage{changepage}
+\usepackage{datetime}
+\usepackage[FIGTOPCAP]{subfigure}
+\newdate{date}{9}{1}{2017}
+
+%%%%%%%%%%%%%%  Notations %%%%%%%%%%
+\DeclareMathOperator{\mytr}{tr}
+\DeclareMathOperator{\mydiag}{diag}
+\DeclareMathOperator{\myRank}{Rank}
+\DeclareMathOperator{\myP}{P}
+\DeclareMathOperator{\myE}{E}
+\DeclareMathOperator{\myVar}{Var}
+\DeclareMathOperator{\myCov}{Cov}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+\newcommand{\Ba}{\mathbf{a}}    \newcommand{\Bb}{\mathbf{b}}    \newcommand{\Bc}{\mathbf{c}}    \newcommand{\Bd}{\mathbf{d}}    \newcommand{\Be}{\mathbf{e}}    \newcommand{\Bf}{\mathbf{f}}    \newcommand{\Bg}{\mathbf{g}}    \newcommand{\Bh}{\mathbf{h}}    \newcommand{\Bi}{\mathbf{i}}    \newcommand{\Bj}{\mathbf{j}}    \newcommand{\Bk}{\mathbf{k}}    \newcommand{\Bl}{\mathbf{l}}
+\newcommand{\Bm}{\mathbf{m}}    \newcommand{\Bn}{\mathbf{n}}    \newcommand{\Bo}{\mathbf{o}}    \newcommand{\Bp}{\mathbf{p}}    \newcommand{\Bq}{\mathbf{q}}    \newcommand{\Br}{\mathbf{r}}    \newcommand{\Bs}{\mathbf{s}}    \newcommand{\Bt}{\mathbf{t}}    \newcommand{\Bu}{\mathbf{u}}    \newcommand{\Bv}{\mathbf{v}}    \newcommand{\Bw}{\mathbf{w}}    \newcommand{\Bx}{\mathbf{x}}
+\newcommand{\By}{\mathbf{y}}    \newcommand{\Bz}{\mathbf{z}}    
+\newcommand{\BA}{\mathbf{A}}    \newcommand{\BB}{\mathbf{B}}    \newcommand{\BC}{\mathbf{C}}    \newcommand{\BD}{\mathbf{D}}    \newcommand{\BE}{\mathbf{E}}    \newcommand{\BF}{\mathbf{F}}    \newcommand{\BG}{\mathbf{G}}    \newcommand{\BH}{\mathbf{H}}    \newcommand{\BI}{\mathbf{I}}    \newcommand{\BJ}{\mathbf{J}}    \newcommand{\BK}{\mathbf{K}}    \newcommand{\BL}{\mathbf{L}}
+\newcommand{\BM}{\mathbf{M}}    \newcommand{\BN}{\mathbf{N}}    \newcommand{\BO}{\mathbf{O}}    \newcommand{\BP}{\mathbf{P}}    \newcommand{\BQ}{\mathbf{Q}}    \newcommand{\BR}{\mathbf{R}}    \newcommand{\BS}{\mathbf{S}}    \newcommand{\BT}{\mathbf{T}}    \newcommand{\BU}{\mathbf{U}}    \newcommand{\BV}{\mathbf{V}}    \newcommand{\BW}{\mathbf{W}}    \newcommand{\BX}{\mathbf{X}}
+\newcommand{\BY}{\mathbf{Y}}    \newcommand{\BZ}{\mathbf{Z}}    
+
+\newcommand{\bfsym}[1]{\ensuremath{\boldsymbol{#1}}}
+
+ \def\balpha{\bfsym \alpha}
+ \def\bbeta{\bfsym \beta}
+ \def\bgamma{\bfsym \gamma}             \def\bGamma{\bfsym \Gamma}
+ \def\bdelta{\bfsym {\delta}}           \def\bDelta {\bfsym {\Delta}}
+ \def\bfeta{\bfsym {\eta}}              \def\bfEta {\bfsym {\Eta}}
+ \def\bmu{\bfsym {\mu}}                 \def\bMu {\bfsym {\Mu}}
+ \def\bnu{\bfsym {\nu}}
+ \def\btheta{\bfsym {\theta}}           \def\bTheta {\bfsym {\Theta}}
+ \def\beps{\bfsym \varepsilon}          \def\bepsilon{\bfsym \epsilon}
+ \def\bsigma{\bfsym \sigma}             \def\bSigma{\bfsym \Sigma}
+ \def\blambda {\bfsym {\lambda}}        \def\bLambda {\bfsym {\Lambda}}
+ \def\bomega {\bfsym {\omega}}          \def\bOmega {\bfsym {\Omega}}
+ \def\brho   {\bfsym {\rho}}
+ \def\btau{\bfsym {\tau}}
+ \def\bxi{\bfsym {\xi}}
+ \def\bzeta{\bfsym {\zeta}}
+% May add more in future.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{\quad\quad Theorem}
+\newtheorem{proposition}{\quad\quad Proposition}
+\newtheorem{corollary}{\quad\quad Corollary}
+\newtheorem{lemma}{\quad\quad Lemma}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{\quad\quad Assumption}
+\newtheorem{condition}{\quad\quad Condition}
+
+\theoremstyle{definition}
+\newtheorem{definition}{\quad\quad Definition}
+\newtheorem{remark}{\quad\quad Remark}
+\theoremstyle{remark}
+
+
+
+
+
+\begin{document}
+\title{
+Response to Reviewers
+``
+Nonexistence of unbiased test for high-dimensional linear model and a Bayesian-motivated test 
+''
+}
+
+
+
+\author[1]{Rui Wang}
+\author[1,2]{Xingzhong Xu\thanks{Corresponding author\\Email address: xuxz@bit.edu.cn}}
+\affil[1]{
+School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 
+    100081,China
+}
+\affil[2]{
+Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 100081,China
+}
+
+\maketitle
+
+We thank both reviewer for their helpful comments and critiques.
+We have carefully considered the comments and made corresponding changes to the paper.
+Our responds are as follows.
+
+\section{Response to reviewer 1}
+
+\textbf{
+    1.
+    The manuscript should provide comparison with the literature that exploits sparsity because under the null hypothesis the model parameter is sparse (with at most $q$ non-zero entries).
+    For example, \cite{zhang2016simultaneous} studies the same problem of testing (high-dimensional components) of linear regressions. Apart from assuming random designs, this literature attempts to detect deviations in $l_\infty$-norm, while the current manuscript seems to aim at detecting deviations in
+    $l_2$-norm.
+    In my opinion, more discussion on this literature would be helpful so that the reader would get a fair impression on what has been done and what assumptions different methods require.
+    For example, here symmetry of error distribution is needed (Assumption 1), which is not usually required in the literature on high-dimensional inference.
+}
+
+\textbf{Answer:}
+
+
+
+\section{Response to reviewer 2}
+
+
+
+
+
+\section{List of major changes}
+
+
+
+
+
+
+\bibliographystyle{apalike}
+\bibliography{mybibfile}
+
+
+
+\end{document}
