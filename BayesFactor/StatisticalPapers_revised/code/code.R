@@ -1,149 +1,18 @@
-library(MASS)
-library(CVXR)
+#RepTime <- 2000
+#M <- 2000
+#alpha <- 0.05
+#betabGen <- "dense"
+#XGen <- "equalCor"
+#epsilonDis <- "t"
+#
+#n <- 100
+#q <- 10
+#p <- 1000
+
 source("./gt.R")
-RepTime <- 2000
-M <- 2000
-alpha <- 0.05
-betabGen <- "dense"
-XGen <- "equalCor"
-epsilonDis <- "t"
-
-n <- 100
-q <- 10
-p <- 1000
-
 SNRsequence <- c(0,10,20,30)
-#plotPointSize <- 25
-
-# data generation
-Xa <- rnorm(n*q)
-dim(Xa) <- c(n,q)
-
-if(XGen == "iidnormal"){
-    Xb <- rnorm(n*p)
-    dim(Xb) <- c(n,p)
-}
-
-if(XGen == "equalCor" ){
-    Xb <- sqrt(0.9)*rnorm(n*p)
-    dim(Xb) <- c(n,p)
-    for(i in 1:n){
-        Xb[i,] <- Xb[i,] + sqrt(0.1)*rnorm(1)
-    }
-}
-
-if(XGen == "uniform"){
-    tmp <- rnorm(p*p)
-    dim(tmp) <- c(p,p)
-    tmpp <- tmp%*% t(tmp)
-    Xb <- mvrnorm(n,rep(0,p), tmpp)
-}
-
-if(XGen == "Toeplitz"){
-    tmp <- matrix(rep(0,p*p),p)
-    for(i in 1:p) for (j in 1:p)
-        tmp[i,j] <- 0.9^(abs(i-j))
-    Xb <- mvrnorm(n,rep(0,p),tmp)
-}
-
-if(XGen == "factor"){
-    K <- 2
-    factorB <- rnorm(p*K)
-    dim(factorB) <- c(p,K)
-    factorF <- rnorm(n*K)
-    dim(factorF) <- c(n,K)
-    factorU <- rnorm(n*p)
-    dim(factorU) <- c(n,p)
-    
-    
-    factorU <- sqrt(0.9)*rnorm(n*p)
-    dim(factorU) <- c(n,p)
-    for(i in 1:n){
-        factorU[i,] <- factorU[i,] + sqrt(0.1)*rnorm(1)
-    }
-    
-    
-    Xb <- factorF%*%t(factorB) + factorU
-    
-    tmpX <- factorU
-    tmpX <- tmpX - Xa %*% solve(crossprod(Xa), crossprod(Xa, tmpX))
-    XX <- crossprod(t(tmpX))
-    var.num <- 2*sum(XX*XX)
-    lam <- eigen(XX, symmetric = TRUE, only.values=TRUE)$values
-    factorVarU <- var(lam[1:(n-q)])
-}
-
-if(XGen == "real"){
-    Data <- read.csv("riboflavin.csv")
-    Data<- Data[,-1]
-    Data <- t(as.matrix(Data))
-    X <- Data[,-1]
-    y <- Data[,1]
-    Xa <- X[,1:10]
-    Xb <- X[,-(1:10)]
-    n <- nrow(Xa)
-    q <- ncol(Xa)
-    p <- ncol(Xb)
-}
-
-
-
-
-youX <- cbind(Xa,Xb)
-colnames(youX) <- seq(1,p+q)
-
-# some quantities
-tildeUa <- MASS::Null(Xa)
-XbXbT <- Xb %*% t(Xb)
-XbStarXbStarT <- t(tildeUa) %*% XbXbT %*% tildeUa
-myBase <- - tildeUa %*% solve(XbStarXbStarT) %*% t(tildeUa)
-tildePa <- tildeUa %*% t(tildeUa)
-x0 <- sum(diag(myBase))/(n-q)
-A <- myBase - x0 * tildePa
-
-### GT Statistics
-
-tmpX <- Xb
-tmpX <- tmpX - Xa %*% solve(crossprod(Xa), crossprod(Xa, tmpX))
-XX <- crossprod(t(tmpX))
-var.num <- 2*sum(XX*XX)
-lam <- eigen(XX, symmetric = TRUE, only.values=TRUE)$values
-varGamma <- var(lam[1:(n-q)])
-
-
-# EigenPrism: inference for high dimensional signal-to-noise ratios
-ohoh <- eigen(Xb%*%t(Xb),symmetric = TRUE)
-eigenXbXbT <- ohoh$values/p
-myUb <- ohoh$vectors
-
-myVariable <- Variable(n)
-obj <- max(sum((myVariable^2) * eigenXbXbT^2), sum(myVariable^2))
-myConstr <- list(sum(myVariable)==0, sum(eigenXbXbT * myVariable)==1)
-myProblem <- Problem(Minimize(obj),myConstr)
-
-ohMyTmp <- solve(myProblem)
-myEPWeight <- ohMyTmp$getValue(myVariable)
-# sometimes it returns "optimal_inaccurate"
-#myValP1 <- ohMyTmp$value
-# here is a little modification of the original method
-#myValP1 <- max(sum(myEPWeight^2 * eigenXbXbT^2), sum(myEPWeight^2))
-myValP1 <-  sum(myEPWeight^2)
-
-
-
-
-
-# generate reference normal random variables
-offdiagA <- A - diag(diag(A))
-diagNorm <- sqrt(sum(diag(A)^2))
-ref1 <- NULL
-ref2 <- NULL
-for(i in 1:M){
-    ref1[i] <- diagNorm * rnorm(1)
-    tmp <- rnorm(n)
-    ref2[i] <- as.numeric(t(tmp) %*% offdiagA %*%tmp)
-}
-
+source("./dataGeneration.R")
+source("./preComputation.R")
 # # Base
 # offdiagBase <- myBase - diag(diag(myBase))
 # diagBase <- diag(myBase)

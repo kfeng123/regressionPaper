@@ -2,7 +2,7 @@
 # X
 # y
 # set
-M <- 500
+LT.M <- 500
 here_alpha <- 0.95
 
 sreg <- scalreg(X, y)
@@ -10,9 +10,9 @@ beta.hat <- sreg$coefficients
 sigma.sq <- sum((y-X%*%beta.hat)^2)/(n-sum(abs(beta.hat)>0))
 beta.db <- beta.hat+Theta%*%t(X)%*%(y-X%*%beta.hat)/n
 Omega <- diag(Theta%*%Gram%*%t(Theta))*sigma.sq
-stat.boot.st <- stat.boot.nst <- rep(NA,M)
+stat.boot.st <- stat.boot.nst <- rep(NA,LT.M)
 
-for (xianyang.i in 1:M) {
+for (xianyang.i in 1:LT.M) {
     e <- rnorm(n)
     xi.boot <- Theta[set,]%*%t(X)%*%e*sqrt(sigma.sq)/sqrt(n)
     stat.boot.nst[xianyang.i] <- max(abs(xi.boot))
