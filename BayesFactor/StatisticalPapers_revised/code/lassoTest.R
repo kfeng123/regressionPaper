@@ -1,13 +1,13 @@
-
 # X
 # y
 # set
 LT.M <- 500
 here_alpha <- 0.95
+set <- 1:q
 
 sreg <- scalreg(X, y)
 beta.hat <- sreg$coefficients
-sigma.sq <- sum((y-X%*%beta.hat)^2)/(n-sum(abs(beta.hat)>0))
+sigma.sq <- sum((y-X%*%beta.hat)^2)/(n-sum(abs(beta.hat)>1e-9))
 beta.db <- beta.hat+Theta%*%t(X)%*%(y-X%*%beta.hat)/n
 Omega <- diag(Theta%*%Gram%*%t(Theta))*sigma.sq
 stat.boot.st <- stat.boot.nst <- rep(NA,LT.M)
@@ -35,5 +35,3 @@ if(prod(up.nst > 0) * prod(low.nst < 0)){
     # reject
     lassoTest_one_result <- 1
 }
-
-

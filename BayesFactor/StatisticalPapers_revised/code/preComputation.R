@@ -38,12 +38,15 @@ myValP1 <-  sum(myEPWeight^2)
 
 ######################### Xianyang Zhang
 # deal with X
-Gram <- t(X)%*%X/n
-score.nodewiselasso <- getFromNamespace("score.nodewiselasso", "hdi")
-node <- score.nodewiselasso(X, wantTheta=TRUE, verbose=FALSE, lambdaseq="quantile",
-                            parallel=FALSE, ncores=2, oldschool = FALSE, lambdatuningfactor = 1)
-Theta <- node$out
-
+if(lassoTest_on){
+    X <- cbind(Xa,Xb)
+    
+    Gram <- t(X)%*%X/n
+    score.nodewiselasso <- getFromNamespace("score.nodewiselasso", "hdi")
+    node <- score.nodewiselasso(X, wantTheta=TRUE, verbose=FALSE, lambdaseq="quantile",
+                                parallel=FALSE, ncores=2, oldschool = FALSE, lambdatuningfactor = 1)
+    Theta <- node$out
+}
 
 # generate reference normal random variables
 offdiagA <- A - diag(diag(A))

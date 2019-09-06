@@ -1,3 +1,4 @@
+set.seed(1)
 #RepTime <- 2000
 #M <- 2000
 #alpha <- 0.05
@@ -10,31 +11,13 @@
 #p <- 1000
 
 source("./gt.R")
-SNRsequence <- c(0,10,20,30)
 source("./dataGeneration.R")
 source("./preComputation.R")
-# # Base
-# offdiagBase <- myBase - diag(diag(myBase))
-# diagBase <- diag(myBase)
-# refBase1 <- NULL
-# refBase2 <- NULL
-# # Plus
-# offdiagPlus <- tildeUatildeUaT - diag(diag(tildeUatildeUaT))
-# diagPlus <- diag(tildeUatildeUaT)
-# refPlus1 <- NULL
-# refPlus2 <- NULL
-# for(i in 1:M){
-#     tmp <- rnorm(n)
-#     refBase1[i] <- sum(diagBase * tmp)
-#     refPlus1[i] <- sum(diagPlus * tmp)
-#     tmp <- rnorm(n)
-#     refBase2[i] <- as.numeric(t(tmp) %*% offdiagBase %*% tmp)
-#     refPlus2[i] <- as.numeric(t(tmp) %*% offdiagPlus %*% tmp)
-# }
 
 outMy <- NULL
 outGt <- NULL
 outEp <- NULL
+outLassoTest <- NULL
 outSNR <- NULL
 for(SNR in SNRsequence){
     myPb <- txtProgressBar(style = 3)
@@ -42,8 +25,9 @@ for(SNR in SNRsequence){
         myResultOld <- NULL
         gtResult <- NULL
         epResult <- NULL
+        lassoResult <- NULL
             
-        # betaGen
+        # Generating beta
         if(betabGen == "dense") {
             if(betaDistribution == "unif")
                 betabO <- runif(p,-1,1)
@@ -64,7 +48,6 @@ for(SNR in SNRsequence){
         }
         
         for(i in 1:RepTime){
-                
             # Generate y
             #betab <- betabO/sqrt(tmpSNR)*sqrt(SNR)
             if(epsilonDis == "t"){
@@ -82,25 +65,25 @@ for(SNR in SNRsequence){
             }
             y <- innov + meanSig/sqrt(tmpSNR)*sqrt(SNR)
             
-            
             # EigenPrism: inference for high dimensional signal-to-noise ratios
             myZ <- as.numeric( t(myUb) %*% y )
             ohT <- sum(myEPWeight * myZ^2 )
             epResult[i] <- ( ohT/ ( sqrt(2*myValP1) * sum(y^2)/n ) > qnorm(1-alpha) )
             
-            
-            
             ### GT statistics
             Y <- y
             S <- sum(Y * (XX %*% Y)) / sum((t(tildeUa) %*% Y)^2)
-            
             lams <- lam
             lams[1:(n-q)] <- lams[1:(n-q)] - S
-            
             p.value <- .getP(lams)
-            
             gtResult[i] <- (p.value <alpha)
-        
+            
+            ### lasso test
+            if(lassoTest_on){
+                source("./lassoTest.R")
+                lassoResult[i] <- lassoTest_one_result
+            }
+            
                                     
             # proposed statistic
             theNumerator <- as.numeric( 
@@ -134,39 +117,20 @@ for(SNR in SNRsequence){
             else{
                 myResultOld[i] <- 0
             }
-            
-            # myRefStep1 <- tau * (refBase1 - x0 * refPlus1) + refBase2 - x0 * refPlus2
-            # x1 <- quantile(myRefStep1,1-alpha)/(n-q) + x0
-            # 
-            # myRefStep2 <- tau * (refBase1 - x1 * refPlus1) + refBase2 - x1 * refPlus2
-            # x2 <- quantile(myRefStep2,1-alpha)/(n-q) + x0
-            # if(proposedStat > x2){
-            #     myResult[i] <- 1
-            # }
-            # else{
-            #     myResult[i] <- 0
-            # }
-            # 
-            # 
-            # if(proposedStat > x1){
-            #     myResultTmp[i] <- 1
-            # }
-            # else{
-            #     myResultTmp[i] <- 0
-            # }
         }
         
         outMy <- c(outMy,mean(myResultOld))
         outGt <- c(outGt,mean(gtResult))
         outEp <- c(outEp,mean(epResult))
+        outLassoTest <- c(outLassoTest, mean(lassoResult))
         outSNR <- c(outSNR, SNR)
         setTxtProgressBar(myPb,j/plotPointSize)
     }
     close(myPb)
 }
-ohResult <- data.frame('SNR'=outSNR,'outMy'=outMy,'outGt'=outGt, 'outEp' = outEp)
+ohResult <- data.frame('SNR'=outSNR,'outMy'=outMy,'outGt'=outGt, 'outEp' = outEp, 'outLassoTest' = outLassoTest)
 
-write.csv(ohResult,paste0("tmp/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".csv"),row.names=FALSE)
+write.csv(ohResult,paste0("results/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".csv"),row.names=FALSE)
 
 
 

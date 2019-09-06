@@ -69,6 +69,16 @@ if(XGen == "real"){
     p <- ncol(Xb)
 }
 
+if(XGen == "rowCor"){
+    Xb <- rnorm(n*p)
+    dim(Xb) <- c(n,p)
+    tmpMatrix <- rep(0.1,n*n)
+    dim(tmpMatrix) <- c(n,n)
+    diag(tmpMatrix) <- 1
+    tmpChol <- Matrix::chol(tmpMatrix)
+    Xb <- t(tmpChol) %*% Xb
+}
+
 
 youX <- cbind(Xa,Xb)
 colnames(youX) <- seq(1,p+q)
