@@ -7,7 +7,8 @@ library(scalreg)
 set.seed(1)
 
 
-lassoTest_on <- FALSE
+lassoTest_on <- TRUE
+lassoTestOracle_on <- TRUE
 
 RepTime <- 3000
 M <- 2000
@@ -20,14 +21,19 @@ p <- 1000
 SNRsequence <- c(0,10,20,30)
 
 betaDistribution <- "unif"
-XGen <- "equalCor"
-epsilonDis <- "t"
-betabGen <- "dense"
 
-for(XGen in c("uniform","equalCor","factor"))
-    for(n in c(50, 100))
-        for(epsilonDis in c("t","chi"))
-            for(betabGen in c("dense"))
+XGen_list <- c("uniform","equalCor","factor", "rowCor")
+n_list <- c(50, 100)
+epsilonDis_list <- c("t","chi")
+betabGen_list <- c("dense","sparse")
+
+
+for(XGen in XGen_list)
+    for(n in n_list)
+        for(epsilonDis in epsilonDis_list)
+            for(betabGen in betabGen_list){
                 source("./code.R")
+                source("./plot.R")
+            }
 
 

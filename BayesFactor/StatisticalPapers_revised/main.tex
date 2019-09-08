@@ -1082,6 +1082,26 @@ and compare it with the global test proposed by \cite{Goeman2006} (abbreviated a
 %In our simulations, the GT test procedure We use the R package \emph{globaltest} to compute.
 Throughout our simulations, we take $q=10$, $p=1000$, $\alpha=0.05$ and the empirical results are obtained from $3000$ replications.
 
+The test proposed by \cite{ZC2017}.
+Let $(\breve \bbeta_a^\top, \breve \bbeta_b^\top )^\top$ be the desparsifying estimator of $(\bbeta_a^\top,\bbeta_b^\top )^\top$.
+The test statistic is $\sqrt n | \breve \bbeta_b|_{\infty}$.
+\cite{ZC2017}, Theorem 2.1 implies that under certain regular conditions, 
+\begin{equation*}
+    \sqrt n (
+    \breve \bbeta_b - \bbeta_b
+) 
+= [\mathbf 0_{p\times q}; \BI_p] \hat \Omega [\BX_a ; \BX_b]^\top \epsilon / \sqrt n + \Delta
+,\quad \|\Delta\|_\infty = o_P(1),
+\end{equation*}
+where $\hat \Omega$ is the approximation for the inverse of $[\BX_a ; \BX_b]^\top[\BX_a ; \BX_b] / n$ given by the nodewise lasso regression.
+%\cite{vdG2014}, Theorem 2.4 implies that under certain regular conditions, $$.
+Hence the oracle version of the test statistic \cite{ZC2017}.
+The computation of the test method of \cite{ZC2017} is rather time-consuming.
+We implement the oracle version of their test which reject the null hypothesis when 
+\begin{equation*}
+\left\|\sqrt n \bbeta_b + [\mathbf 0_{p\times q}; \BI_p] \hat \Omega [\BX_a ; \BX_b]^\top \epsilon / \sqrt n \right\|_\infty
+\end{equation*}
+is large.
 
 
 In our simulations, two distributions of $\epsilon_1$ are considered, namely the chi-squared distribution \mbox{$\epsilon_1 \sim (\chi^2(4)-4)/\sqrt 8$} and the Student's $t$ distribution $\epsilon_1 \sim t_9$.
@@ -2711,6 +2731,11 @@ Sevast'yanov BA (1961) A class of limit distributions for quadratic forms of
   stochastic random variables. Theory Probab Appl
   6(3):337--340
 
+%\bibitem[{van~de Geer et~al.(2014)van~de Geer, B\"{u}hlmann, Ritov, and Dezeure}]{vdG2014}
+%van~de Geer A, B\"{u}hlmann P, Ritov Y, and Dezeure R (2006) On asymptotically optimal confidence regions and tests for high-dimensional models. Ann Statist 42(3):1166--1202
+
+
+
 \bibitem[{Wang and Cui(2015)}]{Wang2015}
 Wang S, Cui H (2015) A new test for part of high dimensional regression
   coefficients. J Multivariate Anal 137:187--203
@@ -2719,6 +2744,10 @@ Wang S, Cui H (2015) A new test for part of high dimensional regression
 Xu K (2016) A new nonparametric test for high-dimensional regression
   coefficients. J Stat Comput Simul
   87(5):855--869
+
+\bibitem[{Zhang and Cheng(2017)}]{ZC2017}
+    Zhang X, Cheng G (2017) Simultaneous inference for high-dimensional linear models, J Amer Statist Assoc
+    112(518):757--768
 
 \bibitem[{Zhang and Zhang(2014)}]{Zhang2013}
 Zhang CH, Zhang SS (2014) Confidence intervals for low dimensional parameters

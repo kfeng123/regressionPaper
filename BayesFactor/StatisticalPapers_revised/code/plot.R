@@ -1,8 +1,7 @@
 library(ggplot2)
 
 theD <- read.csv(paste0("results/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".csv"))
-theD <- theD[-ncol(theD)]
-names(theD) <- c("SNR", "NEW", "GT", "EP")
+names(theD) <- c("SNR", "NEW", "GT", "EP", "LT")
 myData <- NULL
 for(i in names(theD)[-1]){
     tmp <- theD[,c(names(theD)[1],i)]
@@ -12,7 +11,7 @@ for(i in names(theD)[-1]){
 myData <- as.data.frame(myData,stringsAsFactors=FALSE)
 names(myData)[2] <- "pvalue"
 myData[,2] <- as.numeric(myData[,2])
-myData$method <- factor(myData$method,levels=c("NEW","GT","EP"),labels=c("NEW","GT","EP"))
+myData$method <- factor(myData$method,levels=names(theD)[-1],labels=names(theD)[-1])
 myPlot <- ggplot(myData,aes(SNR,pvalue,color=method))+
     geom_boxplot()+
     geom_hline(yintercept = 0.05,linetype="dashed",color="purple")+

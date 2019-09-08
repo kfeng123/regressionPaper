@@ -14,6 +14,7 @@ source("./gt.R")
 source("./dataGeneration.R")
 source("./preComputation.R")
 
+
 outMy <- NULL
 outGt <- NULL
 outEp <- NULL
@@ -64,7 +65,8 @@ for(SNR in SNRsequence){
                 tmpSNR <- sqrt((n-q)*factorVarU)*myPhi*sum(betabO^2)/p
             }
             y <- innov + meanSig/sqrt(tmpSNR)*sqrt(SNR)
-            
+            betabO_real <- betabO/sqrt(tmpSNR)*sqrt(SNR)
+             
             # EigenPrism: inference for high dimensional signal-to-noise ratios
             myZ <- as.numeric( t(myUb) %*% y )
             ohT <- sum(myEPWeight * myZ^2 )
@@ -80,7 +82,11 @@ for(SNR in SNRsequence){
             
             ### lasso test
             if(lassoTest_on){
-                source("./lassoTest.R")
+                if(lassoTestOracle_on){
+                    source("./lassoTestOracle.R")
+                }else{
+                    source("./lassoTest.R")
+                }
                 lassoResult[i] <- lassoTest_one_result
             }
             

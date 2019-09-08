@@ -44,8 +44,23 @@ if(lassoTest_on){
     Gram <- t(X)%*%X/n
     score.nodewiselasso <- getFromNamespace("score.nodewiselasso", "hdi")
     node <- score.nodewiselasso(X, wantTheta=TRUE, verbose=FALSE, lambdaseq="quantile",
-                                parallel=FALSE, ncores=2, oldschool = FALSE, lambdatuningfactor = 1)
+                                parallel=TRUE, ncores=2, oldschool = FALSE, lambdatuningfactor = 1)
     Theta <- node$out
+    if(lassoTestOracle_on){
+        # generate reference distribution
+        lassoTest.leftMultilier <- Theta[-(1:q),] %*% t(X)
+        lassoTest.reference <- NULL
+        for(i in 1:M){
+            if(epsilonDis == "t"){
+                myTdf <- 9
+                innov_tmp <- rt(n,myTdf)
+            }
+            if(epsilonDis == "chi"){
+                innov_tmp <- (rchisq(n,4)-4)/sqrt(8)
+            }
+            lassoTest.reference[i]  <- max(abs(lassoTest.leftMultilier %*% innov_tmp / sqrt(n))) 
+        }
+    }
 }
 
 # generate reference normal random variables

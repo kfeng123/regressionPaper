@@ -128,6 +128,50 @@ Our responds are as follows.
 \textbf{Answer:}
 
 
+\textbf{
+    2.
+    Theorem 4 provides the power analysis, but its assumption in Equation (8) needs more discussion.
+    For example, at the end of Section 3, the manuscript uses the factor model to illustrate the power of the proposed test over Goeman et al. (2006).
+    However, this discussion is based on Theorem 4 and my rough calculation suggests that Equation (8), which is required by Theorem 4, does not seem to hold for factor models.
+    Let me outline some details.
+    \begin{enumerate}[(a)]
+        \item 
+            Supppose that $q=0$ (so $\tilde \BU_a = \BI_n$) and $\BX_b= \begin{pmatrix} W_1^\top \\ \vdots \\ W_n^\top \end{pmatrix}$ with $W_i = B F_i + u_i$, where $F_i$ is a scalar from i.i.d. $\mathcal N(0,1)$, $u_i$ is from $\mathcal N(0, \BI_p)$ and $B$ is from $\mathcal N (0, \BI_p)$.
+            Assume $F_i$, $u_i$ and $B$ are independent.
+        \item
+            Since $\myE (\gamma_I^{2k}) \geq \myVar (\gamma_I^k)$, a necessary condition for Equation (8) is
+            \begin{equation*}
+                \frac{(\gamma_1^k - \myE_I(\gamma_I^k))^2}{n\myE_I (\gamma_I^{2k})} \to 0,
+            \end{equation*}
+            where $\myE_I$ denotes expectation taken over randomness of $I$.
+        \item
+            Based on the computation above Theorem 4 (i.e. $\myE_I (\gamma_I^k) = \mytr (\BX_b \BX_b^\top)^k /n$), we know that $\myE_I (\gamma_I) = n^{-1} \sum_{i=1}^n W_i^\top W_i$ and 
+            \begin{equation*}
+                \myE_I (\gamma_I^2)  = n^{-1} \sum_{i=1}^n (W_i^\top W_i)^2 + n^{-1}\sum_{i=1}^n \sum_{j=1, j\neq i}^n (W_i^\top W_j)^2.
+            \end{equation*}
+        \item
+            For $k=1$, we use the assumptions in (a) to determined the size of $\gamma_1$, $\myE_I (\gamma_I)$ and $\myE_I (\gamma_I^2)$.
+            Simple computations would give use $\myE W_i^\top W_i = 2p$, $\myE (W_i^\top W_i)^2 = 6p^2 + 10p$ and $\myE (W_i^\top W_j)^2 = p^2 + 5p$ for $i\neq j$.
+            Thus, $\gamma_1 = O_p(np)$, $\myE_I (\gamma_I) = O_p(p)$ and $\myE_I (\gamma_I^2) = O_p(np^2)$. Thus, $\frac{(\gamma_I^k - \myE_i (\gamma_I^k))^2}{n\myE_I (\gamma_I^{2k})}$ with $k=1$ seem to be of the order $O_P(1)$ instead of $o_P(1)$.
+        \item
+            Overall, I think discussions on why Equation (8) should hold is needed, at least for the examples used at the end of Section 4 (i.i.d. rows and factor models).
+    \end{enumerate}
+}
+
+\textbf{Answer:}
+
+\textbf{
+    3.
+    I think the power comparison with \cite{Goeman2006} should be more
+    formal. Currently, there is a comparison on when $\myCov(-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I \omega_I^2)$ are positive.
+    However, in the two expressions for asymptotic power on page 12, this is not the only difference.
+    For example, there is also $\myVar (\gamma_I)$ versus $\myVar(\gamma_I^{-1})$.
+    Therefore, in the end, which one is more powerful is not completely obvious to me.
+    Even in the simple case of $w_i = 0$ for $i = 1, ..., n−q$, I am not certain which test has better asymptotic power.
+I think a formal result comparing the power of the two test would be nice
+even under restricted assumptions.
+}
+
 
 \section{Response to reviewer 2}
 

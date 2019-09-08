@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[Goeman et~al., 2006]{Goeman2006}
+Goeman, J.~J., van~de Geer, S.~A., and van Houwelingen, H.~C. (2006).
+\newblock Testing against a high dimensional alternative.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 68(3):477--493.
+
 \bibitem[Zhang and Cheng, 2017]{zhang2016simultaneous}
 Zhang, X. and Cheng, G. (2017).
 \newblock Simultaneous inference for high-dimensional linear models.
