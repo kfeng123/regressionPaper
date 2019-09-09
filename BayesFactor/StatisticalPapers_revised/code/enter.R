@@ -37,3 +37,11 @@ for(XGen in XGen_list)
             }
 
 
+
+for(XGen in XGen_list)
+    for(n in n_list)
+        for(epsilonDis in epsilonDis_list)
+            for(betabGen in betabGen_list){
+                source("./plot.R")
+            }
+

@@ -28,8 +28,8 @@ myPlot <- ggplot(myData,aes(SNR,pvalue,color=method))+
           legend.text= element_text(size=rel(1.55)),
           legend.title = element_text(size=rel(1.8)),
           aspect.ratio =0.6,
-          #plot.margin=unit(c(0,0,0,0),"cm")
+          plot.margin=unit(c(0,0,0,0),"cm")
           )
     #facet_wrap(~z,nrow=2)+
 
-ggsave(paste0("figure/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".eps"),myPlot,scale=0.8)
+ggsave(paste0("figure/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".eps"),myPlot,scale=0.8,width = 20, height = 12,units="cm")
