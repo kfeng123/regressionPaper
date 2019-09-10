@@ -1056,14 +1056,14 @@ Hence the proposed test can always detect the signals from more directions than 
 Now we consider a simple case.
 Suppose $\gamma_1,\dots,\gamma_{n-q}$ takes three difference values.
 \begin{proposition}
-    Suppose model \eqref{label:linearModel} holds with $\bepsilon\sim \mathcal N_n (0,\phi^{-1} \BI_n)$.
-    Suppose $(n-q)$ is divisible by $3$ and $\gamma_1 = \dots=\gamma_{(n-q)/3}=c_n \breve{\gamma}_1$, $\gamma_{(n-q)/3 + 1} = \dots= \gamma_{2(n-q)/3} = c_n \breve{\gamma}_2$, $\gamma_{(2(n-q)/3 + 1} = \dots = \gamma_{n-q} = c_n \breve{\gamma}_3$ where $\breve \gamma_1 > \breve \gamma_2 > \breve \gamma_3 > 0$ are absolute constants and $c_n>0$ may depend on $n$.
-        Suppose as $n\to \infty$, $n-q\to \infty$ and $ \| \BV_b^{*\top} \bbeta_b \|^2 = O((n-q)^{-1/2}) $.
+    Suppose model \eqref{label:linearModel} holds with $\bepsilon\sim \mathcal N_n (0, \BI_n)$.
+    Suppose $(n-q)$ is divisible by $3$ and $\gamma_1 = \dots=\gamma_{(n-q)/3}= 4 p$, $\gamma_{(n-q)/3 + 1} = \dots= \gamma_{2(n-q)/3} = 2 p $, $\gamma_{(2(n-q)/3 + 1} = \dots = \gamma_{n-q} = p$ where $\breve \gamma_1 > \breve \gamma_2 > \breve \gamma_3 > 0$ are absolute constants and $c_n>0$ may depend on $n$.
+        Suppose as $n\to \infty$, $n-q\to \infty$ and $ \| \BV_b^{*\top} \bbeta_b \|^2 = O((n-q)^{1/2}/ p ) $.
         Then the asymptotic power of the proposed test is
         \begin{equation*}
             \Phi \left(
                 \Phi^{-1}(\alpha) + 
-                \phi \sqrt{\frac{n-q}{28}}\left(16\sum_{i=1}^{\frac{n-q}{3}} w_i^2  + 2 \sum_{i=\frac{n-q}{3}+1}^{\frac{2(n-q)}{3}} w_i^2 - 5 \sum_{i=\frac{2(n-q)}{3}+1}^{n-q} w_i^2 \right) 
+                \frac{p}{\sqrt{28(n-q)}}\left(16\sum_{i=1}^{\frac{n-q}{3}} w_i^2  + 2 \sum_{i=\frac{n-q}{3}+1}^{\frac{2(n-q)}{3}} w_i^2 - 5 \sum_{i=\frac{2(n-q)}{3}+1}^{n-q} w_i^2 \right) 
             \right)
             ;
         \end{equation*}
@@ -1072,12 +1072,50 @@ Suppose $\gamma_1,\dots,\gamma_{n-q}$ takes three difference values.
         \begin{equation*}
             \Phi \left(
                 \Phi^{-1}(\alpha) + 
-                \phi \sqrt{\frac{n-q}{28}}\left(20\sum_{i=1}^{\frac{n-q}{3}} w_i^2 -2 \sum_{i=\frac{n-q}{3}+1}^{\frac{2(n-q)}{3}} w_i^2 - 4 \sum_{i=\frac{2(n-q)}{3}+1}^{n-q} w_i^2 \right) 
+                \frac{p}{\sqrt{28(n-q)}}\left(20\sum_{i=1}^{\frac{n-q}{3}} w_i^2 -2 \sum_{i=\frac{n-q}{3}+1}^{\frac{2(n-q)}{3}} w_i^2 - 4 \sum_{i=\frac{2(n-q)}{3}+1}^{n-q} w_i^2 \right) 
             \right)
             .
         \end{equation*}
 \end{proposition}
 
+\begin{proof}[\textbf{Proof of Proposition \ref{prop:addedInRevision}}]
+    It is straightforward to show that form fixed $k\neq 0$,
+    \begin{equation*}
+    \frac{
+        \max_{1\leq i \leq n-q}
+        \left( 
+        \gamma_i^k
+            -
+                \myE (\gamma_I^k)
+        \right)^2
+    }{
+        (n-q) \myVar (\gamma_I^k)
+    } = O\left(\frac{1}{n-q}\right)\to 0.
+    \end{equation*}
+    Hence Theorem \ref{generalTheorem} holds.
+    Then the asymptotic power function of the proposed test is
+    \begin{align*}
+        \myE(\gamma_I w_I^2)  =
+        \frac{p}{n-q}  \left(\breve \gamma_1 \sum_{i=1}^{\frac{n-q}{3}} w_i^2
+        +
+         \breve \gamma_2 \sum_{i=\frac{n-q}{3}+1}^{\frac{2(n-q)}{3}} w_i^2
+        +
+    \breve \gamma_3 \sum_{i=\frac{2(n-q)}{3}+1}^{n-q} w_i^2\right),
+    \end{align*}
+    \begin{align*}
+    \myCov(\gamma_I^k, \gamma_I w_I^2) =
+    \frac{p^{k+1}}{n-q}\Bigg( & (\breve \gamma_1^k- \myE(\gamma_I^k)) \breve \gamma_1 \sum_{i=1}^{\frac{n-q}{3}} w_i^2
+        +\\
+        &
+        (\breve \gamma_2^k - \myE(\gamma_I^k) ) \breve \gamma_2 \sum_{i=\frac{n-q}{3}+1}^{\frac{2(n-q)}{3}} w_i^2
+        +
+        \\
+        &
+    (\breve \gamma_3^k - \myE(\gamma_I^k) )\breve \gamma_3 \sum_{i=\frac{2(n-q)}{3}+1}^{n-q} w_i^2
+\Bigg).
+    \end{align*}
+
+\end{proof}
 
 Now we consider a practical scenario where the proposed test is more favorable.
 Suppose $\BX_b$ is a random design matrix and the rows of $\BX_b$ are iid random vectors.
