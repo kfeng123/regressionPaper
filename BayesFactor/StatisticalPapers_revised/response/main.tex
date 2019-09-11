@@ -172,10 +172,75 @@ I think a formal result comparing the power of the two test would be nice
 even under restricted assumptions.
 }
 
+\textbf{Answer:}
+
 
 \section{Response to reviewer 2}
 
+\textbf{
+    1. The title should be changed. Nonexistence of unbiased test is not the main focus of this article, it is just the motivation of the paper. I suggest to change the title to ``A Bayesian test for high dimensional linear regression models with fixed design matrix''.
+}
 
+\textbf{Answer:}
+We agree that the original title is not good enough.
+We partly follow the suggestion of the reviewer and change the title to ``A Bayesian motivated test for high dimensional linear regression models with fixed design matrix''.
+We preserve the word ``motivated'' since Bayesian method is just the motivation of our test and our test is actually a frequentist test.
+
+\textbf{
+    2. The Introduction part should be re-written.
+    The main focus of this article is two-aspects.
+    One is the Bayesian test, and the other is the fixed design matrix. 
+    The introduction part should clearly state about your contribution through the two aspects compared with other competitors.
+}
+
+\textbf{Answer:}
+
+\textbf{
+    3. The transition through Section 2 to Section 3 is not clear.
+    When you considering tests with good average power.
+    Why Bayesian methods are natural choices?
+    Some discussions are needed. In addition, the non-existence of nontrivial unbiased test is a trivial result for high dimensional setting.
+}
+
+\textbf{Answer:}
+In frequentist point of view, Bayesian methods aim at minimize the average risk.
+See Lehmann's book.
+In the revised paper, we add some discussion at the end of Section 2.
+
+\textbf{
+    4. Your proposed test is quite similar with that of the likelihood ratio test, some discussions for the differences are needed.
+    In addition, since X*_b is of dimension $p$, when both n and p are large, the matrix X*_b X*_b’ is not invertible.
+    Does your method applicable for $n>p$?
+}
+
+\text{Answer:}
+We follow the suggestion of the reviewer.
+Our method is not applicable for $n>p$.
+If $n>p$, the prior distributions adopted by us will yield exactly the likelihood ratio test.
+This is an advantage of out test as it can be seen as a natural extention of the likelihood ratio test to the high dimensional setting.
+When $n>p$, the likelihood ratio test exists and should be used.
+
+\textbf{
+    5. The differences between your test and that of Goeman et al. (2006) and Lan et al. (2014) need to be discussed carefully.
+}
+
+\text{Answer:}
+The first difference is the test statistic.
+We use the different prior strategy, and produce different statistics.
+The second difference is the way to determine the critical value.
+Our method has a wider application scope.
+
+\textbf{
+    6. Throughout the article, I do not see any results related to fix design matrix, why the fix design is essential for your analysis?
+    Is it useful for your theoretical results?
+}
+
+\text{Answer:}
+The result in Section 2 requires the fix design matrix.
+In fact, if the design matrix is random, there indeed exists tests with nontrivial power.
+See the papers on minimax test.
+For Bayesian methods, fixed design and random design will produce the same statistic.
+As for the theoretical results for our test. These results also hold for random design matrix provided the random design matrix satisfies our conditions.
 
 
 
