@@ -172,9 +172,9 @@ That is, we would like to test the hypotheses
     \text{v.s.} \quad
     \mathcal H_1:   \bbeta_b \neq 0.
 \end{align}
-%Motivated by many recent applications of high dimensional regression, we consider the situation where $p+q$ is much larger than $n$.
+%Motivated by many recent applications of high-dimensional regression, we consider the situation where $p+q$ is much larger than $n$.
 The conventional test for hypotheses \eqref{theHypothesis} is the $F$-test which is also the likelihood ratio test under normal errors.
-However, the $F$-test is not well defined in high dimensional setting.
+However, the $F$-test is not well defined in high-dimensional setting.
 In fact, if $\bepsilon$ is normal distributed and $\myRank[\BX_a;\BX_b]=n$, then the likelihood is unbounded under the alternative hypothesis.
 Thus, new test methodology is required in high-dimensional setting.
 
@@ -203,38 +203,42 @@ proposed a rank-based test for the entire coefficients.
 Apart from the aforementioned tests,
 there is another line of research utilizing desparsified Lasso estimator; see, e.g., \cite{Dezeure2017} \cite{ZC2017}.
 
-Except for the test of \cite{Goeman2006}, most existing high dimensional tests adopted the random design assumption, that is, the rows of $\BX_b$ are considered as being generated from a super population.
-Often in practice, at least a part of the design matrix is designed by the experimenter; see \cite{Draper1996} and the references therein.
+Most existing high-dimensional tests adopted the random design assumption, that is, the rows of $\BX_b$ are considered as being generated from a super population.
+Often in practice, however, at least a part of the design matrix is designed by the experimenter; see \cite{Draper1996} and the references therein.
 In this case, assuming a random design is not appropriate.
-As noted by \cite{Lei2018}, assuming a fixed design or a random design could lead to qualitatively different inferential results and the former is preferable from a theoretical point of view.
-Hence we focus on the fixed design setting in this paper.
-Of course, our results are still valid for random design from a conditional inference perspective.
+Hence in this paper, we consider the fixed design setting.
+Of course, our test method is still valid for random design from a conditional inference perspective.
 
+As noted by \cite{Lei2018}, assuming a fixed design or a random design could lead to qualitatively different inferential results.
+%In fact, the fixed design setting is much more irregular than the random design setting.
+In frequentist hypotheses testing,
+unbiasedness and minimaxity are two important considerations of test methods; see, e.g., \cite{Lehmann}.
+Under the random design assumption, nontrivial unbiased test does exist and the testing problem can be considered from the minimax perspective; see, e.g., \cite{ITV2010}.
+Surprisingly, these two frequentist considerations can not be applied in the fixed design setting.
+In fact, in Section \ref{sec:unbiased}, we shall show that in the fixed design setting, the only unbiased test and minimax test is the trivial constant function $\varphi(\By) \equiv \alpha$.
+This negative result of frequentist considerations motivates us to propose a frequentist test with the aid of Bayesian methods.
 
+In this paper, we propose a new test statistic for hypotheses \eqref{theHypothesis} which is the limit of Bayes factors as the prior magnitude of $\bbeta_b$ tend to infinity.
+The proposed test statistic is a ratio of quadratic forms of $\By$.
+We give an approximation of the distribution of quadratic form using Lindeberg's replacement trick.
+Based on this approximated distribution, the critical value of the proposed test statisitc is calculated by a one step iteration.
+We prove that the proposed test procedure is valid under weak conditions.
+In particular, the validity of the proposed test procedure does not require that the test statistic is asymptotically normally distributed.
 
+The proposed test statistic is closely related to the test statistic of \cite{Goeman2006} which is also derived by a Bayesian argument.
+However, \cite{Goeman2006} let the prior magnitude of $\bbeta_b$ tend to zero, which is contrary to our strategy.
 
-In Bayesian literature, many Bayesian tests have been proposed for hypothesis \eqref{theHypothesis} in low-dimensional setting; see \cite{javier2006Obj,Goddard2016,zhou2018On} and the references therein.
-So far, most existing Bayesian tests are not applicable in large $p$, small $q$ setting.
-In principle,
-using Bayes factor as a frequentist test statistic in high-dimensional setting is a good strategy for at least two reasons.
-First, the Bayes factors corresponding to proper priors are always well defined, even if the likelihood is unbounded.
-Second, under mild conditions, tests based on Bayes factors are admissible (See, e.g., \cite{Lehmann}, Theorem 6.7.2).
-In fact, the test procedure of \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist significance test.
+Under certain conditions, we also derive the asymptotic power function of the proposed test and the test of \cite{Goeman2006}.
+It is shown that the proposed test can detect the signals from more directions than the test of \cite{Goeman2006}.
 
+In fact, the test procedure of \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist test.
+But this work will use a different strategy to set prior magnitude.
 In \cite{Goeman2006}, the prior distribution of $\bbeta_b$ satisfies $\myE (\bbeta_b)= 0$, $\myVar (\bbeta_b)=c \BI_p$ and their statistic is obtained by letting $c$, the prior magnitude of $\bbeta_b$, tend to zero.
 Their goal is to achieve the highest average power under local alternative.
 In classical statistics, any reasonable test can detect large deviations from the null hypothesis and it is natural to consider only the local alternative.
 Surprisingly, though, the situation is different for our problem.
 In fact, Theorem \ref{prop:unbiased} will show that no test can detect all large deviations from the null hypothesis in large $p$, small $q$ setting.
 Consequently, it is not enough to consider only the local alternative.
-In this paper, we propose a new test statistic in large $p$, small $q$ setting which is the limit of Bayes factors as the prior magnitude of $\bbeta_b$ tend to infinity.
-The proposed test statistic is a ratio of quadratic forms of $\By$.
-We give an approximation of the distribution of quadratic form using Lindeberg's replacement trick.
-Based on this approximated distribution, the critical value of the proposed test statisitc is calculated by a one step iteration.
-We prove that the proposed test procedure is valid under weak conditions.
-In particular, we do not require that the test statistic is asymptotically normally distributed.
-Under certain conditions, we also derive the asymptotic power function of the proposed test and the test of \cite{Goeman2006}.
-It is shown that the proposed test can detect the signals from more directions than the test of \cite{Goeman2006}.
 Simulations are conducted to examine the good performance of the proposed test.
 
 W have made two main contributions in this paper.
@@ -300,9 +304,16 @@ Classical strategies for constructing tests may not be suitable since there is n
 This motivates us to consider tests with good average power behavior.
 Then Bayesian methods are natural choices.
 
-
-
 \section{A Bayesian-motivated test}\label{sec:methodology}
+
+In Bayesian literature, many Bayesian tests have been proposed for hypothesis \eqref{theHypothesis} in low-dimensional setting; see \cite{javier2006Obj,Goddard2016,zhou2018On} and the references therein.
+So far, most existing Bayesian tests are not applicable in large $p$, small $q$ setting.
+In principle,
+using Bayes factor as a frequentist test statistic in high-dimensional setting is a good strategy for at least two reasons.
+First, the Bayes factors corresponding to proper priors are always well defined, even if the likelihood is unbounded.
+Second, under mild conditions, tests based on Bayes factors are admissible (See, e.g., \cite{Lehmann}, Theorem 6.7.2).
+
+
 \subsection{Test statistic}
 
 Bayes factor (see, e.g., \cite{Robert1995Bayes}) is a commonly used tool for model comparison within the Bayesian framework.
@@ -2776,9 +2787,16 @@ G\"otze F, Tikhomirov A (2002) Asymptotic distribution of quadratic forms and
 Horn RA, Johnson CR (1991) Topics in matrix analysis, 1st edn. Cambridge
   University Press, New York
 
+\bibitem[{Ingster et~al.(2010)Ingster, Tsybakov, and Verzelen}]{ITV2010}
+    Ingster YI, Tsybakov AB, Verzelen N (2010) Detection boundary in sparse regression. Electron J Stat 4(0):1476-1526
+
+
 \bibitem[{Janson et~al.(2016)Janson, Barber, and Cand{\`{e}}s}]{Janson2016}
 Janson L, Barber RF, Cand{\`{e}}s E (2016) {EigenPrism}: inference for high
   dimensional signal-to-noise ratios. J R Stat Soc Ser B Stat Methodol 79(4):1037--1065
+
+%\bibitem[{Javanmard and Montanari(2014)}]{JM2014}
+    %Javanmard A, Montanari A (2014) Hypothesis testing in high-dimensional regression under the Gaussian random design model: asymptotic theory. IEEE Trans Inform Theory 60(10): 6522--6554
 
 \bibitem[{Javier~Gir\'on et~al.(2006)Javier~Gir\'on, Lina~Mart\'inez, Moreno,
   and Torres}]{javier2006Obj}
