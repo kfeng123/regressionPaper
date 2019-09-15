@@ -208,7 +208,6 @@ Often in practice, however, at least a part of the design matrix is designed by 
 In this case, assuming a random design is not appropriate.
 Hence in this paper, we consider the fixed design setting.
 Of course, our test method is still valid for random design from a conditional inference perspective.
-
 As noted by \cite{Lei2018}, assuming a fixed design or a random design could lead to qualitatively different inferential results.
 %In fact, the fixed design setting is much more irregular than the random design setting.
 In frequentist hypotheses testing,
@@ -224,25 +223,25 @@ We give an approximation of the distribution of quadratic form using Lindeberg's
 Based on this approximated distribution, the critical value of the proposed test statisitc is calculated by a one step iteration.
 We prove that the proposed test procedure is valid under weak conditions.
 In particular, the validity of the proposed test procedure does not require that the test statistic is asymptotically normally distributed.
-
 The proposed test statistic is closely related to the test statistic of \cite{Goeman2006} which is also derived by a Bayesian argument.
 However, \cite{Goeman2006} let the prior magnitude of $\bbeta_b$ tend to zero, which is contrary to our strategy.
-
-Under certain conditions, we also derive the asymptotic power function of the proposed test and the test of \cite{Goeman2006}.
+Under certain conditions, we derive the asymptotic power function of the proposed test and the test of \cite{Goeman2006}.
 It is shown that the proposed test can detect the signals from more directions than the test of \cite{Goeman2006}.
 
-In fact, the test procedure of \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist test.
-But this work will use a different strategy to set prior magnitude.
-In \cite{Goeman2006}, the prior distribution of $\bbeta_b$ satisfies $\myE (\bbeta_b)= 0$, $\myVar (\bbeta_b)=c \BI_p$ and their statistic is obtained by letting $c$, the prior magnitude of $\bbeta_b$, tend to zero.
-Their goal is to achieve the highest average power under local alternative.
-In classical statistics, any reasonable test can detect large deviations from the null hypothesis and it is natural to consider only the local alternative.
-Surprisingly, though, the situation is different for our problem.
-In fact, Theorem \ref{prop:unbiased} will show that no test can detect all large deviations from the null hypothesis in large $p$, small $q$ setting.
-Consequently, it is not enough to consider only the local alternative.
-Simulations are conducted to examine the good performance of the proposed test.
+%In fact, the test procedure of \cite{Goeman2006} is motivated by Bayesian methods but is treated as a frequentist test.
+%But this work will use a different strategy to set prior magnitude.
+%In \cite{Goeman2006}, the prior distribution of $\bbeta_b$ satisfies $\myE (\bbeta_b)= 0$, $\myVar (\bbeta_b)=c \BI_p$ and their statistic is obtained by letting $c$, the prior magnitude of $\bbeta_b$, tend to zero.
+%Their goal is to achieve the highest average power under local alternative.
+%In classical statistics, any reasonable test can detect large deviations from the null hypothesis and it is natural to consider only the local alternative.
+%Surprisingly, though, the situation is different for our problem.
+%In fact, Theorem \ref{prop:unbiased} will show that no test can detect all large deviations from the null hypothesis in large $p$, small $q$ setting.
+%Consequently, it is not enough to consider only the local alternative.
+%Simulations are conducted to examine the good performance of the proposed test.
 
-W have made two main contributions in this paper.
-
+This paper has made three main contributions for testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting with fixed design matrix.
+First, we prove that no test can detect all large deviations from the null hypothesis.
+Second, we propose a novel Bayesian-motivated test, which can be regarded as an extention of the likelihood ratio test in high-dimensional setting.
+Third, we propose to use Lindeberg's replacement trick to approximate the distribution of quadratic forms.
 
 The rest of the paper is organized as follows.
 In Section \ref{sec:unbiased}, we prove the nonexistence of unbiased test for hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting.
@@ -281,28 +280,32 @@ Define $\btheta =(\bbeta_a^\top , \bbeta_b^\top , \phi)^\top$ and
     \end{split}
 \end{equation*}
 A test function $\varphi(\By)$ of level $\alpha$ is a Borel measurable function from $\mathbb R^n$ to $\mathbb R$ such that $0\leq \varphi(\By) \leq 1$ and $\myE_{\btheta} [\varphi(\By)]\leq \alpha$ for $\btheta\in \Theta_0$.
-%A test function $\varphi(\By)$ is nonrandom if $\varphi(\By)$ takes on only the values $0$ and $1$.
 Let $\lambda(\cdot)$ be the Lebesgue measure on $\mathbb R^n$.
 We have the following theorem.
 \begin{theorem}\label{prop:unbiased}
     Suppose Assumption \ref{Assumption} holds.
     Furthermore, assume $\bepsilon\sim \mathcal N_n (0, \phi^{-1}\BI_n)$.
     Let $\varphi(\By)$ be a test function of level $\alpha$, $0 <\alpha <1$.
-%Then the following results hold.
-        %If $\varphi(\By)$ is unbiased, that is, $\myE_\theta [\varphi(\By)]\geq \alpha$ for $\theta \in \Theta$, then $\varphi(\By)=\alpha$, a.s.\ $\lambda$.
     If $\lambda(\{\By:\varphi(\By)\neq \alpha\})>0$, then for every $M\geq 0$, there exists a parameter $\btheta=(\bbeta_a^\top,\bbeta_b^\top,\phi)^\top \in \Theta$ such that $\phi\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ and $\myE_{\btheta} [\varphi(\By)]< \alpha$.
 \end{theorem}
-It follows from Theorem \ref{prop:unbiased} that the only unbiased test in large $p$, small $q$ setting is $\varphi(\By) \equiv \alpha$ a.e.\ $\lambda$.
-Furthermore, in Theorem \ref{prop:unbiased}, the quantity $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ can be regarded as a signal to noise ratio.
+In Theorem \ref{prop:unbiased}, the quantity $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b$ can be regarded as a signal to noise ratio.
 In any conventional sense, it is expected that the power of a reasonable test should tend to $1$ as $\phi \bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b \to \infty$.
 Indeed, such a test can be easily constructed in low dimensional setting.
 However, Theorem \ref{prop:unbiased} claims that it is impossible to find such a test in large $p$, small $q$ setting.
+Moreover, Theorem \ref{prop:unbiased} implies that the trivial test $\varphi(\By) \equiv \alpha$ (a.e.\ $\lambda$) is the only unbiased test and is also the only minimax test for testing $\mathcal H_0 $ against $\mathcal H_1^{M}: \phi\bbeta_b^\top \BX_b^\top \tilde \BP_a \BX_b \bbeta_b > M$ for any $M > 0$.
+This is somewhat surprising since nontrivial unbiased test and minimax test do exist in random design setting; see, e.g., \cite{ITV2010}.
+
+Note that unbiasedness and minimaxity are two key considerations of frequentist hypotheses testing; see, e.g., \cite{Lehmann}.
+In our problem, however, these considerations can not be applied and there is no test with guaranteed power.
+Nevertheless, it is still feasible to propose a test with good average power behavior.
+From the viewpoint of the decision theory, Bayesian methods aim at minimizing the average risk; see, e.g., \cite{Lehmann}, Section 1.6.
+This motivates us to propose a frequentist test with the aid of Bayesian methods.
+%Then Bayesian methods are natural choices for our porpuse.
+%This motivates us to consider tests with good average power behavior.
+%Hence and classical frequentist strategies for constructing tests may not be suitable.
+%Classical strategies for constructing tests may not be suitable since there is no nontrivial unbiased test nor test with guaranteed power.
 
 
-Thus, testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting is a difficult problem.
-Classical strategies for constructing tests may not be suitable since there is no nontrivial unbiased test nor test with guaranteed power.
-This motivates us to consider tests with good average power behavior.
-Then Bayesian methods are natural choices.
 
 \section{A Bayesian-motivated test}\label{sec:methodology}
 
