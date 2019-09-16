@@ -309,18 +309,19 @@ This motivates us to propose a frequentist test with the aid of Bayesian methods
 
 \section{A Bayesian-motivated test}\label{sec:methodology}
 
-In Bayesian literature, many Bayesian tests have been proposed for hypothesis \eqref{theHypothesis} in low-dimensional setting; see \cite{javier2006Obj,Goddard2016,zhou2018On} and the references therein.
-So far, most existing Bayesian tests are not applicable in large $p$, small $q$ setting.
-In principle,
-using Bayes factor as a frequentist test statistic in high-dimensional setting is a good strategy for at least two reasons.
+In Bayesian literature, Bayes factor (see, e.g., \cite{Robert1995Bayes}) is a fundamental tool for hypotheses testing adn model comparison.
+So far, many Bayesian tests have been proposed for hypothesis \eqref{theHypothesis} in low-dimensional setting; see \cite{javier2006Obj,Goddard2016,zhou2018On} and the references therein.
+However, most existing Bayesian tests are not applicable in large $p$, small $q$ setting.
+In this section, we shall propose a new frequentist test statistic in large $p$, small $q$ setting which is the limit of Bayesian factors.
+In principle, using Bayes factor as a frequentist test statistic in high-dimensional setting is a good strategy for at least two reasons.
 First, the Bayes factors corresponding to proper priors are always well defined, even if the likelihood is unbounded.
 Second, under mild conditions, tests based on Bayes factors are admissible (See, e.g., \cite{Lehmann}, Theorem 6.7.2).
 
-
 \subsection{Test statistic}
-
-Bayes factor (see, e.g., \cite{Robert1995Bayes}) is a commonly used tool for model comparison within the Bayesian framework.
-In our problem, suppose $\bepsilon \sim \mathcal N_n (0,\phi^{-1} \BI_n)$, the Bayes factor for hypotheses \eqref{theHypothesis} is
+The new test statistic will be derived under normal assumption.
+%We assume in the derivation of the test statistic.
+Later we will show that our test method can be applied for general distribution.
+Suppose $\bepsilon \sim \mathcal N_n (0,\phi^{-1} \BI_n)$, then the Bayes factor for hypotheses \eqref{theHypothesis} is
 \begin{equation*}
     B_{10}= \frac {
         \int d\mathcal N_n(\BX_a\bbeta_a + \BX_b\bbeta_b, \phi^{-1}\BI_n) (\By) \pi_1(\bbeta_b,\bbeta_a,\phi)\, \mathrm d\bbeta_b \mathrm d\bbeta_a \mathrm d\phi
@@ -332,7 +333,7 @@ where $d\mathcal N_n(\mu, \bSigma)(\By)$ is the density function of a $\mathcal 
 If $B_{10}$ is large, the alternative hypothesis is preferred.
 %There have been several extensions of $g$-priors to $p>n$ case: \cite{maruyama2011}, \cite{Shang2011}.
 It is known that if the true parameters indeed come from the specified prior distribution, then the Bayes factor is the likelihood ratio statistic and consequently, the test based on the Bayes factor is the most powerful test.
-We notice that in the frequentist framework, the Bayes factor can be treated as a test statisitc, provided the critical value can be determined to preserve the test level.
+We notice that in the frequentist framework, the Bayes factor can be treated as a test statisitc provided the critical value can be determined to preserve the test level.
 %It is known that the test based on Bayes factor is admissible, namely, its the power can not be uniformly dominated by any other test.
 
 
