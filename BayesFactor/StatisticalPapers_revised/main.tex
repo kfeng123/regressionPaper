@@ -309,7 +309,7 @@ This motivates us to propose a frequentist test with the aid of Bayesian methods
 
 \section{A Bayesian-motivated test}\label{sec:methodology}
 
-In Bayesian literature, Bayes factor (see, e.g., \cite{Robert1995Bayes}) is a fundamental tool for hypotheses testing adn model comparison.
+In Bayesian literature, Bayes factor (see, e.g., \cite{Robert1995Bayes}) is a fundamental tool for hypotheses testing and model comparison.
 So far, many Bayesian tests have been proposed for hypothesis \eqref{theHypothesis} in low-dimensional setting; see \cite{javier2006Obj,Goddard2016,zhou2018On} and the references therein.
 However, most existing Bayesian tests are not applicable in large $p$, small $q$ setting.
 In this section, we shall propose a new frequentist test statistic in large $p$, small $q$ setting which is the limit of Bayesian factors.
@@ -320,7 +320,7 @@ Second, under mild conditions, tests based on Bayes factors are admissible (See,
 \subsection{Test statistic}
 The new test statistic will be derived under normal assumption.
 %We assume in the derivation of the test statistic.
-Later we will show that our test method can be applied for general distribution.
+Later we will show that the proposed test method can be applied for general distribution.
 Suppose $\bepsilon \sim \mathcal N_n (0,\phi^{-1} \BI_n)$, then the Bayes factor for hypotheses \eqref{theHypothesis} is
 \begin{equation*}
     B_{10}= \frac {
@@ -432,7 +432,7 @@ Let $B_{10,\kappa} $ be the Bayes factor corresponding to the priors \eqref{prio
     %\right)^{(n-q)/2}.
     %\end{split}
 %\end{equation*}
-\begin{equation*}
+ \begin{equation}\label{new:tuoyan1}
     \begin{split}
         &2\log (B_{10,{\kappa}})
         \\
@@ -453,7 +453,7 @@ Let $B_{10,\kappa} $ be the Bayes factor corresponding to the priors \eqref{prio
         }
     \right).
     \end{split}
-\end{equation*}
+\end{equation}
 
 Denote by $\tilde \BP_a=\tilde{\BU}_a \tilde{\BU}_a^\top$ the rank decomposition of $\tilde \BP_a$, where $\tilde{\BU}_a$ is an $n\times (n-q)$ column orthogonal matrix.
 Let $\BX_b^* = \tilde{\BU}_a^\top \BX_b$, $\By^* =\tilde \BU_a^\top \By$.
@@ -519,6 +519,12 @@ Thus, we proposed the following test statistic
      \frac{\By^{*\top} ( \BX_b^* \BX_b^{*\top} )^{-1} \By^* }{\By^{*\top} \By^*} .
 \end{equation*}
 The null hypothesis will be rejected if $T$ is large.
+
+Note that the test of \cite{Goeman2006} can be used in both high-dimensional setting and low-dimensional setting.
+In comparison, the proposed test statistic $T$ can only be used in high-dimensional setting as it involves the inverse of $ \BX_b^* \BX_b^{*\top}$. 
+Nevertheless, if we apply the proposed methodology in low-dimensional setting, that is, letting $\kappa \to 0$ in \eqref{new:tuoyan1}, then the resulting test statistic is exactly the likelihood ratio test.
+In this view, the proposed test is an extension of the likelihood ratio test to the high-dimensional setting.
+
 
 
 
