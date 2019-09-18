@@ -1050,33 +1050,19 @@ and the asymptotic power function of their test is
     \end{split}
 \end{equation*}
 
-It can be seen %from \eqref{eq:powerProposed} and \eqref{eq:powerTheirs}
-that the power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ while the power of the test of \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2)$.  
-Unfortunately, neither of these two quantities is positive definite.
-This fact is not surprising in view of Theorem \ref{prop:unbiased}.
-Nevertheless, $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I w_I^2)$ are positive definite if $\bbeta_b$ is restricted  in certain subspaces of $\mathbb R^p$.
+Since the forms of the power functions are fairly complicated, it is hard to compare the two tests in general.
+Nevertheless, the forms of the power functions can be simplified under more restricted assumptions.
+We have the following proposition.
+\begin{proposition}
+    Suppose the conditions of Theorem \ref{generalTheorem} hold.
+    Furthermore, suppose 
+    \label{new:proposition:touteng}
+\end{proposition}
+%To facilitate the conparison of the two tests, we would like to impose more assumptions and simplify the power functions.
 
-Let $d_1$ be the maximum $i$ such that $ \gamma_i^{-1} < \myE (\gamma_I^{-1})$.
-Let $d_2$ be the maximum $i$ such that $\gamma_i > \myE (\gamma_I) $.
-Then it can be seen that
-\begin{align*}
-\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)
-&=
-\frac{1}{n-q} \sum_{i=1}^{n-q} \left(\myE (\gamma_I^{-1})-\gamma_i^{-1} \right) \gamma_i w_i^2
-\end{align*}
-is positive definite if $w_{d_1+1}=\cdots =w_{n-q}=0$, while
-\begin{align*}
-    \myCov(\gamma_I, \gamma_I w_I^2)
-&=
-\frac{1}{n-q} \sum_{i=1}^{n-q} \left(\gamma_i - \myE \gamma_I \right) \gamma_i w_i^2
-\end{align*}
-is positive definite if $w_{d_2 + 1}=\cdots = w_{n-q}=0$.
-In other words, $\myCov(-\gamma_I^{-1}, \gamma_I w_I^2)$ is positive definite if $\bbeta_b$ belongs to the rank $d_1$ principal component subspace of $\BX_{b}^{*\top}\BX_b^{*}$, and $\myCov(\gamma_I, \gamma_I w_I^2)$ is positive definite if $\bbeta_b$ belongs to the rank $d_2$ principal component subspace of $\BX_{b}^{*\top}\BX_b^{*}$.
-Note that $\gamma_i > \myE (\gamma_I)$ implies that $\gamma_i^{-1} < (\myE (\gamma_I))^{-1}\leq \myE (\gamma_I^{-1})$, where the last inequality follows from Jensen's inequality.
-It follows that $ d_1 \geq d_2 $.
-Hence the proposed test can always detect the signals from more directions than the test of \cite{Goeman2006}.
 
-Now we consider a simple case.
+
+
 Suppose $\gamma_1,\dots,\gamma_{n-q}$ takes three difference values.
 \begin{proposition}
     Suppose model \eqref{label:linearModel} holds with $\bepsilon\sim \mathcal N_n (0, \BI_n)$.
@@ -1139,6 +1125,32 @@ Suppose $\gamma_1,\dots,\gamma_{n-q}$ takes three difference values.
     \end{align*}
 
 \end{proof}
+
+
+It can be seen that the power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ while the power of the test of \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2)$.  
+Unfortunately, neither of these two quantities is positive definite.
+This fact is not surprising in view of Theorem \ref{prop:unbiased}.
+Nevertheless, $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I w_I^2)$ are positive definite if $\bbeta_b$ is restricted  in certain subspaces of $\mathbb R^p$.
+
+Let $d_1$ be the maximum $i$ such that $ \gamma_i^{-1} < \myE (\gamma_I^{-1})$.
+Let $d_2$ be the maximum $i$ such that $\gamma_i > \myE (\gamma_I) $.
+Then it can be seen that
+\begin{align*}
+\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)
+&=
+\frac{1}{n-q} \sum_{i=1}^{n-q} \left(\myE (\gamma_I^{-1})-\gamma_i^{-1} \right) \gamma_i w_i^2
+\end{align*}
+is positive definite if $w_{d_1+1}=\cdots =w_{n-q}=0$, while
+\begin{align*}
+    \myCov(\gamma_I, \gamma_I w_I^2)
+&=
+\frac{1}{n-q} \sum_{i=1}^{n-q} \left(\gamma_i - \myE \gamma_I \right) \gamma_i w_i^2
+\end{align*}
+is positive definite if $w_{d_2 + 1}=\cdots = w_{n-q}=0$.
+In other words, $\myCov(-\gamma_I^{-1}, \gamma_I w_I^2)$ is positive definite if $\bbeta_b$ belongs to the rank $d_1$ principal component subspace of $\BX_{b}^{*\top}\BX_b^{*}$, and $\myCov(\gamma_I, \gamma_I w_I^2)$ is positive definite if $\bbeta_b$ belongs to the rank $d_2$ principal component subspace of $\BX_{b}^{*\top}\BX_b^{*}$.
+Note that $\gamma_i > \myE (\gamma_I)$ implies that $\gamma_i^{-1} < (\myE (\gamma_I))^{-1}\leq \myE (\gamma_I^{-1})$, where the last inequality follows from Jensen's inequality.
+It follows that $ d_1 \geq d_2 $.
+Hence the proposed test can always detect the signals from more directions than the test of \cite{Goeman2006}.
 
 Now we consider a practical scenario where the proposed test is more favorable.
 Suppose $\BX_b$ is a random design matrix and the rows of $\BX_b$ are iid random vectors.
