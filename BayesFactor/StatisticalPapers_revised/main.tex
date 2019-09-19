@@ -1050,20 +1050,175 @@ and the asymptotic power function of their test is
     \end{split}
 \end{equation*}
 
-Since the forms of the power functions are fairly complicated, it is hard to compare the two tests in general.
-Nevertheless, the forms of the power functions can be simplified under more restricted assumptions.
-We have the following proposition.
+It is hard to compare the two tests in general as the forms of the global power functions are fairly complicated.
+Nevertheless, the forms of the local power functions can be further simplified under more restricted assumptions.
+In fact, we have the following proposition.
 \begin{proposition}
     Suppose the conditions of Theorem \ref{generalTheorem} hold.
-    Furthermore, suppose 
+    Furthermore, suppose $\myE (\gamma_I w_I^2) = O((n-q)^{-1/2})$ and $\max_{i\in \{1, \dots, n-q\}} (\gamma_i w_i^2) = o(1)$.
+Then for any $x\in \mathbb R$,
+\begin{equation*}
+    \begin{split}
+    &\Pr\left( 
+        \frac{
+            \By^{*\top} \left( \BX_b^* \BX_b^{*\top} \right)^k \By^*
+        }{
+            \By^{*\top} \By^*
+        } 
+        \leq 
+        \myE (\gamma_I^k)
+        +\sqrt{
+            \frac{2\myVar\left( \gamma_I^k \right)}{n-q} 
+        }
+        x
+    \right) 
+    \\
+    =&
+    \Phi\left( 
+        x-\phi \sqrt{n-q}
+            \frac{
+            \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
+            }{
+\sqrt{2 \myVar\left( \gamma_I^k \right)}
+}
+    \right)
+    +o(1)
+    .
+    \end{split}
+\end{equation*}
     \label{new:proposition:touteng}
 \end{proposition}
+\begin{proof}[\textbf{Proof of Proposition \ref{new:proposition:touteng}}]
+    Fix an $x\in \mathbb R$.
+    From Theorem \ref{generalTheorem}, we have
+\begin{equation*}
+    \begin{split}
+    &\Pr\left( 
+        \frac{
+            \By^{*\top} \left( \BX_b^* \BX_b^{*\top} \right)^k \By^*
+        }{
+            \By^{*\top} \By^*
+        } 
+        \leq 
+        \myE (\gamma_I^k)
+        +\sqrt{
+            \frac{2\myVar\left( \gamma_I^k \right)}{n-q} 
+        }
+        x
+    \right) 
+    \\
+    =&
+    \Phi\left( 
+        \frac{
+            \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
+            \sqrt{{2}} 
+            x
+            -
+            \phi
+            \sqrt{n-q}
+            \frac{
+            \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
+            }{
+{\sqrt{\myVar\left( \gamma_I^k \right)}}
+            }
+        }{
+            \sqrt{
+                2
+                +
+                4 \phi
+     \myE\left[ 
+         \Big( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \Big)^2
+        \gamma_I w_I^2
+    \right]
+            }
+        } 
+    \right)
+    +o(1)
+    \\
+    =&
+    \Phi\left( 
+        \frac{
+            \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
+            x
+            -
+            \phi
+            \sqrt{n-q}
+            \frac{
+            \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
+            }{
+\sqrt{2 \myVar\left( \gamma_I^k \right)}
+            }
+        }{
+            \sqrt{
+                1
+                +
+                2 \phi
+     \myE\left[ 
+         \Big( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \Big)^2
+        \gamma_I w_I^2
+    \right]
+            }
+        } 
+    \right)
+    +o(1)
+    .
+    \end{split}
+\end{equation*}
+We only need to show that $\myE(\gamma_I w_I^2) = o(1)$ and 
+\begin{equation*}%\label{neq:eq:zenmeban}
+     \myE\left[ 
+         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \right)^2
+        \gamma_I w_I^2
+    \right] = o(1).
+\end{equation*}
+The former one is a consequence of the assumption $\myE(\gamma_I w_I^2) = O((n-q)^{-1/2})$.
+For the latter one, we have
+\begin{align*}
+    &
+     \myE\left[ 
+         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \right)^2
+        \gamma_I w_I^2
+    \right]
+    \\
+    \leq
+    &
+         2 \myE 
+         \left[
+         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} \right)^2
+        \gamma_I w_I^2
+\right]
+        +
+{\frac{4}{n-q}} x^2
+\myE \left[ \gamma_I w_I^2 \right]
+    \\
+    \leq
+    &
+         2
+     \left(\max_{i\in\{1,\dots,n-q\}}\gamma_i w_i^2\right)
+         \myE 
+         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} \right)^2
+        +
+{\frac{4}{n-q}} x^2
+\myE \left[ \gamma_I w_I^2 \right]
+    \\
+    =
+    &
+         2
+     \left(\max_{i\in\{1,\dots,n-q\}}\gamma_i w_i^2\right)
+        +
+{\frac{4}{n-q}} x^2
+\myE \left[ \gamma_I w_I^2 \right]
+    \\
+    \to & 0.    
+\end{align*}
+This completes the proof.
+\end{proof}
+
 %To facilitate the conparison of the two tests, we would like to impose more assumptions and simplify the power functions.
 
 
 
 
-Suppose $\gamma_1,\dots,\gamma_{n-q}$ takes three difference values.
 \begin{proposition}
     Suppose model \eqref{label:linearModel} holds with $\bepsilon\sim \mathcal N_n (0, \BI_n)$.
     Suppose $(n-q)$ is divisible by $3$ and $\gamma_1 = \dots=\gamma_{(n-q)/3}= 4 p$, $\gamma_{(n-q)/3 + 1} = \dots= \gamma_{2(n-q)/3} = 2 p $, $\gamma_{(2(n-q)/3 + 1} = \dots = \gamma_{n-q} = p$.
