@@ -1,7 +1,7 @@
 library(ggplot2)
 
 theD <- read.csv(paste0("results/",n,"_",XGen,"_",epsilonDis,"_",betabGen,".csv"))
-names(theD) <- c("SNR", "NEW", "GT", "EP", "LT")
+names(theD) <- c("SNR", "NEW", "GT", "EP", "BA")
 myData <- NULL
 for(i in names(theD)[-1]){
     tmp <- theD[,c(names(theD)[1],i)]

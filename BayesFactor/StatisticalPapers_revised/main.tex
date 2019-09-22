@@ -943,21 +943,46 @@ Then for any $x\in \mathbb R$,
     \right) 
     \\
     =&
+%    \Phi\left( 
+%        \frac{
+%            \left( \myE (\gamma_I w_I^2) + \phi^{-1} \right)
+%            \sqrt{{2\myVar\left( \gamma_I^k \right)}} 
+%            x
+%            -
+%            \sqrt{n-q}
+%            \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
+%        }{
+%            \sqrt{
+%                \frac{2}{\phi^{2}} \myVar ( \gamma_I^k ) 
+%                +
+%                \frac{4}{\phi}
+%     \myE\left[ 
+%        \Big( \gamma_I^k -\myE(\gamma_I^k) -\sqrt{\frac{2\myVar (\gamma_I^k)}{n-q}}x \Big)^2
+%        \gamma_I w_I^2
+%    \right]
+%            }
+%        } 
+%    \right)
+%    +o(1)
     \Phi\left( 
         \frac{
-            \left( \myE (\gamma_I w_I^2) + \phi^{-1} \right)
-            \sqrt{{2\myVar\left( \gamma_I^k \right)}} 
+            \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
             x
             -
             \sqrt{n-q}
+            \phi
+            \frac{
             \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
+            }{
+\sqrt{2 \myVar\left( \gamma_I^k \right)}
+            }
         }{
             \sqrt{
-                \frac{2}{\phi^{2}} \myVar ( \gamma_I^k ) 
+                1
                 +
-                \frac{4}{\phi}
+                2 \phi
      \myE\left[ 
-        \Big( \gamma_I^k -\myE(\gamma_I^k) -\sqrt{\frac{2\myVar (\gamma_I^k)}{n-q}}x \Big)^2
+         \Big( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \Big)^2
         \gamma_I w_I^2
     \right]
             }
@@ -968,6 +993,81 @@ Then for any $x\in \mathbb R$,
     \end{split}
 \end{equation*}
 where $\Phi(\cdot)$ is the cumulative distribution function of a standard normal random variable.
+
+
+%\begin{equation*}
+%    \begin{split}
+%    &\Pr\left( 
+%        \frac{
+%            \By^{*\top} \left( \BX_b^* \BX_b^{*\top} \right)^k \By^*
+%        }{
+%            \By^{*\top} \By^*
+%        } 
+%        \leq 
+%        \myE (\gamma_I^k)
+%        +\sqrt{
+%            \frac{2\myVar\left( \gamma_I^k \right)}{n-q} 
+%        }
+%        x
+%    \right) 
+%    \\
+%    =&
+%    \Phi\left( 
+%        \frac{
+%            \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
+%            \sqrt{{2}} 
+%            x
+%            -
+%            \phi
+%            \sqrt{n-q}
+%            \frac{
+%            \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
+%            }{
+%{\sqrt{\myVar\left( \gamma_I^k \right)}}
+%            }
+%        }{
+%            \sqrt{
+%                2
+%                +
+%                4 \phi
+%     \myE\left[ 
+%         \Big( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \Big)^2
+%        \gamma_I w_I^2
+%    \right]
+%            }
+%        } 
+%    \right)
+%    +o(1)
+%    \\
+%    =&
+%    \Phi\left( 
+%        \frac{
+%            \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
+%            x
+%            -
+%            \phi
+%            \sqrt{n-q}
+%            \frac{
+%            \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
+%            }{
+%\sqrt{2 \myVar\left( \gamma_I^k \right)}
+%            }
+%        }{
+%            \sqrt{
+%                1
+%                +
+%                2 \phi
+%     \myE\left[ 
+%         \Big( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \Big)^2
+%        \gamma_I w_I^2
+%    \right]
+%            }
+%        } 
+%    \right)
+%    +o(1)
+%    .
+%    \end{split}
+%\end{equation*}
 
 \end{theorem}
 Under the conditions of Theorem \ref{generalTheorem}, the proposed test should reject the null hypothesis when
@@ -989,20 +1089,23 @@ and the asymptotic power function of the proposed test is
     \begin{split}
     \Phi\left( 
         \frac{
-            \left( \myE (\gamma_I w_I^2) + \phi^{-1} \right)
-            \sqrt{2\myVar\left( \gamma_I^{-1} \right)} 
+            \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
             \Phi^{-1}(\alpha)
             +
             \sqrt{n-q}
-            \myCov\left( - \gamma_I^{-1}, \gamma_I w_I^2 \right)
+            \phi
+            \frac{
+                \myCov\left( - \gamma_I^{-1}, \gamma_I w_I^2 \right)
+                }{
+                    \sqrt{2 \myVar(\gamma_I^{-1})}
+                }
         }{
             \sqrt{
-                \frac{2}{\phi^{2}}
-                \myVar ( \gamma_I^{-1} ) 
+                1
                 +
-                \frac{4}{\phi}
+                2 \phi
         \myE\left[ 
-            \Big( \gamma_I^{-1} -\myE(\gamma_I^{-1}) -\sqrt{\frac{2\myVar (\gamma_I^{-1})}{n-q}} \Phi^{-1}(\alpha) \Big)^2
+            \Big( \frac{\gamma_I^{-1} -\myE(\gamma_I^{-1})}{\sqrt{\myVar\left(\gamma_I^{-1}\right)}} -\sqrt{\frac{2}{n-q}} \Phi^{-1}(\alpha) \Big)^2
         \gamma_I w_I^2
     \right]
             }
@@ -1029,19 +1132,23 @@ and the asymptotic power function of their test is
     \begin{split}
     &\Phi\left( 
         \frac{
-            \left( \myE (\gamma_I w_I^2) + \phi^{-1} \right)
-            \sqrt{2\myVar\left( \gamma_I \right)} 
+            \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
             \Phi^{-1}(\alpha)
             +
             \sqrt{n-q}
-            \myCov\left( \gamma_I, \gamma_I w_I^2 \right)
+            \phi
+            \frac{
+                \myCov\left( \gamma_I, \gamma_I w_I^2 \right)
+            }{
+                \sqrt{2 \myVar(\gamma_I)}
+            }
         }{
             \sqrt{
-                \frac{2}{\phi^{2}} \myVar ( \gamma_I ) 
+                1 
                 +
-                \frac{4}{\phi}
+                2 \phi
     \myE\left[ 
-        \Big( \gamma_I -\myE(\gamma_I) +\sqrt{\frac{2\myVar (\gamma_I)}{n-q}} \Phi^{-1}(\alpha) \Big)^2
+        \Big( \frac{\gamma_I -\myE(\gamma_I)}{\sqrt{\myVar(\gamma_I)}} +\sqrt{\frac{2}{n-q}} \Phi^{-1}(\alpha) \Big)^2
         \gamma_I w_I^2
     \right]
             }
@@ -1049,10 +1156,11 @@ and the asymptotic power function of their test is
     \right).
     \end{split}
 \end{equation*}
-
-It is hard to compare the two tests in general as the forms of the global power functions are fairly complicated.
-Nevertheless, the forms of the local power functions can be further simplified under more restricted assumptions.
-In fact, we have the following proposition.
+Although the global asymptotic power functions are obtained, their forms are complicated, which makes it hard to compare the two tests in general.
+To facilitate the analysis, we would like to further simplify the forms of the power functions by imposing more conditions.
+It turns out that some terms in the power functions are negligible under the local alternative hypothesis, as the following proposition shows.
+%We have the following proposition.
+%Nevertheless, it turns out that the power functions can be further simplified under the local alternative hypothesis, that is, $\myE (\gamma_I w_I^2)$ is small.
 \begin{proposition}
     Suppose the conditions of Theorem \ref{generalTheorem} hold.
     Furthermore, suppose $\myE (\gamma_I w_I^2) = O((n-q)^{-1/2})$ and $\max_{i\in \{1, \dots, n-q\}} (\gamma_i w_i^2) = o(1)$.
@@ -1075,7 +1183,7 @@ Then for any $x\in \mathbb R$,
     \\
     =&
     \Phi\left( 
-        x-\phi \sqrt{n-q}
+        x- \sqrt{n-q} \phi
             \frac{
             \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
             }{
@@ -1088,201 +1196,21 @@ Then for any $x\in \mathbb R$,
 \end{equation*}
     \label{new:proposition:touteng}
 \end{proposition}
-\begin{proof}[\textbf{Proof of Proposition \ref{new:proposition:touteng}}]
-    Fix an $x\in \mathbb R$.
-    From Theorem \ref{generalTheorem}, we have
+Under the conditions of Proposition \ref{new:proposition:touteng}, the asymptotic power function of the proposed test is
 \begin{equation*}
-    \begin{split}
-    &\Pr\left( 
-        \frac{
-            \By^{*\top} \left( \BX_b^* \BX_b^{*\top} \right)^k \By^*
-        }{
-            \By^{*\top} \By^*
-        } 
-        \leq 
-        \myE (\gamma_I^k)
-        +\sqrt{
-            \frac{2\myVar\left( \gamma_I^k \right)}{n-q} 
-        }
-        x
+    \Phi\left(
+        \Phi^{-1}(\alpha) + \sqrt{n-q} \phi  \frac{\myCov(-\gamma_I^{-1}, \gamma_I w_I^2)}{ \sqrt{2\myVar(\gamma_I^{-1})}}
     \right) 
-    \\
-    =&
-    \Phi\left( 
-        \frac{
-            \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
-            \sqrt{{2}} 
-            x
-            -
-            \phi
-            \sqrt{n-q}
-            \frac{
-            \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
-            }{
-{\sqrt{\myVar\left( \gamma_I^k \right)}}
-            }
-        }{
-            \sqrt{
-                2
-                +
-                4 \phi
-     \myE\left[ 
-         \Big( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \Big)^2
-        \gamma_I w_I^2
-    \right]
-            }
-        } 
-    \right)
-    +o(1)
-    \\
-    =&
-    \Phi\left( 
-        \frac{
-            \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
-            x
-            -
-            \phi
-            \sqrt{n-q}
-            \frac{
-            \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
-            }{
-\sqrt{2 \myVar\left( \gamma_I^k \right)}
-            }
-        }{
-            \sqrt{
-                1
-                +
-                2 \phi
-     \myE\left[ 
-         \Big( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \Big)^2
-        \gamma_I w_I^2
-    \right]
-            }
-        } 
-    \right)
-    +o(1)
     .
-    \end{split}
 \end{equation*}
-We only need to show that $\myE(\gamma_I w_I^2) = o(1)$ and 
-\begin{equation*}%\label{neq:eq:zenmeban}
-     \myE\left[ 
-         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \right)^2
-        \gamma_I w_I^2
-    \right] = o(1).
+On the other hand, the asymptotic power function of the test of \cite{Goeman2006} is
+\begin{equation*}
+    \Phi\left(
+        \Phi^{-1}(\alpha) + \sqrt{n-q} \phi  \frac{\myCov(\gamma_I, \gamma_I w_I^2)}{\sqrt{2\myVar(\gamma_I)}}
+    \right) 
+    .
 \end{equation*}
-The former one is a consequence of the assumption $\myE(\gamma_I w_I^2) = O((n-q)^{-1/2})$.
-For the latter one, we have
-\begin{align*}
-    &
-     \myE\left[ 
-         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \right)^2
-        \gamma_I w_I^2
-    \right]
-    \\
-    \leq
-    &
-         2 \myE 
-         \left[
-         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} \right)^2
-        \gamma_I w_I^2
-\right]
-        +
-{\frac{4}{n-q}} x^2
-\myE \left[ \gamma_I w_I^2 \right]
-    \\
-    \leq
-    &
-         2
-     \left(\max_{i\in\{1,\dots,n-q\}}\gamma_i w_i^2\right)
-         \myE 
-         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} \right)^2
-        +
-{\frac{4}{n-q}} x^2
-\myE \left[ \gamma_I w_I^2 \right]
-    \\
-    =
-    &
-         2
-     \left(\max_{i\in\{1,\dots,n-q\}}\gamma_i w_i^2\right)
-        +
-{\frac{4}{n-q}} x^2
-\myE \left[ \gamma_I w_I^2 \right]
-    \\
-    \to & 0.    
-\end{align*}
-This completes the proof.
-\end{proof}
-
-%To facilitate the conparison of the two tests, we would like to impose more assumptions and simplify the power functions.
-
-
-
-
-\begin{proposition}
-    Suppose model \eqref{label:linearModel} holds with $\bepsilon\sim \mathcal N_n (0, \BI_n)$.
-    Suppose $(n-q)$ is divisible by $3$ and $\gamma_1 = \dots=\gamma_{(n-q)/3}= 4 p$, $\gamma_{(n-q)/3 + 1} = \dots= \gamma_{2(n-q)/3} = 2 p $, $\gamma_{(2(n-q)/3 + 1} = \dots = \gamma_{n-q} = p$.
-        Suppose as $n\to \infty$, $n-q\to \infty$ and $ \| \BV_b^{*\top} \bbeta_b \|^2 = O((n-q)^{1/2}/ p ) $.
-        Then the asymptotic power of the proposed test is
-        \begin{equation*}
-            \Phi \left(
-                \Phi^{-1}(\alpha) + 
-                \frac{p}{\sqrt{28(n-q)}}\left(16\sum_{i=1}^{\frac{n-q}{3}} w_i^2  + 2 \sum_{i=\frac{n-q}{3}+1}^{\frac{2(n-q)}{3}} w_i^2 - 5 \sum_{i=\frac{2(n-q)}{3}+1}^{n-q} w_i^2 \right) 
-            \right)
-            ;
-        \end{equation*}
-    \label{prop:addedInRevision}
-        and the asymptotic power of the test of  \cite{Goeman2006} is
-        \begin{equation*}
-            \Phi \left(
-                \Phi^{-1}(\alpha) + 
-                \frac{p}{\sqrt{28(n-q)}}\left(20\sum_{i=1}^{\frac{n-q}{3}} w_i^2 -2 \sum_{i=\frac{n-q}{3}+1}^{\frac{2(n-q)}{3}} w_i^2 - 4 \sum_{i=\frac{2(n-q)}{3}+1}^{n-q} w_i^2 \right) 
-            \right)
-            .
-        \end{equation*}
-\end{proposition}
-
-\begin{proof}[\textbf{Proof of Proposition \ref{prop:addedInRevision}}]
-    It is straightforward to show that form fixed $k\neq 0$,
-    \begin{equation*}
-    \frac{
-        \max_{1\leq i \leq n-q}
-        \left( 
-        \gamma_i^k
-            -
-                \myE (\gamma_I^k)
-        \right)^2
-    }{
-        (n-q) \myVar (\gamma_I^k)
-    } = O\left(\frac{1}{n-q}\right)\to 0.
-    \end{equation*}
-    Hence Theorem \ref{generalTheorem} holds.
-    Then the asymptotic power function of the proposed test is
-    \begin{align*}
-        \myE(\gamma_I w_I^2)  =
-        \frac{p}{n-q}  \left(\breve \gamma_1 \sum_{i=1}^{\frac{n-q}{3}} w_i^2
-        +
-         \breve \gamma_2 \sum_{i=\frac{n-q}{3}+1}^{\frac{2(n-q)}{3}} w_i^2
-        +
-    \breve \gamma_3 \sum_{i=\frac{2(n-q)}{3}+1}^{n-q} w_i^2\right),
-    \end{align*}
-    \begin{align*}
-    \myCov(\gamma_I^k, \gamma_I w_I^2) =
-    \frac{p^{k+1}}{n-q}\Bigg( & (\breve \gamma_1^k- \myE(\gamma_I^k)) \breve \gamma_1 \sum_{i=1}^{\frac{n-q}{3}} w_i^2
-        +\\
-        &
-        (\breve \gamma_2^k - \myE(\gamma_I^k) ) \breve \gamma_2 \sum_{i=\frac{n-q}{3}+1}^{\frac{2(n-q)}{3}} w_i^2
-        +
-        \\
-        &
-    (\breve \gamma_3^k - \myE(\gamma_I^k) )\breve \gamma_3 \sum_{i=\frac{2(n-q)}{3}+1}^{n-q} w_i^2
-\Bigg).
-    \end{align*}
-
-\end{proof}
-
-
-It can be seen that the power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ while the power of the test of \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2)$.  
+It can be seen that the local power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)/\sqrt{\myVar(\gamma_I^{-1})}$ while the power of the test of \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2) / \sqrt{\myVar(\gamma_I)}$.  
 Unfortunately, neither of these two quantities is positive definite.
 This fact is not surprising in view of Theorem \ref{prop:unbiased}.
 Nevertheless, $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I w_I^2)$ are positive definite if $\bbeta_b$ is restricted  in certain subspaces of $\mathbb R^p$.
@@ -1307,18 +1235,18 @@ Note that $\gamma_i > \myE (\gamma_I)$ implies that $\gamma_i^{-1} < (\myE (\gam
 It follows that $ d_1 \geq d_2 $.
 Hence the proposed test can always detect the signals from more directions than the test of \cite{Goeman2006}.
 
-Now we consider a practical scenario where the proposed test is more favorable.
-Suppose $\BX_b$ is a random design matrix and the rows of $\BX_b$ are iid random vectors.
-Let $X_{b,i}\in \mathbb R^p$ be the transpose of the $i$th row of $\BX_b$, $i=1,\ldots n$.
-Often in practice, the predictors are affected by a few common factors.
-Specifically, we assume $X_{b,i}$ has structre $X_{b,i}= \BB \Bf_i + u_i$, $\Bf_i \in \mathbb R^K$ is the vector of common factors, $K$ is factor number, $\BB$ is a $p\times K$ loading matrix, and $u_i\in \mathbb R^p$ is the vector of idiosyncratic components, $i=1,\ldots,n $.
-In this case, $\gamma_1,\ldots, \gamma_K$ are typically much larger than $\gamma_{K+1},\ldots, \gamma_{n-q}$ (See, e.g., \cite{Fan2013Large}).
-Note that $d_2=K$ for large $\gamma_1,\ldots, \gamma_K$.
-In this case, the test of \cite{Goeman2006} can only detect the signals from the rank $K$ principal component subspace of $\BX_b^{*\top} \BX_b^*$.
-In some situations, however, the effect of $\BX_b$ on $\By$ is mainly made by the idiosyncratic components.
-In this case, $\bbeta_b$ is almost orthogonal to the rank $K$ principal component subspace of $\BX_b^{*\top} \BX_b^*$, and consequently, the test of \cite{Goeman2006} will have poor behavior.
-On the other hand, the large eigenvalues $\gamma_1,\ldots, \gamma_K$ has little effect on $d_1$.
-Hence the proposed test is expected to have good performance.
+%Now we consider a practical scenario where the proposed test is more favorable.
+%Suppose $\BX_b$ is a random design matrix and the rows of $\BX_b$ are iid random vectors.
+%Let $X_{b,i}\in \mathbb R^p$ be the transpose of the $i$th row of $\BX_b$, $i=1,\ldots n$.
+%Often in practice, the predictors are affected by a few common factors.
+%Specifically, we assume $X_{b,i}$ has structre $X_{b,i}= \BB \Bf_i + u_i$, $\Bf_i \in \mathbb R^K$ is the vector of common factors, $K$ is factor number, $\BB$ is a $p\times K$ loading matrix, and $u_i\in \mathbb R^p$ is the vector of idiosyncratic components, $i=1,\ldots,n $.
+%In this case, $\gamma_1,\ldots, \gamma_K$ are typically much larger than $\gamma_{K+1},\ldots, \gamma_{n-q}$ (See, e.g., \cite{Fan2013Large}).
+%Note that $d_2=K$ for large $\gamma_1,\ldots, \gamma_K$.
+%In this case, the test of \cite{Goeman2006} can only detect the signals from the rank $K$ principal component subspace of $\BX_b^{*\top} \BX_b^*$.
+%In some situations, however, the effect of $\BX_b$ on $\By$ is mainly made by the idiosyncratic components.
+%In this case, $\bbeta_b$ is almost orthogonal to the rank $K$ principal component subspace of $\BX_b^{*\top} \BX_b^*$, and consequently, the test of \cite{Goeman2006} will have poor behavior.
+%On the other hand, the large eigenvalues $\gamma_1,\ldots, \gamma_K$ has little effect on $d_1$.
+%Hence the proposed test is expected to have good performance.
 
 
 %For simplicity, we assume $n-q$ is odd and $\gamma_2=\cdots =\gamma_{(n-q+1)/2}=2$, $\gamma_{(n-q+3)/2}=\cdots =\gamma_{n-q}=1$.
@@ -1332,13 +1260,11 @@ Hence the proposed test is expected to have good performance.
 
 In this section, we conduct simulations to examine the empirical size and power of the proposed test
 (abbreviated as NEW) 
-and compare it with the global test proposed by \cite{Goeman2006} (abbreviated as GT) and the EigenPrism test prospoed by \cite{Janson2016} (abbreviated as EP).
+and compare it with the global test proposed by \cite{Goeman2006} (abbreviated as GT), the EigenPrism test prospoed by \cite{Janson2016} (abbreviated as EP) and the bootstrap-assisted test proposed by \cite{ZC2017} (abbreviated as BA).
 %In our simulations, the GT test procedure We use the R package \emph{globaltest} to compute.
 Throughout our simulations, we take $q=10$, $p=1000$, $\alpha=0.05$ and the empirical results are obtained from $3000$ replications.
 
-The test proposed by \cite{ZC2017}.
-Let $(\breve \bbeta_a^\top, \breve \bbeta_b^\top )^\top$ be the desparsifying estimator of $(\bbeta_a^\top,\bbeta_b^\top )^\top$.
-The test statistic is $\sqrt n | \breve \bbeta_b|_{\infty}$.
+The original test statistic of \cite{ZC2017} is $\sqrt n | \breve \bbeta_b|_{\infty}$, where $(\breve \bbeta_a^\top, \breve \bbeta_b^\top )^\top$ is the desparsifying estimator of $(\bbeta_a^\top,\bbeta_b^\top )^\top$.
 \cite{ZC2017}, Theorem 2.1 implies that under certain regular conditions, 
 \begin{equation*}
     \sqrt n (
@@ -1349,9 +1275,8 @@ The test statistic is $\sqrt n | \breve \bbeta_b|_{\infty}$.
 \end{equation*}
 where $\hat \Omega$ is the approximation for the inverse of $[\BX_a ; \BX_b]^\top[\BX_a ; \BX_b] / n$ given by the nodewise lasso regression.
 %\cite{vdG2014}, Theorem 2.4 implies that under certain regular conditions, $$.
-Hence the oracle version of the test statistic \cite{ZC2017}.
 The computation of the test method of \cite{ZC2017} is rather time-consuming.
-We implement the oracle version of their test which reject the null hypothesis when 
+Hence we implement the oracle version of their test which reject the null hypothesis when 
 \begin{equation*}
 \left\|\sqrt n \bbeta_b + [\mathbf 0_{p\times q}; \BI_p] \hat \Omega [\BX_a ; \BX_b]^\top \epsilon / \sqrt n \right\|_\infty
 \end{equation*}
@@ -2845,6 +2770,57 @@ Then the conclusion follows from \eqref{eq:to2}, \eqref{eq:to3} and the followin
 \end{proof}
 
 
+\begin{proof}[\textbf{Proof of Proposition \ref{new:proposition:touteng}}]
+    Fix an $x\in \mathbb R$.
+    In view of Theorem \ref{generalTheorem}, we only need to show that $\myE(\gamma_I w_I^2) = o(1)$ and 
+\begin{equation*}%\label{neq:eq:zenmeban}
+     \myE\left[ 
+         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \right)^2
+        \gamma_I w_I^2
+    \right] = o(1).
+\end{equation*}
+The former one is a consequence of the assumption $\myE(\gamma_I w_I^2) = O((n-q)^{-1/2})$.
+For the latter one, we have
+\begin{align*}
+    &
+     \myE\left[ 
+         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} -\sqrt{\frac{2}{n-q}}x \right)^2
+        \gamma_I w_I^2
+    \right]
+    \\
+    \leq
+    &
+         2 \myE 
+         \left[
+         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} \right)^2
+        \gamma_I w_I^2
+\right]
+        +
+{\frac{4}{n-q}} x^2
+\myE \left[ \gamma_I w_I^2 \right]
+    \\
+    \leq
+    &
+         2
+     \left(\max_{i\in\{1,\dots,n-q\}}\gamma_i w_i^2\right)
+         \myE 
+         \left( \frac{\gamma_I^k -\myE(\gamma_I^k)}{\sqrt{\myVar\left( \gamma_I^k \right)}} \right)^2
+        +
+{\frac{4}{n-q}} x^2
+\myE \left[ \gamma_I w_I^2 \right]
+    \\
+    =
+    &
+         2
+     \left(\max_{i\in\{1,\dots,n-q\}}\gamma_i w_i^2\right)
+        +
+{\frac{4}{n-q}} x^2
+\myE \left[ \gamma_I w_I^2 \right]
+    \\
+    \to & 0.    
+\end{align*}
+This completes the proof.
+\end{proof}
 
 
  
