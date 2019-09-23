@@ -1260,12 +1260,14 @@ Hence the proposed test can always detect the signals from more directions than 
 
 In this section, we conduct simulations to examine the empirical size and power of the proposed test
 (abbreviated as NEW) 
-and compare it with the global test proposed by \cite{Goeman2006} (abbreviated as GT), the EigenPrism test prospoed by \cite{Janson2016} (abbreviated as EP) and the bootstrap-assisted test proposed by \cite{ZC2017} (abbreviated as BA).
+and compare it with the global test proposed by \cite{Goeman2006} (abbreviated as GT), the EigenPrism test prospoed by \cite{Janson2016} (abbreviated as EP) and the desparsifying lasso test proposed by \cite{ZC2017} (abbreviated as DL).
 %In our simulations, the GT test procedure We use the R package \emph{globaltest} to compute.
 Throughout our simulations, we take $q=10$, $p=1000$, $\alpha=0.05$ and the empirical results are obtained from $3000$ replications.
 
 The original test statistic of \cite{ZC2017} is $\sqrt n | \breve \bbeta_b|_{\infty}$, where $(\breve \bbeta_a^\top, \breve \bbeta_b^\top )^\top$ is the desparsifying estimator of $(\bbeta_a^\top,\bbeta_b^\top )^\top$.
-\cite{ZC2017}, Theorem 2.1 implies that under certain regular conditions, 
+However, the computation of their test procedure is rather time-consuming.
+Nevertheless, the behavior of their test statistic is asymptotically equivalent to a simple one.
+In fact, \cite{ZC2017}, Theorem 2.1 implies that under certain regular conditions, 
 \begin{equation*}
     \sqrt n (
     \breve \bbeta_b - \bbeta_b
@@ -1275,13 +1277,11 @@ The original test statistic of \cite{ZC2017} is $\sqrt n | \breve \bbeta_b|_{\in
 \end{equation*}
 where $\hat \Omega$ is the approximation for the inverse of $[\BX_a ; \BX_b]^\top[\BX_a ; \BX_b] / n$ given by the nodewise lasso regression.
 %\cite{vdG2014}, Theorem 2.4 implies that under certain regular conditions, $$.
-The computation of the test method of \cite{ZC2017} is rather time-consuming.
-Hence we implement the oracle version of their test which reject the null hypothesis when 
+Hence in simulations, we use the oracle version of their test which reject the null hypothesis when 
 \begin{equation*}
 \left\|\sqrt n \bbeta_b + [\mathbf 0_{p\times q}; \BI_p] \hat \Omega [\BX_a ; \BX_b]^\top \epsilon / \sqrt n \right\|_\infty
 \end{equation*}
 is large.
-
 
 In our simulations, two distributions of $\epsilon_1$ are considered, namely the chi-squared distribution \mbox{$\epsilon_1 \sim (\chi^2(4)-4)/\sqrt 8$} and the Student's $t$ distribution $\epsilon_1 \sim t_9$.
 Define the signal to noise ratio (SNR) as $\text{SNR}=\sqrt{(n-q)\myVar (\gamma_I)} \phi \|\bbeta_b\|^2/p$.
