@@ -1,4 +1,4 @@
-lassoTest.statistic <- max(sqrt(n)*betabO_real + abs(lassoTest.leftMultilier %*% innov / sqrt(n) )) 
+lassoTest.statistic <- max(abs(sqrt(n)*betabO_real + lassoTest.leftMultilier %*% innov / sqrt(n) )) 
 
 if( mean( lassoTest.reference > lassoTest.statistic ) < alpha ){
     lassoTest_one_result <- 1
