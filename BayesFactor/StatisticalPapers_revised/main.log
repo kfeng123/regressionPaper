@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  22 SEP 2019 22:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.1.21)  23 SEP 2019 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -500,11 +500,11 @@ OT1/cmr/m/n/10 .
 
 [14]
 Package epstopdf Info: Source file: <code/figure/50_uniform_t_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:37
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 15183 bytes
 (epstopdf)             Output file: <code/figure/50_uniform_t_dense-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:09
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12911 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_uniform_t_d
 ense-eps-converted-to.pdf code/figure/50_uniform_t_dense.eps>
@@ -525,11 +525,11 @@ Package pdftex.def Info: code/figure/50_uniform_t_dense-eps-converted-to.pdf us
 ed on input line 1318.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_uniform_t_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:37
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14542 bytes
 (epstopdf)             Output file: <code/figure/50_uniform_t_sparse-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:09
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12275 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_uniform_t_s
 parse-eps-converted-to.pdf code/figure/50_uniform_t_sparse.eps>
@@ -550,11 +550,11 @@ Package pdftex.def Info: code/figure/50_uniform_t_sparse-eps-converted-to.pdf u
 sed on input line 1321.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_uniform_chi_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:38
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 15496 bytes
 (epstopdf)             Output file: <code/figure/50_uniform_chi_dense-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:10
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 13212 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_uniform_chi
 _dense-eps-converted-to.pdf code/figure/50_uniform_chi_dense.eps>
@@ -575,11 +575,11 @@ Package pdftex.def Info: code/figure/50_uniform_chi_dense-eps-converted-to.pdf
 used on input line 1325.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_uniform_chi_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:38
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 15520 bytes
 (epstopdf)             Output file: <code/figure/50_uniform_chi_sparse-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:10
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 13417 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_uniform_chi
 _sparse-eps-converted-to.pdf code/figure/50_uniform_chi_sparse.eps>
@@ -600,11 +600,11 @@ Package pdftex.def Info: code/figure/50_uniform_chi_sparse-eps-converted-to.pdf
  used on input line 1328.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_uniform_t_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:38
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14558 bytes
 (epstopdf)             Output file: <code/figure/100_uniform_t_dense-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:10
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12221 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_uniform_t_
 dense-eps-converted-to.pdf code/figure/100_uniform_t_dense.eps>
@@ -625,11 +625,11 @@ Package pdftex.def Info: code/figure/100_uniform_t_dense-eps-converted-to.pdf u
 sed on input line 1332.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_uniform_t_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:39
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 15280 bytes
 (epstopdf)             Output file: <code/figure/100_uniform_t_sparse-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:10
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 13511 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_uniform_t_
 sparse-eps-converted-to.pdf code/figure/100_uniform_t_sparse.eps>
@@ -650,11 +650,11 @@ Package pdftex.def Info: code/figure/100_uniform_t_sparse-eps-converted-to.pdf
 used on input line 1335.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_uniform_chi_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:39
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14437 bytes
 (epstopdf)             Output file: <code/figure/100_uniform_chi_dense-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:11
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12233 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_uniform_ch
 i_dense-eps-converted-to.pdf code/figure/100_uniform_chi_dense.eps>
@@ -675,11 +675,11 @@ Package pdftex.def Info: code/figure/100_uniform_chi_dense-eps-converted-to.pdf
  used on input line 1339.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_uniform_chi_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:39
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14993 bytes
 (epstopdf)             Output file: <code/figure/100_uniform_chi_sparse-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:11
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12739 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_uniform_ch
 i_sparse-eps-converted-to.pdf code/figure/100_uniform_chi_sparse.eps>
@@ -700,11 +700,11 @@ Package pdftex.def Info: code/figure/100_uniform_chi_sparse-eps-converted-to.pd
 f used on input line 1342.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_equalCor_t_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:40
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14798 bytes
 (epstopdf)             Output file: <code/figure/50_equalCor_t_dense-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:11
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12810 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_equalCor_t_
 dense-eps-converted-to.pdf code/figure/50_equalCor_t_dense.eps>
@@ -725,11 +725,11 @@ Package pdftex.def Info: code/figure/50_equalCor_t_dense-eps-converted-to.pdf u
 sed on input line 1352.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_equalCor_t_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:40
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 15069 bytes
 (epstopdf)             Output file: <code/figure/50_equalCor_t_sparse-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:12
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12883 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_equalCor_t_
 sparse-eps-converted-to.pdf code/figure/50_equalCor_t_sparse.eps>
@@ -750,11 +750,11 @@ Package pdftex.def Info: code/figure/50_equalCor_t_sparse-eps-converted-to.pdf
 used on input line 1355.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_equalCor_chi_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:40
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14850 bytes
 (epstopdf)             Output file: <code/figure/50_equalCor_chi_dense-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:12
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12623 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_equalCor_ch
 i_dense-eps-converted-to.pdf code/figure/50_equalCor_chi_dense.eps>
@@ -775,11 +775,11 @@ Package pdftex.def Info: code/figure/50_equalCor_chi_dense-eps-converted-to.pdf
  used on input line 1359.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_equalCor_chi_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:40
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14820 bytes
 (epstopdf)             Output file: <code/figure/50_equalCor_chi_sparse-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:12
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12344 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_equalCor_ch
 i_sparse-eps-converted-to.pdf code/figure/50_equalCor_chi_sparse.eps>
@@ -800,11 +800,11 @@ Package pdftex.def Info: code/figure/50_equalCor_chi_sparse-eps-converted-to.pd
 f used on input line 1362.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_equalCor_t_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:41
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14217 bytes
 (epstopdf)             Output file: <code/figure/100_equalCor_t_dense-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:13
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 11745 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_equalCor_t
 _dense-eps-converted-to.pdf code/figure/100_equalCor_t_dense.eps>
@@ -825,11 +825,11 @@ Package pdftex.def Info: code/figure/100_equalCor_t_dense-eps-converted-to.pdf
 used on input line 1366.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_equalCor_t_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:41
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14719 bytes
 (epstopdf)             Output file: <code/figure/100_equalCor_t_sparse-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:13
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12171 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_equalCor_t
 _sparse-eps-converted-to.pdf code/figure/100_equalCor_t_sparse.eps>
@@ -850,11 +850,11 @@ Package pdftex.def Info: code/figure/100_equalCor_t_sparse-eps-converted-to.pdf
  used on input line 1369.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_equalCor_chi_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:42
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14688 bytes
 (epstopdf)             Output file: <code/figure/100_equalCor_chi_dense-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:13
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12043 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_equalCor_c
 hi_dense-eps-converted-to.pdf code/figure/100_equalCor_chi_dense.eps>
@@ -875,11 +875,11 @@ Package pdftex.def Info: code/figure/100_equalCor_chi_dense-eps-converted-to.pd
 f used on input line 1373.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_equalCor_chi_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:42
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14703 bytes
 (epstopdf)             Output file: <code/figure/100_equalCor_chi_sparse-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:13
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12303 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_equalCor_c
 hi_sparse-eps-converted-to.pdf code/figure/100_equalCor_chi_sparse.eps>
@@ -900,11 +900,11 @@ Package pdftex.def Info: code/figure/100_equalCor_chi_sparse-eps-converted-to.p
 df used on input line 1376.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_factor_t_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:43
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 17199 bytes
 (epstopdf)             Output file: <code/figure/50_factor_t_dense-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:14
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 16786 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_factor_t_de
 nse-eps-converted-to.pdf code/figure/50_factor_t_dense.eps>
@@ -925,11 +925,11 @@ Package pdftex.def Info: code/figure/50_factor_t_dense-eps-converted-to.pdf use
 d on input line 1386.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_factor_t_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:43
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 17610 bytes
 (epstopdf)             Output file: <code/figure/50_factor_t_sparse-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:14
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 17190 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_factor_t_sp
 arse-eps-converted-to.pdf code/figure/50_factor_t_sparse.eps>
@@ -950,11 +950,11 @@ Package pdftex.def Info: code/figure/50_factor_t_sparse-eps-converted-to.pdf us
 ed on input line 1389.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_factor_chi_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:43
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 16980 bytes
 (epstopdf)             Output file: <code/figure/50_factor_chi_dense-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:14
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 16511 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_factor_chi_
 dense-eps-converted-to.pdf code/figure/50_factor_chi_dense.eps>
@@ -975,11 +975,11 @@ Package pdftex.def Info: code/figure/50_factor_chi_dense-eps-converted-to.pdf u
 sed on input line 1393.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_factor_chi_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:44
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 16998 bytes
 (epstopdf)             Output file: <code/figure/50_factor_chi_sparse-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:15
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 16091 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_factor_chi_
 sparse-eps-converted-to.pdf code/figure/50_factor_chi_sparse.eps>
@@ -1000,11 +1000,11 @@ Package pdftex.def Info: code/figure/50_factor_chi_sparse-eps-converted-to.pdf
 used on input line 1396.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_factor_t_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:44
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 16309 bytes
 (epstopdf)             Output file: <code/figure/100_factor_t_dense-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:15
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14861 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_factor_t_d
 ense-eps-converted-to.pdf code/figure/100_factor_t_dense.eps>
@@ -1025,11 +1025,11 @@ Package pdftex.def Info: code/figure/100_factor_t_dense-eps-converted-to.pdf us
 ed on input line 1400.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_factor_t_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:44
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 16287 bytes
 (epstopdf)             Output file: <code/figure/100_factor_t_sparse-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:15
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14946 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_factor_t_s
 parse-eps-converted-to.pdf code/figure/100_factor_t_sparse.eps>
@@ -1050,11 +1050,11 @@ Package pdftex.def Info: code/figure/100_factor_t_sparse-eps-converted-to.pdf u
 sed on input line 1403.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_factor_chi_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:45
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 15636 bytes
 (epstopdf)             Output file: <code/figure/100_factor_chi_dense-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:16
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 13788 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_factor_chi
 _dense-eps-converted-to.pdf code/figure/100_factor_chi_dense.eps>
@@ -1075,11 +1075,11 @@ Package pdftex.def Info: code/figure/100_factor_chi_dense-eps-converted-to.pdf
 used on input line 1407.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_factor_chi_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:45
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 16592 bytes
 (epstopdf)             Output file: <code/figure/100_factor_chi_sparse-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:16
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 15221 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_factor_chi
 _sparse-eps-converted-to.pdf code/figure/100_factor_chi_sparse.eps>
@@ -1100,11 +1100,11 @@ Package pdftex.def Info: code/figure/100_factor_chi_sparse-eps-converted-to.pdf
  used on input line 1410.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_rowCor_t_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:45
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14883 bytes
 (epstopdf)             Output file: <code/figure/50_rowCor_t_dense-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:16
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12981 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_rowCor_t_de
 nse-eps-converted-to.pdf code/figure/50_rowCor_t_dense.eps>
@@ -1125,11 +1125,11 @@ Package pdftex.def Info: code/figure/50_rowCor_t_dense-eps-converted-to.pdf use
 d on input line 1419.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_rowCor_t_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:46
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 15365 bytes
 (epstopdf)             Output file: <code/figure/50_rowCor_t_sparse-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:17
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 13455 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_rowCor_t_sp
 arse-eps-converted-to.pdf code/figure/50_rowCor_t_sparse.eps>
@@ -1150,11 +1150,11 @@ Package pdftex.def Info: code/figure/50_rowCor_t_sparse-eps-converted-to.pdf us
 ed on input line 1422.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_rowCor_chi_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:46
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14681 bytes
 (epstopdf)             Output file: <code/figure/50_rowCor_chi_dense-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:17
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12281 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_rowCor_chi_
 dense-eps-converted-to.pdf code/figure/50_rowCor_chi_dense.eps>
@@ -1175,11 +1175,11 @@ Package pdftex.def Info: code/figure/50_rowCor_chi_dense-eps-converted-to.pdf u
 sed on input line 1426.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/50_rowCor_chi_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:46
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 16701 bytes
 (epstopdf)             Output file: <code/figure/50_rowCor_chi_sparse-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:17
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14908 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/50_rowCor_chi_
 sparse-eps-converted-to.pdf code/figure/50_rowCor_chi_sparse.eps>
@@ -1200,11 +1200,11 @@ Package pdftex.def Info: code/figure/50_rowCor_chi_sparse-eps-converted-to.pdf
 used on input line 1429.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_rowCor_t_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:47
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14199 bytes
 (epstopdf)             Output file: <code/figure/100_rowCor_t_dense-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:18
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 11697 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_rowCor_t_d
 ense-eps-converted-to.pdf code/figure/100_rowCor_t_dense.eps>
@@ -1225,11 +1225,11 @@ Package pdftex.def Info: code/figure/100_rowCor_t_dense-eps-converted-to.pdf us
 ed on input line 1433.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_rowCor_t_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:47
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14698 bytes
 (epstopdf)             Output file: <code/figure/100_rowCor_t_sparse-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:18
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12040 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_rowCor_t_s
 parse-eps-converted-to.pdf code/figure/100_rowCor_t_sparse.eps>
@@ -1250,11 +1250,11 @@ Package pdftex.def Info: code/figure/100_rowCor_t_sparse-eps-converted-to.pdf u
 sed on input line 1436.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_rowCor_chi_dense.eps>
-(epstopdf)                    date: 2019-09-22 22:22:48
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14138 bytes
 (epstopdf)             Output file: <code/figure/100_rowCor_chi_dense-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:18
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 11671 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_rowCor_chi
 _dense-eps-converted-to.pdf code/figure/100_rowCor_chi_dense.eps>
@@ -1275,11 +1275,11 @@ Package pdftex.def Info: code/figure/100_rowCor_chi_dense-eps-converted-to.pdf
 used on input line 1440.
 (pdftex.def)             Requested size: 152.09897pt x 91.12585pt.
 Package epstopdf Info: Source file: <code/figure/100_rowCor_chi_sparse.eps>
-(epstopdf)                    date: 2019-09-22 22:22:48
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 14625 bytes
 (epstopdf)             Output file: <code/figure/100_rowCor_chi_sparse-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2019-09-22 22:23:18
+(epstopdf)                    date: 2019-09-23 16:48:19
 (epstopdf)                    size: 12128 bytes
 (epstopdf)             Command: <repstopdf --outfile=code/figure/100_rowCor_chi
 _sparse-eps-converted-to.pdf code/figure/100_rowCor_chi_sparse.eps>
@@ -1357,8 +1357,8 @@ Missing character: There is no “ in font cmr8!
  [28] [29] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  5656 strings out of 493029
- 83511 string characters out of 6136233
- 170837 words of memory out of 5000000
+ 83511 string characters out of 6136234
+ 170836 words of memory out of 5000000
  9016 multiletter control sequences out of 15000+600000
  16224 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1394,7 +1394,7 @@ mbols/msam5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symb
 ols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (29 pages, 787266 bytes).
+Output written on main.pdf (29 pages, 787328 bytes).
 PDF statistics:
  488 PDF objects out of 1000 (max. 8388607)
  324 compressed objects within 4 object streams
