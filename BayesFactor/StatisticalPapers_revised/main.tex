@@ -1260,9 +1260,8 @@ Hence the proposed test can always detect the signals from more directions than 
 
 In this section, we conduct simulations to examine the empirical size and power of the proposed test
 (abbreviated as NEW) 
-and compare it with the global test proposed by \cite{Goeman2006} (abbreviated as GT), the EigenPrism test prospoed by \cite{Janson2016} (abbreviated as EP) and the desparsifying lasso test proposed by \cite{ZC2017} (abbreviated as DL).
+and compare it with the global test proposed by \cite{Goeman2006} (abbreviated as GT), the EigenPrism test proposed by \cite{Janson2016} (abbreviated as EP) and the desparsifying lasso test proposed by \cite{ZC2017} (abbreviated as DL).
 %In our simulations, the GT test procedure We use the R package \emph{globaltest} to compute.
-Throughout our simulations, we take $q=10$, $p=1000$, $\alpha=0.05$ and the empirical results are obtained from $3000$ replications.
 
 The original test statistic of \cite{ZC2017} is $\sqrt n | \breve \bbeta_b|_{\infty}$, where $(\breve \bbeta_a^\top, \breve \bbeta_b^\top )^\top$ is the desparsifying estimator of $(\bbeta_a^\top,\bbeta_b^\top )^\top$.
 However, the computation of their test procedure is rather time-consuming.
@@ -1283,7 +1282,8 @@ Hence in simulations, we use the oracle version of their test which reject the n
 \end{equation*}
 is large.
 
-In our simulations, two distributions of $\epsilon_1$ are considered, namely the chi-squared distribution \mbox{$\epsilon_1 \sim (\chi^2(4)-4)/\sqrt 8$} and the Student's $t$ distribution $\epsilon_1 \sim t_9$.
+Throughout the simulations, we take $q=10$, $p=1000$, $\alpha=0.05$ and the empirical results are obtained from $3000$ replications.
+We consider two distributions of $\epsilon_1$, namely the chi-squared distribution \mbox{$\epsilon_1 \sim (\chi^2(4)-4)/\sqrt 8$} and the Student's $t$ distribution $\epsilon_1 \sim t_9$.
 Define the signal to noise ratio (SNR) as $\text{SNR}=\sqrt{(n-q)\myVar (\gamma_I)} \phi \|\bbeta_b\|^2/p$.
 We consider two structures of $\bbeta_b$: dense $\bbeta_b$ and sparse $\bbeta_b$.
 In dense $\bbeta_b$ setting, the coordinates of $\bbeta_b$ are independently generated from the uniform distribution $U(-c, c)$ where $c$ is selected to reach certain SNR.
@@ -1301,14 +1301,15 @@ We consider four models of $\BX_b$, as follows.
             Model IV: the columns of $\BX_b$ are iid from $\mathcal N(0, \bSigma_n)$, where $(\bSigma_n)_{i,j}=0.1$ if $i\neq j$ and $(\bSigma_n)_{i,j}=1$ otherwise, $i,j=1,\dots,n$.
 \end{itemize}
 The simulation results are illustrated in Figures \ref{fig:1}-\ref{fig:4}.
-%It can be seen that as SNR increases, the empirical powers typically converge to certain limit powers which are strictly less than $1$.
 From the results, it can be seen that all four tests can well maintain the significant level, although the EP test is a little conservative in some cases.
 Note that for $n =50$, the powers of tests typically do not converge to $1$ as SNR increases.
 This phenomenon, which is not surprising in view of Theorem \ref{prop:unbiased}, is eased when the sample size rises to $100$.
-In all three simulations, the proposed test shows relatively good power behavior compared with its two competitors.
-Figure \ref{fig:3} shows that under Model III, the GT test has negligible power while the proposed test has reasonable power.
-This verifies the argument made at the end of Section \ref{sec:Power}.
-
+In the dense $\bbeta_b$ setting, the proposed test shows relatively good power behavior compared with its competitors.
+However, in the sparse $\bbeta_b$ setting of Model II and Model III, the proposed test is not as powerful as the DL test.
+In fact, as an extreme value type test, the DL test is designed for sparse linear models.
+On the basis of the simulations, we recommend using the proposed test when there is no prior knowledge of sparsity.
+%Figure \ref{fig:3} shows that under Model III, the GT test has negligible power while the proposed test has reasonable power.
+%This verifies the argument made at the end of Section \ref{sec:Power}.
 
 
 \begin{figure}
