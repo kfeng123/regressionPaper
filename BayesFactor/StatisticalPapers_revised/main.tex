@@ -142,9 +142,11 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
 \begin{abstract}
 
 This paper considers testing regression coefficients in high-dimensional linear model with fixed design matrix.
-    We prove that there does not exist nontrivial unbiased test for this problem.
-    %This phenomenon makes it impossible to consider the problem from a minimax perspective.
-    Moreover, no test can guarantee nontrivial power even when the true model is largely deviate from the null hypothesis.
+%Classical frequentist considerations may not be valid for this problem.
+This problem is highly irregular in the frequentist point of view.
+%In fact, we prove that there does not exist nontrivial unbiased test for this problem.
+    %Moreover, no test can guarantee nontrivial power even when the true model is largely deviate from the null hypothesis.
+In fact, we prove that no test can guarantee nontrivial power even when the true model is largely deviate from the null hypothesis.
     Nevertheless, Bayesian methods can still produce tests with good average power behavior.
     We propose a new test statistic which is the limit of Bayes factors under normal distribution.
     The null distribution of the proposed test statistic is approximated by Lindeberg's replacement trick.
@@ -658,7 +660,6 @@ Define
             .
         \end{split}
     \end{equation}
-    \label{approximation}
 \end{theorem}
 \begin{remark}\label{remark1}
     If $\tau^2=\myE (\xi_1^4) -1$, the first term of the right hand side of \eqref{eq:longInequality} disappear.
@@ -666,7 +667,7 @@ Define
     $\tau^2$ should be chosen as an estimator of $\myE (\xi_1^4)-1$.
 \end{remark}
 
-\begin{remark}
+\begin{remark}\label{remark2}
 %Let $\rho$ denote any metric on the set of probability measures $\mathcal M (\mathbb R)$ on $\mathbb R$ such that convergence in $(\mathcal M (\mathbb R), \rho)$ is equivalent to weak convergence.
     As noted in \cite{Chatterjee2008}, Section 3.1, an almost necessary condition for the asymptotic normality of $S$ is
     \begin{equation}\label{eq:normalC}
@@ -692,14 +693,14 @@ Define
 \end{remark}
 
 
-We now apply Theorem \ref{approximation} to approximate the null distribution of the proposed statistic $T$.
+We now apply Theorem \ref{TheoremLindeberg} to approximate the null distribution of the proposed statistic $T$.
 For $n\times n$ matrix $\BA$ and real number $\tau$, let $F (x;{\BA,\tau})$ be the cumulative distribution function of $
         \tau \sum_{i=1}^n  a_{i,i}\check z_i
     +2\sum_{1\leq i <j \leq n} a_{i,j} z_i z_j
     $,
     where $z_1,\ldots, z_n, \check z_1, \ldots, \check z_n$ are iid  $\mathcal N(0,1)$ random variables.
 
-Under the null hypothesis, Theorem \ref{approximation} implies that
+Under the null hypothesis, Theorem \ref{TheoremLindeberg} implies that
 \begin{equation*}
     \begin{split}
     &\Pr\left( 
@@ -868,13 +869,14 @@ To derive the asymptotic power of the proposed test and the test of \cite{Goeman
     0
 \right).
     \end{equation*}
-Hence the asymptotic behavior of noncentral quadratic form will play a key role in our investigation.
+Hence the asymptotic behavior of noncentral quadratic forms will play a key role in our investigation.
+Let $\lambda_i ( \cdot )$ denote the $i$th largest eigenvalue of a matrix.
 We have the following proposition.
 \begin{proposition}
     Let $Z=(z_1,\ldots, z_n)^\top$, where $z_i$'s are iid $\mathcal N(0,1)$ random variables.
     Let $\BA$ be an $n\times n$ symmetric matrix with elements $a_{i,j}$.
     Let $\Bb=(b_1,\ldots, b_n)^\top$ be an $n$ dimensional vector.
-    If $\mytr(\BA^4)/\mytr^2(\BA^2)\to 0$,
+    If $\lambda_1(\BA^2)/\mytr (\BA^2)\to 0$,
     then
     \begin{equation*}
         \frac{Z^\top \BA Z + b^\top Z - \mytr(\BA)}{\sqrt{2\mytr(\BA^2)+\|\Bb\|^2}}
@@ -882,6 +884,26 @@ We have the following proposition.
     \end{equation*}
     \label{Lemma:normal}
 \end{proposition}
+
+\begin{remark}
+    In Proposition \ref{Lemma:normal}, the condition $\lambda_1(\BA^2) / \mytr(\BA^2) \to 0$ is equivalent to \eqref{eq:normalC}.
+    To see this, note that under the normal distribution, the condition \eqref{eq:normalC} becomes $\mytr(\BA^4)/ \mytr^2(\BA^2) \to 0$.
+    Then the equivalence of the two conditions follows from equality
+    \begin{equation*}
+        \frac{\lambda_1^2(\BA^2)}{\mytr^2(\BA^2)} 
+        =
+        \frac{\lambda_1(\BA^4)}{\mytr^2(\BA^2)} 
+        \leq
+        \frac{\mytr(\BA^4)}{\mytr^2(\BA^2)} \leq 
+        \frac{\lambda_1(\BA^2)\mytr(\BA^2)}{\mytr^2(\BA^2)}
+        =
+        \frac{\lambda_1(\BA^2)}{\mytr(\BA^2)}. 
+    \end{equation*}
+    As noted in Remark \ref{remark2}, the condition \eqref{eq:normalC} is almost necessary for the asymptotic normality of quadratic forms.
+    Hence this condition allows us to derive simple forms of asymptotic power functions.
+    If this condition is violated, the distributions of noncentral quadratic forms are rather complicated and the asymptotic power functions will be intractable.
+\end{remark}
+
 \begin{remark}
     Proposition \ref{Lemma:normal} does not impose any condition on $\Bb$.
     This allows us to give the global asymptotic power function of tests.
@@ -1271,14 +1293,14 @@ In fact, \cite{ZC2017}, Theorem 2.1 implies that under certain regular condition
     \sqrt n (
     \breve \bbeta_b - \bbeta_b
 ) 
-= [\mathbf 0_{p\times q}; \BI_p] \hat \Omega [\BX_a ; \BX_b]^\top \epsilon / \sqrt n + \Delta
+= [\mathbf 0_{p\times q}; \BI_p] \hat \Omega [\BX_a ; \BX_b]^\top \bepsilon / \sqrt n + \Delta
 ,\quad \|\Delta\|_\infty = o_P(1),
 \end{equation*}
 where $\hat \Omega$ is the approximation for the inverse of $[\BX_a ; \BX_b]^\top[\BX_a ; \BX_b] / n$ given by the nodewise lasso regression.
 %\cite{vdG2014}, Theorem 2.4 implies that under certain regular conditions, $$.
 Hence in simulations, we use the oracle version of their test which reject the null hypothesis when 
 \begin{equation*}
-\left\|\sqrt n \bbeta_b + [\mathbf 0_{p\times q}; \BI_p] \hat \Omega [\BX_a ; \BX_b]^\top \epsilon / \sqrt n \right\|_\infty
+\left\|\sqrt n \bbeta_b + [\mathbf 0_{p\times q}; \BI_p] \hat \Omega [\BX_a ; \BX_b]^\top \bepsilon / \sqrt n \right\|_\infty
 \end{equation*}
 is large.
 
@@ -1307,7 +1329,8 @@ This phenomenon, which is not surprising in view of Theorem \ref{prop:unbiased},
 In the dense $\bbeta_b$ setting, the proposed test shows relatively good power behavior compared with its competitors.
 However, in the sparse $\bbeta_b$ setting of Model II and Model III, the proposed test is not as powerful as the DL test.
 In fact, as an extreme value type test, the DL test is designed for sparse linear models.
-On the basis of the simulations, we recommend using the proposed test when there is no prior knowledge of sparsity.
+In contrast, the proposed test test is a quadratic form which offers higher power when the signal is dense.
+On the basis of the simulations, we can recommend using the proposed test when there is no prior knowledge of sparsity.
 %Figure \ref{fig:3} shows that under Model III, the GT test has negligible power while the proposed test has reasonable power.
 %This verifies the argument made at the end of Section \ref{sec:Power}.
 
@@ -1566,10 +1589,12 @@ It was shown that the proposed test can detect the signals from a wide range of 
 %However, it is not obvious how to generalize the proposed test and the test of Janson {\rm et al.} \cite{Janson2016} to generalized linear models.
 %More fundamentally, it is unclear if results like Theorem \ref{prop:unbiased} hold for generalized linear model.
 %
-%In Theorem \ref{TheoremLindeberg}, we assumed that the distribution of $\epsilon_1$ is symmetric about $0$. 
-%This condition is also assumed by Bai {\rm et al.} \cite{Bai2017} in the study of central limit theorem of quadratic form.
+Our Theorem \ref{TheoremLindeberg} gives a general approximation for the distributions of quadratic forms.
+A key assumption in Theorem \ref{TheoremLindeberg} is that the distribution of $\xi_1$ is symmetric about $0$. 
+This condition is also assumed by \cite{Bai2017} in the study of central limit theorem of quadratic form.
 %Without this condition, our proof of Theorem \ref{TheoremLindeberg} is not valid.
-%We think it will be an interesting and useful work to relax the symmetric condition in Theorem \ref{TheoremLindeberg}.
+However, this condition is not usually required in the literature on high-dimensional inference.
+We think it will be an interesting and useful work to relax the symmetric condition in Theorem \ref{TheoremLindeberg}.
 
 
 
@@ -2072,7 +2097,7 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
 
 
 \begin{proof}[\textbf{Proof of Theorem \ref{thm:criticalValue}}]
-    Throughout the proof, we use the similar notations as in Theorem \ref{approximation} and define
+    Throughout the proof, we use the similar notations as in Theorem \ref{TheoremLindeberg} and define
     \begin{equation*}
         S=\frac{
             (\sqrt \phi \bepsilon)^\top \BA \sqrt \phi \bepsilon - \mytr (\BA)
@@ -2156,7 +2181,7 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
     Then almost surely, $\mathcal L (S^*_{\hat \tau}|\hat \tau) \rightsquigarrow \mathcal L(S^\dagger)$.
     Consequently, for every $f\in \mathscr C^4 (\mathbb R)$,
     we have $| \myE [f(S^*_{\hat \tau}) |\hat\tau] - \myE f(S^\dagger) |\to 0$ almost surely.
-    On the other hand, Theorem \ref{approximation} and the condition \eqref{eq:jianchiCondition} imply
+    On the other hand, Theorem \ref{TheoremLindeberg} and the condition \eqref{eq:jianchiCondition} imply
         $|\myE f(S)- \myE [f(S^*_{\hat \tau})|\hat\tau] |\to 0$ almost surely.
         Thus, $|\myE f(S)- \myE f(S^\dagger) |\to 0$.
         That is, $\mathcal L (S)\rightsquigarrow \mathcal L (S^\dagger)$.
@@ -2342,8 +2367,9 @@ This proves the theorem.
 From Fatou's lemma, we have $\sum_{i=1}^{\infty} (b_i^{*})^2\leq 1$.
 Consequently, $\lim_{i\to \infty} b_i^* =0$.
 
-Note that the condition $\mytr(\BA^4)/\mytr^2 (\BA^2)\to 0$ is equivalent to 
-$\lambda_1(\BA^2)/\mytr(\BA^2)\to 0$.
+%Note that the condition $\mytr(\BA^4)/\mytr^2 (\BA^2)\to 0$ is equivalent to 
+%$\lambda_1(\BA^2)/\mytr(\BA^2)\to 0$.
+Note that we have assumed that $\lambda_1(\BA^2)/\mytr(\BA^2)\to 0$.
 Then for every fixed integer $r>0$,
 \begin{equation*}
     \frac{
@@ -2498,7 +2524,7 @@ Then there exists a sequence of positive integers $r(n)\to \infty$ such that
 
 
 
-Note that under the normality, $T_n- \mytr ((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)$ has zero mean.
+%Note that under the normality, $T_n- \mytr ((\BX_b^* \BX_b^{*\top})^{-1})/(n-q)$ has zero mean.
 
 
 
@@ -2613,7 +2639,7 @@ Since $\By^{*\top} \BB \By^*= \bepsilon^\top \tilde{\BU}_a \BB \tilde{\BU}_a^\to
 \right).
     \end{split}
 \end{equation*}
-To apply proposition \ref{Lemma:normal}, we need to verify the condition $\lambda_1\left( \BB^2 \right)/\mytr\left(  \BB^2 \right)\to 0$.
+To apply Proposition \ref{Lemma:normal}, we need to verify the condition $\lambda_1\left( \BB^2 \right)/\mytr\left(  \BB^2 \right)\to 0$.
 It is straightforward to show that
     $\mytr(\BB^2) =  ( n-q +2x^2 ) \myVar ( \gamma_I^k )$.
     On the other hand,

@@ -1,5 +1,12 @@
 \begin{thebibliography}{}
 
+\bibitem[Bai et~al., 2018]{Bai2017}
+Bai, Z., Pan, G., and Yin, Y. (2018).
+\newblock A central limit theorem for sums of functions of residuals in a
+  high-dimensional regression model with an application to variance
+  homoscedasticity test.
+\newblock {\em {TEST}}, 27(4):896--920.
+
 \bibitem[Goeman et~al., 2006]{Goeman2006}
 Goeman, J.~J., van~de Geer, S.~A., and van Houwelingen, H.~C. (2006).
 \newblock Testing against a high dimensional alternative.

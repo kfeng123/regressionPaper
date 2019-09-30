@@ -119,14 +119,36 @@ Our responds are as follows.
 \textbf{
     1.
     The manuscript should provide comparison with the literature that exploits sparsity because under the null hypothesis the model parameter is sparse (with at most $q$ non-zero entries).
-    For example, \cite{zhang2016simultaneous} studies the same problem of testing (high-dimensional components) of linear regressions. Apart from assuming random designs, this literature attempts to detect deviations in $l_\infty$-norm, while the current manuscript seems to aim at detecting deviations in
-    $l_2$-norm.
+    For example, \cite{zhang2016simultaneous} studies the same problem of testing (high-dimensional components) of linear regressions. Apart from assuming random designs, this literature attempts to detect deviations in $l_\infty$-norm, while the current manuscript seems to aim at detecting deviations in $l_2$-norm.
     In my opinion, more discussion on this literature would be helpful so that the reader would get a fair impression on what has been done and what assumptions different methods require.
     For example, here symmetry of error distribution is needed (Assumption 1), which is not usually required in the literature on high-dimensional inference.
 }
 
 \textbf{Answer:}
+Following the reviewer's suggestion, we have provided the simulation results of the desparsifying lasso test of \cite{zhang2016simultaneous} (abbreviated as DL) and add the following comment to clarify the application regime of the proposed test.
 
+\begin{adjustwidth}{3em}{3em}
+In the sparse $\bbeta_b$ setting of
+Model II and Model III, the proposed test is not as powerful as the DL test.
+In fact, as an extreme value type test, the DL test is designed for sparse linear
+models.
+In contrast, the proposed test test is a quadratic form which offers
+higher power when the signal is dense.
+On the basis of the simulations, we can recommend using the proposed
+test when there is no prior knowledge of sparsity.
+\end{adjustwidth}
+
+As the reviewer pointed out, the symmetry of error distribution is not usually required in the literature on high-dimensional inference.
+However, this condition is a key assumption in the asymptotic theory of quadratic forms and is also assumed by \cite{Bai2017}.
+It will be a highly nontrivial task to relax this assumption.
+We leave it for possible future work.
+We add the following comment in Section 5:
+\begin{adjustwidth}{3em}{3em}
+Our Theorem 2 gives a general approximation for the distributions of
+quadratic forms. A key assumption in Theorem 2 is that the distribution of $\xi_1$ is symmetric about $0$..
+This condition is also assumed by \cite{Bai2017} in the study of central limit theorem of quadratic form. However, this condition is not usually required in the literature on high-dimensional inference.
+We think it will be an interesting and useful work to relax the symmetric condition in Theorem 2.
+\end{adjustwidth}
 
 \textbf{
     2.
