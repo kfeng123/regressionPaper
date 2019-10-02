@@ -3,44 +3,49 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: apalike.bst
 Database file #1: mybibfile.bib
-You've used 3 entries,
+Repeated entry---line 14859 of file mybibfile.bib
+ : @article{Ingster2010
+ :                     ,
+I'm skipping whatever remains of this entry
+You've used 10 entries,
             1935 wiz_defined-function locations,
-            497 strings with 4315 characters,
-and the built_in function-call counts, 1283 in all, are:
-= -- 128
-> -- 49
-< -- 1
-+ -- 18
-- -- 16
-* -- 119
-:= -- 223
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 23
-chr.to.int$ -- 3
-cite$ -- 3
-duplicate$ -- 42
-empty$ -- 91
-format.name$ -- 21
-if$ -- 244
+            549 strings with 5386 characters,
+and the built_in function-call counts, 4048 in all, are:
+= -- 399
+> -- 160
+< -- 4
++ -- 54
+- -- 52
+* -- 370
+:= -- 705
+add.period$ -- 30
+call.type$ -- 10
+change.case$ -- 76
+chr.to.int$ -- 10
+cite$ -- 10
+duplicate$ -- 139
+empty$ -- 288
+format.name$ -- 70
+if$ -- 783
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 3
-newline$ -- 18
-num.names$ -- 9
-pop$ -- 16
+missing$ -- 11
+newline$ -- 53
+num.names$ -- 30
+pop$ -- 57
 preamble$ -- 1
-purify$ -- 23
+purify$ -- 76
 quote$ -- 0
-skip$ -- 32
+skip$ -- 104
 stack$ -- 0
-substring$ -- 113
-swap$ -- 3
+substring$ -- 322
+swap$ -- 10
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 18
+type$ -- 58
 warning$ -- 0
-while$ -- 12
+while$ -- 33
 width$ -- 0
-write$ -- 41
+write$ -- 132
+(There was 1 error message)

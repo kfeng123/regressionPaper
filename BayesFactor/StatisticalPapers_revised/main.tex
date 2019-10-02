@@ -68,6 +68,7 @@
 \DeclareMathOperator{\myE}{E}
 \DeclareMathOperator{\myVar}{Var}
 \DeclareMathOperator{\myCov}{Cov}
+\DeclareMathOperator{\myCor}{Cor}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
@@ -242,8 +243,12 @@ It is shown that the proposed test can detect the signals from more directions t
 
 This paper has made three main contributions for testing hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting with fixed design matrix.
 First, we prove that no test can detect all large deviations from the null hypothesis.
+This phenomenon is somewhat surprising as such test does exist in the random design setting.
 Second, we propose a novel Bayesian-motivated test, which can be regarded as an extention of the likelihood ratio test in high-dimensional setting.
-Third, we propose to use Lindeberg's replacement trick to approximate the distribution of quadratic forms.
+The good power behavior of the proposed test is verified both theoretically and numerically.
+Third, we propose to use Lindeberg's replacement trick to approximate the distribution of the proposed test statistics.
+The approximation is valid under weak conditions.
+
 
 The rest of the paper is organized as follows.
 In Section \ref{sec:unbiased}, we prove the nonexistence of unbiased test for hypotheses \eqref{theHypothesis} in large $p$, small $q$ setting.
@@ -931,7 +936,7 @@ For example, $
 $.
 
 \begin{theorem}\label{generalTheorem}
-    Suppose model \eqref{label:linearModel} holds with $\bepsilon\sim \mathcal N_n (0,\phi^{-1} \BI_n)$.
+    Suppose Assumption \ref{Assumption} holds with $\bepsilon\sim \mathcal N_n (0,\phi^{-1} \BI_n)$.
     Let $k\neq 0$ be a fixed number.
     Suppose as $n\to \infty$, $n-q\to \infty$ and
 \begin{equation}
@@ -991,8 +996,8 @@ Then for any $x\in \mathbb R$,
             \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
             x
             -
-            \sqrt{n-q}
             \phi
+            \sqrt{n-q}
             \frac{
             \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
             }{
@@ -1092,6 +1097,7 @@ where $\Phi(\cdot)$ is the cumulative distribution function of a standard normal
 %\end{equation*}
 
 \end{theorem}
+In Theorem \ref{generalTheorem}, the condition \eqref{eq:toBeCondition} corresponds to the condition $\lambda_1(\BA^2)/ \mytr(\BA^2) \to 0$ in Proposition \ref{Lemma:normal}, which is essential for the asymptotic normality of the statistics.
 Under the conditions of Theorem \ref{generalTheorem}, the proposed test should reject the null hypothesis when
 \begin{equation*}
         \frac{
@@ -1114,8 +1120,8 @@ and the asymptotic power function of the proposed test is
             \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
             \Phi^{-1}(\alpha)
             +
-            \sqrt{n-q}
             \phi
+            \sqrt{n-q}
             \frac{
                 \myCov\left( - \gamma_I^{-1}, \gamma_I w_I^2 \right)
                 }{
@@ -1157,8 +1163,8 @@ and the asymptotic power function of their test is
             \left( \phi \myE (\gamma_I w_I^2) + 1 \right)
             \Phi^{-1}(\alpha)
             +
-            \sqrt{n-q}
             \phi
+            \sqrt{n-q}
             \frac{
                 \myCov\left( \gamma_I, \gamma_I w_I^2 \right)
             }{
@@ -1205,7 +1211,7 @@ Then for any $x\in \mathbb R$,
     \\
     =&
     \Phi\left( 
-        x- \sqrt{n-q} \phi
+        x- \phi \sqrt{n-q} 
             \frac{
             \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
             }{
@@ -1218,24 +1224,33 @@ Then for any $x\in \mathbb R$,
 \end{equation*}
     \label{new:proposition:touteng}
 \end{proposition}
-Under the conditions of Proposition \ref{new:proposition:touteng}, the asymptotic power function of the proposed test is
+We can write $
+            {
+            \myCov\left( \gamma_I^k, \gamma_I w_I^2 \right)
+            }/{
+\sqrt{\myVar\left( \gamma_I^k \right)}
+}
+$ as $ \sqrt{\myVar(\gamma_I w_I^2)}\myCor(\gamma_I^k, \gamma_I w_I^2)$,
+where $\myCor(\cdot, \cdot)$ means the Pearson correlation coefficient of two random variables.
+Then under the conditions of Proposition \ref{new:proposition:touteng}, the asymptotic local power function of the proposed test is
 \begin{equation*}
     \Phi\left(
-        \Phi^{-1}(\alpha) + \sqrt{n-q} \phi  \frac{\myCov(-\gamma_I^{-1}, \gamma_I w_I^2)}{ \sqrt{2\myVar(\gamma_I^{-1})}}
+        \Phi^{-1}(\alpha) + \phi \sqrt{\frac{n-q}{2}\myVar(\gamma_I w_I^2 )}    {\myCor(-\gamma_I^{-1}, \gamma_I w_I^2)}
     \right) 
     .
 \end{equation*}
-On the other hand, the asymptotic power function of the test of \cite{Goeman2006} is
+On the other hand, the asymptotic local power function of the test of \cite{Goeman2006} is
 \begin{equation*}
     \Phi\left(
-        \Phi^{-1}(\alpha) + \sqrt{n-q} \phi  \frac{\myCov(\gamma_I, \gamma_I w_I^2)}{\sqrt{2\myVar(\gamma_I)}}
+        \Phi^{-1}(\alpha) + \phi\sqrt{\frac{n-q}{2} {\myVar(\gamma_I w_I^2)}}   {\myCor(\gamma_I, \gamma_I w_I^2)}
     \right) 
     .
 \end{equation*}
-It can be seen that the local power of the proposed test mainly depends on $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)/\sqrt{\myVar(\gamma_I^{-1})}$ while the power of the test of \cite{Goeman2006} mainly depends on $\myCov(\gamma_I, \gamma_I w_I^2) / \sqrt{\myVar(\gamma_I)}$.  
+It can be seen that the difference between the two tests lies in the behavior of the quantities $\myCor (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCor(\gamma_I, \gamma_I w_I^2) $.  
+And the signs of these two quantities determine if the tests have nontrivial power.
 Unfortunately, neither of these two quantities is positive definite.
 This fact is not surprising in view of Theorem \ref{prop:unbiased}.
-Nevertheless, $\myCov (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I w_I^2)$ are positive definite if $\bbeta_b$ is restricted  in certain subspaces of $\mathbb R^p$.
+Nevertheless, $\myCor (-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCor(\gamma_I, \gamma_I w_I^2)$ are positive definite if $\bbeta_b$ is restricted  in certain subspaces of $\mathbb R^p$.
 
 Let $d_1$ be the maximum $i$ such that $ \gamma_i^{-1} < \myE (\gamma_I^{-1})$.
 Let $d_2$ be the maximum $i$ such that $\gamma_i > \myE (\gamma_I) $.

@@ -7,11 +7,50 @@ Bai, Z., Pan, G., and Yin, Y. (2018).
   homoscedasticity test.
 \newblock {\em {TEST}}, 27(4):896--920.
 
+\bibitem[Cai et~al., 2013]{Tony2013}
+Cai, T., Liu, W., and Xia, Y. (2013).
+\newblock Two-sample test of high dimensional means under dependence.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 76(2):349--372.
+
+\bibitem[Cai and Ma, 2013]{Cai2013Optimal}
+Cai, T.~T. and Ma, Z. (2013).
+\newblock Optimal hypothesis testing for high dimensional covariance matrices.
+\newblock {\em Bernoulli}, 19(5B):2359--2388.
+
+\bibitem[Chen et~al., 2010]{chen2010tests}
+Chen, S.~X., Zhang, L.-X., and Zhong, P.-S. (2010).
+\newblock Tests for high-dimensional covariance matrices.
+\newblock {\em Journal of the American Statistical Association},
+  105(490):810--819.
+
 \bibitem[Goeman et~al., 2006]{Goeman2006}
 Goeman, J.~J., van~de Geer, S.~A., and van Houwelingen, H.~C. (2006).
 \newblock Testing against a high dimensional alternative.
 \newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
   Methodology)}, 68(3):477--493.
+
+\bibitem[Ingster et~al., 2010]{Ingster2010}
+Ingster, Y.~I., Tsybakov, A.~B., and Verzelen, N. (2010).
+\newblock Detection boundary in sparse regression.
+\newblock {\em Electronic Journal of Statistics}, 4(0):1476--1526.
+
+\bibitem[Lan et~al., 2014]{Lan2014Testing}
+Lan, W., Wang, H., and Tsai, C.~L. (2014).
+\newblock Testing covariates in high-dimensional regression.
+\newblock {\em Annals of the Institute of Statistical Mathematics},
+  66(2):279--301.
+
+\bibitem[Lehmann and Romano, 2005]{Lehmann}
+Lehmann, E.~L. and Romano, J.~P. (2005).
+\newblock {\em Testing statistical hypotheses}.
+\newblock Springer, New York, 3rd edition.
+
+\bibitem[Wang and Xu, 2020]{Wang2021}
+Wang, R. and Xu, X. (2020+).
+\newblock Least favorable direction test for multivariate analysis of variance
+  in high dimension.
+\newblock {\em Statistica Sinica}.
 
 \bibitem[Zhang and Cheng, 2017]{zhang2016simultaneous}
 Zhang, X. and Cheng, G. (2017).

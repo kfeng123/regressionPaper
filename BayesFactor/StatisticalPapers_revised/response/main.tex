@@ -36,6 +36,7 @@
 \DeclareMathOperator{\myE}{E}
 \DeclareMathOperator{\myVar}{Var}
 \DeclareMathOperator{\myCov}{Cov}
+\DeclareMathOperator{\myCor}{Cor}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
@@ -181,20 +182,173 @@ We think it will be an interesting and useful work to relax the symmetric condit
 }
 
 \textbf{Answer:}
+We follow the reviewer's suggestion and add discussions on the condition (8) (which is Equation (9) in the revised paper).
+This condition corresponds to the condition $\lambda_1(\BA^2)/\mytr(\BA^2) \to 0$ in Proposition 2, which is essential for the asymptotic normality of the statistics.
+We require the asymptotic normality so that we can give tractable asymptotic power functions.
+We add the following remark for Proposition 2:
+\begin{adjustwidth}{3em}{3em}
+    In Proposition 2, the condition $\lambda_1(\BA^2) / \mytr(\BA^2) \to 0$ is equivalent to (6).
+    To see this, note that under the normal distribution, the condition (6) becomes $\mytr(\BA^4)/ \mytr^2(\BA^2) \to 0$.
+Then the equivalence of the two conditions follows from equality
+\begin{equation*}
+\frac{\lambda_1^2(\BA^2)}{\mytr^2(\BA^2)} 
+=
+\frac{\lambda_1(\BA^4)}{\mytr^2(\BA^2)} 
+\leq
+\frac{\mytr(\BA^4)}{\mytr^2(\BA^2)} \leq  
+\frac{\lambda_1(\BA^2)\mytr(\BA^2)}{\mytr^2(\BA^2)}
+=
+\frac{\lambda_1(\BA^2)}{\mytr(\BA^2)}. 
+\end{equation*}
+As noted in Remark 2, the condition (6) is almost  necessary for the asymptotic normality of quadratic forms.
+Hence this condition allows us to derive simple forms of asymptotic power functions. 
+If this condition is violated, the distributions of noncentral quadratic forms are rather complicated and the asymptotic power functions will be intractable.
+\end{adjustwidth}
+
+The reviewer found an error of our original paper through his/her careful analysis and elegant derivation.
+Although there is a minor typo in the reviewer's derivation ($\myE(W_i^\top W_i)^2$ should equal to $6p^2 + 12p$ rather than $6p^2 +10p$), his/her conclusion is valid, that is, our Theorem 4 can not be applied to the factor model.
+Hence it is an error to discuss factor model based on the conclusion of Theorem 4.
+In the original paper, we did not realize this error and we are sorry about that.
+
+We tried to remedy this error by considering a factor model with a divergent number of latent factors, as detailed below.
+    \begin{enumerate}[(a)]
+        \item 
+            Supppose that $q=0$ (so $\tilde \BU_a = \BI_n$) and $\BX_b= \begin{pmatrix} W_1^\top \\ \vdots \\ W_n^\top \end{pmatrix}$ with $W_i = B F_i + u_i$, where $F_i$ is a $m$ dimensional random vector with i.i.d. $\mathcal N(0,1)$ entries, $u_i$ is from $\mathcal N(0, \BI_p)$ and $B$ is a $p \times m$ random matrix with i.i.d. $\mathcal N (0, 1)$ entries.
+            Assume $F_i$, $u_i$ and $B$ are independent.
+        \item
+            As the reviwer pointed out, if $m$ is fixed, the condition 
+            \begin{equation*}
+                \frac{\max_{1\leq i \leq n }(\gamma_i -\myE(\gamma_I))^2}{n\myVar(\gamma_I)} \to 0 
+            \end{equation*}
+            does not hold.
+            We would like to show that if $m \to \infty$ and $m / n \to 0$, then the above condition will hold.
+        \item
+        We have
+        \begin{equation*}
+            \myE_I(\gamma_I)  = n^{-1} \sum_{i=1}^n W_i^\top W_i,
+        \end{equation*}
+        and 
+        \begin{align*}
+            &\myVar_I(\gamma_I)  
+            \\
+            =& (n^{-1} - n^{-2} )\sum_{i=1}^n (W_i^\top W_i)^2 + n^{-1} \sum_{i=1}^n \sum_{j=1,j\neq i}^n (W_i^\top W_j)^2- n^{-2}\sum_{i=1}^n \sum_{j=1,j\neq i}^n (W_i^\top W_i)(W_j^\top W_j).
+        \end{align*}
+
+        \item
+            We can compute the following expectations:
+            \begin{equation*}
+                \myE W_i^\top W_i = \myE(F_i^\top B^\top B F_i + 2u_i^\top B F_i + u_i^\top u_i) = m p + 0 + p = (m + 1) p.
+            \end{equation*}
+            \begin{align*}
+                \myE (W_i^\top W_i)^2 =& \myE(F_i^\top B^\top B F_i + 2u_i^\top B F_i + u_i^\top u_i)^2 \\
+                =& 
+            \myE(F_i^\top B^\top B F_i)^2 + 4\myE (u_i^\top B F_i)^2 + \myE (u_i^\top u_i)^2
+            + 2 \myE (F_i^\top B^\top B F_i u_i^\top u_i)
+            \\
+                =& 
+                \myE [\myE[(F_i^\top B^\top B F_i)^2| B]] + 4mp + (p^2 + 2p)
+            + 2 \myE (F_i^\top B^\top B F_i)\myE( u_i^\top u_i)
+            \\
+                =& 
+                \myE [2\mytr(B^\top B)^2 + (\mytr(B^\top B))^2] + 4mp + (p^2 + 2p)
+            + 2 m p^2 
+            \\
+                =& 
+                \left\{2\left[m p^2+ m(m+1) p \right]+ (m^2 p^2 + 2mp)\right\} + 4mp + (p^2 + 2p)
+            + 2 m p^2 
+            \\
+            =&
+        (m^2+4m + 1)p^2 + (2m^2 + 8m + 2)p
+                .
+            \end{align*}
+            \begin{align*}
+                \myE (W_i^\top W_j)^2
+                = &
+                \myE (F_i^\top B^\top B F_j + u_i^\top B F_j + u_j^\top B F_i + u_i^\top u_j )^2
+                \\
+                = &
+            \myE (F_i^\top B^\top B F_j)^2 +\myE ( u_i^\top B F_j)^2 + \myE (u_j^\top B F_i)^2 + \myE ( u_i^\top u_j )^2
+                \\
+                = &
+            \left[m p^2+ m(m+1) p \right]
+            + mp + mp + p
+            \\
+            = &  m p^2 + (m^2 + 3m + 1)p.
+            \end{align*}
+            Then we have $\myE \left[\myE_I (\gamma_I)\right] = (m+1)p$ and $\myVar \left[\myE_I (\gamma_I)\right] = O(m p^2)$.
+            Hence $\myE_I (\gamma_I) = mp(1+o_P(1))$.
+            Also, we have
+            \begin{align*}
+                \myVar_I(\gamma_I)=
+                O_P(m^2p^2)+ n^{-1}\sum_{i=1}^n \sum_{j=1, j\neq i}^n (W_i^\top W_j)^2 + O_P(m^2 p^2)
+            \end{align*}
+            It can be seen that $\myE [n^{-1}\sum_{i=1}^n \sum_{j=1, j\neq i}^n (W_i^\top W_j)^2] = mnp^2(1+o(1))$.
+            With much more effort (by computing higher moments; see, e.g., \cite{chen2010tests}, Proposition A.2.(ii)), it may be shown that $\myVar [n^{-1}\sum_{i=1}^n \sum_{j=1, j\neq i}^n (W_i^\top W_j)^2] = o(m^2 n^2 p^4)$.
+            Thus, $\myVar_I (\gamma_I^2) = mnp^2(1+o_p(1))$.
+            Using some external knowledge of factor model or spiked covariance model (see, e.g., \cite{Wang2021}, Proposition 1), it can be shown that $\gamma_1 = O_P(np)$.
+            In this case,
+            \begin{equation*}
+                \frac{
+                    \max_{1\leq i\leq n} (\gamma_i - \myE(\gamma_I))^2
+                } {
+                    n\myVar(\gamma_I)
+                }
+                \leq
+                \frac{
+                2\gamma_1^2 + 2(\myE(\gamma_I))^2
+                } {
+                    n\myVar(\gamma_I)
+                }
+                =O_P(1/m) \to 0.
+            \end{equation*}
+    \end{enumerate}
+    We have shown that the condition
+    \begin{equation*}
+        \frac{\max_{1\leq i \leq n}(\gamma_i^k - \myE(\gamma_I^k))^2}{n \myVar (\gamma_I^k)} \to 0
+    \end{equation*}
+    holds for $k=1$.
+    However, some external knowledge is used.
+    Worth still, the above derivation can not be applied for $k=-1$ since it is hard to directly computing the moments of $\myE(\gamma_I^{-1})$ and $\myVar(\gamma_I^{-1})$.
+    To verify the condition holds for $k=-1$, more advanced random matrix theory may be necessary, which deviates too much from the topic of our paper.
+    Hence in the revised paper, we remove the discussion about the factor model.
+    Instead, we add more discussion on the local power of the proposed test and the test of \cite{Goeman2006}, as detailed in the answer of the next question.
 
 \textbf{
     3.
-    I think the power comparison with \cite{Goeman2006} should be more
-    formal. Currently, there is a comparison on when $\myCov(-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I \omega_I^2)$ are positive.
+    I think the power comparison with \cite{Goeman2006} should be more formal.
+    Currently, there is a comparison on when $\myCov(-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCov(\gamma_I, \gamma_I \omega_I^2)$ are positive.
     However, in the two expressions for asymptotic power on page 12, this is not the only difference.
     For example, there is also $\myVar (\gamma_I)$ versus $\myVar(\gamma_I^{-1})$.
     Therefore, in the end, which one is more powerful is not completely obvious to me.
-    Even in the simple case of $w_i = 0$ for $i = 1, ..., n−q$, I am not certain which test has better asymptotic power.
+    Even in the simple case of $w_i = 0$ for $i = 1, ..., n-q$, I am not certain which test has better asymptotic power.
 I think a formal result comparing the power of the two test would be nice
 even under restricted assumptions.
 }
 
 \textbf{Answer:}
+We follow the reviewer's suggestion and add a formal result (Proposition 3) which gives the local asymptotic power of the proposed test and the test of \cite{Goeman2006}.
+The local power functions are much simpler than the global power functions and make the comparison of the two tests clear.
+Let $\myCor(\cdot, \cdot)$ denote the Pearson correlation coefficient of two random variables.
+We show that the asymptotic local power of the proposed test is
+\begin{equation*}
+\Phi\left(
+    \Phi^{-1}(\alpha) + \phi \sqrt{\frac{n-q}{2}\myVar(\gamma_I w_I^2 )} {\myCor(-\gamma_I^{-1}, \gamma_I w_I^2)}
+\right) 
+,
+\end{equation*}
+and the asymptotic local power of the test of \cite{Goeman2006} is
+\begin{equation*}
+\Phi\left(
+    \Phi^{-1}(\alpha) + \phi \sqrt{\frac{n-q}{2}\myVar(\gamma_I w_I^2 )} {\myCor(\gamma_I, \gamma_I w_I^2)}
+\right)
+.
+\end{equation*}
+Then it can be seen that the difference between the two tests lies in the behavior of the quantities $\myCor(-\gamma_I^{-1}, \gamma_I w_I^2)$ and $\myCor(\gamma_I, \gamma_I \omega_I^2)$.
+And the signs of these two quantities determine if the tests have nontrivial power.
+In the original paper, we have shown that the positive definite subspace for $\myCor(-\gamma_I^{-1}, \gamma_I w_I^2)$ is larger than that of $\myCor(\gamma_I, \gamma_I \omega_I^2)$.
+This shows that the proposed test can detect the signals from more directions than the test of \cite{Goeman2006}.
+
+
 
 
 \section{Response to reviewer 2}
@@ -205,7 +359,7 @@ even under restricted assumptions.
 
 \textbf{Answer:}
 We agree that the original title is not good enough.
-We partly follow the suggestion of the reviewer and change the title to ``A Bayesian motivated test for high dimensional linear regression models with fixed design matrix''.
+We partly follow the suggestion of the reviewer and change the title to ``A Bayesian-motivated test for high-dimensional linear regression models with fixed design matrix''.
 We preserve the word ``motivated'' since Bayesian method is just the motivation of our test and our test is actually a frequentist test.
 
 \textbf{
@@ -216,7 +370,21 @@ We preserve the word ``motivated'' since Bayesian method is just the motivation 
 }
 
 \textbf{Answer:}
-We follow the advice of the reviewer and extend the introduction part.
+We follow the reviewer's suggestion and largely revised the introduction part.
+Hopefully, the revised paper can make clear the problem setting, our motivation and our contributions.
+We explicitly list our contributions in the introduction part, as follows.
+
+\begin{adjustwidth}{3em}{3em}
+    This paper has made three main contributions for testing hypotheses (2) in large $p$, small $q$ setting with fixed design matrix.
+First, we prove that no test can detect all large deviations from the null       hypothesis.
+This phenomenon is somewhat surprising as such test does exist in the random     design setting.
+Second, we propose a novel Bayesian-motivated test, which can be regarded as an  extention of the likelihood ratio test in high-dimensional setting.
+The good power behavior of the proposed test is verified both theoretically and  numerically.
+Third, we propose to use Lindeberg's replacement trick to approximate the        distribution of the proposed test statistics.
+The approximation is valid under weak conditions.
+\end{adjustwidth}
+
+
 
 \textbf{
     3. The transition through Section 2 to Section 3 is not clear.
@@ -226,32 +394,73 @@ We follow the advice of the reviewer and extend the introduction part.
 }
 
 \textbf{Answer:}
-In frequentist point of view, Bayesian methods aim at minimize the average risk.
-See Lehmann's book.
-In the revised paper, we add some discussion at the end of Section 2.
+We follow the reviewer's suggestion.
+In the revised paper,  we improve the transition through Section 2 to Section 3 and add some discussions.
+
+In frequentist point of view, Bayesian methods aim at minimize the average risk;
+See, e.g., \cite{Lehmann}, Section 1.6.
+Hence Bayesian methods are natural choices to produce tests with good average power.
+We make this clear in the revised paper.
+
+The reviewer thinks the non-existence of nontrivial unbiased test is a trivial result for high-dimensional setting.
+In the revised paper, we also point out that our Theorem 1 implies the non-existence of minimax test.
+We do not think the non-existence of nontrivial unbiased test is a trivial result for high-dimensional setting.
+In fact, nontrivial unbiased test and minimax test do exist for the random design setting; see, e.g., \cite{Ingster2010}.
+We point this out in the revised paper.
+Furthermore, nontrivial unbiased test and minimax test do exist in some other high-dimensional testing problem, including mean vector testing (\cite{Tony2013}), covariance matrix testing (\cite{Cai2013Optimal}).
+Hence we think our result in Section 2 is worth to be known.
+
+We add the following transition paragraph at the end of Section 2:
+\begin{adjustwidth}{3em}{3em}
+Note that unbiasedness and minimaxity are two key considerations of frequentist hypotheses testing; see, e.g., \cite{Lehmann}.
+In our problem, however, these considerations can not be applied and there is no test with guaranteed power.
+Nevertheless, it is still feasible to propose a test with good average power     behavior.
+Note that from the viewpoint of the decision theory, Bayesian methods aim at     minimizing the average risk; see, e.g., \cite{Lehmann}, Section 1.6.
+This motivates us to propose a frequentist test with the aid of Bayesian methods.
+\end{adjustwidth}
 
 \textbf{
     4. Your proposed test is quite similar with that of the likelihood ratio test, some discussions for the differences are needed.
-    In addition, since $\BX^*_b$ is of dimension $p$, when both $n$ and p are large, the matrix $\BX^*_b \BX^{*\top}_b$ is not invertible.
+    In addition, since $\BX^*_b$ is of dimension $p$, when both $n$ and $p$ are large, the matrix $\BX^*_b \BX^{*\top}_b$ is not invertible.
     Does your method applicable for $n>p$?
 }
 
 \text{Answer:}
-We follow the suggestion of the reviewer.
-Our method is not applicable for $n>p$.
-If $n>p$, the prior distributions adopted by us will yield exactly the likelihood ratio test.
-This is an advantage of out test as it can be seen as a natural extention of the likelihood ratio test to the high dimensional setting.
-When $n>p$, the likelihood ratio test exists and should be used.
+In Assumption 1, we assume $\myRank([\BX_a ; \BX_b]) = n$, which implies $p+q \geq n$.
+Hence in this paper, we only consider the high-dimensional setting $p+q\geq n$.
+The reviewer's observation is correct, our test is not applicable for $n>p+q$.
+On the other hand, the likelihood ratio test can only be applied for $n> p+q$.
+Hence the proposed and the likelihood ratio test have the different applicable scope.
+
+Indeed, the proposed test has an intrinsic connection with the likelihood ratio test.
+We discuss this connection at the end of Section 3.1:
+\begin{adjustwidth}{3em}{3em}
+In fact, if we apply the proposed methodology in the low-dimensional setting, that is, letting $\kappa \to 0$ in (4), then the resulting test statistic is exactly the likelihood ratio test. 
+In this view, the proposed test is an extension of the likelihood ratio test to the high-dimensional setting.
+\end{adjustwidth}
+We think this is an advantage of out test.
+
+In comparison, the test of \cite{Goeman2006} is applicable for both low-dimensional setting and high-dimensional setting.
+However, in the low-dimensional setting, their test statistic is different from the likelihood ratio test.
+This property is undesirable.
+
 
 \textbf{
-    5. The differences between your test and that of Goeman et al. (2006) and Lan et al. (2014) need to be discussed carefully.
+    5. The differences between your test and that of \cite{Goeman2006} and \cite{Lan2014Testing} need to be discussed carefully.
 }
 
 \text{Answer:}
-The first difference is the test statistic.
-We use the different prior strategy, and produce different statistics.
-The second difference is the way to determine the critical value.
-Our method has a wider application scope.
+The test statistic of \cite{Lan2014Testing} is basically the same as the test statistic of \cite{Goeman2006}.
+The difference of these two work mainly lies in the way of determine the critical value.
+Hence in our paper, we only compare the proposed test with the test of \cite{Goeman2006}.
+
+Following the reviewer's suggestion, we discuss the difference between the proposed test and the test of \cite{Goeman2006} more carefully in the revised paper.
+First, the two test methods use different strategies to set prior distribution of $\bbeta_b$.
+This is discussed in Section 3.1.
+In fact, \cite{Goeman2006} let the prior magnitude of $\bbeta_b$ tend to $0$ to obtain a test with good local power,
+while we let the prior magnitude of $\bbeta_b$ tend to $\infty$ to obtain a test with good global power.
+Second, the two tests have different power behavior.
+In Section 3.3, we derive the asymptotic power functions of the two tests and show that the proposed test can detect the signals from more directions than the test of \cite{Goeman2006}.
 
 \textbf{
     6. Throughout the article, I do not see any results related to fix design matrix, why the fix design is essential for your analysis?
@@ -259,15 +468,29 @@ Our method has a wider application scope.
 }
 
 \text{Answer:}
-The result in Section 2 requires the fix design matrix.
-In fact, if the design matrix is random, there indeed exists tests with nontrivial power.
-See the papers on minimax test.
-For Bayesian methods, fixed design and random design will produce the same statistic.
-As for the theoretical results for our test. These results also hold for random design matrix provided the random design matrix satisfies our conditions.
+Fixed design matrix plays an important role in our Theorem 1 and the conclusion of our Theorem 1 will not hold for the random design matrix.
+In fact, as we have pointed out in the answer of Question 3, nontrivial unbiased test and minimax test do exist for the random design setting.
+Hence frequentist considerations can well be applied for the random design setting (most frequentist test for high-dimensional linear model adopt the random design matrix).
+In this view, our Bayesian-motivated test methodology is designed for fixed design matrix.
+
+%As for Bayesian method, assuming a random design or a fixed design will produce exactly the same Bayes factor.
+The theoretical analyses of the proposed test (including the determination of the critical value and the analysis of the power) are also carried out within the fixed design framework.
+Nevertheless, these results are still valid for random design matrix from a conditional inference perspective.
+%For Bayesian methods, fixed design and random design will produce the same statistic.
 
 
 
 \section{List of major changes}
+\begin{itemize}
+    \item 
+ We change the title to ``A Bayesian-motivated test for high-dimensional linear regression models with fixed design matrix''.
+    \item
+        We add a proposition (Proposition 3) which gives the asymptotic local power functions of the proposed test as well as the test of \cite{Goeman2006}.
+    \item
+        We add the simulation results of the test of \cite{zhang2016simultaneous}.
+    \item
+We modify and re-written many paragraphs to improve the presentation of the paper.
+\end{itemize}
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  30 SEP 2019 17:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  2 OCT 2019 23:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -462,22 +462,22 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 91.
+Package hyperref Info: Link coloring OFF on input line 92.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -486,9 +486,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count173
 )
-LaTeX Info: Redefining \ref on input line 91.
-LaTeX Info: Redefining \pageref on input line 91.
-LaTeX Info: Redefining \nameref on input line 91.
+LaTeX Info: Redefining \ref on input line 92.
+LaTeX Info: Redefining \pageref on input line 92.
+LaTeX Info: Redefining \nameref on input line 92.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
@@ -557,53 +557,53 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 111.
+LaTeX Font Info:    Try loading font information for U+msa on input line 112.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 111.
+LaTeX Font Info:    Try loading font information for U+msb on input line 112.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 111.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 112.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 111.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 112.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
- [3] (./main.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 282.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 282.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 486.
+ (./main.bbl [8])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 505.
+
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 505.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 282.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 282.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 505.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 505.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: E18C64F041CA0342FE2D6BAD65B995BB;170.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 282.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 505.
  ) 
 Here is how much of TeX's memory you used:
- 9014 strings out of 493029
- 126198 string characters out of 6136233
- 239360 words of memory out of 5000000
- 12367 multiletter control sequences out of 15000+600000
+ 9055 strings out of 493029
+ 126797 string characters out of 6136233
+ 243592 words of memory out of 5000000
+ 12392 multiletter control sequences out of 15000+600000
  19788 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  35i,9n,35p,1015b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -623,10 +623,10 @@ hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (4 pages, 207265 bytes).
+Output written on main.pdf (9 pages, 230021 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
- 17 named destinations out of 1000 (max. 500000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
  25 words of extra memory for PDF output out of 10000 (max. 10000000)
 
