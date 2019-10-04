@@ -154,12 +154,12 @@ We think it will be an interesting and useful work to relax the symmetric condit
 \textbf{
     2.
     Theorem 4 provides the power analysis, but its assumption in Equation (8) needs more discussion.
-    For example, at the end of Section 3, the manuscript uses the factor model to illustrate the power of the proposed test over Goeman et al. (2006).
+    For example, at the end of Section 3, the manuscript uses the factor model to illustrate the power of the proposed test over \cite{Goeman2006}.
     However, this discussion is based on Theorem 4 and my rough calculation suggests that Equation (8), which is required by Theorem 4, does not seem to hold for factor models.
     Let me outline some details.
     \begin{enumerate}[(a)]
         \item 
-            Supppose that $q=0$ (so $\tilde \BU_a = \BI_n$) and $\BX_b= \begin{pmatrix} W_1^\top \\ \vdots \\ W_n^\top \end{pmatrix}$ with $W_i = B F_i + u_i$, where $F_i$ is a scalar from i.i.d. $\mathcal N(0,1)$, $u_i$ is from $\mathcal N(0, \BI_p)$ and $B$ is from $\mathcal N (0, \BI_p)$.
+            Suppose that $q=0$ (so $\tilde \BU_a = \BI_n$) and $\BX_b= \begin{pmatrix} W_1^\top \\ \vdots \\ W_n^\top \end{pmatrix}$ with $W_i = B F_i + u_i$, where $F_i$ is a scalar from i.i.d. $\mathcal N(0,1)$, $u_i$ is from $\mathcal N(0, \BI_p)$ and $B$ is from $\mathcal N (0, \BI_p)$.
             Assume $F_i$, $u_i$ and $B$ are independent.
         \item
             Since $\myE (\gamma_I^{2k}) \geq \myVar (\gamma_I^k)$, a necessary condition for Equation (8) is
@@ -213,10 +213,10 @@ In the original paper, we did not realize this error and we are sorry about that
 We tried to remedy this error by considering a factor model with a divergent number of latent factors, as detailed below.
     \begin{enumerate}[(a)]
         \item 
-            Supppose that $q=0$ (so $\tilde \BU_a = \BI_n$) and $\BX_b= \begin{pmatrix} W_1^\top \\ \vdots \\ W_n^\top \end{pmatrix}$ with $W_i = B F_i + u_i$, where $F_i$ is a $m$ dimensional random vector with i.i.d. $\mathcal N(0,1)$ entries, $u_i$ is from $\mathcal N(0, \BI_p)$ and $B$ is a $p \times m$ random matrix with i.i.d. $\mathcal N (0, 1)$ entries.
+            Suppose that $q=0$ (so $\tilde \BU_a = \BI_n$) and $\BX_b= \begin{pmatrix} W_1^\top \\ \vdots \\ W_n^\top \end{pmatrix}$ with $W_i = B F_i + u_i$, where $F_i$ is a $m$ dimensional random vector with i.i.d. $\mathcal N(0,1)$ entries, $u_i$ is from $\mathcal N(0, \BI_p)$ and $B$ is a $p \times m$ random matrix with i.i.d. $\mathcal N (0, 1)$ entries.
             Assume $F_i$, $u_i$ and $B$ are independent.
         \item
-            As the reviwer pointed out, if $m$ is fixed, the condition 
+            As the reviewer pointed out, if $m$ is fixed, the condition 
             \begin{equation*}
                 \frac{\max_{1\leq i \leq n }(\gamma_i -\myE(\gamma_I))^2}{n\myVar(\gamma_I)} \to 0 
             \end{equation*}
@@ -378,7 +378,7 @@ We explicitly list our contributions in the introduction part, as follows.
     This paper has made three main contributions for testing hypotheses (2) in large $p$, small $q$ setting with fixed design matrix.
 First, we prove that no test can detect all large deviations from the null       hypothesis.
 This phenomenon is somewhat surprising as such test does exist in the random     design setting.
-Second, we propose a novel Bayesian-motivated test, which can be regarded as an  extention of the likelihood ratio test in high-dimensional setting.
+Second, we propose a novel Bayesian-motivated test, which can be regarded as an  extension of the likelihood ratio test in high-dimensional setting.
 The good power behavior of the proposed test is verified both theoretically and  numerically.
 Third, we propose to use Lindeberg's replacement trick to approximate the        distribution of the proposed test statistics.
 The approximation is valid under weak conditions.
@@ -451,7 +451,7 @@ This property is undesirable.
 
 \text{Answer:}
 The test statistic of \cite{Lan2014Testing} is basically the same as the test statistic of \cite{Goeman2006}.
-The difference of these two work mainly lies in the way of determine the critical value.
+The difference between these two works mainly lies in the way of determine the critical value.
 Hence in our paper, we only compare the proposed test with the test of \cite{Goeman2006}.
 
 Following the reviewer's suggestion, we discuss the difference between the proposed test and the test of \cite{Goeman2006} more carefully in the revised paper.
@@ -488,6 +488,7 @@ Nevertheless, these results are still valid for random design matrix from a cond
         We add a proposition (Proposition 3) which gives the asymptotic local power functions of the proposed test as well as the test of \cite{Goeman2006}.
     \item
         We add the simulation results of the test of \cite{zhang2016simultaneous}.
+        We also add a model (Model IV) in simulations.
     \item
 We modify and re-written many paragraphs to improve the presentation of the paper.
 \end{itemize}
