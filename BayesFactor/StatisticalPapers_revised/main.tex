@@ -542,7 +542,7 @@ If $\bepsilon$ were indeed normally distributed, then under the null hypothesis,
 where $z_1,\ldots, z_{n-q}$ are iid $\mathcal N(0,1)$ random variables.
 In this case, the exact critical value can be easily obtained.
 In practice, however, normal distribution often serves as an approximation rather than the true distribution of data.
-Hence it would be better to give a critical value of $T_{n}$ which can preserve the test level under general distributions of $\bepsilon$.
+Hence it would be better to give a critical value of $T$ which can preserve the test level under general distributions of $\bepsilon$.
 If the design matrix admits certain structures, the critical value can be well determined by permutation methods and bootstrap methods; see \cite{Arboretti,Baltagi} and the references therein.
 To deal with general design matrix, we shall employ a direct approach which approximates the distribution of the test statistic under the null hypothesis.
 
@@ -881,7 +881,7 @@ We have the following proposition.
     If $\lambda_1(\BA^2)/\mytr (\BA^2)\to 0$,
     then
     \begin{equation*}
-        \frac{Z^\top \BA Z + b^\top Z - \mytr(\BA)}{\sqrt{2\mytr(\BA^2)+\|\Bb\|^2}}
+        \frac{Z^\top \BA Z + \Bb^\top Z - \mytr(\BA)}{\sqrt{2\mytr(\BA^2)+\|\Bb\|^2}}
         \rightsquigarrow \mathcal N(0,1).
     \end{equation*}
     \label{Lemma:normal}
@@ -1294,7 +1294,7 @@ Hence the proposed test can always detect the signals from more directions than 
 
 In this section, we conduct simulations to examine the empirical size and power of the proposed test
 (abbreviated as NEW) 
-and compare it with the global test proposed by \cite{Goeman2006} (abbreviated as GT), the EigenPrism test proposed by \cite{Janson2016} (abbreviated as EP) and the desparsifying lasso test proposed by \cite{ZC2017} (abbreviated as DL).
+and compare it with the global test proposed by \cite{Goeman2006} (abbreviated as GT), the EigenPrism test proposed by \cite{Janson2016} (abbreviated as EP) and the desparsifying Lasso test proposed by \cite{ZC2017} (abbreviated as DL).
 %In our simulations, the GT test procedure We use the R package \emph{globaltest} to compute.
 
 The original test statistic of \cite{ZC2017} is $\sqrt n | \breve \bbeta_b|_{\infty}$, where $(\breve \bbeta_a^\top, \breve \bbeta_b^\top )^\top$ is the desparsifying estimator of $(\bbeta_a^\top,\bbeta_b^\top )^\top$.
@@ -1308,7 +1308,7 @@ In fact, \cite{ZC2017}, Theorem 2.1 implies that under certain regular condition
 = [\mathbf 0_{p\times q}; \BI_p] \hat \Omega [\BX_a ; \BX_b]^\top \bepsilon / \sqrt n + \Delta
 ,\quad \|\Delta\|_\infty = o_P(1),
 \end{equation*}
-where $\hat \Omega$ is the approximation for the inverse of $[\BX_a ; \BX_b]^\top[\BX_a ; \BX_b] / n$ given by the nodewise lasso regression.
+where $\hat \Omega$ is the approximation for the inverse of $[\BX_a ; \BX_b]^\top[\BX_a ; \BX_b] / n$ given by the nodewise Lasso regression.
 %\cite{vdG2014}, Theorem 2.4 implies that under certain regular conditions, $$.
 Hence in simulations, we use the oracle version of their test which reject the null hypothesis when 
 \begin{equation*}
@@ -2188,7 +2188,7 @@ Combining \eqref{eq:Lin1}, \eqref{eq:Lin2} and \eqref{eq:Lin3} yields
     it can be shown that $\myE (S^{*4}_{\hat \tau,1})$ is uniformly bounded.
     Then $\mathcal L ( S_{\hat \tau,1}^{*2} )$ is  uniformly integrable.
     Hence $\myE(S^{\dagger 2})=1$ and $F^\dagger(x)$ can not concentrate on a single point.
-    Consequently, $F^\dagger(x)$ is continuous and is strict increasing for $x\in\{x:0<F(x)<1\}$; see \cite{Sevast1961A} as well the remark made by A. N. Kolmogorov on that paper.
+    Consequently, $F^\dagger(x)$ is continuous and is strict increasing for $x\in\{x:0<F(x)<1\}$; see \cite{Sevast1961A} as well as the remark made by A. N. Kolmogorov on that paper.
 
     The condition \eqref{eq:jianchiCondition} implies that $\myE[S_{\hat \tau,2}^{*2}|\hat \tau]\to 0$ almost surely.
     Then almost surely, $\mathcal L (S^*_{\hat \tau}|\hat \tau) \rightsquigarrow \mathcal L(S^\dagger)$.
@@ -2358,10 +2358,10 @@ This proves the theorem.
 
     Without loss of generality, we assume $\BA$ is a diagonal matrix and $|b_1|\geq \cdots\geq |b_n|$.
     By a standard subsequence argument, we only need to prove the result along a subsequence.
-    Hence we can assume $\lim_{n\to \infty}\|b\|^2/\mytr(\BA^2) =c \in [0,+\infty]$.
+    Hence we can assume $\lim_{n\to \infty}\|\Bb\|^2/\mytr(\BA^2) =c \in [0,+\infty]$.
     If $ c=0$, Lyapunov central limit theorem implies that
     \begin{equation*}
-        \frac{Z^\top \BA Z + b^\top Z - \mytr(\BA)}{\sqrt{2\mytr(\BA^2)+\|\Bb\|^2}}
+        \frac{Z^\top \BA Z + \Bb^\top Z - \mytr(\BA)}{\sqrt{2\mytr(\BA^2)+\|\Bb\|^2}}
         =(1+o_P(1))
         \frac{Z^\top \BA Z - \mytr(\BA)}{\sqrt{2\mytr(\BA^2)}}
         +o_P(1)
@@ -2369,7 +2369,7 @@ This proves the theorem.
     \end{equation*}
     If $c=+\infty$,
     \begin{equation*}
-        \frac{Z^\top \BA Z + b^\top Z - \mytr(\BA)}{\sqrt{2\mytr(\BA^2)+\|\Bb\|^2}}
+        \frac{Z^\top \BA Z + \Bb^\top Z - \mytr(\BA)}{\sqrt{2\mytr(\BA^2)+\|\Bb\|^2}}
         =(1+o_P(1))
         \frac{b^\top Z}{\|\Bb\|}
         +o_P(1)
@@ -2411,7 +2411,7 @@ Then there exists a sequence of positive integers $r(n)\to \infty$ such that
 \to 0$ and $r(n)/n\to 0$.
     Write
     \begin{equation*}
-        Z^\top \BA Z + b^\top Z - \mytr(\BA)
+        Z^\top \BA Z + \Bb^\top Z - \mytr(\BA)
         =
         \sum_{i=1}^{r(n)} a_{i,i}(z_i^2-1)
         +
